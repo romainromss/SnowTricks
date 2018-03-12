@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="App\Entity\Movies" table="movies" repository-class="App\Repository\MoviesRepository">
+
+        <indexes>
+            <index name="embed_idx" columns="embed"/>
+        </indexes>
+
+        <many-to-one field="trick" target-entity="Tricks" inversed-by="movies">
+        </many-to-one>
+
+        <id name="id" column="id" type="uuid">
+            <generator strategy="CUSTOM"/>
+            <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
+        </id>
+
+        <field name="embed" column="embed" type="string" length="100" nullable="false"/>
+        <field name="legend" column="legend" type="string" length="50" nullable="false"  />
+
+
+    </entity>
+</doctrine-mapping>
