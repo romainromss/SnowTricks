@@ -1,0 +1,71 @@
+{% extends 'layout.html.twig' %}
+
+{% block head %}
+    <!-- START: Header Title -->
+    <div class="nk-header-title nk-header-title-full">
+        <div class="bg-image">
+            <div style="background-image: url('images/biglogo.png');"></div>
+            <div class="bg-image-overlay" style="background-color: rgba(12, 12, 12, 0.6);"></div>
+        </div>
+        <div class="nk-header-table">
+            <div class="nk-header-table-cell">
+                <div class="container">
+
+                    <h2 class="nk-subtitle text-white">A vous de jouer</h2>
+
+
+                    <h1 class="nk-title display-3 text-white">Bienvenue sur SnowTricks
+                        <br>
+                        <em class="fw-400">Ajoute, crée, modifie toutes les tricks que tu veux</em>
+                    </h1>
+
+
+                    <div class="nk-gap"></div>
+                    <div class="nk-header-text text-white">
+                        <div class="nk-gap-4"></div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <a class="nk-header-title-scroll-down text-white" href="#nk-header-title-scroll-down">
+                <span class="pe-7s-angle-down"></span>
+            </a>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <h2 class="text-xs-center display-4">Les Tricks</h2>
+        <div class="nk-gap mnt-6"></div>
+
+
+    {% for trick in tricks %}
+        <div class="nk-portfolio-list">
+        <div class="col-lg-4">
+            <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1" style="flex: max-content">
+                <div class="nk-portfolio-item-image">
+                    {% for picture in trick.pictures %}
+                        <div style="background-image:url('images/Upload/{{picture.name }}')"></div>
+                    {% endfor %}
+                </div>
+                <div class="nk-portfolio-item-info nk-portfolio-item-info-center text-xs-center">
+                    <div>
+                        <h2 class="portfolio-item-title h3">{{ trick.name }}</h2>
+                        <div class="portfolio-item-category"><a href="#">En voir plus cliqez ici</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    {% endfor %}
+        <button class="nk-btn"><a href="/{{ page }}">page precedente</a></button>
+        <button class="nk-btn"><a href="/{{ nextpage }}">page suivante</a></button>
+    </div>
+{% endblock %}
