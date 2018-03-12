@@ -32,4 +32,24 @@ class TricksRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    /**
+     * @param int $page
+     * @param int $maxByPage
+     * @return mixed
+     */
+    public function getAllWithPictures($page = 1, $maxByPage = 9): Paginator
+    {
+        $qb = $this->createQueryBuilder('t')
+            ->leftJoin('t.pictures', 'p')
+            ->addSelect('p')
+            ->orderBy('t.created_at', 'DESC')
+            ->setFirstResult(($page - 1) * $maxByPage)
+            ->setMaxResults($maxByPage)
+             ;
+        $page = new Paginator($qb);
+        return $page;
+
+    }
 }
