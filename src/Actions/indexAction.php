@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
+use Ramsey\Uuid\Uuid;
 
 class indexAction
 {
@@ -58,14 +59,31 @@ class indexAction
         $total = $tricks->count();
         $maxPage = ceil($total / $maxByPage);
 
+        $result = [];
+        for ($i = 1; $i <= $maxPage; $i += 1) {
+            $result[] = $i;
+        }
+
         if ($page > $maxPage) {
             return new RedirectResponse('/1');
         }
 
+        $previousPage = $page - 1;
+        if ($previousPage < 1){
+            $previousPage = 1;
+        }
+
+        $nextPage = $page + 1;
+        if ($nextPage > $maxPage){
+            $nextPage = $maxPage;
+        }
+        //$uuid = Uuid::uuid1();
+        //echo $uuid;
         return new Response($this->twig->render('tricks/tricks.html.twig', [
             'tricks' => $tricks,
-            'page' => $total,
-            'nextpage' => $maxPage
+            'previouspage' => $previousPage,
+            'nextpage' => $nextPage,
+            'listpage' => $result
         ]));
     }
 }
