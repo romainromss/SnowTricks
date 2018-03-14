@@ -8,6 +8,7 @@ class Tricks
     private $comments;
     private $movies;
     private $user;
+    private $slug;
     private $id;
     private $name;
     private $description;
@@ -173,5 +174,21 @@ class Tricks
     public function setMovies($movies): void
     {
         $this->movies = $movies;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug): void
+    {
+        $this->slug = $slug;
     }
 }

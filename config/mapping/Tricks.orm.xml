@@ -9,6 +9,9 @@
         <indexes>
             <index name="name_idx" columns="name" />
         </indexes>
+        <indexes>
+            <index name="id_idx" columns="id" />
+        </indexes>
 
         <one-to-many field="movies" target-entity="Movies" mapped-by="trick">
         </one-to-many>
@@ -26,7 +29,7 @@
             <generator strategy="CUSTOM"/>
             <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
         </id>
-
+        <field name="slug" column="slug" type="string" length="50" nullable="false" />
         <field name="name" column="name" type="string" length="20" nullable="false"/>
         <field name="description" column="description" type="text" nullable="false"  />
         <field name="group" column="group" type="string" length="20" nullable="false" />
