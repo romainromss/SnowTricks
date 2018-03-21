@@ -53,18 +53,18 @@
     <nav class="nk-navbar nk-navbar-top nk-navbar-sticky nk-navbar-transparent nk-navbar-white-text-on-top">
         <div class="container">
             <div class="nk-nav-table">
-                <a href="/" class="nk-nav-logo">
+                <a href="{{ path('index') }}" class="nk-nav-logo">
                     <img src="{{ asset ('images/logo-light.svg') }}" alt="" width="85" class="nk-nav-logo-onscroll">
                     <img src="{{ asset ('images/logo.svg') }}" alt="" width="85">
                 </a>
 
                 <ul class="nk-nav nk-nav-right hidden-md-down" data-nav-mobile="#nk-nav-mobile">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="{{ path('index') }}">Home</a>
                     </li>
                     <li>
 
-                        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <a href="{{ path ('tricks_add') }}">Tricks</a>
                         {% else %}
                         {% endif %}
@@ -103,7 +103,7 @@ START: Navbar Mobile
 -->
 <nav class="nk-navbar nk-navbar-full nk-navbar-align-center" id="nk-nav-mobile">
     <div class="nk-navbar-bg">
-        <div class="bg-image" style="background-image: url('assets/images/bg-menu.jpg')"></div>
+        <div class="bg-image" style="background-image: url('')"></div>
     </div>
     <div class="nk-nav-table">
         <div class="nk-nav-row">
@@ -240,19 +240,13 @@ START: Footer
     </footer>
     <!-- END: Footer -->
 
-
 </div>
-
-
-
 
 <!-- START: Scripts -->
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 <script src="{{ asset ('js/combined.js ') }}"></script>
-
 <!-- END: Scripts -->
 
-
 </body>
-
 </html>
+
