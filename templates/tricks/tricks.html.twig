@@ -45,43 +45,38 @@
         <h2 class="text-xs-center display-4">Les Tricks</h2>
         <div class="nk-gap mnt-6"></div>
 
-    {% for trick in tricks %}
-        <div class="nk-portfolio-list">
-        <div class="col-lg-4">
-            <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1" style="flex: max-content">
-                <div class="nk-portfolio-item-image">
-                    {% for picture in trick.pictures %}
-                        <div style="background-image:url('images/Upload/{{picture.name }}')"></div>
-                    {% endfor %}
-                </div>
-                <div class="nk-portfolio-item-info nk-portfolio-item-info-center text-xs-center">
-                    <div>
-                        <h2 class="portfolio-item-title h3">{{ trick.name }}</h2>
-                        <div class="portfolio-item-category"><a href="#">En voir plus cliqez ici</a></div>
-                        <div class="nk-portfolio-item-info-bottom">
-                            {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                                <a href="#"><i class="far fa-trash-alt"></i></a>
-                                <a href="#"><i class="fas fa-pencil-alt"></i></a>
-                            {% else %}
-                            {% endif %}
+    <div id="notDisplay">
+        {% for trick in tricks %}
+            <div class="nk-portfolio-list">
+                <div class="col-lg-4">
+                    <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1" style="flex: max-content">
+                        <div class="nk-portfolio-item-image">
+                            {% for picture in trick.pictures %}
+                                <div style="background-image:url('images/Upload/{{picture.name }}')"></div>
+                            {% endfor %}
+                        </div>
+                        <div class="nk-portfolio-item-info nk-portfolio-item-info-center text-xs-center">
+                            <div>
+                                <h2 class="portfolio-item-title h3">{{ trick.name }}</h2>
+                                <div class="portfolio-item-category"><a href="#">En voir plus cliqez ici</a></div>
+                                <div class="nk-portfolio-item-info-bottom">
+                                    {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %} <!--after put FULLY-->
+                                        <a href="#"><i class="far fa-trash-alt"></i></a>
+                                        <a href="#"><i class="fas fa-pencil-alt"></i></a>
+                                    {% else %}
+                                    {% endif %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-    {% endfor %}
-    </div>
-
-    <div class="links offset-sm-3 col-sm-6">
-        <a href="/{{ previouspage }}" class="link">
-            <i class="fa fa-angle-left"></i>
-        </a>
-        {% for page in listpage %}
-            <a href='{{ page }}' class="link"> {{ page }} </a>
         {% endfor %}
-        <a href="/{{ nextpage }}" class="link">
-            <i class="fa fa-angle-right"></i>
-        </a>
     </div>
+    </div>
+    <input type="button" value="En voir plus" onClick="hide()" />
+
+<script type="text/javascript">
+</script>
 {% endblock %}
+
