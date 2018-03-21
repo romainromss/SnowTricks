@@ -1,7 +1,0 @@
-index:
-    path: /{page}
-    controller: App\Actions\indexAction
-    defaults:
-        page: 1
-    requirements:
-        page: '\d+'
