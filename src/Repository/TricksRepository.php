@@ -4,8 +4,8 @@ namespace App\Repository;
 
 use App\Entity\Tricks;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query;
 use Symfony\Bridge\Doctrine\RegistryInterface;
-use Doctrine\ORM\Tools\Pagination\Paginator;
 
 /**
  * @method Tricks|null find($id, $lockMode = null, $lockVersion = null)
@@ -35,21 +35,16 @@ class TricksRepository extends ServiceEntityRepository
 
 
     /**
-     * @param int $page
-     * @param int $maxByPage
-     * @return mixed
+     * @return Query
      */
-    public function getAllWithPictures($page = 1, $maxByPage = 9): Paginator
+    public function getAllWithPictures()
     {
-        $query = $this->createQueryBuilder('t')
+        return $this->createQueryBuilder('t')
             ->leftJoin('t.pictures', 'p')
-            ->addSelect('p')
             ->orderBy('t.created_at', 'DESC')
-            ->setFirstResult(($page - 1) * $maxByPage)
-            ->setMaxResults($maxByPage)
-             ;
-        $page = new Paginator($query);
-        return $page;
-
+            ->getQuery()
+            ->getResult()
+            ;
     }
+
 }
