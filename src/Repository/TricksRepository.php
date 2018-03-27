@@ -41,10 +41,9 @@ class TricksRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('t')
             ->leftJoin('t.pictures', 'p')
-            ->orderBy('t.created_at', 'DESC')
+            ->orderBy('t.createdAt', 'DESC')
             ->getQuery()
             ->getResult()
             ;
     }
-
 }
