@@ -2,6 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Ramsey\Uuid\Uuid;
+
 class Tricks
 {
     private $pictures;
@@ -12,8 +15,40 @@ class Tricks
     private $name;
     private $description;
     private $group;
-    private $updated_at;
-    private $created_at;
+    private $updatedAt;
+    private $createdAt;
+
+
+    /**
+     * Tricks constructor.
+     *
+     * @param string $name
+     * @param string $description
+     * @param string $group
+     * @param Users $user
+     * @param Pictures|null $pictures
+     * @param Movies|null $movies
+     * @param Comments $comments
+     */
+    public function __construct(
+        string $name,
+        string $description,
+        string $group,
+        Users $user,
+        Pictures $pictures = null,
+        Movies $movies = null,
+        Comments $comments = null
+    ) {
+        $this->id = Uuid::uuid4();
+        $this->createdAt = time();
+        $this->name = $name;
+        $this->description = $description;
+        $this->group = $group;
+        $this->user = $user;
+        $this->pictures = new ArrayCollection();
+        $this->movies = new ArrayCollection();
+        $this->comments = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -21,14 +56,6 @@ class Tricks
     public function getPictures()
     {
         return $this->pictures;
-    }
-
-    /**
-     * @param mixed $pictures
-     */
-    public function setPictures($pictures): void
-    {
-        $this->pictures = $pictures;
     }
 
     /**
@@ -40,27 +67,11 @@ class Tricks
     }
 
     /**
-     * @param mixed $comments
-     */
-    public function setComments($comments): void
-    {
-        $this->comments = $comments;
-    }
-
-    /**
      * @return mixed
      */
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user): void
-    {
-        $this->user = $user;
     }
 
     /**
@@ -72,27 +83,11 @@ class Tricks
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
-    {
-        $this->name = $name;
     }
 
     /**
@@ -104,14 +99,6 @@ class Tricks
     }
 
     /**
-     * @param mixed $description
-     */
-    public function setDescription($description): void
-    {
-        $this->description = $description;
-    }
-
-    /**
      * @return mixed
      */
     public function getGroup()
@@ -120,27 +107,11 @@ class Tricks
     }
 
     /**
-     * @param mixed $group
-     */
-    public function setGroup($group): void
-    {
-        $this->group = $group;
-    }
-
-    /**
      * @return mixed
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
-    }
-
-    /**
-     * @param mixed $updated_at
-     */
-    public function setUpdatedAt($updated_at): void
-    {
-        $this->updated_at = $updated_at;
+        return $this->updatedAt;
     }
 
     /**
@@ -148,15 +119,7 @@ class Tricks
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
-    }
-
-    /**
-     * @param mixed $created_at
-     */
-    public function setCreatedAt($created_at): void
-    {
-        $this->created_at = $created_at;
+        return $this->createdAt;
     }
 
     /**
@@ -167,11 +130,4 @@ class Tricks
         return $this->movies;
     }
 
-    /**
-     * @param mixed $movies
-     */
-    public function setMovies($movies): void
-    {
-        $this->movies = $movies;
-    }
 }

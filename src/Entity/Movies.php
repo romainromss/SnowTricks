@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Ramsey\Uuid\Uuid;
+
 class Movies
 {
     private $id;
@@ -9,20 +11,23 @@ class Movies
     private $legend;
     private $trick;
 
+    public function __construct(
+        string $embed,
+        string $legend,
+        Tricks $tricks = null
+    ) {
+        $this->id = Uuid::uuid4();
+        $this->embed = $embed;
+        $this->legend = $legend;
+        $this->trick = $tricks;
+    }
+
     /**
      * @return mixed
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
     }
 
     /**
@@ -34,14 +39,6 @@ class Movies
     }
 
     /**
-     * @param mixed $embed
-     */
-    public function setEmbed($embed): void
-    {
-        $this->embed = $embed;
-    }
-
-    /**
      * @return mixed
      */
     public function getLegend()
@@ -50,26 +47,10 @@ class Movies
     }
 
     /**
-     * @param mixed $legend
-     */
-    public function setLegend($legend): void
-    {
-        $this->legend = $legend;
-    }
-
-    /**
      * @return mixed
      */
     public function getTricks()
     {
         return $this->trick;
-    }
-
-    /**
-     * @param mixed $tricks
-     */
-    public function setTricks($tricks): void
-    {
-        $this->trick = $tricks;
     }
 }

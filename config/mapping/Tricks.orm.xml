@@ -22,16 +22,13 @@
         <many-to-one field="user" target-entity="Users" inversed-by="tricks">
         </many-to-one>
 
-        <id name="id" column="id" type="uuid">
-            <generator strategy="CUSTOM"/>
-            <custom-id-generator class="Ramsey\Uuid\Doctrine\UuidGenerator"/>
-        </id>
+        <id name="id" column="id" type="uuid" />
 
-        <field name="name" column="name" type="string" length="20" nullable="false"/>
+        <field name="name" column="name" type="string" length="20" nullable="false" />
         <field name="description" column="description" type="text" nullable="false"  />
         <field name="group" column="group" type="string" length="20" nullable="false" />
-        <field name="created_at" column="created_at" type="string" length="20" nullable="false" />
-        <field name="updated_at" column="updated_at" type="string" length="20" nullable="false" />
+        <field name="createdAt" column="createdAt" type="integer" length="20" nullable="false" />
+        <field name="updatedAt" column="updatedAt" type="integer" length="20" nullable="false" />
 
     </entity>
 </doctrine-mapping>

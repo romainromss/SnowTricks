@@ -2,13 +2,39 @@
 
 namespace App\Entity;
 
+use Ramsey\Uuid\Uuid;
+
 class Comments
 {
     private $id;
     private $name;
     private $content;
-    private $created_at;
+    private $createdAt;
     private $trick;
+    private $user;
+
+
+    /**
+     * Comments constructor.
+     *
+     * @param string $name
+     * @param string $content
+     * @param Tricks $trick
+     * @param Users $user
+     */
+    public function __construct(
+        string $name,
+        string $content,
+        Tricks $trick,
+        Users $user
+    ) {
+        $this->id = Uuid::uuid4();
+        $this->name = $name;
+        $this->content = $content;
+        $this->createdAt = time();
+        $this->trick = $trick;
+        $this->user = $user;
+    }
 
     /**
      * @return mixed
@@ -16,14 +42,6 @@ class Comments
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
     }
 
     /**
@@ -35,14 +53,6 @@ class Comments
     }
 
     /**
-     * @param mixed $name
-     */
-    public function setName($name): void
-    {
-        $this->name = $name;
-    }
-
-    /**
      * @return mixed
      */
     public function getContent()
@@ -51,27 +61,11 @@ class Comments
     }
 
     /**
-     * @param mixed $content
-     */
-    public function setContent($content): void
-    {
-        $this->content = $content;
-    }
-
-    /**
      * @return mixed
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
-    }
-
-    /**
-     * @param mixed $created_at
-     */
-    public function setCreatedAt($created_at): void
-    {
-        $this->created_at = $created_at;
+        return $this->createdAt;
     }
 
     /**
@@ -83,28 +77,10 @@ class Comments
     }
 
     /**
-     * @param mixed $trick
-     */
-    public function setTrick($trick): void
-    {
-        $this->trick = $trick;
-    }
-
-    /**
      * @return mixed
      */
     public function getUser()
     {
         return $this->user;
     }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user): void
-    {
-        $this->user = $user;
-    }
-
-    private $user;
 }

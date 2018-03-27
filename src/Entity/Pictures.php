@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Ramsey\Uuid\Uuid;
+
 class Pictures
 {
     private $trick;
@@ -12,6 +14,30 @@ class Pictures
     private $avatar;
 
     /**
+     * Pictures constructor.
+     *
+     * @param string $name
+     * @param string $legend
+     * @param string $avatar
+     * @param Tricks|null $tricks
+     * @param Users|null $user
+     */
+    public function __construct(
+        string $name,
+        string $legend,
+        string $avatar = null,
+        Tricks $tricks = null,
+        Users $user = null
+    ) {
+        $this->id = Uuid::uuid4();
+        $this->name = $name;
+        $this->legend = $legend;
+        $this->avatar = $avatar;
+        $this->trick = $tricks;
+        $this->user = $user;
+    }
+
+    /**
      * @return mixed
      */
     public function getTrick()
@@ -19,13 +45,6 @@ class Pictures
         return $this->trick;
     }
 
-    /**
-     * @param $trick
-     */
-    public function setTrick($trick): void
-    {
-        $this->trick = $trick;
-    }
 
     /**
      * @return mixed
@@ -33,14 +52,6 @@ class Pictures
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user): void
-    {
-        $this->user = $user;
     }
 
     /**
@@ -52,27 +63,11 @@ class Pictures
     }
 
     /**
-     * @param $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
-    {
-        $this->name = $name;
     }
 
     /**
@@ -84,26 +79,10 @@ class Pictures
     }
 
     /**
-     * @param mixed $legend
-     */
-    public function setLegend($legend): void
-    {
-        $this->legend = $legend;
-    }
-
-    /**
      * @return mixed
      */
     public function getAvatar()
     {
         return $this->avatar;
-    }
-
-    /**
-     * @param mixed $avatar
-     */
-    public function setAvatar($avatar): void
-    {
-        $this->avatar = $avatar;
     }
 }

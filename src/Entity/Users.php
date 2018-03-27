@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use Ramsey\Uuid\Uuid;
+
 class Users
 {
     private $tricks;
     private $comments;
-    private $avatar;
+    private $pictures;
     private $id;
     private $username;
     private $email;
@@ -14,7 +16,42 @@ class Users
     private $lastname;
     private $password;
     private $role;
-    private $created_at;
+    private $createdAt;
+
+    /**
+     * Users constructor.
+     *
+     * @param string $username
+     * @param string $email
+     * @param string $name
+     * @param string $lastname
+     * @param string $password
+     * @param string $role
+     * @param Tricks|null $tricks
+     * @param Pictures $pictures
+     * @param Comments|null $comments
+     */
+    public function __construct(
+        string $username,
+        string $email,
+        string $name,
+        string $lastname,
+        string $password,
+        string $role,
+        Pictures $pictures,
+        Tricks $tricks = null,
+        Comments $comments = null
+    ) {
+        $this->id = Uuid::uuid4();
+        $this->username = $username;
+        $this->email = $email;
+        $this->lastname = $lastname;
+        $this->password = $password;
+        $this->role = $role;
+        $this->pictures = $pictures;
+        $this->tricks = $tricks;
+        $this->comments = $comments;
+    }
 
     /**
      * @return mixed
@@ -22,14 +59,6 @@ class Users
     public function getTricks()
     {
         return $this->tricks;
-    }
-
-    /**
-     * @param mixed $tricks
-     */
-    public function setTricks($tricks): void
-    {
-        $this->tricks = $tricks;
     }
 
     /**
@@ -41,27 +70,11 @@ class Users
     }
 
     /**
-     * @param mixed $comments
-     */
-    public function setComments($comments): void
-    {
-        $this->comments = $comments;
-    }
-
-    /**
      * @return mixed
      */
     public function getAvatar()
     {
         return $this->avatar;
-    }
-
-    /**
-     * @param mixed $avatar
-     */
-    public function setAvatar($avatar): void
-    {
-        $this->avatar = $avatar;
     }
 
     /**
@@ -73,27 +86,11 @@ class Users
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
     public function getUsername()
     {
         return $this->username;
-    }
-
-    /**
-     * @param mixed $username
-     */
-    public function setUsername($username): void
-    {
-        $this->username = $username;
     }
 
     /**
@@ -105,27 +102,11 @@ class Users
     }
 
     /**
-     * @param mixed $email
-     */
-    public function setEmail($email): void
-    {
-        $this->email = $email;
-    }
-
-    /**
      * @return mixed
      */
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
-    {
-        $this->name = $name;
     }
 
     /**
@@ -137,27 +118,11 @@ class Users
     }
 
     /**
-     * @param mixed $lastname
-     */
-    public function setLastname($lastname): void
-    {
-        $this->lastname = $lastname;
-    }
-
-    /**
      * @return mixed
      */
     public function getPassword()
     {
         return $this->password;
-    }
-
-    /**
-     * @param mixed $password
-     */
-    public function setPassword($password): void
-    {
-        $this->password = $password;
     }
 
     /**
@@ -169,26 +134,11 @@ class Users
     }
 
     /**
-     * @param mixed $role
-     */
-    public function setRole($role): void
-    {
-        $this->role = $role;
-    }
-
-    /**
      * @return mixed
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
-    /**
-     * @param mixed $created_at
-     */
-    public function setCreatedAt($created_at): void
-    {
-        $this->created_at = $created_at;
-    }
 }
