@@ -2,47 +2,39 @@
 
 namespace App\Actions;
 
-use App\Repository\TricksRepository;
+use App\Responder\Interfaces\ResponderHomeInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Twig\Environment;
+use App\Responder\ResponderHome;
 
 class IndexAction
 {
     /**
-     * @var Environment $twig
+     * @var ResponderHome
      */
-    private $twig;
+    private $responderHome;
 
     /**
-     * TricksDetailsAction constructor.
+     * IndexAction constructor.
      *
-     * @param Environment $twig
+     * @param ResponderHomeInterface $responderHomeInterface
      */
-    public function __construct(
-        Environment $twig
-    ) {
-        $this->twig = $twig;
+    public function __construct(ResponderHomeInterface $responderHomeInterface)
+    {
+        $this->responderHome = $responderHomeInterface;
     }
 
     /**
      * @Route("/", name="index")
      *
      * @param Request $request
-     * @param TricksRepository $tricksRepository
      *
-     * @return \Symfony\Component\HttpFoundation\Response
-     *
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @return Response
      */
-    public function __invoke(Request $request, TricksRepository $tricksRepository): Response
+    public function __invoke(Request $request): Response
     {
-        $tricks = $tricksRepository->getAllWithPictures();
-        return new Response($this->twig->render('tricks/tricks.html.twig', [
-            'tricks' => $tricks
-        ]));
+        $responder = $this->responderHome;
+        return $responder();
     }
 }
