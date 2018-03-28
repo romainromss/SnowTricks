@@ -42,7 +42,7 @@ class ResponderHome implements ResponderHomeInterface
      */
     public function __invoke()
     {
-        return new Response($this->twig->render('tricks/tricks.html.twig', [
+        return new Response($this->twig->render('tricksfail.html.twig', [
             'tricks' => $this->tricksRepository->getAllWithPictures()
         ]));
     }
