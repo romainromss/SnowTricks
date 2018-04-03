@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Responder;
+namespace App\UI\Responder;
 
 use App\Repository\TricksRepository;
-use App\Responder\Interfaces\ResponderHomeInterface;
+use App\UI\Responder\Interfaces\ResponderHomeInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
@@ -40,9 +40,9 @@ class ResponderHome implements ResponderHomeInterface
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function __invoke()
+    public function __invoke():Response
     {
-        return new Response($this->twig->render('tricksfail.html.twig', [
+        return new Response($this->twig->render('tricks/tricks.html.twig', [
             'tricks' => $this->tricksRepository->getAllWithPictures()
         ]));
     }
