@@ -4,7 +4,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
 
-    <entity name="App\Entity\Tricks" table="tricks" repository-class="App\Repository\TricksRepository">
+    <entity name="App\Domain\Models\Tricks" table="tricks" repository-class="App\Repository\TricksRepository">
 
         <indexes>
             <index name="name_idx" columns="name" />
@@ -27,6 +27,7 @@
         <field name="name" column="name" type="string" length="20" nullable="false" />
         <field name="description" column="description" type="text" nullable="false"  />
         <field name="group" column="group" type="string" length="20" nullable="false" />
+        <field name="slug" column="slug" type="string" length="100" nullable="false" />
         <field name="createdAt" column="createdAt" type="integer" length="20" nullable="false" />
         <field name="updatedAt" column="updatedAt" type="integer" length="20" nullable="false" />
 

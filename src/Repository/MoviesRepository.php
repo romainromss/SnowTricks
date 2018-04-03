@@ -2,18 +2,18 @@
 
 namespace App\Repository;
 
-use App\Entity\Movies;
+
+use App\Domain\Models\Movies;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-/**
- * @method Movies|null find($id, $lockMode = null, $lockVersion = null)
- * @method Movies|null findOneBy(array $criteria, array $orderBy = null)
- * @method Movies[]    findAll()
- * @method Movies[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- */
 class MoviesRepository extends ServiceEntityRepository
 {
+    /**
+     * MoviesRepository constructor.
+     *
+     * @param RegistryInterface $registry
+     */
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Movies::class);
