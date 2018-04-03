@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
 
-    <title>Codebase - Bootstrap 4 Admin Template &amp; UI Framework</title>
+    <title>SnowTricks - </title>
 
     <meta name="description" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
     <meta name="author" content="pixelcave">
@@ -21,17 +21,17 @@
 
     <!-- Icons -->
     <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
-    <link rel="shortcut icon" href="assets/img/favicons/favicon.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicons/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon-180x180.png">
+    <link rel="shortcut icon" href="{{ asset('img/favicons/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('img/favicons/favicon-192x192.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/favicons/apple-touch-icon-180x180.png') }}">
     <!-- END Icons -->
 
     <!-- Stylesheets -->
     <!-- Codebase framework -->
-    <link rel="stylesheet" id="css-main" href="assets/css/codebase.min.css">
+    <link rel="stylesheet" id="css-main" href="{{ asset('css/codebase.min.css') }}">
 
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
-    <link rel="stylesheet" id="css-theme" href="assets/css/themes/corporate.min.css">
+    <link rel="stylesheet" id="css-theme" href="{{ asset('css/themes/corporate.min.css') }}">
     <!-- END Stylesheets -->
 </head>
 <body>
@@ -57,7 +57,7 @@
                         <div class="content-header-item">
                             <a class="link-effect font-w700" href="">
                                 <i class="si si-fire text-primary"></i>
-                                <span class="font-size-xl text-dual-primary-dark">code</span><span class="font-size-xl text-primary">base</span>
+                                <span class="font-size-xl text-dual-primary-dark">Snow</span><span class="font-size-xl text-primary">Tricks</span>
                             </a>
                         </div>
                         <!-- END Logo -->
@@ -67,46 +67,47 @@
 
                 <!-- Side Main Navigation -->
                 <div class="content-side content-side-full">
-                    <!--
-                    Mobile navigation, desktop navigation can be found in #page-header
-
-                    If you would like to use the same navigation in both mobiles and desktops, you can use exactly the same markup inside sidebar and header navigation ul lists
-                    -->
                     <ul class="nav-main">
                         <li>
-                            <a class="active" href="">
-                                <i class="si si-rocket"></i> Dashboard
+                            <a class="active" href="{{ path('index') }}">
+                                <i class="si si-rocket"></i> Home
                             </a>
                         </li>
                         <li>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                             <a href="">
-                                <i class="si si-settings"></i> Settings
+                                <i class="si si-note"></i> Tricks
                             </a>
-                        </li>
                         <li>
                             <a class="nav-submenu" data-toggle="nav-submenu" href="#">
-                                <i class="si si-layers"></i> Features
+                                <i class="si si-settings"></i> Profile
                             </a>
                             <ul>
                                 <li>
-                                    <a href="">Backend</a>
+                                    <a href="">Lorem</a>
                                 </li>
                                 <li>
-                                    <a href="">Frontend</a>
-                                </li>
-                                <li>
-                                    <a class="nav-submenu" data-toggle="nav-submenu" href="#">More</a>
-                                    <ul>
-                                        <li>
-                                            <a href="">Dashboard</a>
-                                        </li>
-                                        <li>
-                                            <a href="">Resources</a>
-                                        </li>
-                                    </ul>
+                                    <a href="">Ipsum</a>
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="">
+                                <i class="si si-logout"></i> Log out
+                            </a>
+                        <li>
+                            {% else %}
+                        <li>
+                            <a href="">
+                                <i class="si si-login"></i> Sign in
+                            </a>
+                        <li>
+                        <li>
+                            <a href="">
+                                <i class="si si-check"></i> Sign Up
+                            </a>
+                        <li>
+                            {% endif %}
                     </ul>
                 </div>
                 <!-- END Side Main Navigation -->
@@ -126,17 +127,10 @@
                 <!-- Logo -->
                 <div class="content-header-item mr-5">
                     <a class="link-effect font-w600" href="">
-                        <span class="text-dual-primary-dark">code</span><span class="text-primary">base</span>
+                        <span class="text-dual-primary-dark">Snow</span><span class="text-primary">Tricks</span>
                     </a>
                 </div>
                 <!-- END Logo -->
-
-                <!-- Open Search Section -->
-                <!-- Layout API, functionality initialized in Codebase() -> uiApiLayout() -->
-                <button type="button" class="btn btn-rounded btn-dual-secondary" data-toggle="layout" data-action="header_search_on">
-                    <i class="fa fa-search mr-5"></i> Search
-                </button>
-                <!-- END Open Search Section -->
             </div>
             <!-- END Left Section -->
 
@@ -152,39 +146,45 @@
                 -->
                 <ul class="nav-main-header">
                     <li>
-                        <a class="active" href="">
-                            <i class="si si-rocket"></i> Dashboard
+                        <a class="active" href="{{ path('index') }}">
+                            <i class="si si-rocket"></i> Home
                         </a>
                     </li>
                     <li>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <a href="">
-                            <i class="si si-settings"></i> Settings
+                            <i class="si si-note"></i> Tricks
                         </a>
-                    </li>
                     <li>
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#">
-                            <i class="si si-layers"></i> Features
+                            <i class="si si-settings"></i> Profile
                         </a>
                         <ul>
                             <li>
-                                <a href="">Backend</a>
+                                <a href="">Lorem</a>
                             </li>
                             <li>
-                                <a href="">Frontend</a>
-                            </li>
-                            <li>
-                                <a class="nav-submenu" data-toggle="nav-submenu" href="#">More</a>
-                                <ul>
-                                    <li>
-                                        <a href="">Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Resources</a>
-                                    </li>
-                                </ul>
+                                <a href="">Ipsum</a>
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="">
+                            <i class="si si-logout"></i> Log out
+                        </a>
+                    <li>
+                        {% else %}
+                    <li>
+                        <a href="">
+                            <i class="si si-login"></i> Sign in
+                        </a>
+                    <li>
+                    <li>
+                        <a href="">
+                            <i class="si si-check"></i> Sign Up
+                        </a>
+                    <li>
+                        {% endif %}
                 </ul>
                 <!-- END Header Navigation -->
 
@@ -235,217 +235,12 @@
         <!-- END Header Loader -->
     </header>
     <!-- END Header -->
-
-
-    <!-- Main Container -->
     <main id="main-container">
+    {% block head %}
+    {% endblock %}
 
-        <!-- Page Content -->
-        <div class="bg-image" style="background-image: url('assets/img/photos/photo2@2x.jpg');">
-            <div class="hero bg-primary-dark-op">
-                <div class="hero-inner">
-                    <div class="content content-full text-center">
-                        <h1 class="display-4 font-w700 text-white mb-10 invisible" data-toggle="appear" data-class="animated fadeInDown">Codebase</h1>
-                        <h2 class="font-w400 text-white-op mb-50 invisible" data-toggle="appear" data-class="animated fadeInUp" data-timeout="250">It’s Time to Create Your Next Amazing Project</h2>
-                        <a class="btn btn-hero btn-noborder btn-rounded btn-primary invisible" data-toggle="appear" data-class="animated bounceIn" data-timeout="750" href="be_layout_hero_image.html">
-                            <i class="si si-rocket mr-10"></i> Get Started
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END Page Content -->
-
-
-        <!-- Page Content -->
-        <div class="content">
-            <!-- Advanced Gallery (.js-gallery class is initialized in Codebase() -> uiHelperMagnific()) -->
-            <!-- For more info and examples you can check out http://dimsemenov.com/plugins/magnific-popup/ -->
-            <h2  style="text-align: center" class="content-heading">Tricks</h2>
-            <div class="row items-push js-gallery">
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo16.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo16@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="/assets/img/photos/photo15.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo15@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo14.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo14@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo13.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo13@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo12.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo12@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo11.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo11@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo10.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo10@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo9.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo9@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo8.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo8@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo7.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo7@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo6.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo6@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
-                    <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                        <img class="img-fluid options-item" src="assets/img/photos/photo5.jpg" alt="">
-                        <div class="options-overlay bg-black-op-75">
-                            <div class="options-overlay-content">
-                                <h3 class="h4 text-white mb-5">Image</h3>
-                                <h4 class="h6 text-white-op mb-15">More Details</h4>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75 img-lightbox" href="assets/img/photos/photo5@2x.jpg">
-                                    <i class="fa fa-search-plus"></i> View
-                                </a>
-                                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Edit</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END Page Content -->
+    {% block content  %}
+    {% endblock %}
     </main>
     <!-- END Main Container -->
 
@@ -456,7 +251,7 @@
                 Crafted with <i class="fa fa-heart text-pulse"></i> by <a class="font-w600" href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
             </div>
             <div class="float-left">
-                <a class="font-w600" href="https://goo.gl/po9Usv" target="_blank">Codebase</a> &copy; <span class="js-year-copy"></span>
+                <a class="font-w600" href="https://goo.gl/po9Usv" target="_blank">Snowtricks</a> &copy; <span class="js-year-copy"></span>
             </div>
         </div>
     </footer>
@@ -465,19 +260,21 @@
 <!-- END Page Container -->
 
 <!-- Codebase Core JS -->
-<script src="assets/js/codebase.min.js"></script>
+<script src="{{ asset('js/codebase.min.js') }}"></script>
 
 <!-- Codebase Core JS -->
-<script src="assets/js/core/jquery.min.js"></script>
-<script src="assets/js/core/bootstrap.bundle.min.js"></script>
-<script src="assets/js/core/jquery.slimscroll.min.js"></script>
-<script src="assets/js/core/jquery.scrollLock.min.js"></script>
-<script src="assets/js/core/jquery.appear.min.js"></script>
-<script src="assets/js/core/jquery.countTo.min.js"></script>
-<script src="assets/js/core/js.cookie.min.js"></script>
-<script src="assets/js/codebase.js"></script>
+<script src="{{ asset('js/core/jquery.min.js') }}"></script>
+<script src="{{ asset('js/core/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('js/core/jquery.slimscroll.min.js') }}"></script>
+<script src="{{ asset('js/core/jquery.scrollLock.min.js') }}"></script>
+<script src="{{ asset('js/core/jquery.appear.min.js') }}"></script>
+<script src="{{ asset('js/core/jquery.countTo.min.js') }}"></script>
+<script src="{{ asset('js/core/js.cookie.min.js') }}"></script>
 
-<script src="assets/js/plugins/magnific-popup/magnific-popup.min.js"></script>
+<script src="{{ asset('js/plugins/magnific-popup/magnific-popup.min.js') }}"></script>
+
+<script src="{{ asset('js/pagination.js') }}"></script>
+<script src="{{ asset('js/TopDown.js') }}"></script>
 
 </body>
 </html>
