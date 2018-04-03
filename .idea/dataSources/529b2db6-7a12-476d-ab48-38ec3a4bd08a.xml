@@ -936,31 +936,31 @@
     <column id="235" parent="229" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="236" parent="229" name="trick_id">
       <Position>2</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="237" parent="229" name="user_id">
       <Position>3</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="238" parent="229" name="content">
       <Position>4</Position>
-      <DataType>varchar(200)|0</DataType>
+      <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="239" parent="229" name="created_at">
+    <column id="239" parent="229" name="createdAt">
       <Position>5</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -989,7 +989,7 @@
     </foreign-key>
     <column id="245" parent="230" name="version">
       <Position>1</Position>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1001,25 +1001,25 @@
     <column id="247" parent="231" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="248" parent="231" name="trick_id">
       <Position>2</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="249" parent="231" name="embed">
       <Position>3</Position>
-      <DataType>varchar(100)|0</DataType>
+      <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="250" parent="231" name="legend">
       <Position>4</Position>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1043,37 +1043,37 @@
     <column id="255" parent="232" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="256" parent="232" name="user_id">
       <Position>2</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="257" parent="232" name="trick_id">
       <Position>3</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="258" parent="232" name="name">
       <Position>4</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="259" parent="232" name="legend">
       <Position>5</Position>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="260" parent="232" name="avatar">
       <Position>6</Position>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <index id="261" parent="232" name="UNIQ_8F7C2FC0A76ED395">
@@ -1113,120 +1113,126 @@
     <column id="269" parent="233" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="270" parent="233" name="user_id">
       <Position>2</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="271" parent="233" name="name">
       <Position>3</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="272" parent="233" name="description">
       <Position>4</Position>
-      <DataType>longtext|0</DataType>
+      <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="273" parent="233" name="group">
       <Position>5</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="274" parent="233" name="created_at">
+    <column id="274" parent="233" name="createdAt">
       <Position>6</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="275" parent="233" name="updated_at">
+    <column id="275" parent="233" name="updatedAt">
       <Position>7</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="276" parent="233" name="IDX_E1D902C1A76ED395">
+    <column id="276" parent="233" name="slug">
+      <Position>8</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="277" parent="233" name="IDX_E1D902C1A76ED395">
       <ColNames>user_id</ColNames>
     </index>
-    <index id="277" parent="233" name="name_idx">
+    <index id="278" parent="233" name="name_idx">
       <ColNames>name</ColNames>
     </index>
-    <key id="278" parent="233" name="PRIMARY">
+    <key id="279" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="279" parent="233" name="FK_E1D902C1A76ED395">
+    <foreign-key id="280" parent="233" name="FK_E1D902C1A76ED395">
       <ColNames>user_id</ColNames>
       <RefSchemaName>snowtricks</RefSchemaName>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="280" parent="234" name="id">
+    <column id="281" parent="234" name="id">
       <Position>1</Position>
       <Comment>(DC2Type:uuid)</Comment>
-      <DataType>char(36)|0</DataType>
+      <DataType>char(36)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="234" name="username">
+    <column id="282" parent="234" name="username">
       <Position>2</Position>
-      <DataType>varchar(10)|0</DataType>
+      <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="234" name="name">
+    <column id="283" parent="234" name="name">
       <Position>3</Position>
-      <DataType>varchar(10)|0</DataType>
+      <DataType>varchar(10)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="234" name="lastname">
+    <column id="284" parent="234" name="lastname">
       <Position>4</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="234" name="password">
+    <column id="285" parent="234" name="password">
       <Position>5</Position>
-      <DataType>varchar(65)|0</DataType>
+      <DataType>varchar(65)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="234" name="email">
+    <column id="286" parent="234" name="email">
       <Position>6</Position>
-      <DataType>varchar(50)|0</DataType>
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="234" name="role">
+    <column id="287" parent="234" name="role">
       <Position>7</Position>
       <Comment>(DC2Type:array)</Comment>
-      <DataType>longtext|0</DataType>
+      <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="234" name="created_at">
+    <column id="288" parent="234" name="createdAt">
       <Position>8</Position>
-      <DataType>varchar(255)|0</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="288" parent="234" name="username_idx">
+    <index id="289" parent="234" name="username_idx">
       <ColNames>username</ColNames>
     </index>
-    <index id="289" parent="234" name="password_idx">
+    <index id="290" parent="234" name="password_idx">
       <ColNames>password</ColNames>
     </index>
-    <key id="290" parent="234" name="PRIMARY">
+    <key id="291" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

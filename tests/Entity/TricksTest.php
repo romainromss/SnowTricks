@@ -3,74 +3,90 @@
 namespace Tests\Entity;
 
 
-use App\Entity\Pictures;
-use App\Entity\Tricks;
-use App\Entity\Users;
+use App\Domain\Tricks;
+use App\Domain\Users;
 use PHPUnit\Framework\TestCase;
 
 class TricksTest extends TestCase
 {
-    private $trick;
 
+    /**
+     *@test
+     */
     public function testTricksIsInstanceOf()
     {
 
-        $pictures = $this->createMock(Pictures::class);
-        $users = $this->createMock(Users::class);
+        $user = $this->createMock(Users::class);
 
         $trick = new Tricks(
-            'un nom',
+            'name',
             'description',
             'group',
-            $users,
-            $pictures
+            'slug',
+            $user
         );
 
-        $this->trick = $trick;
-
-        static::assertInstanceOf(Tricks::class, $this->trick);
+        static::assertInstanceOf(Tricks::class, $trick);
     }
 
+    /**
+     *@test
+     */
     public function testGoodAttributes()
     {
-        $pictures = $this->createMock(Pictures::class);
-        $users = $this->createMock(Users::class);
+        $user = $this->createMock(Users::class);
 
             $trick = new Tricks(
                 'un nom',
                 'description',
                 'group',
-                $users,
-                $pictures
+                'slug',
+                $user
             );
-        $this->trick = $trick;
 
-        static::assertObjectHasAttribute('id', $this->trick);
-        static::assertObjectHasAttribute('name', $this->trick);
-        static::assertObjectHasAttribute('description', $this->trick);
-        static::assertObjectHasAttribute('group', $this->trick);
-        static::assertObjectHasAttribute('createdAt', $this->trick);
-        static::assertObjectHasAttribute('updatedAt', $this->trick);
-        static::assertObjectHasAttribute('pictures', $this->trick);
-        static::assertObjectHasAttribute('movies', $this->trick);
-        static::assertObjectHasAttribute('user', $this->trick);
+        static::assertObjectHasAttribute('id', $trick);
+        static::assertObjectHasAttribute('name', $trick);
+        static::assertObjectHasAttribute('description', $trick);
+        static::assertObjectHasAttribute('group', $trick);
+        static::assertObjectHasAttribute('slug', $trick);
+        static::assertObjectHasAttribute('createdAt', $trick);
+        static::assertObjectHasAttribute('updatedAt', $trick);
+        static::assertObjectHasAttribute('pictures', $trick);
+        static::assertObjectHasAttribute('movies', $trick);
+        static::assertObjectHasAttribute('user', $trick);
     }
 
-    public function testGetters()
+
+    /**
+     *@test
+     */
+    public function testReturnOfGetters()
     {
         $user = $this->createMock(Users::class);
-        $trick = new Tricks('name', 'description', 'group', $user);
+        $trick = new Tricks(
+            'name',
+            'description',
+            'group',
+            'slug',
+            $user
+        );
 
-        static::assertNotNull('test', $trick->getId());
+        static::assertNotNull($trick->getId());
         static::assertEquals('name', $trick->getName());
         static::assertEquals('description', $trick->getDescription());
         static::assertEquals('group', $trick->getGroup());
+        static::assertEquals('slug', $trick->getSlug());
         static::assertNotSame(0, $trick->getCreatedAt());
         static::assertNotSame(0, $trick->getUpdatedAt());
         static::assertInstanceOf(Users::class, $trick->getUser());
         static::assertCount(0, $trick->getMovies());
         static::assertCount(0, $trick->getPictures());
         static::assertCount(0, $trick->getComments());
+    }
+
+    public function testaddPictures()
+    {
+
     }
 }
 
