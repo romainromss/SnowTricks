@@ -2,8 +2,9 @@
 
 namespace Tests\Responder;
 
+
 use App\Repository\TricksRepository;
-use App\Responder\ResponderHome;
+use App\UI\Responder\ResponderHome;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;

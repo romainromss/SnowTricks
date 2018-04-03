@@ -2,10 +2,11 @@
 
 namespace Tests\Actions;
 
-use App\Actions\HomeAction;
+
 use App\Repository\TricksRepository;
-use App\Responder\Interfaces\ResponderHomeInterface;
-use App\Responder\ResponderHome;
+use App\UI\Actions\HomeAction;
+use App\UI\Responder\Interfaces\ResponderHomeInterface;
+use App\UI\Responder\ResponderHome;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

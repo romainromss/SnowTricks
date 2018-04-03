@@ -3,8 +3,9 @@
 namespace Tests\Entity;
 
 
-use App\Domain\Tricks;
-use App\Domain\Users;
+
+use App\Domain\Models\Tricks;
+use App\Domain\Models\Users;
 use PHPUnit\Framework\TestCase;
 
 class TricksTest extends TestCase
