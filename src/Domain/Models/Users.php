@@ -133,5 +133,4 @@ class Users implements UsersInterface
     {
         return $this->createdAt;
     }
-
 }

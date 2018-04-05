@@ -27,7 +27,8 @@ interface PicturesInterface
         string $legend,
         string $avatar = null,
         Tricks $tricks = null,
-        Users $user = null);
+        Users $user = null
+    );
 
     /**
      * @return mixed

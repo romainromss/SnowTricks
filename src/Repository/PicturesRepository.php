@@ -2,7 +2,6 @@
 
 namespace App\Repository;
 
-
 use App\Domain\Models\Pictures;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;

@@ -2,30 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7284f834-8218-4d49-ac0e-1d3eb407cbcd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SnowTricks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SnowTricks.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mapping/Tricks.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config/mapping/Tricks.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mapping/Users.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config/mapping/Users.orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/datatables/jquery.dataTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/datatables/jquery.dataTables.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/fullcalendar/fullcalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/fullcalendar/fullcalendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/highlightjs/styles/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/highlightjs/styles/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/highlightjs/styles/routeros.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/highlightjs/styles/routeros.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/select2/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/select2/select2.full.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/select2/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/select2/select2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/sparkline/jquery.sparkline.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/sparkline/jquery.sparkline.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/scss/bootstrap/_code.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/scss/bootstrap/_code.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/scss/codebase/mixins/_theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/scss/codebase/mixins/_theme.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Comments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Movies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Movies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Pictures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Pictures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/ckeditor/samples/old/assets/posteddata.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/ckeditor/samples/old/assets/posteddata.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/ckeditor/samples/old/sample_posteddata.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/ckeditor/samples/old/sample_posteddata.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/CommentsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CommentsRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/MoviesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MoviesRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PicturesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PicturesRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/TricksRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TricksRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Entity/TricksTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/TricksTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -72,14 +66,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TricksTest.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TricksTest.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/Entity/TricksTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="202" selection-start-line="202" selection-end-line="202" />
+            <state relative-caret-position="439">
+              <caret line="203" selection-start-line="203" selection-end-line="203" />
               <folding>
                 <element signature="e#32#63#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeAction.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/UI/Actions/HomeAction.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
             </state>
           </provider>
         </entry>
@@ -88,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
-              <caret line="196" column="37" lean-forward="true" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
+              <caret line="196" column="37" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
               <folding>
                 <element signature="e#37#88#0#PHP" expanded="true" />
               </folding>
@@ -100,7 +103,7 @@
         <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="333">
-              <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+              <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -149,7 +152,6 @@
         <option value="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" />
         <option value="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" />
         <option value="$PROJECT_DIR$/src/Repository/TricksRepository.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksModelsInterface.php" />
         <option value="$PROJECT_DIR$/assets/index.php" />
         <option value="$PROJECT_DIR$/.env" />
@@ -172,6 +174,7 @@
         <option value="$PROJECT_DIR$/src/Domain/Models/Tricks.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" />
         <option value="$PROJECT_DIR$/tests/Entity/TricksTest.php" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" />
       </list>
     </option>
   </component>
@@ -351,6 +354,19 @@
             <path>
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Actions" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="var" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -479,12 +495,12 @@
       <workItem from="1522745739228" duration="3513000" />
       <workItem from="1522755927383" duration="174000" />
       <workItem from="1522757204078" duration="7167000" />
-      <workItem from="1522876625669" duration="12527000" />
+      <workItem from="1522876625669" duration="13385000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238603000" />
+    <option name="totallyTimeSpent" value="239461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="753" extended-state="6" />
@@ -690,15 +706,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
           <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/HomeAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
           <folding>
-            <element signature="e#35#90#0#PHP" expanded="true" />
+            <element signature="e#47#83#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -943,14 +952,14 @@
     <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
-          <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+          <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="196" column="37" lean-forward="true" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
+          <caret line="196" column="37" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
           <folding>
             <element signature="e#37#88#0#PHP" expanded="true" />
           </folding>
@@ -959,11 +968,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Entity/TricksTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="202" selection-start-line="202" selection-end-line="202" />
+        <state relative-caret-position="439">
+          <caret line="203" selection-start-line="203" selection-end-line="203" />
           <folding>
             <element signature="e#32#63#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/HomeAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
         </state>
       </provider>
     </entry>

@@ -8,7 +8,6 @@ use App\Domain\Models\Tricks;
 
 interface UsersInterface
 {
-
     public function getTricks();
 
     public function getComments();
