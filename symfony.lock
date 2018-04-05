@@ -68,6 +68,9 @@
     "doctrine/orm": {
         "version": "v2.6.1"
     },
+    "dunglas/panthere": {
+        "version": "1.0.x-dev"
+    },
     "easycorp/easy-log-handler": {
         "version": "1.0",
         "recipe": {
@@ -79,6 +82,9 @@
     },
     "egulias/email-validator": {
         "version": "2.1.3"
+    },
+    "facebook/webdriver": {
+        "version": "1.5.0"
     },
     "fig/link-util": {
         "version": "1.0.0"

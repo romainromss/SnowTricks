@@ -2,9 +2,10 @@
 
 namespace App\Domain\Models;
 
+use App\Domain\Models\Interfaces\UserInterface;
 use Ramsey\Uuid\Uuid;
 
-class Users
+class User implements UserInterface
 {
     private $tricks;
     private $comments;
@@ -67,14 +68,6 @@ class Users
     public function getComments()
     {
         return $this->comments;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAvatar()
-    {
-        return $this->avatar;
     }
 
     /**
