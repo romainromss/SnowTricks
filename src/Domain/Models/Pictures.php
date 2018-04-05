@@ -2,9 +2,10 @@
 
 namespace App\Domain\Models;
 
+use App\Domain\Models\Interfaces\PicturesInterface;
 use Ramsey\Uuid\Uuid;
 
-class Pictures
+class Pictures implements PicturesInterface
 {
     private $trick;
     private $user;

@@ -2,10 +2,14 @@
 
 namespace App\Domain\Models;
 
+use App\Domain\Models\Interfaces\CommentsInterface;
+use App\Domain\Models\Interfaces\MoviesInterface;
+use App\Domain\Models\Interfaces\PicturesInterface;
+use App\Domain\Models\Interfaces\TricksInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 
-class Tricks
+class Tricks implements TricksInterface
 {
     private $pictures;
     private $comments;
@@ -55,17 +59,17 @@ class Tricks
     }
 
     /**
-     * @return mixed
+     * @return \ArrayAccess
      */
-    public function getPictures()
+    public function getPictures(): \ArrayAccess
     {
         return $this->pictures;
     }
 
     /**
-     * @return mixed
+     * @return \ArrayAccess
      */
-    public function getComments()
+    public function getComments(): \ArrayAccess
     {
         return $this->comments;
     }
@@ -79,85 +83,126 @@ class Tricks
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
+
     /**
-     * @return mixed
+     * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
 
+
     /**
-     * @return mixed
+     * @return string
      */
-    public function getGroup()
+    public function getGroup(): string
     {
         return $this->group;
     }
 
+
     /**
-     * @return mixed
+     * @return int|null
      */
-    public function getUpdatedAt()
+    public function getUpdatedAt(): ? int
     {
         return $this->updatedAt;
     }
 
+
     /**
-     * @return mixed
+     * @return int
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): int
     {
         return $this->createdAt;
     }
 
+
     /**
-     * @return mixed
+     * @return \ArrayAccess
      */
-    public function getMovies()
+    public function getMovies(): \ArrayAccess
     {
         return $this->movies;
     }
 
+
     /**
-     * @return mixed
+     * @return string
      */
-    public function getSlug()
+    public function getSlug(): string
     {
         return $this->slug;
     }
 
-    /**
-     * @param array $pictures
-     *
-     * @return array
-     */
-    public function addPictures(array $pictures)
-    {
-        return $this->pictures[] = $pictures;
-    }
 
     /**
-     * @param array $pictures
+     * @param PicturesInterface $pictures
      */
-    public function unsetPictures(array $pictures)
+    public function addPictures(PicturesInterface $pictures): void
     {
-        unset($pictures['pictures']);
+        $this->pictures[] = $pictures;
+    }
+
+
+    /**
+     * @param PicturesInterface $pictures
+     */
+    public function unsetPictures(PicturesInterface $pictures): void
+    {
+        unset($this->pictures[array_search($pictures, (array) $this->pictures, true)]);
+    }
+
+
+    /**
+     * @param MoviesInterface $movies
+     */
+    public function addMovies(MoviesInterface $movies): void
+    {
+        $this->movies[] = $movies;
+    }
+
+
+    /**
+     * @param MoviesInterface $movies
+     */
+    public function unsetMovies(MoviesInterface $movies): void
+    {
+        unset($this->movies[array_search($movies, (array) $this->movies, true)]);
+    }
+
+
+    /**
+     * @param CommentsInterface $comment
+     */
+    public function addComments(CommentsInterface $comment): void
+    {
+        $this->comments[] = $comment;
+    }
+
+
+    /**
+     * @param CommentsInterface $comment
+     */
+    public function unsetComment(CommentsInterface $comment): void
+    {
+        unset($this->comments[array_search($this->comments, (array) $this->comments, true)]);
     }
 }
-

@@ -9,11 +9,11 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class TricksRepository extends ServiceEntityRepository
 {
+
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Tricks::class);
     }
-
 
     /**
      * @return mixed

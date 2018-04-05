@@ -2,9 +2,10 @@
 
 namespace App\Domain\Models;
 
+use App\Domain\Models\Interfaces\MoviesInterface;
 use Ramsey\Uuid\Uuid;
 
-class Movies
+class Movies implements MoviesInterface
 {
     private $id;
     private $embed;

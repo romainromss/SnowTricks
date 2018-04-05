@@ -2,10 +2,10 @@
 
 namespace App\Domain\Models;
 
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Ramsey\Uuid\Uuid;
 
-class User implements UserInterface
+class Users implements UsersInterface
 {
     private $tricks;
     private $comments;

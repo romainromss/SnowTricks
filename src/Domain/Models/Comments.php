@@ -2,9 +2,10 @@
 
 namespace App\Domain\Models;
 
+use App\Domain\Models\Interfaces\CommentsInterface;
 use Ramsey\Uuid\Uuid;
 
-class Comments
+class Comments implements CommentsInterface
 {
     private $id;
     private $name;
