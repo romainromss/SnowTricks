@@ -17,7 +17,6 @@ class TricksTest extends TestCase
      */
     public function testTricksIsInstanceOf()
     {
-
         $user = $this->createMock(Users::class);
 
         $trick = new Tricks(
@@ -38,7 +37,7 @@ class TricksTest extends TestCase
     {
         $user = $this->createMock(Users::class);
 
-            $trick = new Tricks(
+        $trick = new Tricks(
                 'un nom',
                 'description',
                 'group',
@@ -202,4 +201,3 @@ class TricksTest extends TestCase
         static::assertCount(0, $trick->getComments());
     }
 }
-

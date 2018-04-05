@@ -2,7 +2,6 @@
 
 namespace Tests\Responder;
 
-
 use App\Repository\TricksRepository;
 use App\UI\Responder\ResponderHome;
 use PHPUnit\Framework\TestCase;
