@@ -28,8 +28,8 @@
         <field name="description" column="description" type="text" nullable="false"  />
         <field name="group" column="group" type="string" length="20" nullable="false" />
         <field name="slug" column="slug" type="string" length="100" nullable="false" />
-        <field name="createdAt" column="createdAt" type="integer" length="20" nullable="false" />
-        <field name="updatedAt" column="updatedAt" type="integer" length="20" nullable="false" />
+        <field name="createdAt" column="createdAt" type="bigint" length="20" nullable="false" />
+        <field name="updatedAt" column="updatedAt" type="bigint" length="20" nullable="false" />
 
     </entity>
 </doctrine-mapping>

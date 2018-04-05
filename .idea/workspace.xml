@@ -2,6 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7284f834-8218-4d49-ac0e-1d3eb407cbcd" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/SnowTricks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SnowTricks.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mapping/Tricks.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config/mapping/Tricks.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mapping/Users.orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/config/mapping/Users.orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/datatables/jquery.dataTables.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/datatables/jquery.dataTables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/fullcalendar/fullcalendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/fullcalendar/fullcalendar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/highlightjs/styles/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/highlightjs/styles/default.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/highlightjs/styles/routeros.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/highlightjs/styles/routeros.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/select2/select2.full.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/select2/select2.full.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/select2/select2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/select2/select2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/plugins/sparkline/jquery.sparkline.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/sparkline/jquery.sparkline.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/scss/bootstrap/_code.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/scss/bootstrap/_code.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/scss/codebase/mixins/_theme.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/scss/codebase/mixins/_theme.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Comments.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Movies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Movies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Pictures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Pictures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Users.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TricksRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TricksRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Entity/TricksTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/TricksTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +48,23 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="snowtricks@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="snowtricks@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="snowtricks@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="snowtricks: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FavoritesManager">
@@ -36,11 +75,32 @@
       <file leaf-file-name="TricksTest.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Entity/TricksTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-849">
-              <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+            <state relative-caret-position="370">
+              <caret line="202" selection-start-line="202" selection-end-line="202" />
               <folding>
-                <element signature="e#34#63#0#PHP" expanded="true" />
+                <element signature="e#32#63#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tricks.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="196" column="37" lean-forward="true" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
+              <folding>
+                <element signature="e#37#88#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TricksInterface.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -61,20 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/css/codebase.min.css" />
-        <option value="$PROJECT_DIR$/public/css/codebase.css" />
-        <option value="$PROJECT_DIR$/../asset snowtricks/js/pagination.js" />
-        <option value="$PROJECT_DIR$/public/js/require.js" />
-        <option value="$PROJECT_DIR$/public/js/pagination.js" />
-        <option value="$PROJECT_DIR$/public/js/TopDown.js" />
-        <option value="$PROJECT_DIR$/templates/layout.html.twig" />
-        <option value="$PROJECT_DIR$/templates/tricks/tricks.html.twig" />
-        <option value="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" />
-        <option value="$PROJECT_DIR$/src/Actions/IndexAction.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/529b2db6-7a12-476d-ab48-38ec3a4bd08a/console.sql" />
-        <option value="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" />
-        <option value="$PROJECT_DIR$/src/Responder/ResponderHome.php" />
-        <option value="$PROJECT_DIR$/src/Responder/Interfaces/ResponderHomeInterface.php" />
         <option value="$PROJECT_DIR$/src/Entity/Tricks.php" />
         <option value="$PROJECT_DIR$/src/Domain/Entity/Tricks.php" />
         <option value="$PROJECT_DIR$/src/Domain/Entity/Movies.php" />
@@ -88,29 +134,43 @@
         <option value="$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php" />
         <option value="$PROJECT_DIR$/config/routes/annotations.yaml" />
         <option value="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" />
-        <option value="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" />
         <option value="$PROJECT_DIR$/src/Domain/Tricks.php" />
         <option value="$PROJECT_DIR$/src/Domain/Pictures.php" />
         <option value="$PROJECT_DIR$/src/Domain/Movies.php" />
         <option value="$PROJECT_DIR$/src/Domain/Users.php" />
         <option value="$PROJECT_DIR$/src/Domain/Comments.php" />
         <option value="$PROJECT_DIR$/src/Repository/TrickRepository.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Comments.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Movies.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Pictures.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Tricks.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Users.php" />
-        <option value="$PROJECT_DIR$/src/Repository/TricksRepository.php" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
-        <option value="$PROJECT_DIR$/config/mapping/Comments.orm.xml" />
         <option value="$PROJECT_DIR$/config/mapping/Movies.orm.xml" />
-        <option value="$PROJECT_DIR$/config/mapping/Pictures.orm.xml" />
-        <option value="$PROJECT_DIR$/config/mapping/Tricks.orm.xml" />
-        <option value="$PROJECT_DIR$/config/mapping/Users.orm.xml" />
         <option value="$PROJECT_DIR$/src/Repository/CommentsRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/PicturesRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/MoviesRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/UsersRepository.php" />
+        <option value="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" />
+        <option value="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" />
+        <option value="$PROJECT_DIR$/src/Repository/TricksRepository.php" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksModelsInterface.php" />
+        <option value="$PROJECT_DIR$/assets/index.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/MoviesInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Comments.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Pictures.php" />
+        <option value="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Movies.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Users.php" />
+        <option value="$PROJECT_DIR$/config/mapping/User.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/UserInterface.php" />
+        <option value="$PROJECT_DIR$/config/mapping/Tricks.orm.xml" />
+        <option value="$PROJECT_DIR$/config/mapping/Comments.orm.xml" />
+        <option value="$PROJECT_DIR$/config/mapping/Pictures.orm.xml" />
+        <option value="$PROJECT_DIR$/config/mapping/Users.orm.xml" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Tricks.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" />
         <option value="$PROJECT_DIR$/tests/Entity/TricksTest.php" />
       </list>
     </option>
@@ -238,12 +298,15 @@
       <path value="$PROJECT_DIR$/vendor/behat/gherkin" />
       <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
       <path value="$PROJECT_DIR$/vendor/symfony/class-loader" />
+      <path value="$PROJECT_DIR$/vendor/facebook/webdriver" />
+      <path value="$PROJECT_DIR$/vendor/dunglas/panthere" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1280" />
-    <option name="height" value="753" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="269" />
+    <option name="y" value="76" />
+    <option name="width" value="1623" />
+    <option name="height" value="879" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -251,6 +314,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -273,44 +337,26 @@
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Actions" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Responder" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="var" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -319,22 +365,22 @@
     <property name="javascript.nodejs.core.library.configured.version" value="9.5.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="com.chrisrm.idea.config" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Domain/Models" />
-      <recent name="$PROJECT_DIR$/src/Domain" />
-      <recent name="$PROJECT_DIR$/src/Ui" />
-      <recent name="$PROJECT_DIR$/public/js" />
-      <recent name="$PROJECT_DIR$/public/css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/public/images/Upload" />
       <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/src/Actions" />
       <recent name="$PROJECT_DIR$/src/Repository" />
-      <recent name="$PROJECT_DIR$/src/Entity" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Domain/Models/Interfaces" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/Domain/Models" />
+      <recent name="$PROJECT_DIR$/src/Domain" />
+      <recent name="$PROJECT_DIR$/src/Ui" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -349,9 +395,12 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.IndexActionTest.test">
+  <component name="RunManager" selected="PHPUnit.TricksTest.testReturnOfGetters">
     <configuration name="IndexActionTest.test" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="App\Tests\IndexActionTest" file="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" method="test" scope="Method" />
+    </configuration>
+    <configuration name="TricksTest.testReturnOfGetters" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Entity\TricksTest" file="$PROJECT_DIR$/tests/Entity/TricksTest.php" method="testReturnOfGetters" scope="Method" />
     </configuration>
     <configuration name="watch" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -365,9 +414,11 @@
     <list>
       <item itemvalue="PHPUnit.IndexActionTest.test" />
       <item itemvalue="npm.watch" />
+      <item itemvalue="PHPUnit.TricksTest.testReturnOfGetters" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.TricksTest.testReturnOfGetters" />
         <item itemvalue="npm.watch" />
         <item itemvalue="PHPUnit.IndexActionTest.test" />
       </list>
@@ -425,27 +476,30 @@
       <workItem from="1522738945488" duration="975000" />
       <workItem from="1522740244854" duration="2000000" />
       <workItem from="1522742471833" duration="739000" />
-      <workItem from="1522745739228" duration="1247000" />
+      <workItem from="1522745739228" duration="3513000" />
+      <workItem from="1522755927383" duration="174000" />
+      <workItem from="1522757204078" duration="7167000" />
+      <workItem from="1522876625669" duration="12527000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216469000" />
+    <option name="totallyTimeSpent" value="238603000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="753" extended-state="0" />
+    <frame x="0" y="22" width="1280" height="753" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50220263" side_tool="true" weight="0.27733934" />
-      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3288889" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32807216" />
+      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3276923" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3276923" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49779737" weight="0.37076923" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.17447495" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.18174475" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="right" id="Database" order="3" weight="0.24151857" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3246154" />
+      <window_info anchor="right" id="Database" order="3" weight="0.18901454" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32307693" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="3" sideWeight="0.50651467" side_tool="true" weight="0.20355412" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -456,8 +510,31 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Database Console" order="10" weight="0.3288889" />
+      <window_info anchor="bottom" id="Database Console" order="10" weight="0.3276923" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
+      <window_info id="npm" order="0" sideWeight="0.5201342" side_tool="true" weight="0.1459251" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.18174475" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3276923" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32307693" />
+      <window_info anchor="right" id="Database" order="3" weight="0.18901454" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49779737" weight="0.37076923" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50220263" side_tool="true" weight="0.27733934" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3276923" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.3276923" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="3" sideWeight="0.50651467" side_tool="true" weight="0.20355412" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -477,33 +554,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/layoutfail.html.twig" />
-    <entry file="file://$USER_HOME$/Downloads/Codebase 2.0 by pixelcave/02 - Codebase Source (HTML)/src/be_ui_buttons.html" />
-    <entry file="file://$PROJECT_DIR$/public/js/require.js" />
-    <entry file="file://$PROJECT_DIR$/../asset snowtricks/js/require.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" selection-start-line="7" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/photos/bg_hero_landing.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/img/avatars/avatar7.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/img/avatars/avatar4.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/img/avatars/avatar2.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/img/avatars/avatar1.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/img/avatars/avatar11.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/img/avatars/avatar12.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/img/avatars/avatar15.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/img/avatars/avatar16.jpg" />
-    <entry file="file://$PROJECT_DIR$/public/images/biglogo.png" />
-    <entry file="file://$PROJECT_DIR$/public/img/various/landing-promo-developer-minded-php@2x.png" />
-    <entry file="file://$PROJECT_DIR$/public/img/various/landing-promo-developer-minded-html@2x.png" />
-    <entry file="file://$PROJECT_DIR$/public/img/various/landing-promo-developer-minded-docs@2x.png" />
     <entry file="file://$PROJECT_DIR$/public/img/various/little-face.png" />
     <entry file="file://$PROJECT_DIR$/public/js/pagination.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -516,13 +570,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="398">
           <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/b83afc0f/529b2db6-7a12-476d-ab48-38ec3a4bd08a/snowtricks.tricks">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -554,46 +601,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="22" column="11" lean-forward="true" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Actions/IndexActionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1635" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/services.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes/annotations.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="e#47#83#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -604,99 +615,6 @@
           <folding>
             <element signature="e#34#68#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Pictures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-          <folding>
-            <element signature="e#30#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/TricksRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
-          <folding>
-            <element signature="e#35#64#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responder/ResponderHome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/HomeAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
-          <folding>
-            <element signature="e#35#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="27" column="42" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/mapping/Comments.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/mapping/Movies.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/mapping/Pictures.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/mapping/Tricks.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/mapping/Users.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -740,26 +658,311 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Movies.php">
+    <entry file="file://$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        <state relative-caret-position="462">
+          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Actions/IndexActionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/TricksRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="72" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/_types.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2645">
+          <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/HomeAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <folding>
+            <element signature="e#35#90#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Responder/ResponderHome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/collections/lib/Doctrine/Common/Collections/ArrayCollection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/collections/lib/Doctrine/Common/Collections/Collection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/529b2db6-7a12-476d-ab48-38ec3a4bd08a/console_1.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/adminer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#69#76#0" expanded="true" />
+            <element signature="e#4#10#1" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#!!top" expanded="true" />
+            <element signature="e#4#10#1" expanded="true" />
+            <element signature="e#99#105#1" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#!!top" expanded="true" />
+            <element signature="e#57#63#1" expanded="true" />
+            <element signature="e#14#20#0" expanded="true" />
+            <element signature="e#4#10#1" expanded="true" />
+            <element signature="e#4#10#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#8#14#1" expanded="true" />
+            <element signature="e#45#51#1" expanded="true" />
+            <element signature="e#78#84#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/services.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.dist">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="22" column="40" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="44" column="36" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://529b2db6-7a12-476d-ab48-38ec3a4bd08a/schema/snowtricks/table/tricks.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/b83afc0f/529b2db6-7a12-476d-ab48-38ec3a4bd08a/snowtricks.tricks">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+          <folding>
+            <element signature="e#130#159#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Models/Comments.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1309">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        <state relative-caret-position="138">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding>
+            <element signature="e#37#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Pictures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+          <folding>
+            <element signature="e#37#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/dev/web_profiler.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Movies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+          <folding>
+            <element signature="e#37#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://529b2db6-7a12-476d-ab48-38ec3a4bd08a/schema/snowtricks/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding>
+            <element signature="e#37#85#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+          <folding>
+            <element signature="e#48#79#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mapping/Comments.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mapping/Movies.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mapping/Pictures.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mapping/Tricks.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mapping/Users.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5">
+          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="94" column="32" selection-start-line="94" selection-start-column="32" selection-end-line="94" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="196" column="37" lean-forward="true" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
+          <folding>
+            <element signature="e#37#88#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Entity/TricksTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-849">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        <state relative-caret-position="370">
+          <caret line="202" selection-start-line="202" selection-end-line="202" />
           <folding>
-            <element signature="e#34#63#0#PHP" expanded="true" />
+            <element signature="e#32#63#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
