@@ -2,41 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7284f834-8218-4d49-ac0e-1d3eb407cbcd" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Actions/TricksDetailsActionTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Comments.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Comments.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/CommentsInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/CommentsInterface.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/MoviesInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/MoviesInterface.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/PicturesInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/PicturesInterface.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/TricksInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/TricksInterface.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/UsersInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/UsersInterface.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Movies.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Movies.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Pictures.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Pictures.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Tricks.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Tricks.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Users.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Users.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/HomeAction.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/HomeAction.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/ResponderHomeInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/ResponderHomeInterface.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/ResponderHome.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/ResponderHome.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Actions/TricksDetailsActionTest.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -324,47 +290,24 @@
             <path>
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Actions" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="tests" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Responder" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -502,11 +445,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="257595000" />
+    <option name="totallyTimeSpent" value="257812000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="753" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.23990306" />
       <window_info anchor="bottom" id="TODO" order="6" />
