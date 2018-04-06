@@ -930,12 +930,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dunglas/panthere.git",
-                "reference": "2442374fe07c359871e4baae8c5bdc545f4569c2"
+                "reference": "b6b762e720efb673028a36740e4037ab3455cf79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dunglas/panthere/zipball/2442374fe07c359871e4baae8c5bdc545f4569c2",
-                "reference": "2442374fe07c359871e4baae8c5bdc545f4569c2",
+                "url": "https://api.github.com/repos/dunglas/panthere/zipball/b6b762e720efb673028a36740e4037ab3455cf79",
+                "reference": "b6b762e720efb673028a36740e4037ab3455cf79",
                 "shasum": ""
             },
             "require": {
@@ -981,7 +981,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2018-03-31T17:39:48+00:00"
+            "time": "2018-04-04T15:36:36+00:00"
         },
         {
             "name": "easycorp/easy-log-handler",
@@ -2811,16 +2811,16 @@
         },
         {
             "name": "symfony/dom-crawler",
-            "version": "v4.0.6",
+            "version": "v4.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "26726ddc01601dc9393f2afc3369ce1ca64e4537"
+                "reference": "d6c04c7532535b5e0b63db45b543cd60818e0fbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/26726ddc01601dc9393f2afc3369ce1ca64e4537",
-                "reference": "26726ddc01601dc9393f2afc3369ce1ca64e4537",
+                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/d6c04c7532535b5e0b63db45b543cd60818e0fbc",
+                "reference": "d6c04c7532535b5e0b63db45b543cd60818e0fbc",
                 "shasum": ""
             },
             "require": {
@@ -2863,7 +2863,7 @@
             ],
             "description": "Symfony DomCrawler Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-22T10:50:29+00:00"
+            "time": "2018-03-19T22:35:49+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
