@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Tests\Responder;
 
@@ -8,6 +9,13 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
+/**
+ * Class ResponderHomeTest
+ *
+ * @package Tests\Responder
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class ResponderHomeTest extends TestCase
 {
     /**

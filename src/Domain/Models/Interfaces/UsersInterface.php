@@ -1,11 +1,15 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
-use App\Domain\Models\Comments;
-use App\Domain\Models\Pictures;
-use App\Domain\Models\Tricks;
-
+/**
+ * Interface UsersInterface
+ *
+ * @package App\Domain\Models\Interfaces
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 interface UsersInterface
 {
     public function getTricks();

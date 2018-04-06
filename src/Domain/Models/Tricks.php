@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Domain\Models;
 
@@ -9,6 +10,13 @@ use App\Domain\Models\Interfaces\TricksInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 
+/**
+ * Class Tricks
+ *
+ * @package App\Domain\Models
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class Tricks implements TricksInterface
 {
     private $pictures;

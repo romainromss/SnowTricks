@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\UI\Responder;
 
@@ -7,12 +8,20 @@ use App\UI\Responder\Interfaces\ResponderHomeInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
+/**
+ * Class ResponderHome
+ *
+ * @package App\UI\Responder
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class ResponderHome implements ResponderHomeInterface
 {
     /**
      * @var TricksRepository
      */
     private $tricksRepository;
+
     /**
      * @var Environment
      */
@@ -47,3 +56,4 @@ class ResponderHome implements ResponderHomeInterface
         ]));
     }
 }
+

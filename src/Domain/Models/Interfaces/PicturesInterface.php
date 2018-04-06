@@ -1,7 +1,7 @@
 <?php
+declare(strict_types=1);
 /**
- * Created by PhpStorm.
- * Users: romss
+ * Created by romss.
  * Date: 05/04/2018
  * Time: 09:25
  */
@@ -11,6 +11,13 @@ namespace App\Domain\Models\Interfaces;
 use App\Domain\Models\Tricks;
 use App\Domain\Models\Users;
 
+/**
+ * Interface PicturesInterface
+ *
+ * @package App\Domain\Models\Interfaces
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 interface PicturesInterface
 {
     /**

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Repository;
 
@@ -6,6 +7,13 @@ use App\Domain\Models\Movies;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
+/**
+ * Class MoviesRepository
+ *
+ * @package App\Repository
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class MoviesRepository extends ServiceEntityRepository
 {
     /**

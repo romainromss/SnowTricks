@@ -1,10 +1,18 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\MoviesInterface;
 use Ramsey\Uuid\Uuid;
 
+/**
+ * Class Movies
+ *
+ * @package App\Domain\Models
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class Movies implements MoviesInterface
 {
     private $id;

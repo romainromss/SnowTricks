@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Tests\Actions;
 
@@ -11,6 +12,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
+/**
+ * Class IndexActionTest
+ *
+ * @package Tests\Actions
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class IndexActionTest extends TestCase
 {
     /**

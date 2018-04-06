@@ -1,7 +1,15 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
+/**
+ * Interface TricksInterface
+ *
+ * @package App\Domain\Models\Interfaces
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 interface TricksInterface
 {
     /**

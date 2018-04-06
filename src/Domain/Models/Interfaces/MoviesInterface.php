@@ -1,7 +1,7 @@
 <?php
+declare(strict_types=1);
 /**
- * Created by PhpStorm.
- * Users: romss
+ * Created by romss.
  * Date: 05/04/2018
  * Time: 09:24
  */
@@ -10,6 +10,13 @@ namespace App\Domain\Models\Interfaces;
 
 use App\Domain\Models\Tricks;
 
+/**
+ * Interface MoviesInterface
+ *
+ * @package App\Domain\Models\Interfaces
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 interface MoviesInterface
 {
     public function __construct(

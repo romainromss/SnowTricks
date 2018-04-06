@@ -2,24 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7284f834-8218-4d49-ac0e-1d3eb407cbcd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/ckeditor/samples/old/assets/posteddata.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/ckeditor/samples/old/assets/posteddata.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/plugins/ckeditor/samples/old/sample_posteddata.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/plugins/ckeditor/samples/old/sample_posteddata.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Comments.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Movies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Movies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Pictures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Pictures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/CommentsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CommentsRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/MoviesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MoviesRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/PicturesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PicturesRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/TricksRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TricksRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UsersRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/layout.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Entity/TricksTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/TricksTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/CommentsRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/CommentsRepository.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/MoviesRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/MoviesRepository.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/PicturesRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/PicturesRepository.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/TricksRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/TricksRepository.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/UsersRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/UsersRepository.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -66,44 +80,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TricksTest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Entity/TricksTest.php">
+      <file leaf-file-name="Comments.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Models/Comments.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="203" selection-start-line="203" selection-end-line="203" />
+            <state relative-caret-position="33">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
               <folding>
-                <element signature="e#32#63#0#PHP" expanded="true" />
+                <element signature="e#62#113#0#PHP" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeAction.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/UI/Actions/HomeAction.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tricks.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="196" column="37" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
-              <folding>
-                <element signature="e#37#88#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TricksInterface.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -116,6 +100,7 @@
       <find>glogo.png</find>
       <find>content</find>
       <find>btn-no</find>
+      <find>new WebSe</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,19 +109,13 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Entity/Tricks.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Entity/Tricks.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Entity/Movies.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Entity/Comments.php" />
         <option value="$PROJECT_DIR$/src/Domain/Entity/Pictures.php" />
         <option value="$PROJECT_DIR$/src/Domain/Entity/Users.php" />
         <option value="$PROJECT_DIR$/src/Ui/Responder/Interfaces/ResponderHomeInterface.php" />
         <option value="$PROJECT_DIR$/src/Ui/Actions/HomeAction.php" />
         <option value="$PROJECT_DIR$/src/Ui/Responder/ResponderHome.php" />
         <option value="$PROJECT_DIR$/config/services.yaml" />
-        <option value="$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php" />
         <option value="$PROJECT_DIR$/config/routes/annotations.yaml" />
-        <option value="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" />
         <option value="$PROJECT_DIR$/src/Domain/Tricks.php" />
         <option value="$PROJECT_DIR$/src/Domain/Pictures.php" />
         <option value="$PROJECT_DIR$/src/Domain/Movies.php" />
@@ -145,36 +124,42 @@
         <option value="$PROJECT_DIR$/src/Repository/TrickRepository.php" />
         <option value="$PROJECT_DIR$/config/packages/doctrine.yaml" />
         <option value="$PROJECT_DIR$/config/mapping/Movies.orm.xml" />
-        <option value="$PROJECT_DIR$/src/Repository/CommentsRepository.php" />
-        <option value="$PROJECT_DIR$/src/Repository/PicturesRepository.php" />
-        <option value="$PROJECT_DIR$/src/Repository/MoviesRepository.php" />
-        <option value="$PROJECT_DIR$/src/Repository/UsersRepository.php" />
-        <option value="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" />
-        <option value="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" />
-        <option value="$PROJECT_DIR$/src/Repository/TricksRepository.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksModelsInterface.php" />
         <option value="$PROJECT_DIR$/assets/index.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/Domain/Models/MoviesInterface.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Comments.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Pictures.php" />
         <option value="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Movies.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Users.php" />
         <option value="$PROJECT_DIR$/config/mapping/User.orm.xml" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/UserInterface.php" />
         <option value="$PROJECT_DIR$/config/mapping/Tricks.orm.xml" />
         <option value="$PROJECT_DIR$/config/mapping/Comments.orm.xml" />
         <option value="$PROJECT_DIR$/config/mapping/Pictures.orm.xml" />
         <option value="$PROJECT_DIR$/config/mapping/Users.orm.xml" />
+        <option value="$PROJECT_DIR$/templates/layout.html.twig" />
+        <option value="$PROJECT_DIR$/vendor/dunglas/panthere/src/PanthereTestCase.php" />
+        <option value="$PROJECT_DIR$/src/UI/Actions/testAction.php" />
+        <option value="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Tricks.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" />
-        <option value="$PROJECT_DIR$/tests/Entity/TricksTest.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Comments.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Movies.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Pictures.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Users.php" />
+        <option value="$PROJECT_DIR$/src/Repository/CommentsRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/MoviesRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/PicturesRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/TricksRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/UsersRepository.php" />
         <option value="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" />
+        <option value="$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php" />
+        <option value="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" />
+        <option value="$PROJECT_DIR$/tests/Responder/ResponderHomeFunctionalTest.php" />
+        <option value="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" />
+        <option value="$PROJECT_DIR$/tests/Entity/TricksTest.php" />
       </list>
     </option>
   </component>
@@ -305,11 +290,10 @@
       <path value="$PROJECT_DIR$/vendor/dunglas/panthere" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="269" />
-    <option name="y" value="76" />
-    <option name="width" value="1623" />
-    <option name="height" value="879" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1280" />
+    <option name="height" value="753" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -317,7 +301,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -346,23 +329,7 @@
             <path>
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
               <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Actions" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="templates" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
@@ -373,6 +340,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -381,22 +349,22 @@
     <property name="javascript.nodejs.core.library.configured.version" value="9.5.0" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/public/images/Upload" />
-      <recent name="$PROJECT_DIR$/public/css" />
-      <recent name="$PROJECT_DIR$/src/Actions" />
-      <recent name="$PROJECT_DIR$/src/Repository" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/Domain/Models/Interfaces" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/Domain/Models" />
       <recent name="$PROJECT_DIR$/src/Domain" />
       <recent name="$PROJECT_DIR$/src/Ui" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/public/images/Upload" />
+      <recent name="$PROJECT_DIR$/public/css" />
+      <recent name="$PROJECT_DIR$/src/Actions" />
+      <recent name="$PROJECT_DIR$/src/Repository" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -495,30 +463,33 @@
       <workItem from="1522745739228" duration="3513000" />
       <workItem from="1522755927383" duration="174000" />
       <workItem from="1522757204078" duration="7167000" />
-      <workItem from="1522876625669" duration="13385000" />
+      <workItem from="1522876625669" duration="14363000" />
+      <workItem from="1522929128286" duration="1053000" />
+      <workItem from="1522931279473" duration="2047000" />
+      <workItem from="1522933975010" duration="1343000" />
+      <workItem from="1522996789259" duration="4895000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239461000" />
+    <option name="totallyTimeSpent" value="249777000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="753" extended-state="6" />
+    <frame x="0" y="22" width="1280" height="753" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.19063005" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50220263" side_tool="true" weight="0.27733934" />
-      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3276923" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3276923" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49779737" weight="0.37076923" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.18174475" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50220263" side_tool="true" weight="0.27733934" />
       <window_info anchor="right" id="Database" order="3" weight="0.18901454" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32307693" />
+      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3276923" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3276923" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="3" sideWeight="0.50651467" side_tool="true" weight="0.20355412" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49779737" weight="0.37076923" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="3" sideWeight="0.50651467" side_tool="true" weight="0.20355412" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="npm" order="0" sideWeight="0.5201342" side_tool="true" weight="0.1459251" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -527,6 +498,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Database Console" order="10" weight="0.3276923" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32307693" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -534,22 +506,22 @@
       <window_info id="npm" order="0" sideWeight="0.5201342" side_tool="true" weight="0.1459251" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.18174475" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3276923" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32307693" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3276923" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" weight="0.18901454" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49779737" weight="0.37076923" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50220263" side_tool="true" weight="0.27733934" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3276923" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Database Console" order="12" weight="0.3276923" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="3" sideWeight="0.50651467" side_tool="true" weight="0.20355412" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.3276923" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32307693" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.18901454" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,128 +542,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/img/various/little-face.png" />
-    <entry file="file://$PROJECT_DIR$/public/js/pagination.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/TopDown.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/phpunit">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="46" selection-start-line="13" selection-start-column="46" selection-end-line="13" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/console">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="153" column="64" selection-start-line="153" selection-start-column="64" selection-end-line="153" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tricks/tricks.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes/annotations.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="27" selection-start-line="1" selection-start-column="27" selection-end-line="1" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Repository/TricksRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#34#68#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/CommentsRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="19" column="44" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
-          <folding>
-            <element signature="e#36#67#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/MoviesRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding>
-            <element signature="e#35#64#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/UsersRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="17" column="42" lean-forward="true" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-          <folding>
-            <element signature="e#34#62#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/PicturesRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-          <folding>
-            <element signature="e#35#66#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Actions/IndexActionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/TricksRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="72" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -699,23 +557,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2645">
           <caret line="115" column="13" selection-start-line="115" selection-start-column="13" selection-end-line="115" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="e#47#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Responder/ResponderHome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -733,47 +574,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="3" lean-forward="true" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/529b2db6-7a12-476d-ab48-38ec3a4bd08a/console_1.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/adminer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#69#76#0" expanded="true" />
-            <element signature="e#4#10#1" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#!!top" expanded="true" />
-            <element signature="e#4#10#1" expanded="true" />
-            <element signature="e#99#105#1" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#!!top" expanded="true" />
-            <element signature="e#57#63#1" expanded="true" />
-            <element signature="e#14#20#0" expanded="true" />
-            <element signature="e#4#10#1" expanded="true" />
-            <element signature="e#4#10#1" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#8#14#1" expanded="true" />
-            <element signature="e#45#51#1" expanded="true" />
-            <element signature="e#78#84#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/test.php" />
+    <entry file="file://$PROJECT_DIR$/index.php" />
+    <entry file="file://$PROJECT_DIR$/public/adminer.php" />
     <entry file="file://$PROJECT_DIR$/config/services.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
@@ -816,60 +619,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-          <folding>
-            <element signature="e#130#159#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Comments.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <element signature="e#37#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Pictures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="7" column="35" lean-forward="true" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
-          <folding>
-            <element signature="e#37#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/packages/dev/web_profiler.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Movies.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-          <folding>
-            <element signature="e#37#86#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,33 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="19" column="46" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding>
-            <element signature="e#37#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-          <folding>
-            <element signature="e#48#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/mapping/Comments.orm.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -942,46 +668,270 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/dunglas/panthere/src/Client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-566">
+          <caret line="46" column="27" selection-start-line="46" selection-start-column="27" selection-end-line="46" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/dunglas/panthere/src/ProcessManager/WebServerManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/dunglas/panthere/src/DomCrawler/Crawler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3214">
+          <caret line="215" column="20" selection-start-line="215" selection-start-column="20" selection-end-line="215" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1219">
+          <caret line="53" column="49" selection-start-line="53" selection-start-column="49" selection-end-line="53" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/dunglas/panthere/src/PanthereTestCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
+          <folding>
+            <element signature="e#282#316#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/testAction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="20" selection-end-column="1" />
+          <folding>
+            <element signature="e#6#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mapping/Comments.orm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="22" column="16" lean-forward="true" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+        <state relative-caret-position="23">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="93" column="32" selection-start-line="93" selection-start-column="32" selection-end-line="93" selection-end-column="32" />
+        <state relative-caret-position="46">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="196" column="37" selection-start-line="196" selection-start-column="37" selection-end-line="196" selection-end-column="37" />
+        <state relative-caret-position="92">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Movies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding>
+            <element signature="e#37#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Pictures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
           <folding>
             <element signature="e#37#88#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Entity/TricksTest.php">
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="203" selection-start-line="203" selection-end-line="203" />
+        <state relative-caret-position="23">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
           <folding>
-            <element signature="e#32#63#0#PHP" expanded="true" />
+            <element signature="e#37#85#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/CommentsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/MoviesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/PicturesRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/TricksRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/UsersRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Actions/HomeAction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
+        <state relative-caret-position="23">
+          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
+          <folding>
+            <element signature="e#34#89#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Responder/ResponderHome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tricks/tricks.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Actions/IndexActionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Entity/TricksTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Responder/ResponderHomeFunctionalTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Comments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#62#113#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="Copyright.UI">
+        <settings>
+          <last-edited>romss</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

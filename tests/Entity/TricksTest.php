@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace Tests\Entity;
 
@@ -9,6 +10,13 @@ use App\Domain\Models\Tricks;
 use App\Domain\Models\Users;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class TricksTest
+ *
+ * @package Tests\Entity
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class TricksTest extends TestCase
 {
 

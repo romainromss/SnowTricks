@@ -1,10 +1,18 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\CommentsInterface;
 use Ramsey\Uuid\Uuid;
 
+/**
+ * Class Comments
+ *
+ * @package App\Domain\Models
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class Comments implements CommentsInterface
 {
     private $id;
