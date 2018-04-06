@@ -1,7 +1,16 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Repository;
+/*
+ * This file is part of the Snowtricks project.
+ *
+ * (c) Romain Bayette <romain.romss@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace App\Domain\Repository;
 
 use App\Domain\Models\Comments;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -9,8 +18,6 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
  * Class CommentsRepository
- *
- * @package App\Repository
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

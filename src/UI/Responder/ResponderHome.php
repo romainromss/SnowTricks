@@ -1,9 +1,17 @@
 <?php
 declare(strict_types=1);
 
+/*
+ * This file is part of the Snowtricks project.
+ *
+ * (c) Romain Bayette <romain.romss@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace App\UI\Responder;
 
-use App\Repository\TricksRepository;
 use App\UI\Responder\Interfaces\ResponderHomeInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
@@ -11,49 +19,38 @@ use Twig\Environment;
 /**
  * Class ResponderHome
  *
- * @package App\UI\Responder
- *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
 class ResponderHome implements ResponderHomeInterface
 {
     /**
-     * @var TricksRepository
-     */
-    private $tricksRepository;
-
-    /**
      * @var Environment
      */
     private $twig;
 
+
     /**
      * ResponderHome constructor.
      *
-     * @param TricksRepository $tricksRepository
      * @param Environment $twig
      */
     public function __construct(
-        TricksRepository $tricksRepository,
         Environment $twig
     ) {
-        $this->tricksRepository = $tricksRepository;
         $this->twig = $twig;
     }
 
-
     /**
+     * @param $data
+     *
      * @return Response
      *
      * @throws \Twig_Error_Loader
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function __invoke():Response
+    public function __invoke($data):Response
     {
-        return new Response($this->twig->render('tricks/tricks.html.twig', [
-            'tricks' => $this->tricksRepository->getAllWithPictures()
-        ]));
+        return new Response($this->twig->render('tricks/tricks.html.twig', $data));
     }
 }
-
