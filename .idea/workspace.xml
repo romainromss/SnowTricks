@@ -2,29 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7284f834-8218-4d49-ac0e-1d3eb407cbcd" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/Actions/TricksDetailsActionTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Comments.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Comments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Movies.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Movies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Pictures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Pictures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Tricks.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Models/Users.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Models/Users.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CommentsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Repository/CommentsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/MoviesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Repository/MoviesRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PicturesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Repository/PicturesRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TricksRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UsersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Repository/UsersRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entity/TricksTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/TricksTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Responder/ResponderHomeFunctionalTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Responder/ResponderHomeFunctionalTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Comments.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Comments.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/CommentsInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/CommentsInterface.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/MoviesInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/MoviesInterface.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/PicturesInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/PicturesInterface.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/TricksInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/TricksInterface.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/UsersInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/UsersInterface.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Interfaces/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Movies.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Movies.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Pictures.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Pictures.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Tricks.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Tricks.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Users.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/Users.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/Models/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Domain/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Domain/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/HomeAction.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/HomeAction.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Actions/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/ResponderHomeInterface.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/ResponderHomeInterface.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/Interfaces/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/ResponderHome.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/ResponderHome.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/Responder/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/UI/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/UI/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,26 +83,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HomeAction.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/UI/Actions/HomeAction.php">
+      <file leaf-file-name="Tricks.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="161">
+              <caret line="101" column="28" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
               <folding>
-                <element signature="e#295#331#0#PHP" expanded="true" />
+                <element signature="e#298#349#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResponderHome.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UI/Responder/ResponderHome.php">
+      <file leaf-file-name="TricksInterface.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="56" selection-start-line="56" selection-end-line="56" />
-              <folding>
-                <element signature="e#298#353#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="331">
+              <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -139,21 +148,17 @@
         <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/CommentsInterface.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/MoviesInterface.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/PicturesInterface.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Comments.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Movies.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Pictures.php" />
-        <option value="$PROJECT_DIR$/src/Domain/Models/Tricks.php" />
         <option value="$PROJECT_DIR$/src/Domain/Models/Users.php" />
         <option value="$PROJECT_DIR$/src/Repository/CommentsRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/MoviesRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/PicturesRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/TricksRepository.php" />
         <option value="$PROJECT_DIR$/src/Repository/UsersRepository.php" />
-        <option value="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" />
         <option value="$PROJECT_DIR$/tests/Entity/TricksTest.php" />
-        <option value="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" />
         <option value="$PROJECT_DIR$/tests/Responder/ResponderHomeFunctionalTest.php" />
         <option value="$PROJECT_DIR$/src/Domain/Repository/CommentsRepository.php" />
         <option value="$PROJECT_DIR$/src/Domain/Repository/MoviesRepository.php" />
@@ -163,6 +168,10 @@
         <option value="$PROJECT_DIR$/src/UI/Actions/HomeAction.php" />
         <option value="$PROJECT_DIR$/src/UI/Responder/Interfaces/ResponderHomeInterface.php" />
         <option value="$PROJECT_DIR$/src/UI/Responder/ResponderHome.php" />
+        <option value="$PROJECT_DIR$/tests/Actions/IndexActionTest.php" />
+        <option value="$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php" />
+        <option value="$PROJECT_DIR$/src/Domain/Models/Tricks.php" />
       </list>
     </option>
   </component>
@@ -304,6 +313,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -327,7 +337,15 @@
               <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Domain" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
@@ -349,19 +367,10 @@
               <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Responder" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="SnowTricks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SnowTricks" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="UI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Responder" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Interfaces" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -493,16 +502,16 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254642000" />
+    <option name="totallyTimeSpent" value="257595000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1280" height="753" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.1720517" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.23990306" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50220263" side_tool="true" weight="0.27733934" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50220263" side_tool="true" weight="0.2769231" />
       <window_info anchor="right" id="Database" order="3" weight="0.18901454" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3276923" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
@@ -512,37 +521,49 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="3" sideWeight="0.50651467" side_tool="true" weight="0.20355412" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info id="npm" order="0" sideWeight="0.5201342" side_tool="true" weight="0.1459251" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.1720517" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3276923" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
+      <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3276923" />
+      <window_info anchor="right" id="Database" order="3" weight="0.18901454" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50220263" side_tool="true" weight="0.27733934" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Database Console" order="10" weight="0.3276923" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32307693" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49779737" weight="0.37076923" />
+      <window_info id="Favorites" order="3" sideWeight="0.50651467" side_tool="true" weight="0.20355412" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info id="npm" order="0" sideWeight="0.5201342" side_tool="true" weight="0.1459251" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.18901454" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="8" weight="0.3276923" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3276923" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32307693" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" weight="0.18901454" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49779737" weight="0.37076923" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50220263" side_tool="true" weight="0.27733934" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info id="Favorites" order="3" sideWeight="0.50651467" side_tool="true" weight="0.20355412" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3276923" />
       <window_info anchor="bottom" id="Database Console" order="12" weight="0.3276923" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32307693" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.47986576" visible="true" weight="0.18901454" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info id="Favorites" order="3" sideWeight="0.50651467" side_tool="true" weight="0.20355412" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,13 +588,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Domain/Repository/TricksRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/_types.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2645">
@@ -626,20 +640,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://529b2db6-7a12-476d-ab48-38ec3a4bd08a/schema/snowtricks/table/tricks.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/b83afc0f/529b2db6-7a12-476d-ab48-38ec3a4bd08a/snowtricks.tricks">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://529b2db6-7a12-476d-ab48-38ec3a4bd08a/schema/snowtricks/table/tricks.sql" />
+    <entry file="das://table:/b83afc0f/529b2db6-7a12-476d-ab48-38ec3a4bd08a/snowtricks.tricks" />
     <entry file="file://$PROJECT_DIR$/config/packages/dev/web_profiler.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -647,13 +649,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://529b2db6-7a12-476d-ab48-38ec3a4bd08a/schema/snowtricks/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://529b2db6-7a12-476d-ab48-38ec3a4bd08a/schema/snowtricks/table/users" />
     <entry file="file://$PROJECT_DIR$/config/packages/doctrine.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -721,22 +717,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="101" column="30" selection-start-line="101" selection-start-column="30" selection-end-line="101" selection-end-column="30" />
-          <folding>
-            <element signature="e#282#316#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/UI/Actions/testAction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="20" selection-end-column="1" />
-          <folding>
-            <element signature="e#6#87#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/UI/Actions/testAction.php" />
     <entry file="file://$PROJECT_DIR$/config/mapping/Comments.orm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -779,13 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/UsersInterface.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -817,13 +794,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Domain/Models/Users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -831,31 +801,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Responder/ResponderHomeFunctionalTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Entity/TricksTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Actions/IndexActionTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="25" column="2" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
         </state>
       </provider>
     </entry>
@@ -904,22 +853,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Actions/TricksDetailsActionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Entity/TricksTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
+          <folding>
+            <element signature="e#293#324#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Responder/ResponderHome.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <element signature="e#298#353#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="370">
+          <caret line="53" column="78" selection-start-line="53" selection-start-column="78" selection-end-line="53" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/UI/Actions/HomeAction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="347">
+          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Responder/ResponderHomeTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
           <folding>
-            <element signature="e#295#331#0#PHP" expanded="true" />
+            <element signature="e#296#332#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Actions/IndexActionTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="54" column="54" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
+          <folding>
+            <element signature="e#294#330#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Interfaces/TricksInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Domain/Models/Tricks.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="101" column="28" selection-start-line="101" selection-start-column="28" selection-end-line="101" selection-end-column="28" />
+          <folding>
+            <element signature="e#298#349#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

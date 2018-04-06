@@ -11,6 +11,7 @@ declare(strict_types=1);
  */
 
 namespace App\Domain\Models\Interfaces;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * Interface TricksInterface
@@ -35,9 +36,9 @@ interface TricksInterface
     public function getUser();
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
-    public function getId(): string;
+    public function getId(): UuidInterface;
 
     /**
      * @return mixed

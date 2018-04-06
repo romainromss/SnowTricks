@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Tests\Actions;
 
-use App\Repository\TricksRepository;
+use App\Domain\Repository\TricksRepository;
 use App\UI\Actions\HomeAction;
 use App\UI\Responder\Interfaces\ResponderHomeInterface;
 use App\UI\Responder\ResponderHome;
@@ -42,8 +42,7 @@ class IndexActionTest extends TestCase
      */
     public function testConstructor()
     {
-        $responder = $this->createMock(ResponderHomeInterface::class);
-        $constructResponder = new HomeAction($responder);
+        $constructResponder = new HomeAction();
         static::assertInstanceOf(HomeAction::class, $constructResponder);
     }
 
@@ -54,10 +53,10 @@ class IndexActionTest extends TestCase
     {
         $tricksRepository = $this->createMock(TricksRepository::class);
         $twig = $this->createMock(Environment::class);
-        $request = $this->createMock(Request::class);
 
         $indexAction = new HomeAction();
-        $responder = new ResponderHome($tricksRepository, $twig);
-        static::assertInstanceOf(Response::class, $indexAction($responder, $request));
+        $responder = new ResponderHome($twig);
+
+        static::assertInstanceOf(Response::class, $indexAction($responder, $tricksRepository));
     }
 }

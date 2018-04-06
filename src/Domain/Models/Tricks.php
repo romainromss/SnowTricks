@@ -18,6 +18,7 @@ use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * Class Tricks
@@ -98,9 +99,9 @@ class Tricks implements TricksInterface
     }
 
     /**
-     * @return string
+     * @return UuidInterface
      */
-    public function getId(): string
+    public function getId(): UuidInterface
     {
         return $this->id;
     }
