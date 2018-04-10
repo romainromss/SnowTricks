@@ -29,12 +29,16 @@ class TricksRepository extends ServiceEntityRepository
     }
 
     /**
+     * @param $first
      * @return mixed
      */
-    public function getAllWithPictures()
+    public function getAllWithPictures($first)
     {
         return $this->createQueryBuilder('t')
-            ->leftJoin('t.pictures', 'p')
+            ->innerJoin('t.pictures', 'p')
+            ->where('p.first = :first')
+            ->setParameter(':first' , $first)
+            ->addSelect('p')
             ->orderBy('t.createdAt', 'DESC')
             ->getQuery()
             ->getResult()

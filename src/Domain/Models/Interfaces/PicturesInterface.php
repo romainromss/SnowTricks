@@ -27,6 +27,7 @@ interface PicturesInterface
      * @param string $name
      * @param string $legend
      * @param string $avatar
+     * @param bool $first
      * @param Tricks|null $tricks
      * @param Users|null $user
      */
@@ -34,6 +35,7 @@ interface PicturesInterface
         string $name,
         string $legend,
         string $avatar = null,
+        bool $first,
         Tricks $tricks = null,
         Users $user = null
     );
@@ -67,4 +69,9 @@ interface PicturesInterface
      * @return mixed
      */
     public function getAvatar();
+
+    /**
+     * @return mixed
+     */
+    public function isFirst();
 }

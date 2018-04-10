@@ -35,8 +35,7 @@ class HomeAction
      */
     public function __invoke(ResponderHomeInterface $responderHome, TricksRepository $tricksRepository): Response
     {
-
-        return $responderHome(['tricks' => $tricksRepository->getAllWithPictures()]);
+        return $responderHome(['tricks' => $tricksRepository->getAllWithPictures(true)]);
     }
 }
 

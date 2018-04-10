@@ -14,6 +14,7 @@ namespace App\UI\Actions;
 
 use App\Domain\Repository\TricksRepository;
 use App\UI\Responder\ResponderTricksDetails;
+use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 

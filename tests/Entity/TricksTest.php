@@ -113,13 +113,13 @@ class TricksTest extends TestCase
 
         static::assertCount(0, $trick->getPictures());
 
-        $trick->addPictures(new Pictures('pictures', 'pictures'));
+        $trick->addPictures(new Pictures('pictures', 'pictures', '', false));
         static::assertCount(1, $trick->getPictures());
     }
 
     public function testUnsetPictures()
     {
-        $pictures = new Pictures('pictures', 'pictures');
+        $pictures = new Pictures('pictures', 'pictures', '', false);
         $user = $this->createMock(Users::class);
         $trick = new Tricks(
             'name',

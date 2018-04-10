@@ -28,6 +28,7 @@ class Pictures implements PicturesInterface
     private $name;
     private $legend;
     private $avatar;
+    private $first;
 
     /**
      * Pictures constructor.
@@ -42,6 +43,7 @@ class Pictures implements PicturesInterface
         string $name,
         string $legend,
         string $avatar = null,
+        bool $first,
         Tricks $tricks = null,
         Users $user = null
     ) {
@@ -49,6 +51,7 @@ class Pictures implements PicturesInterface
         $this->name = $name;
         $this->legend = $legend;
         $this->avatar = $avatar;
+        $this->first = $first;
         $this->trick = $tricks;
         $this->user = $user;
     }
@@ -100,5 +103,13 @@ class Pictures implements PicturesInterface
     public function getAvatar()
     {
         return $this->avatar;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFirst(): bool
+    {
+        return $this->first;
     }
 }

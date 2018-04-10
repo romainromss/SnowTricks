@@ -21,6 +21,7 @@
         <field name="name" column="name" type="string" length="20" nullable="false"/>
         <field name="legend" column="legend" type="string" length="50" nullable="false"/>
         <field name="avatar" column="avatar" type="string" length="50" nullable="true"/>
+        <field name="first" column="first" type="boolean" nullable="false"/>
 
 
     </entity>

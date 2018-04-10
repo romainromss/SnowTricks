@@ -25,12 +25,10 @@
                 {% for trick in tricks %}
                     <div class="col-md-6 col-lg-4 col-xl-4 animated fadeIn tricks">
                         <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
-                            {% for picture in trick.pictures %}
-                                <img class="img-fluid options-item" src="{{ asset('images/Upload/') }}{{ picture.name }}" alt="">
-                            {% endfor %}
+                            <img class="img-fluid options-item" src="{{ asset('images/Upload/') }}{{ trick.pictures.0.name }}" alt="">
                             <div class="options-overlay bg-black-op-75">
                                 <div class="options-overlay-content">
-                                    <h2 class="h4 text-white mb-5"><a style="color: white" href="#">{{ trick.name }}</a></h2>
+                                    <h2 class="h4 text-white mb-5"><a style="color: white" href="/tricks/{{ trick.slug }}">{{ trick.name }}</a></h2>
                                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                         <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" href="{{ asset('img/photos/photo16@2x.jpg') }}">
                                             <i class="fa fa-trash"></i> Supprimer
