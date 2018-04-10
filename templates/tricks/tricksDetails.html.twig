@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block head %}
+   <!-- Page Content -->
+   <div class="bg-image" style='background-image: url("{{ asset('images/Upload/') }}{{ tricks.pictures.0.name }}");'>
+      <div class="hero bg-primary-dark-op">
+         <div class="hero-inner">
+            <div class="content content-full text-center">
+               <h1 class="display-4 font-w700 text-white mb-10 invisible"
+                   data-toggle="appear" data-class="animated fadeInDown">{{ tricks.name }}</h1>
+            </div>
+         </div>
+      </div>
+      <i id="arrowDown" class="si si-arrow-down-circle"
+         style="position: absolute; right: 35px; font-size: 1.8em; color: white; bottom: 30px;"></i>
+   </div>
+   <!-- END Page Content -->
+{% endblock %}
+
+{% block content %}
+   {{tricks.name}}
+{% endblock %}

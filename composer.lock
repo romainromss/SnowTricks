@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a12af322c8ffa69af98fbdd3215c5121",
+    "content-hash": "8ea4406fc48db63fbcc1c7269ecc5376",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -5325,16 +5325,16 @@
         },
         {
             "name": "symfony/web-profiler-bundle",
-            "version": "v4.0.6",
+            "version": "v4.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/web-profiler-bundle.git",
-                "reference": "eaaf46b1ccaf83c8c97efd8d081e03d9ff0f29de"
+                "reference": "4f6a1f77120b5e4b37c59db34a8dc0a4d3df5cf0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/eaaf46b1ccaf83c8c97efd8d081e03d9ff0f29de",
-                "reference": "eaaf46b1ccaf83c8c97efd8d081e03d9ff0f29de",
+                "url": "https://api.github.com/repos/symfony/web-profiler-bundle/zipball/4f6a1f77120b5e4b37c59db34a8dc0a4d3df5cf0",
+                "reference": "4f6a1f77120b5e4b37c59db34a8dc0a4d3df5cf0",
                 "shasum": ""
             },
             "require": {
@@ -5387,7 +5387,7 @@
             ],
             "description": "Symfony WebProfilerBundle",
             "homepage": "https://symfony.com",
-            "time": "2018-03-02T08:28:17+00:00"
+            "time": "2018-04-04T13:50:32+00:00"
         },
         {
             "name": "symfony/yaml",

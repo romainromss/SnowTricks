@@ -40,4 +40,21 @@ class TricksRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
+
+    /**
+     * @param $slug
+     *
+     * @return mixed
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getBySlug($slug)
+    {
+       return $this->createQueryBuilder('t')
+            ->where('t.slug = :slug')
+            ->setParameter('slug', $slug)
+            ->getQuery()
+            ->getOneOrNullResult()
+           ;
+    }
 }
