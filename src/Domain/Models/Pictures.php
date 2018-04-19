@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -13,51 +14,84 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\PicturesInterface;
+use App\Domain\Models\Interfaces\TricksInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
- * Class Pictures
+ * Class Pictures.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
 class Pictures implements PicturesInterface
 {
+    /**
+     * @var TricksInterface|null
+     */
     private $trick;
-    private $user;
+    /**
+     * @var UsersInterface|null
+     */
+    private $users;
+    /**
+     * @var UuidInterface
+     */
     private $id;
+    /**
+     * @var string
+     */
     private $name;
+    /**
+     * @var string
+     */
     private $legend;
-    private $avatar;
+    /**
+     * @var null|string
+     */
+    private $pictures;
+    /**
+     * @var bool
+     */
     private $first;
+    /**
+     * @var null|string
+     */
+    private $avatar;
+
 
     /**
      * Pictures constructor.
      *
-     * @param string $name
-     * @param string $legend
-     * @param string $avatar
-     * @param Tricks|null $tricks
-     * @param Users|null $user
+     * @param string                $name
+     * @param string                $legend
+     * @param string|null           $pictures
+     * @param bool                  $first
+     * @param string|null           $avatar
+     * @param TricksInterface|null  $tricks
+     * @param UsersInterface|null   $user
      */
     public function __construct(
         string $name,
         string $legend,
-        string $avatar = null,
+        string $pictures = null,
         bool $first,
-        Tricks $tricks = null,
-        Users $user = null
+        string $avatar = null,
+        TricksInterface $tricks = null,
+        UsersInterface $user = null
     ) {
         $this->id = Uuid::uuid4();
         $this->name = $name;
         $this->legend = $legend;
-        $this->avatar = $avatar;
+        $this->pictures = $pictures;
         $this->first = $first;
+        $this->avatar = $avatar;
         $this->trick = $tricks;
-        $this->user = $user;
+        $this->users = $user;
     }
 
     /**
-     * @return mixed
+     * @return TricksInterface
      */
     public function getTrick()
     {
@@ -66,15 +100,15 @@ class Pictures implements PicturesInterface
 
 
     /**
-     * @return mixed
+     * @return UsersInterface
      */
     public function getUser()
     {
-        return $this->user;
+        return $this->users;
     }
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId()
     {
@@ -82,7 +116,7 @@ class Pictures implements PicturesInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -90,19 +124,11 @@ class Pictures implements PicturesInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLegend()
     {
         return $this->legend;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAvatar()
-    {
-        return $this->avatar;
     }
 
     /**
@@ -111,5 +137,21 @@ class Pictures implements PicturesInterface
     public function isFirst(): bool
     {
         return $this->first;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getPictures(): ? string
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
     }
 }

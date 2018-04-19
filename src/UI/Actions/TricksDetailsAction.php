@@ -12,14 +12,17 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\Repository\TricksRepository;
-use App\UI\Responder\ResponderTricksDetails;
-use Ramsey\Uuid\Uuid;
+use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
+use App\UI\Form\Type\AddCommentType;
+use App\UI\Responder\Interfaces\ResponderTricksDetailsInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class TricksDetailsAction
+ * Class TricksDetailsAction.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
@@ -28,19 +31,39 @@ class TricksDetailsAction
     /**
      * @Route("/tricks/{slug}", name="TricksDetails")
      *
-     * @param ResponderTricksDetails $responderTricksDetails
-     * @param TricksRepository $tricksRepository
-     * @param $slug
+     * @param ResponderTricksDetailsInterface   $responderTricksDetails
+     * @param TricksRepositoryInterface         $tricksRepository
+     * @param string                            $slug
+     * @param FormFactoryInterface              $formFactory
+     * @param Request                           $request
+     * @param AddCommentTypeHandlerInterface    $addCommentTypeHandler
      *
      * @return Response
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
      */
-    public function __invoke(ResponderTricksDetails $responderTricksDetails, TricksRepository $tricksRepository, $slug): Response
-    {
-        return $responderTricksDetails(['tricks' => $tricksRepository->getBySlug($slug)]);
+    public function __invoke(
+        ResponderTricksDetailsInterface $responderTricksDetails,
+        TricksRepositoryInterface $tricksRepository,
+        string $slug,
+        FormFactoryInterface $formFactory,
+        Request $request,
+        AddCommentTypeHandlerInterface $addCommentTypeHandler
+    ):  Response {
+
+        $tricks = $tricksRepository->getBySlug($slug);
+
+        $addCommentType = $formFactory
+            ->create(AddCommentType::class)
+            ->handleRequest($request);
+
+        if ($addCommentTypeHandler->handle($addCommentType, $tricks)){
+            return $responderTricksDetails(true);
+        }
+
+        return $responderTricksDetails(false,[
+            'tricks' => $tricks,
+            'form' => $addCommentType->createView()
+        ],  $addCommentType);
     }
 }

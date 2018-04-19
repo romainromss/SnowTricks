@@ -24,27 +24,20 @@ interface CommentsInterface
     /**
      * Comments constructor.
      *
-     * @param string $name
      * @param string $content
-     * @param Tricks $trick
-     * @param Users $user
+     * @param TricksInterface $trick
+     * @param UsersInterface $user
      */
     public function __construct(
-        string $name,
         string $content,
-        Tricks $trick,
-        Users $user
+        TricksInterface $trick,
+        UsersInterface $user
     );
 
     /**
      * @return mixed
      */
     public function getId();
-
-    /**
-     * @return mixed
-     */
-    public function getName();
 
     /**
      * @return mixed
@@ -64,5 +57,5 @@ interface CommentsInterface
     /**
      * @return mixed
      */
-    public function getUser();
+    public function getUsers();
 }

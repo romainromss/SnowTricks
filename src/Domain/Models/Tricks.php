@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -16,59 +17,92 @@ use App\Domain\Models\Interfaces\CommentsInterface;
 use App\Domain\Models\Interfaces\MoviesInterface;
 use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
 /**
- * Class Tricks
+ * Class Tricks.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
 class Tricks implements TricksInterface
 {
+    /**
+     * @var ArrayCollection
+     */
     private $pictures;
+    /**
+     * @var ArrayCollection
+     */
     private $comments;
+    /**
+     * @var ArrayCollection
+     */
     private $movies;
-    private $user;
+    /**
+     * @var UsersInterface
+     */
+    private $users;
+    /**
+     * @var UuidInterface
+     */
     private $id;
+    /**
+     * @var string
+     */
     private $name;
+    /**
+     * @var string
+     */
     private $description;
+    /**
+     * @var string
+     */
     private $group;
+    /**
+     * @var string
+     */
     private $slug;
+    /**
+     * @var string
+     */
     private $updatedAt;
+    /**
+     * @var string
+     */
     private $createdAt;
 
 
     /**
      * Tricks constructor.
      *
-     * @param string $name
-     * @param string $description
-     * @param string $group
-     * @param string $slug
-     * @param Users $user
-     * @param Pictures|null $pictures
-     * @param Movies|null $movies
-     * @param Comments $comments
+     * @param string                   $name
+     * @param string                   $description
+     * @param string                   $group
+     * @param string                   $slug
+     * @param UsersInterface           $users
+     * @param PicturesInterface|null   $pictures
+     * @param MoviesInterface|null     $movies
+     * @param CommentsInterface        $comments
      */
     public function __construct(
         string $name,
         string $description,
         string $group,
         string $slug,
-        Users $user,
-        Pictures $pictures = null,
-        Movies $movies = null,
-        Comments $comments = null
+        UsersInterface $users,
+        PicturesInterface $pictures = null,
+        MoviesInterface $movies = null,
+        CommentsInterface $comments = null
     ) {
         $this->id = Uuid::uuid4();
-        $this->createdAt = time();
         $this->name = $name;
         $this->description = $description;
         $this->group = $group;
         $this->slug = $slug;
-        $this->user = $user;
+        $this->users = $users;
         $this->pictures = new ArrayCollection();
         $this->movies = new ArrayCollection();
         $this->comments = new ArrayCollection();
@@ -90,12 +124,13 @@ class Tricks implements TricksInterface
         return $this->comments;
     }
 
+
     /**
-     * @return mixed
+     * @return UsersInterface
      */
-    public function getUser()
+    public function getUsers()
     {
-        return $this->user;
+        return $this->users;
     }
 
     /**
@@ -134,18 +169,18 @@ class Tricks implements TricksInterface
 
 
     /**
-     * @return int|null
+     * @return string
      */
-    public function getUpdatedAt(): ? int
+    public function getUpdatedAt(): ? string
     {
         return $this->updatedAt;
     }
 
 
     /**
-     * @return int
+     * @return string
      */
-    public function getCreatedAt(): int
+    public function getCreatedAt(): ? string
     {
         return $this->createdAt;
     }

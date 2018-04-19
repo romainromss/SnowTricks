@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -12,40 +13,79 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
+use App\Domain\Models\Interfaces\CommentsInterface;
+use App\Domain\Models\Interfaces\PicturesInterface;
+use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
- * Class Users
+ * Class Users.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
 class Users implements UsersInterface
 {
+    /**
+     * @var TricksInterface|null
+     */
     private $tricks;
+    /**
+     * @var CommentsInterface|null
+     */
     private $comments;
+    /**
+     * @var PicturesInterface
+     */
     private $pictures;
+    /**
+     * @var UuidInterface
+     */
     private $id;
+    /**
+     * @var string
+     */
     private $username;
+    /**
+     * @var string
+     */
     private $email;
+    /**
+     * @var string
+     */
     private $name;
+    /**
+     * @var string
+     */
     private $lastname;
+    /**
+     * @var string
+     */
     private $password;
+    /**
+     * @var string
+     */
     private $role;
+    /**
+     * @var string
+     */
     private $createdAt;
+
 
     /**
      * Users constructor.
      *
-     * @param string $username
-     * @param string $email
-     * @param string $name
-     * @param string $lastname
-     * @param string $password
-     * @param string $role
-     * @param Tricks|null $tricks
-     * @param Pictures $pictures
-     * @param Comments|null $comments
+     * @param string                  $username
+     * @param string                  $email
+     * @param string                  $name
+     * @param string                  $lastname
+     * @param string                  $password
+     * @param string                  $role
+     * @param string                  $createdAt
+     * @param PicturesInterface       $pictures
+     * @param TricksInterface|null    $tricks
+     * @param CommentsInterface|null  $comments
      */
     public function __construct(
         string $username,
@@ -54,23 +94,26 @@ class Users implements UsersInterface
         string $lastname,
         string $password,
         string $role,
-        Pictures $pictures,
-        Tricks $tricks = null,
-        Comments $comments = null
+        string $createdAt,
+        PicturesInterface $pictures,
+        TricksInterface $tricks = null,
+        CommentsInterface $comments = null
     ) {
         $this->id = Uuid::uuid4();
         $this->username = $username;
         $this->email = $email;
+        $this->name = $name;
         $this->lastname = $lastname;
         $this->password = $password;
         $this->role = $role;
+        $this->createdAt = $createdAt;
         $this->pictures = $pictures;
         $this->tricks = $tricks;
         $this->comments = $comments;
     }
 
     /**
-     * @return mixed
+     * @return TricksInterface
      */
     public function getTricks()
     {
@@ -78,7 +121,7 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return mixed
+     * @return CommentsInterface
      */
     public function getComments()
     {
@@ -86,7 +129,7 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId()
     {
@@ -94,7 +137,7 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getUsername()
     {
@@ -102,7 +145,7 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmail()
     {
@@ -110,7 +153,7 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -118,7 +161,7 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLastname()
     {
@@ -126,7 +169,7 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPassword()
     {
@@ -134,7 +177,7 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getRole()
     {
@@ -142,10 +185,18 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * @return PicturesInterface
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
     }
 }

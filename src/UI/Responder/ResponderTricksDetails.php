@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -11,29 +12,46 @@ declare(strict_types=1);
  */
 
 namespace App\UI\Responder;
+
+use App\UI\Responder\Interfaces\ResponderTricksDetailsInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
 /**
- * Class ResponderTricksDetails
+ * Class ResponderTricksDetails.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class ResponderTricksDetails
+class ResponderTricksDetails implements ResponderTricksDetailsInterface
 {
     /**
      * @var Environment
      */
     private $twig;
 
+    /**
+     * @var UrlGeneratorInterface
+     */
+    private $urlGenerator;
+
+    /**
+     * {@inheritdoc}
+     */
     public function __construct(
-        Environment $twig
-    ){
+        Environment $twig,
+        UrlGeneratorInterface $urlGenerator
+    ) {
         $this->twig = $twig;
+        $this->urlGenerator = $urlGenerator;
     }
 
     /**
-     * @param $data
+     * @param bool           $redirect
+     * @param array          $data
+     * @param FormInterface  $addCommentType
      *
      * @return Response
      *
@@ -41,8 +59,16 @@ class ResponderTricksDetails
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function __invoke($data): Response
-    {
-        return new Response($this->twig->render('tricks/tricksDetails.html.twig', $data));
+    public function __invoke(
+        $redirect = false,
+        $data = null,
+        FormInterface $addCommentType = null
+    ):  Response {
+
+        $response = $redirect
+            ?  new RedirectResponse($this->urlGenerator->generate('index'))
+            :  new Response($this->twig->render('tricks/tricksDetails.html.twig', $data));
+
+        return $response;
     }
 }

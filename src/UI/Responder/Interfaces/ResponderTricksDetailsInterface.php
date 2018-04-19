@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -12,7 +13,10 @@ declare(strict_types=1);
 
 namespace App\UI\Responder\Interfaces;
 
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Twig\Environment;
 
 /**
  * Interface ResponderTricksDetailsInterface
@@ -21,5 +25,27 @@ use Symfony\Component\HttpFoundation\Response;
  */
 interface ResponderTricksDetailsInterface
 {
-    public function __invoke($data): Response;
+    /**
+     * ResponderTricksDetailsInterface constructor.
+     *
+     * @param Environment            $twig
+     * @param UrlGeneratorInterface  $urlGenerator
+     */
+    public function __construct(
+        Environment $twig,
+        UrlGeneratorInterface $urlGenerator
+    );
+
+    /**
+     * @param bool            $redirect
+     * @param                 $data
+     * @param FormInterface   $addCommentType
+     *
+     * @return Response
+     */
+    public function __invoke(
+        $redirect = false,
+        $data = null,
+        FormInterface $addCommentType = null
+    ):  Response;
 }

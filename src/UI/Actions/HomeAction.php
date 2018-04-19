@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -12,13 +13,13 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\Repository\TricksRepository;
+use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responder\Interfaces\ResponderHomeInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class HomeAction
+ * Class HomeAction.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
@@ -28,13 +29,15 @@ class HomeAction
      * @Route("/", name="index")
      *
      * @param ResponderHomeInterface $responderHome
-     *
-     * @param TricksRepository $tricksRepository
+     * @param TricksRepositoryInterface $tricksRepository
      *
      * @return Response
      */
-    public function __invoke(ResponderHomeInterface $responderHome, TricksRepository $tricksRepository): Response
-    {
+    public function __invoke(
+        ResponderHomeInterface $responderHome,
+        TricksRepositoryInterface $tricksRepository
+    ):  Response {
+
         return $responderHome(['tricks' => $tricksRepository->getAllWithPictures(true)]);
     }
 }

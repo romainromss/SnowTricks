@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -14,7 +15,7 @@ namespace App\Domain\Models\Interfaces;
 use Ramsey\Uuid\UuidInterface;
 
 /**
- * Interface TricksInterface
+ * Interface TricksInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
@@ -31,9 +32,9 @@ interface TricksInterface
     public function getComments(): \ArrayAccess;
 
     /**
-     * @return mixed
+     * @return UsersInterface
      */
-    public function getUser();
+    public function getUsers();
 
     /**
      * @return UuidInterface
@@ -41,7 +42,7 @@ interface TricksInterface
     public function getId(): UuidInterface;
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName(): string;
 
@@ -56,14 +57,14 @@ interface TricksInterface
     public function getGroup(): string;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getUpdatedAt(): ? int;
+    public function getUpdatedAt(): ? string;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getCreatedAt(): int;
+    public function getCreatedAt(): ? string;
 
     /**
      * @return \ArrayAccess
@@ -76,7 +77,7 @@ interface TricksInterface
     public function getSlug(): string;
 
     /**
-     * @param array $pictures
+     * @param PicturesInterface $pictures
      *
      * @return array
      */

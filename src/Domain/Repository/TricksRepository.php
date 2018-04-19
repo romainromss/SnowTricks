@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -13,15 +14,16 @@ declare(strict_types=1);
 namespace App\Domain\Repository;
 
 use App\Domain\Models\Tricks;
+use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * Class TricksRepository
+ * Class TricksRepository.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class TricksRepository extends ServiceEntityRepository
+class TricksRepository extends ServiceEntityRepository implements TricksRepositoryInterface
 {
     public function __construct(RegistryInterface $registry)
     {
@@ -29,21 +31,22 @@ class TricksRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $first
+     * @param bool $first
+     *
      * @return mixed
      */
-    public function getAllWithPictures($first)
+    public function getAllWithPictures(bool $first = false)
     {
         return $this->createQueryBuilder('t')
             ->innerJoin('t.pictures', 'p')
             ->where('p.first = :first')
             ->setParameter(':first' , $first)
-            ->addSelect('p')
             ->orderBy('t.createdAt', 'DESC')
             ->getQuery()
             ->getResult()
             ;
     }
+
 
     /**
      * @param $slug
@@ -55,6 +58,12 @@ class TricksRepository extends ServiceEntityRepository
     public function getBySlug($slug)
     {
        return $this->createQueryBuilder('t')
+            ->innerJoin('t.pictures', 'p')
+            ->leftJoin('t.movies', 'm')
+            ->leftJoin('t.comments', 'tc')
+            ->leftJoin('tc.users', 'cu')
+            ->innerJoin('t.users', 'u')
+            ->leftJoin('u.pictures', 'up')
             ->where('t.slug = :slug')
             ->setParameter('slug', $slug)
             ->getQuery()
