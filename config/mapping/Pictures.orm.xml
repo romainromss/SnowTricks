@@ -13,15 +13,15 @@
 
         <many-to-one field="trick" target-entity="Tricks" inversed-by="pictures">
         </many-to-one>
-        <one-to-one field="user" target-entity="Users" inversed-by="pictures">
+        <one-to-one field="users" target-entity="Users" inversed-by="pictures">
         </one-to-one>
 
         <id name="id" column="id" type="uuid" />
 
-        <field name="name" column="name" type="string" length="20" nullable="false"/>
+        <field name="name" column="name" type="string" length="20" nullable="true"/>
         <field name="legend" column="legend" type="string" length="50" nullable="false"/>
         <field name="avatar" column="avatar" type="string" length="50" nullable="true"/>
-        <field name="first" column="first" type="boolean" nullable="false"/>
+        <field name="first" column="first" type="boolean" nullable="true"/>
 
 
     </entity>

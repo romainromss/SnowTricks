@@ -1,6 +1,7 @@
 let parameters = {
     section: document.getElementById("Display"),
-    button: document.getElementById("more")
+    button: document.getElementById("more"),
+    selector: '.tricks'
 };
 
 
@@ -10,10 +11,9 @@ function Pagination (params) {
     (function () {
         that.section = params.section;
         that.button = params.button;
-        that.child = that.section.querySelectorAll(".tricks");
+        that.child = that.section.querySelectorAll(params.selector);
     })()
 }
-
 
 Pagination.prototype.eventHandler = function () {
 
@@ -38,7 +38,16 @@ Pagination.prototype.paginate = function () {
     this.eventHandler();
 };
 
+const typeHidden = document.getElementById('type');
+if (typeHidden) {
+    parameters.selector = typeHidden.value;
+
+    if (typeHidden.dataset.mobile === '1') {
+
+    }
+}
 
 let p = new Pagination(parameters);
 p.paginate();
+
 
