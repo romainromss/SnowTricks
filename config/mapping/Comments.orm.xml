@@ -10,7 +10,7 @@
         <many-to-one field="trick" target-entity="Tricks" inversed-by="comments">
         </many-to-one>
 
-        <many-to-one field="user" target-entity="Users" inversed-by="comments">
+        <many-to-one field="users" target-entity="Users" inversed-by="comments">
         </many-to-one>
 
         <id name="id" column="id" type="uuid" />

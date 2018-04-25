@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -17,7 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
 /**
- * Class ResponderHome
+ * Class ResponderHome.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

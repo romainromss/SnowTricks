@@ -13,20 +13,41 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\MoviesInterface;
+use App\Domain\Models\Interfaces\TricksInterface;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
- * Class Movies
+ * Class Movies.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
 class Movies implements MoviesInterface
 {
+    /**
+     * @var \Ramsey\Uuid\UuidInterface
+     */
     private $id;
+    /**
+     * @var string
+     */
     private $embed;
+    /**
+     * @var string
+     */
     private $legend;
+    /**
+     * @var TricksInterface
+     */
     private $trick;
 
+    /**
+     * Movies constructor.
+     *
+     * @param string       $embed
+     * @param string       $legend
+     * @param Tricks|null  $tricks
+     */
     public function __construct(
         string $embed,
         string $legend,
@@ -39,7 +60,7 @@ class Movies implements MoviesInterface
     }
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId()
     {
@@ -47,7 +68,7 @@ class Movies implements MoviesInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmbed()
     {
@@ -55,7 +76,7 @@ class Movies implements MoviesInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLegend()
     {
@@ -63,7 +84,7 @@ class Movies implements MoviesInterface
     }
 
     /**
-     * @return mixed
+     * @return TricksInterface
      */
     public function getTricks()
     {

@@ -13,3 +13,9 @@
 \.idea/
 
 tests/\.DS_Store
+
+public/images/\.DS_Store
+
+templates/\.DS_Store
+
+tests/test-coverage/\.DS_Store
