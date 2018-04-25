@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /*
  * This file is part of the SnowTricks project.
@@ -14,65 +15,54 @@ namespace App\Tests\Entity;
 
 use App\Domain\Models\Movies;
 use App\Domain\Models\Tricks;
-use App\Domain\Models\Users;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class MoviesTest.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class MoviesTest extends TestCase
 {
-
     /**
-     *@test
+     * @var Tricks
      */
+    private $trick;
+    /**
+     * @var Movies
+     */
+    private $movies;
+
+    public function setUp()
+    {
+        $this->trick = $this->createMock(Tricks::class);
+
+        $this->movies = new Movies(
+            'embed',
+            'legend',
+            $this->trick
+        );
+    }
+
     public function testTricksIsInstanceOf()
     {
-        $trick = $this->createMock(Tricks::class);
-
-        $movies = new Movies(
-            'embed',
-            'legend',
-            $trick
-        );
-
-        static::assertInstanceOf(Movies::class, $movies);
+        static::assertInstanceOf(Movies::class, $this->movies);
     }
 
-    /**
-     *@test
-     */
     public function testGoodAttributes()
     {
-        $trick = $this->createMock(Tricks::class);
-
-        $movies = new Movies(
-            'embed',
-            'legend',
-            $trick
-        );
-
-        static::assertObjectHasAttribute('id', $movies);
-        static::assertObjectHasAttribute('embed', $movies);
-        static::assertObjectHasAttribute('legend', $movies);
-        static::assertObjectHasAttribute('trick', $movies);
+        static::assertObjectHasAttribute('id', $this->movies);
+        static::assertObjectHasAttribute('embed', $this->movies);
+        static::assertObjectHasAttribute('legend', $this->movies);
+        static::assertObjectHasAttribute('trick', $this->movies);
 
     }
 
-
-    /**
-     *@test
-     */
     public function testReturnOfGetters()
     {
-        $trick = $this->createMock(Tricks::class);
-
-        $movies = new Movies(
-            'embed',
-            'legend',
-            $trick
-        );
-
-        static::assertNotNull($movies->getId());
-        static::assertEquals('embed', $movies->getEmbed());
-        static::assertEquals('legend', $movies->getLegend());
-        static::assertInstanceOf(Tricks::class, $movies->getTricks());
+        static::assertNotNull($this->movies->getId());
+        static::assertEquals('embed', $this->movies->getEmbed());
+        static::assertEquals('legend', $this->movies->getLegend());
+        static::assertInstanceOf(Tricks::class, $this->movies->getTricks());
     }
 }

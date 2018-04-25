@@ -1,9 +1,8 @@
- parameters = {
-    section: document.getElementById("Display"),
-    button: document.getElementById("more"),
-    selector: '.tricks'
+parameters = {
+    section: document.getElementById("Disp"),
+    button: document.getElementById("seemore"),
+    selector: '.comments'
 };
-
 
 function Pagination (params) {
     const that = this;
@@ -13,6 +12,7 @@ function Pagination (params) {
         that.button = params.button;
         that.child = that.section.querySelectorAll(params.selector);
     })()
+    console.log(that.section.querySelectorAll(params.selector))
 }
 
 Pagination.prototype.eventHandler = function () {
@@ -30,7 +30,7 @@ Pagination.prototype.eventHandler = function () {
 Pagination.prototype.paginate = function () {
 
     for (let i = 0; i < this.child.length; i++) {
-        if(i > 8) {
+        if(i > 4) {
             this.child[i].style.display = 'none'
         }
     }
@@ -38,8 +38,7 @@ Pagination.prototype.paginate = function () {
     this.eventHandler();
 };
 
-
-let p = new Pagination(parameters);
+p = new Pagination(parameters);
 p.paginate();
 
 

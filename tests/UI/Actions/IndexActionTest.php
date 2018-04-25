@@ -28,6 +28,20 @@ use Twig\Environment;
 class IndexActionTest extends TestCase
 {
     /**
+     * @var TricksRepository
+     */
+    private $tricksRepository;
+    /**
+     * @var Environment
+     */
+    private $twig;
+
+    public function setUp()
+    {
+        $this->tricksRepository = $this->createMock(TricksRepository::class);
+        $this->twig = $this->createMock(Environment::class);
+    }
+    /**
      *@test
      */
     public function testIndexActionInstanceOf()
@@ -50,12 +64,9 @@ class IndexActionTest extends TestCase
      */
     public function testInvoke()
     {
-        $tricksRepository = $this->createMock(TricksRepository::class);
-        $twig = $this->createMock(Environment::class);
-
         $indexAction = new HomeAction();
-        $responder = new ResponderHome($twig);
+        $responder = new ResponderHome($this->twig);
 
-        static::assertInstanceOf(Response::class, $indexAction($responder, $tricksRepository));
+        static::assertInstanceOf(Response::class, $indexAction($responder, $this->tricksRepository));
     }
 }

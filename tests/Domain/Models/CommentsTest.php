@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -18,70 +19,58 @@ use App\Domain\Models\Users;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class TricksTest
+ * Class TricksTest.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
 class CommentsTest extends TestCase
 {
-
     /**
-     *@test
+     * @var Users
      */
+    private $user;
+    /**
+     * @var Tricks
+     */
+    private $trick;
+    /**
+     * @var Comments
+     */
+    private $comments;
+
+    public function setUp()
+    {
+        $this->user = $this->createMock(Users::class);
+        $this->trick = $this->createMock(Tricks::class);
+
+        $this->comments = new Comments(
+            'content',
+            $this->trick,
+            $this->user
+        );
+
+    }
+
     public function testTricksIsInstanceOf()
     {
-        $user = $this->createMock(Users::class);
-        $trick = $this->createMock(Tricks::class);
-
-        $comments = new Comments(
-            'content',
-            $trick,
-            $user
-        );
-
-        static::assertInstanceOf(Comments::class, $comments);
+        static::assertInstanceOf(Comments::class, $this->comments);
     }
 
-    /**
-     *@test
-     */
     public function testGoodAttributes()
     {
-        $user = $this->createMock(Users::class);
-        $trick = $this->createMock(Tricks::class);
-
-        $comments = new Comments(
-            'content',
-            $trick,
-            $user
-        );
-
-        static::assertObjectHasAttribute('id', $comments);
-        static::assertObjectHasAttribute('content', $comments);
-        static::assertObjectHasAttribute('createdAt', $comments);
-        static::assertObjectHasAttribute('trick', $comments);
-        static::assertObjectHasAttribute('users', $comments);
+        static::assertObjectHasAttribute('id', $this->comments);
+        static::assertObjectHasAttribute('content', $this->comments);
+        static::assertObjectHasAttribute('createdAt', $this->comments);
+        static::assertObjectHasAttribute('trick', $this->comments);
+        static::assertObjectHasAttribute('users', $this->comments);
     }
 
-
-    /**
-     *@test
-     */
     public function testReturnOfGetters()
     {
-        $user = $this->createMock(Users::class);
-        $trick = $this->createMock(Tricks::class);
-
-        $comments = new Comments(
-            'content',
-            $trick,
-            $user
-        );
-
-        static::assertNotNull($comments->getId());
-        static::assertEquals('content', $comments->getContent());
-        static::assertNotNull(0, $comments->getCreatedAt());
-        static::assertInstanceOf(Users::class, $comments->getUsers());
-        static::assertInstanceOf(Tricks::class, $comments->getTrick());
+        static::assertNotNull($this->comments->getId());
+        static::assertEquals('content', $this->comments->getContent());
+        static::assertNotNull(0, $this->comments->getCreatedAt());
+        static::assertInstanceOf(Users::class, $this->comments->getUsers());
+        static::assertInstanceOf(Tricks::class, $this->comments->getTrick());
     }
 }

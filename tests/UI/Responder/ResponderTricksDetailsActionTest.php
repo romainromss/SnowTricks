@@ -14,8 +14,7 @@ declare(strict_types=1);
 namespace App\Tests\UI\Responder;
 
 use App\Domain\Repository\TricksRepository;
-use App\UI\Form\Type\AddCommentType;
-use App\UI\Responder\ResponderHome;
+use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
 use App\UI\Responder\ResponderTricksDetails;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormInterface;
@@ -30,26 +29,41 @@ use Twig\Environment;
  */
 class ResponderTricksDetailsActionTest extends TestCase
 {
+
     /**
-     *@test
+     * @var Environment
      */
+    private $twig;
+    /**
+     * @var TricksRepository
+     */
+    private $tricksRepository;
+    /**
+     * @var AddCommentTypeHandlerInterface
+     */
+    private $addCommentType;
+    /**
+     * @var UrlGeneratorInterface
+     */
+    private $urlGenerator;
+
+    public function setUp()
+    {
+        $this->twig = $this->createMock(Environment::class);
+        $this->tricksRepository = $this->createMock(TricksRepository::class);
+        $this->addCommentType = $this->createMock(FormInterface::class);
+        $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
+    }
+
     public function testResponderHomeInstanceOf()
     {
         $responder = $this->createMock(ResponderTricksDetails::class);
         static::assertInstanceOf(ResponderTricksDetails::class, $responder);
     }
 
-    /**
-     *@test
-     */
     public function testConstructResponderTricksDetails()
     {
-        $twig = $this->createMock(Environment::class);
-        $tricksRepository = $this->createMock(TricksRepository::class);
-        $addCommentType = $this->createMock(FormInterface::class);
-        $urlGenerator = $this->createMock(UrlGeneratorInterface::class);
-
-        $responder = new ResponderTricksDetails($twig, $urlGenerator);
-        static::assertInstanceOf(Response::class, $responder(['tricks' => $tricksRepository], $addCommentType));
+        $responder = new ResponderTricksDetails($this->twig, $this->urlGenerator);
+        static::assertInstanceOf(Response::class, $responder(false,['tricks' => $this->tricksRepository], $this->addCommentType));
     }
 }

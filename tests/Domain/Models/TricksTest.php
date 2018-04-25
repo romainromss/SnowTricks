@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -20,29 +21,54 @@ use App\Domain\Models\Users;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class TricksTest
+ * Class TricksTest.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
 class TricksTest extends TestCase
 {
-
     /**
-     *@test
+     * @var Tricks
      */
-    public function testTricksIsInstanceOf()
-    {
-        $user = $this->createMock(Users::class);
+    private $trick;
+    /**
+     * @var Users
+     */
+    private $user;
+    /**
+     * @var Comments
+     */
+    private $comment;
+    /**
+     * @var Movies
+     */
+    private $movies;
+    /**
+     * @var Pictures
+     */
+    private $pictures;
 
-        $trick = new Tricks(
+    public function setUp()
+    {
+        $this->user = $this->createMock(Users::class);
+
+        $this->trick = new Tricks(
             'name',
             'description',
             'group',
             'slug',
-            $user
+            $this->user
         );
 
-        static::assertInstanceOf(Tricks::class, $trick);
+        $this->comment = new Comments('comment',  $this->trick, $this->user);
+        $this->pictures = $this->createMock(Pictures::class);
+        $this->movies = $this->createMock(Movies::class);
+
+    }
+
+    public function testTricksIsInstanceOf()
+    {
+        static::assertInstanceOf(Tricks::class, $this->trick);
     }
 
     /**
@@ -50,26 +76,16 @@ class TricksTest extends TestCase
      */
     public function testGoodAttributes()
     {
-        $user = $this->createMock(Users::class);
-
-        $trick = new Tricks(
-                'un nom',
-                'description',
-                'group',
-                'slug',
-                $user
-            );
-
-        static::assertObjectHasAttribute('id', $trick);
-        static::assertObjectHasAttribute('name', $trick);
-        static::assertObjectHasAttribute('description', $trick);
-        static::assertObjectHasAttribute('group', $trick);
-        static::assertObjectHasAttribute('slug', $trick);
-        static::assertObjectHasAttribute('createdAt', $trick);
-        static::assertObjectHasAttribute('updatedAt', $trick);
-        static::assertObjectHasAttribute('pictures', $trick);
-        static::assertObjectHasAttribute('movies', $trick);
-        static::assertObjectHasAttribute('users', $trick);
+        static::assertObjectHasAttribute('id', $this->trick);
+        static::assertObjectHasAttribute('name', $this->trick);
+        static::assertObjectHasAttribute('description', $this->trick);
+        static::assertObjectHasAttribute('group', $this->trick);
+        static::assertObjectHasAttribute('slug', $this->trick);
+        static::assertObjectHasAttribute('createdAt', $this->trick);
+        static::assertObjectHasAttribute('updatedAt', $this->trick);
+        static::assertObjectHasAttribute('pictures', $this->trick);
+        static::assertObjectHasAttribute('movies', $this->trick);
+        static::assertObjectHasAttribute('users', $this->trick);
     }
 
 
@@ -78,141 +94,73 @@ class TricksTest extends TestCase
      */
     public function testReturnOfGetters()
     {
-        $user = $this->createMock(Users::class);
-        $trick = new Tricks(
-            'name',
-            'description',
-            'group',
-            'slug',
-            $user
-        );
-
-        static::assertNotNull($trick->getId());
-        static::assertEquals('name', $trick->getName());
-        static::assertEquals('description', $trick->getDescription());
-        static::assertEquals('group', $trick->getGroup());
-        static::assertEquals('slug', $trick->getSlug());
-        static::assertNotNull(0, $trick->getCreatedAt());
-        static::assertNotNull(0, $trick->getUpdatedAt());
-        static::assertInstanceOf(Users::class, $trick->getUsers());
-        static::assertCount(0, $trick->getMovies());
-        static::assertCount(0, $trick->getPictures());
-        static::assertCount(0, $trick->getComments());
+        static::assertNotNull($this->trick->getId());
+        static::assertEquals('name', $this->trick->getName());
+        static::assertEquals('description', $this->trick->getDescription());
+        static::assertEquals('group', $this->trick->getGroup());
+        static::assertEquals('slug', $this->trick->getSlug());
+        static::assertNotNull(0, $this->trick->getCreatedAt());
+        static::assertNotNull(0, $this->trick->getUpdatedAt());
+        static::assertInstanceOf(Users::class, $this->trick->getUsers());
+        static::assertCount(0, $this->trick->getMovies());
+        static::assertCount(0, $this->trick->getPictures());
+        static::assertCount(0, $this->trick->getComments());
     }
 
     public function testAddPictures()
     {
-        $user = $this->createMock(Users::class);
-        $trick = new Tricks(
-            'name',
-            'description',
-            'group',
-            'slug',
-            $user
-        );
+        static::assertCount(0, $this->trick->getPictures());
 
-        static::assertCount(0, $trick->getPictures());
-
-        $trick->addPictures(new Pictures('pictures', 'pictures', '', false));
-        static::assertCount(1, $trick->getPictures());
+        $this->trick->addPictures(new Pictures('pictures', 'pictures', '', false));
+        static::assertCount(1, $this->trick->getPictures());
     }
 
     public function testUnsetPictures()
     {
-        $pictures = new Pictures('pictures', 'pictures', '', false);
-        $user = $this->createMock(Users::class);
-        $trick = new Tricks(
-            'name',
-            'description',
-            'group',
-            'slug',
-            $user
-        );
+        static::assertCount(0, $this->trick->getPictures());
 
-        static::assertCount(0, $trick->getPictures());
+        $this->trick->addPictures($this->pictures);
+        static::assertCount(1, $this->trick->getPictures());
 
-        $trick->addPictures($pictures);
-        static::assertCount(1, $trick->getPictures());
-
-        $trick->unsetPictures($pictures);
-        static::assertCount(0, $trick->getPictures());
+        $this->trick->unsetPictures($this->pictures);
+        static::assertCount(0, $this->trick->getPictures());
     }
 
     public function testAddMovies()
     {
-        $movies = new Movies('movies', 'movies');
-        $user = $this->createMock(Users::class);
-        $trick = new Tricks(
-            'name',
-            'description',
-            'group',
-            'slug',
-            $user
-        );
+        static::assertCount(0, $this->trick->getMovies());
 
-        static::assertCount(0, $trick->getMovies());
-
-        $trick->addMovies($movies);
-        static::assertCount(1, $trick->getMovies());
+        $this->trick->addMovies($this->movies);
+        static::assertCount(1, $this->trick->getMovies());
     }
 
     public function testUnsetMovies()
     {
-        $movies = new Movies('movies', 'movies');
-        $user = $this->createMock(Users::class);
-        $trick = new Tricks(
-            'name',
-            'description',
-            'group',
-            'slug',
-            $user
-        );
+        static::assertCount(0, $this->trick->getMovies());
 
-        static::assertCount(0, $trick->getMovies());
+        $this->trick->addMovies($this->movies);
+        static::assertCount(1, $this->trick->getMovies());
 
-        $trick->addMovies($movies);
-        static::assertCount(1, $trick->getMovies());
-
-        $trick->unsetMovies($movies);
-        static::assertCount(0, $trick->getPictures());
+        $this->trick->unsetMovies($this->movies);
+        static::assertCount(0, $this->trick->getPictures());
     }
 
     public function testAddComments()
     {
-        $user = $this->createMock(Users::class);
-        $trick = new Tricks(
-            'name',
-            'description',
-            'group',
-            'slug',
-            $user
-        );
-        $comment = new Comments('comment',  $trick, $user);
+        static::assertCount(0, $this->trick->getComments());
 
-        static::assertCount(0, $trick->getComments());
-
-        $trick->addComments($comment);
-        static::assertCount(1, $trick->getComments());
+        $this->trick->addComments($this->comment);
+        static::assertCount(1, $this->trick->getComments());
     }
 
     public function testUnsetComment()
     {
-        $user = $this->createMock(Users::class);
-        $trick = new Tricks(
-            'name',
-            'description',
-            'group',
-            'slug',
-            $user
-        );
-        $comment = new Comments('comment',  $trick, $user);
+        static::assertCount(0, $this->trick->getComments());
 
-        static::assertCount(0, $trick->getComments());
+        $this->trick->addComments($this->comment);
+        static::assertCount(1, $this->trick->getComments());
 
-        $trick->addComments($comment);
-        static::assertCount(1, $trick->getComments());
-
-        $trick->unsetComment($comment);
-        static::assertCount(0, $trick->getComments());
+        $this->trick->unsetComment($this->comment);
+        static::assertCount(0, $this->trick->getComments());
     }
 }

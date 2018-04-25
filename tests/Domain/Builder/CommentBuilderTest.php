@@ -26,6 +26,25 @@ use PHPUnit\Framework\TestCase;
  */
 class CommentBuilderTest extends TestCase
 {
+    /**
+     * @var TricksInterface
+     */
+    private $tricks;
+    /**
+     * @var string
+     */
+    private $content;
+    /**
+     * @var UsersInterface
+     */
+    private $users;
+
+    public function setUp()
+    {
+        $this->tricks = $this->createMock(TricksInterface::class);
+        $this->content = 'content';
+        $this->users = $this->createMock(UsersInterface::class);
+    }
     public function testInstanceOf()
     {
         $commentBuilder = new CommentBuilder();
@@ -34,12 +53,8 @@ class CommentBuilderTest extends TestCase
 
     public function testcreate()
     {
-        $tricks = $this->createMock(TricksInterface::class);
-        $content = 'content';
-        $users = $this->createMock(UsersInterface::class);
-
         $comment = new CommentBuilder();
-        $comment->create($content, $tricks, $users);
+        $comment->create($this->content, $this->tricks, $this->users);
 
         static::assertInstanceOf(Comments::class, $comment->getComment());
     }

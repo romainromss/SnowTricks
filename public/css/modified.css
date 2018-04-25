@@ -1,58 +1,45 @@
-.col-lg-4
-{
- margin-bottom:20px;
+
+.info p {
+ padding: 5px 10px;
 }
 
-.fa-arrow-left, .fa-arrow-right
-{
- color: black;
- font-size: 20px;
+.img-avatar{
+ width: 48px;
+ height: 48px;
 }
 
-.fa-trash-alt
+.btnheader
 {
- color: darkred;
+ position: absolute;
+ margin:auto;
+ top: 80px;
+ right: 3%;
 }
 
-.fa-pencil-alt
+.info{
+ text-align: center; display: flex; justify-content: center
+}
+
+.groupInfo
 {
+ border-radius: 2px 5px 5px;
+ border: solid #26c6da;
+ background-color: #26c6da;
+ margin-right:5px;
  color: white;
 }
 
-.portfolio-item-category a
+.formMaterial
 {
- color: whitesmoke;
+ border-top: 2px solid rgba(40,40,40,0.6)
 }
 
-
-.links {
- display: flex;
- background-color: #000;
- border-radius: 5px;
+.submit{
+ margin-top: 10px;
+ margin-bottom: 20px;
 }
 
-.link {
- flex: 40px;
- display: block;
- text-decoration: none;
- text-align: center;
- color: #fff;
- font-size: 1.25em;
- border-right: 1px solid #fff;
- transition: all 200ms linear;
-}
-
-.link:first-child {
- border-radius: 5px 0 0 5px;
-}
-
-.link:last-child {
- border-right: none;
- border-radius: 0 5px 5px 0;
-}
-
-.link:hover {
- background-color: #FFFFFF;
- color: black;
- font-weight: bold;
+.connection
+{
+ border-top: 2px solid rgba(40,40,40,0.6);
 }

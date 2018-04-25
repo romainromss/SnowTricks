@@ -20,12 +20,25 @@ use PHPUnit\Framework\TestCase;
 
 class AddCommentTypeHandlerTest extends TestCase
 {
+    /**
+     * @var CommentBuilderInterface
+     */
+    private $commentBuilder;
+
+    /**
+     * @var CommentsRepositoryInterface
+     */
+    private $commentRepository;
+
+    public function setUp()
+    {
+        $this->commentBuilder = $this->createMock(CommentBuilderInterface::class);
+        $this->commentRepository = $this->createMock(CommentsRepositoryInterface::class);
+    }
+
     public function testConstruct()
     {
-        $commentBuilder = $this->createMock(CommentBuilderInterface::class);
-        $commentRepositoy = $this->createMock(CommentsRepositoryInterface::class);
-
-        $addCommentTypeHandler = new AddCommentTypeHandler($commentBuilder, $commentRepositoy);
+        $addCommentTypeHandler = new AddCommentTypeHandler($this->commentBuilder, $this->commentRepository);
         static::assertInstanceOf(AddCommentTypeHandler::class, $addCommentTypeHandler);
     }
 
