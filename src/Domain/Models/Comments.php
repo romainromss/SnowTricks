@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -13,47 +14,61 @@ declare(strict_types=1);
 namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\CommentsInterface;
+use App\Domain\Models\Interfaces\TricksInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 /**
- * Class Comments
+ * Class Comments.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
 class Comments implements CommentsInterface
 {
+    /**
+     * @var \Ramsey\Uuid\UuidInterface
+     */
     private $id;
-    private $name;
+    /**
+     * @var string
+     */
     private $content;
+    /**
+     * @var int
+     */
     private $createdAt;
+    /**
+     * @var TricksInterface
+     */
     private $trick;
-    private $user;
+    /**
+     * @var UsersInterface
+     */
+    private $users;
 
 
     /**
      * Comments constructor.
      *
-     * @param string $name
-     * @param string $content
-     * @param Tricks $trick
-     * @param Users $user
+     * @param string            $content
+     * @param TricksInterface   $trick
+     * @param UsersInterface    $users
      */
     public function __construct(
-        string $name,
         string $content,
-        Tricks $trick,
-        Users $user
+        TricksInterface $trick,
+        UsersInterface $users
     ) {
         $this->id = Uuid::uuid4();
-        $this->name = $name;
         $this->content = $content;
         $this->createdAt = time();
         $this->trick = $trick;
-        $this->user = $user;
+        $this->users = $users;
     }
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId()
     {
@@ -61,15 +76,7 @@ class Comments implements CommentsInterface
     }
 
     /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return mixed
+     * @return string
      */
     public function getContent()
     {
@@ -77,7 +84,7 @@ class Comments implements CommentsInterface
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getCreatedAt()
     {
@@ -85,7 +92,7 @@ class Comments implements CommentsInterface
     }
 
     /**
-     * @return mixed
+     * @return TricksInterface
      */
     public function getTrick()
     {
@@ -93,10 +100,10 @@ class Comments implements CommentsInterface
     }
 
     /**
-     * @return mixed
+     * @return UsersInterface
      */
-    public function getUser()
+    public function getUsers()
     {
-        return $this->user;
+        return $this->users;
     }
 }

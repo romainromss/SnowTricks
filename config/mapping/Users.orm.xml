@@ -11,13 +11,13 @@
             <index name="password_idx" columns="password" />
         </indexes>
 
-        <one-to-many field="comments" target-entity="Comments" mapped-by="user">
+        <one-to-many field="comments" target-entity="Comments" mapped-by="users">
         </one-to-many>
 
-        <one-to-many field="tricks" target-entity="Tricks" mapped-by="user" >
+        <one-to-many field="tricks" target-entity="Tricks" mapped-by="users" >
         </one-to-many>
 
-        <one-to-one field="pictures" target-entity="Pictures" mapped-by="user">
+        <one-to-one field="pictures" target-entity="Pictures" mapped-by="users">
         </one-to-one>
 
 
@@ -28,7 +28,7 @@
         <field name="lastname" column="lastname" type="string" length="20" nullable="false" />
         <field name="password" column="password" type="string" length="65" nullable="false"  />
         <field name="email" column="email" type="string" length="50" nullable="false"  />
-        <field name="role" column="role" type="array" nullable="false" />
+        <field name="role" column="role" type="string" nullable="false" />
         <field name="createdAt" column="createdAt" type="integer" nullable="false"  />
 
 

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 /*
  * This file is part of the Snowtricks project.
@@ -13,9 +14,10 @@ namespace App\Domain\Models\Interfaces;
 
 use App\Domain\Models\Tricks;
 use App\Domain\Models\Users;
+use Ramsey\Uuid\UuidInterface;
 
 /**
- * Interface PicturesInterface
+ * Interface PicturesInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
@@ -26,45 +28,59 @@ interface PicturesInterface
      *
      * @param string $name
      * @param string $legend
-     * @param string $avatar
-     * @param Tricks|null $tricks
-     * @param Users|null $user
+     * @param string|null $pictures
+     * @param bool $first
+     * @param string|null $avatar
+     * @param TricksInterface|null $tricks
+     * @param UsersInterface|null $user
      */
     public function __construct(
         string $name,
         string $legend,
+        string $pictures = null,
+        bool $first,
         string $avatar = null,
-        Tricks $tricks = null,
-        Users $user = null
+        TricksInterface $tricks = null,
+        UsersInterface $user = null
     );
 
     /**
-     * @return mixed
+     * @return TricksInterface
      */
     public function getTrick();
 
     /**
-     * @return mixed
+     * @return UsersInterface
      */
     public function getUser();
 
     /**
-     * @return mixed
+     * @return UuidInterface
      */
     public function getId();
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName();
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getLegend();
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getAvatar();
+
+    /**
+     * @return string
+     */
+    public function getPictures();
+
+    /**
+     * @return bool
+     */
+    public function isFirst();
 }

@@ -29,6 +29,7 @@
     <!-- Stylesheets -->
     <!-- Codebase framework -->
     <link rel="stylesheet" id="css-main" href="{{ asset('css/codebase.min.css') }}">
+    <link rel="stylesheet" id="css-main" href="{{ asset('css/modified.css') }}">
 
     <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
     <link rel="stylesheet" id="css-theme" href="{{ asset('css/themes/corporate.min.css') }}">
@@ -55,7 +56,7 @@
 
                         <!-- Logo -->
                         <div class="content-header-item">
-                            <a class="link-effect font-w700" href="">
+                            <a class="link-effect font-w700" href="{{ path('index') }}">
                                 <i class="si si-fire text-primary"></i>
                                 <span class="font-size-xl text-dual-primary-dark">Snow</span><span class="font-size-xl text-primary">Tricks</span>
                             </a>
@@ -126,7 +127,7 @@
             <div class="content-header-section">
                 <!-- Logo -->
                 <div class="content-header-item mr-5">
-                    <a class="link-effect font-w600" href="">
+                    <a class="link-effect font-w600" href="{{ path('index') }}">
                         <span class="text-dual-primary-dark">Snow</span><span class="text-primary">Tricks</span>
                     </a>
                 </div>
@@ -272,9 +273,5 @@
 <script src="{{ asset('js/core/js.cookie.min.js') }}"></script>
 
 <script src="{{ asset('js/plugins/magnific-popup/magnific-popup.min.js') }}"></script>
-
-<script src="{{ asset('js/pagination.js') }}"></script>
-<script src="{{ asset('js/TopDown.js') }}"></script>
-
 </body>
 </html>
