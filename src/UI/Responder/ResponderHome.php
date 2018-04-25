@@ -29,7 +29,6 @@ class ResponderHome implements ResponderHomeInterface
      */
     private $twig;
 
-
     /**
      * ResponderHome constructor.
      *

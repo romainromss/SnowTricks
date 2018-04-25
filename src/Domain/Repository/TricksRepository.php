@@ -47,7 +47,6 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
             ;
     }
 
-
     /**
      * @param $slug
      *

@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /*
@@ -12,6 +13,11 @@ declare(strict_types=1);
 
 namespace App\Domain\Repository\Interfaces;
 
+/**
+ * Interface TricksRepositoryInterface.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 interface TricksRepositoryInterface
 {
     /**

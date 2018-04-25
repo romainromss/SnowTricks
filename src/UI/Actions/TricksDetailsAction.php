@@ -16,6 +16,7 @@ use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
 use App\UI\Form\Type\AddCommentType;
 use App\UI\Responder\Interfaces\ResponderTricksDetailsInterface;
+use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,35 +30,61 @@ use Symfony\Component\HttpFoundation\Response;
 class TricksDetailsAction
 {
     /**
+     * @var FormFactoryInterface
+     */
+    private $formFactory;
+    /**
+     * @var AddCommentTypeHandlerInterface
+     */
+    private $addCommentTypeHandler;
+    /**
+     * @var TricksRepositoryInterface
+     */
+    private $tricksRepository;
+
+    /**
+     * TricksDetailsAction constructor.
+     *
+     * @param FormFactoryInterface             $formFactory
+     * @param AddCommentTypeHandlerInterface   $addCommentTypeHandler
+     * @param TricksRepositoryInterface        $tricksRepository
+     */
+    public function __construct(
+        FormFactoryInterface $formFactory,
+        AddCommentTypeHandlerInterface $addCommentTypeHandler,
+        TricksRepositoryInterface $tricksRepository
+
+    ) {
+
+        $this->formFactory = $formFactory;
+        $this->addCommentTypeHandler = $addCommentTypeHandler;
+        $this->tricksRepository = $tricksRepository;
+    }
+
+    /**
      * @Route("/tricks/{slug}", name="TricksDetails")
      *
-     * @param ResponderTricksDetailsInterface   $responderTricksDetails
-     * @param TricksRepositoryInterface         $tricksRepository
-     * @param string                            $slug
-     * @param FormFactoryInterface              $formFactory
-     * @param Request                           $request
-     * @param AddCommentTypeHandlerInterface    $addCommentTypeHandler
+     * @param ResponderTricksDetailsInterface  $responderTricksDetails
+     * @param Request                          $request
      *
      * @return Response
+     *
+     * {@inheritdoc}
      *
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function __invoke(
         ResponderTricksDetailsInterface $responderTricksDetails,
-        TricksRepositoryInterface $tricksRepository,
-        string $slug,
-        FormFactoryInterface $formFactory,
-        Request $request,
-        AddCommentTypeHandlerInterface $addCommentTypeHandler
+        Request $request
     ):  Response {
 
-        $tricks = $tricksRepository->getBySlug($slug);
+        $tricks = $this->tricksRepository->getBySlug($request->attributes->get('slug'));
 
-        $addCommentType = $formFactory
+        $addCommentType = $this->formFactory
             ->create(AddCommentType::class)
             ->handleRequest($request);
 
-        if ($addCommentTypeHandler->handle($addCommentType, $tricks)){
+        if ($this->addCommentTypeHandler->handle($addCommentType, $tricks)){
             return $responderTricksDetails(true);
         }
 

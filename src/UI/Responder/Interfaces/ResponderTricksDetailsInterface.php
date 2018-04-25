@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
 /**
- * Interface ResponderTricksDetailsInterface
+ * Interface ResponderTricksDetailsInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
