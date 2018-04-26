@@ -39,7 +39,7 @@ Pagination.prototype.paginate = function () {
 };
 
 
-let p = new Pagination(parameters);
+ p = new Pagination(parameters);
 p.paginate();
 
 

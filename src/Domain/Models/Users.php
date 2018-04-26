@@ -94,7 +94,6 @@ class Users implements UsersInterface
         string $lastname,
         string $password,
         string $role,
-        string $createdAt,
         PicturesInterface $pictures,
         TricksInterface $tricks = null,
         CommentsInterface $comments = null
@@ -106,7 +105,7 @@ class Users implements UsersInterface
         $this->lastname = $lastname;
         $this->password = $password;
         $this->role = $role;
-        $this->createdAt = $createdAt;
+        $this->createdAt = time();
         $this->pictures = $pictures;
         $this->tricks = $tricks;
         $this->comments = $comments;

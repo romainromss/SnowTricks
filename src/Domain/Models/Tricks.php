@@ -102,6 +102,7 @@ class Tricks implements TricksInterface
         $this->description = $description;
         $this->group = $group;
         $this->slug = $slug;
+        $this->createdAt = time();
         $this->users = $users;
         $this->pictures = new ArrayCollection();
         $this->movies = new ArrayCollection();

@@ -15,6 +15,7 @@ namespace App\UI\Actions;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responder\Interfaces\ResponderHomeInterface;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -37,7 +38,8 @@ class HomeAction
         ResponderHomeInterface $responderHome,
         TricksRepositoryInterface $tricksRepository
     ):  Response {
-
+        $uuid = Uuid::uuid4();
+        echo $uuid;
         return $responderHome(['tricks' => $tricksRepository->getAllWithPictures(true)]);
     }
 }
