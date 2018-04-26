@@ -38,8 +38,7 @@ class HomeAction
         ResponderHomeInterface $responderHome,
         TricksRepositoryInterface $tricksRepository
     ):  Response {
-        $uuid = Uuid::uuid4();
-        echo $uuid;
+       
         return $responderHome(['tricks' => $tricksRepository->getAllWithPictures(true)]);
     }
 }

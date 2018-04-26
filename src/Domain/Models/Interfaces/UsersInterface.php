@@ -72,7 +72,7 @@ interface UsersInterface
     public function getPictures();
 
     /**
-     * @return string
+     * @return int
      */
-    public function getCreatedAt();
+    public function getCreatedAt(): ? int;
 }

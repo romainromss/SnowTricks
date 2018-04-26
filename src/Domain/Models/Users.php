@@ -184,9 +184,9 @@ class Users implements UsersInterface
     }
 
     /**
-     * @return string
+     * @return int
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): ? int
     {
         return $this->createdAt;
     }

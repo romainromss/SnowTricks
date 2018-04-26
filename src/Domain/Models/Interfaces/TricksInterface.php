@@ -62,9 +62,9 @@ interface TricksInterface
     public function getUpdatedAt(): ? string;
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getCreatedAt(): ? string;
+    public function getCreatedAt();
 
     /**
      * @return \ArrayAccess

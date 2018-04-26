@@ -70,7 +70,7 @@ class Tricks implements TricksInterface
      */
     private $updatedAt;
     /**
-     * @var string
+     * @var int
      */
     private $createdAt;
 
@@ -179,9 +179,9 @@ class Tricks implements TricksInterface
 
 
     /**
-     * @return string
+     * @return int|mixed
      */
-    public function getCreatedAt(): ? string
+    public function getCreatedAt()
     {
         return $this->createdAt;
     }

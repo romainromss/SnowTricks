@@ -17,7 +17,6 @@ use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
 use App\UI\Form\Type\AddCommentType;
 use App\UI\Responder\Interfaces\ResponderTricksDetailsInterface;
-use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
