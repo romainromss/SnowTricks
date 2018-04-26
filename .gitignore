@@ -1,18 +1,21 @@
-.idea
-.DS_Store
 ###> symfony/framework-bundle ###
 .env
 /public/bundles/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-
-###> symfony/webpack-encore-pack ###
-/node_modules/
-/public/build/
-###< symfony/webpack-encore-pack ###
-
 ###> symfony/phpunit-bridge ###
 .phpunit
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+
+
+\.idea/
+
+tests/\.DS_Store
+
+public/images/\.DS_Store
+
+templates/\.DS_Store
+
+tests/test-coverage/\.DS_Store

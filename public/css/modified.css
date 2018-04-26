@@ -1,0 +1,45 @@
+
+.info p {
+ padding: 5px 10px;
+}
+
+.img-avatar{
+ width: 48px;
+ height: 48px;
+}
+
+.btnheader
+{
+ position: absolute;
+ margin:auto;
+ top: 80px;
+ right: 3%;
+}
+
+.info{
+ text-align: center; display: flex; justify-content: center
+}
+
+.groupInfo
+{
+ border-radius: 2px 5px 5px;
+ border: solid #26c6da;
+ background-color: #26c6da;
+ margin-right:5px;
+ color: white;
+}
+
+.formMaterial
+{
+ border-top: 2px solid rgba(40,40,40,0.6)
+}
+
+.submit{
+ margin-top: 10px;
+ margin-bottom: 20px;
+}
+
+.connection
+{
+ border-top: 2px solid rgba(40,40,40,0.6);
+}
