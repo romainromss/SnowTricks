@@ -39,13 +39,14 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
     {
         return $this->createQueryBuilder('t')
             ->innerJoin('t.pictures', 'p')
+			->setParameter(':first' , $first)
             ->where('p.first = :first')
-            ->setParameter(':first' , $first)
             ->orderBy('t.createdAt', 'DESC')
             ->getQuery()
-            ->getResult()
+			->getResult()
             ;
     }
+
 
     /**
      * @param $slug
@@ -69,4 +70,16 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
             ->getOneOrNullResult()
            ;
     }
+
+	/**
+	 * @param $tricks
+	 *
+	 * @throws \Doctrine\ORM\ORMException
+	 * @throws \Doctrine\ORM\OptimisticLockException
+	 */
+	public function save($tricks)
+	{
+		$this->getEntityManager()->persist($tricks);
+		$this->getEntityManager()->flush();
+	}
 }

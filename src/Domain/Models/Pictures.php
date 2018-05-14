@@ -47,10 +47,6 @@ class Pictures implements PicturesInterface
      */
     private $legend;
     /**
-     * @var null|string
-     */
-    private $pictures;
-    /**
      * @var bool
      */
     private $first;
@@ -65,7 +61,6 @@ class Pictures implements PicturesInterface
      *
      * @param string                $name
      * @param string                $legend
-     * @param string|null           $pictures
      * @param bool                  $first
      * @param string|null           $avatar
      * @param TricksInterface|null  $tricks
@@ -74,7 +69,6 @@ class Pictures implements PicturesInterface
     public function __construct(
         string $name,
         string $legend,
-        string $pictures = null,
         bool $first,
         string $avatar = null,
         TricksInterface $tricks = null,
@@ -83,7 +77,6 @@ class Pictures implements PicturesInterface
         $this->id = Uuid::uuid4();
         $this->name = $name;
         $this->legend = $legend;
-        $this->pictures = $pictures;
         $this->first = $first;
         $this->avatar = $avatar;
         $this->trick = $tricks;
@@ -137,14 +130,6 @@ class Pictures implements PicturesInterface
     public function isFirst(): bool
     {
         return $this->first;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getPictures(): ? string
-    {
-        return $this->pictures;
     }
 
     /**

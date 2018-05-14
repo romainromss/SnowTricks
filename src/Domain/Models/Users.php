@@ -27,17 +27,18 @@ use Ramsey\Uuid\UuidInterface;
  */
 class Users implements UsersInterface
 {
-    /**
-     * @var TricksInterface|null
-     */
+	/**
+	 * @var TricksInterface
+	 *
+	 */
     private $tricks;
-    /**
-     * @var CommentsInterface|null
-     */
+	/**
+	 * @var CommentsInterface
+	 */
     private $comments;
-    /**
-     * @var PicturesInterface
-     */
+	/**
+	 * @var PicturesInterface
+	 */
     private $pictures;
     /**
      * @var UuidInterface
@@ -73,20 +74,19 @@ class Users implements UsersInterface
     private $createdAt;
 
 
-    /**
-     * Users constructor.
-     *
-     * @param string                  $username
-     * @param string                  $email
-     * @param string                  $name
-     * @param string                  $lastname
-     * @param string                  $password
-     * @param string                  $role
-     * @param string                  $createdAt
-     * @param PicturesInterface       $pictures
-     * @param TricksInterface|null    $tricks
-     * @param CommentsInterface|null  $comments
-     */
+	/**
+	 * Users constructor.
+	 *
+	 * @param string            $username
+	 * @param string            $email
+	 * @param string            $name
+	 * @param string            $lastname
+	 * @param string            $password
+	 * @param string            $role
+	 * @param PicturesInterface $pictures
+	 * @param null              $tricks
+	 * @param null              $comments
+	 */
     public function __construct(
         string $username,
         string $email,
@@ -95,8 +95,8 @@ class Users implements UsersInterface
         string $password,
         string $role,
         PicturesInterface $pictures,
-        TricksInterface $tricks = null,
-        CommentsInterface $comments = null
+        $tricks = null,
+        $comments = null
     ) {
         $this->id = Uuid::uuid4();
         $this->username = $username;
@@ -111,9 +111,9 @@ class Users implements UsersInterface
         $this->comments = $comments;
     }
 
-    /**
-     * @return TricksInterface
-     */
+	/**
+	 * @return TricksInterface|null
+	 */
     public function getTricks()
     {
         return $this->tricks;
@@ -191,9 +191,9 @@ class Users implements UsersInterface
         return $this->createdAt;
     }
 
-    /**
-     * @return PicturesInterface
-     */
+	/**
+	 * @return PicturesInterface|array
+	 */
     public function getPictures()
     {
         return $this->pictures;

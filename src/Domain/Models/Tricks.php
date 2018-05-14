@@ -19,6 +19,7 @@ use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
@@ -41,9 +42,9 @@ class Tricks implements TricksInterface
      * @var ArrayCollection
      */
     private $movies;
-    /**
-     * @var UsersInterface
-     */
+	/**
+	 * @var UsersInterface
+	 */
     private $users;
     /**
      * @var UuidInterface
@@ -75,27 +76,16 @@ class Tricks implements TricksInterface
     private $createdAt;
 
 
-    /**
-     * Tricks constructor.
-     *
-     * @param string                   $name
-     * @param string                   $description
-     * @param string                   $group
-     * @param string                   $slug
-     * @param UsersInterface           $users
-     * @param PicturesInterface|null   $pictures
-     * @param MoviesInterface|null     $movies
-     * @param CommentsInterface        $comments
-     */
+
     public function __construct(
         string $name,
         string $description,
         string $group,
         string $slug,
-        UsersInterface $users,
-        PicturesInterface $pictures = null,
-        MoviesInterface $movies = null,
-        CommentsInterface $comments = null
+		UsersInterface $users,
+        array $pictures = null,
+        array $movies = null,
+        array $comments = null
     ) {
         $this->id = Uuid::uuid4();
         $this->name = $name;
@@ -109,27 +99,27 @@ class Tricks implements TricksInterface
         $this->comments = new ArrayCollection();
     }
 
-    /**
-     * @return \ArrayAccess
-     */
-    public function getPictures(): \ArrayAccess
+	/**
+	 * @return Collection
+	 */
+    public function getPictures(): Collection
     {
         return $this->pictures;
     }
 
     /**
-     * @return \ArrayAccess
+     * @return Collection
      */
-    public function getComments(): \ArrayAccess
+    public function getComments(): Collection
     {
         return $this->comments;
     }
 
 
-    /**
-     * @return UsersInterface
-     */
-    public function getUsers()
+	/**
+	 * @return UsersInterface | string
+	 */
+	public function getUsers()
     {
         return $this->users;
     }
@@ -187,10 +177,10 @@ class Tricks implements TricksInterface
     }
 
 
-    /**
-     * @return \ArrayAccess
-     */
-    public function getMovies(): \ArrayAccess
+	/**
+	 * @return Collection
+	 */
+    public function getMovies(): Collection
     {
         return $this->movies;
     }
