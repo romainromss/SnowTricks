@@ -21,11 +21,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
 /**
- * Class IndexActionTest.
+ * Class HomeActionTest.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class IndexActionTest extends TestCase
+class HomeActionTest extends TestCase
 {
     /**
      * @var TricksRepository
@@ -55,7 +55,7 @@ class IndexActionTest extends TestCase
      */
     public function testConstructor()
     {
-        $constructResponder = new HomeAction();
+        $constructResponder = new HomeAction($this->tricksRepository);
         static::assertInstanceOf(HomeAction::class, $constructResponder);
     }
 
@@ -64,9 +64,9 @@ class IndexActionTest extends TestCase
      */
     public function testInvoke()
     {
-        $indexAction = new HomeAction();
+        $indexAction = new HomeAction($this->tricksRepository);
         $responder = new ResponderHome($this->twig);
 
-        static::assertInstanceOf(Response::class, $indexAction($responder, $this->tricksRepository));
+        static::assertInstanceOf(Response::class, $indexAction($responder));
     }
 }

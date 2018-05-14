@@ -111,7 +111,7 @@ class TricksTest extends TestCase
     {
         static::assertCount(0, $this->trick->getPictures());
 
-        $this->trick->addPictures(new Pictures('pictures', 'pictures', '', false));
+        $this->trick->addPictures(new Pictures('pictures', 'pictures', true));
         static::assertCount(1, $this->trick->getPictures());
     }
 

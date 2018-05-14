@@ -28,7 +28,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
 /**
- * Class IndexActionTest.
+ * Class HomeActionTest.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
