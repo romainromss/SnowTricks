@@ -14,7 +14,9 @@ declare(strict_types=1);
 namespace App\UI\Form\Handler\Intefaces;
 
 use App\Domain\Models\Interfaces\TricksInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 
 /**
  * Interface AddCommentTypeHandlerInterface.
@@ -25,6 +27,6 @@ interface AddCommentTypeHandlerInterface
 {
     public function handle(
         FormInterface $form,
-        TricksInterface $tricks
+		TricksInterface $tricks
     ):  bool;
 }
