@@ -19,7 +19,6 @@ use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
@@ -31,45 +30,55 @@ use Ramsey\Uuid\UuidInterface;
 class Tricks implements TricksInterface
 {
     /**
-     * @var ArrayCollection
+     * @var \ArrayAccess
      */
     private $pictures;
+
     /**
-     * @var ArrayCollection
+     * @var \ArrayAccess
      */
     private $comments;
+
     /**
-     * @var ArrayCollection
+     * @var \ArrayAccess
      */
     private $movies;
+
 	/**
 	 * @var UsersInterface
 	 */
     private $users;
+
     /**
      * @var UuidInterface
      */
     private $id;
+
     /**
      * @var string
      */
     private $name;
+
     /**
      * @var string
      */
     private $description;
+
     /**
      * @var string
      */
     private $group;
+
     /**
      * @var string
      */
     private $slug;
+
     /**
      * @var string
      */
     private $updatedAt;
+
     /**
      * @var int
      */
@@ -94,23 +103,23 @@ class Tricks implements TricksInterface
         $this->slug = $slug;
         $this->createdAt = time();
         $this->users = $users;
-        $this->pictures = new ArrayCollection();
-        $this->movies = new ArrayCollection();
-        $this->comments = new ArrayCollection();
+        $this->pictures = new ArrayCollection($pictures ?? []);
+        $this->movies = new ArrayCollection($movies ?? []);
+        $this->comments = new ArrayCollection($comments ?? []);
     }
 
 	/**
-	 * @return Collection
+	 * @return \ArrayAccess
 	 */
-    public function getPictures(): Collection
+    public function getPictures()
     {
         return $this->pictures;
     }
 
     /**
-     * @return Collection
+     * @return \ArrayAccess
      */
-    public function getComments(): Collection
+    public function getComments()
     {
         return $this->comments;
     }
@@ -168,19 +177,19 @@ class Tricks implements TricksInterface
     }
 
 
-    /**
-     * @return int|mixed
-     */
-    public function getCreatedAt()
+	/**
+	 * @return \DateTime
+	 */
+    public function getCreatedAt(): \DateTime
     {
-        return $this->createdAt;
+        return \DateTime::createFromFormat('U', (string) $this->createdAt);
     }
 
 
 	/**
-	 * @return Collection
+	 * @return \ArrayAccess
 	 */
-    public function getMovies(): Collection
+    public function getMovies()
     {
         return $this->movies;
     }

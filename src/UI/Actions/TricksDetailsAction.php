@@ -33,10 +33,12 @@ class TricksDetailsAction
      * @var FormFactoryInterface
      */
     private $formFactory;
+
     /**
      * @var AddCommentTypeHandlerInterface
      */
     private $addCommentTypeHandler;
+
     /**
      * @var TricksRepositoryInterface
      */
@@ -53,9 +55,7 @@ class TricksDetailsAction
         FormFactoryInterface $formFactory,
         AddCommentTypeHandlerInterface $addCommentTypeHandler,
         TricksRepositoryInterface $tricksRepository
-
     ) {
-
         $this->formFactory = $formFactory;
         $this->addCommentTypeHandler = $addCommentTypeHandler;
         $this->tricksRepository = $tricksRepository;

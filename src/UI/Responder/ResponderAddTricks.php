@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Responder;
 
 use App\UI\Responder\Interfaces\ResponderAddTricksInterface;
-use Symfony\Component\Form\Test\FormInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -31,6 +31,7 @@ class ResponderAddTricks implements ResponderAddTricksInterface
 	 * @var Environment
 	 */
 	private $twig;
+
 	/**
 	 * @var UrlGeneratorInterface
 	 */

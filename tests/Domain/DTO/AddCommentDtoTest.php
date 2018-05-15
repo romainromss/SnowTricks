@@ -25,7 +25,7 @@ class AddCommentDtoTest extends TestCase
 {
     public function testConstruct()
     {
-        $content = '';
+        $content = 'content';
 
         $commentDtoConstruct = new AddCommentDTO($content);
         static::assertInstanceOf(AddCommentDTO::class, $commentDtoConstruct);

@@ -23,14 +23,13 @@ use Ramsey\Uuid\UuidInterface;
 interface TricksInterface
 {
 	/**
-	 * @return Collection
+	 * @return \ArrayAccess
 	 */
-    public function getPictures(): Collection;
-
+    public function getPictures();
     /**
-     * @return Collection
+     * @return \ArrayAccess
      */
-    public function getComments(): Collection;
+    public function getComments();
 
     /**
      * @return UsersInterface
@@ -68,9 +67,9 @@ interface TricksInterface
     public function getCreatedAt();
 
 	/**
-	 * @return Collection
+	 * @return \ArrayAccess
 	 */
-    public function getMovies(): Collection;
+    public function getMovies();
 
     /**
      * @return string
@@ -96,7 +95,6 @@ interface TricksInterface
      * @return mixed
      */
     public function addMovies(MoviesInterface $movies);
-
 
 
     /**

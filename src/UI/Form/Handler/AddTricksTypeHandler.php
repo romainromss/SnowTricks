@@ -34,10 +34,12 @@ class AddTricksTypeHandler implements AddTricksTypeHandlerInterface
 	 * @var TricksBuilder
 	 */
 	private $tricksBuilder;
+
 	/**
 	 * @var TricksRepositoryInterface
 	 */
 	private $tricksRepository;
+
 	/**
 	 * @var TokenStorageInterface
 	 */
@@ -48,7 +50,6 @@ class AddTricksTypeHandler implements AddTricksTypeHandlerInterface
 		TricksRepositoryInterface $tricksRepository,
 		TokenStorageInterface $tokenStorage
 	) {
-
 		$this->tricksBuilder = $tricksBuilder;
 		$this->tricksRepository = $tricksRepository;
 		$this->tokenStorage = $tokenStorage;
@@ -62,10 +63,8 @@ class AddTricksTypeHandler implements AddTricksTypeHandlerInterface
 	 * @throws \Doctrine\ORM\ORMException
 	 * @throws \Doctrine\ORM\OptimisticLockException
 	 */
-	public function handle(
-		FormInterface $form
-	):  bool {
-
+	public function handle(FormInterface $form):  bool
+	{
 		if ($form->isSubmitted() && $form->isValid()){
 			$this->tricksBuilder->create(
 				$form->getData()->name,
@@ -76,7 +75,9 @@ class AddTricksTypeHandler implements AddTricksTypeHandlerInterface
 				$form->getData()->movies,
 				$this->tokenStorage->getToken()->getUser()
 			);
+
 			$this->tricksRepository->save($this->tricksBuilder->getTricks());
+
 			return true;
 		}
 		return false;

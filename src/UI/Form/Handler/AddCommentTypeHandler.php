@@ -37,6 +37,7 @@ class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
      * @var CommentsRepositoryInterface
      */
     private $commentsRepository;
+
 	/**
 	 * @var TokenStorageInterface
 	 */
@@ -47,7 +48,6 @@ class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
         CommentsRepositoryInterface $commentsRepository,
 		TokenStorageInterface $tokenStorage
     ) {
-
         $this->commentBuilder = $commentBuilder;
         $this->commentsRepository = $commentsRepository;
 		$this->tokenStorage = $tokenStorage;
@@ -70,7 +70,9 @@ class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
 				$tricks,
 				$this->tokenStorage->getToken()->getUser()
 			);
+
             $this->commentsRepository->save($this->commentBuilder->getComment());
+
             return true;
         }
         return false;

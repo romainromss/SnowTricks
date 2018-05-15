@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Tests\Domain\Models;
+	namespace App\Tests\Domain\Models;
 
 use App\Domain\Models\Comments;
 use App\Domain\Models\Tricks;

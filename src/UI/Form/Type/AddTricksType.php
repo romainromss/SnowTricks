@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Form\Type;
 
 use App\Domain\DTO\AddTricksDTO;
+use App\Domain\DTO\Interfaces\AddTricksDtoInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -30,11 +31,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class AddTricksType extends AbstractType
 {
-	public function buildForm(
-		FormBuilderInterface $builder,
-		array $options
-	) {
-
+	public function buildForm(FormBuilderInterface $builder, array $options)
+	{
 		$builder
 			->add('name', TextType::class)
 			->add('description', TextareaType::class)
@@ -65,7 +63,7 @@ class AddTricksType extends AbstractType
 	public function configureOptions(OptionsResolver $resolver)
 	{
 		$resolver->setDefaults([
-			'data_class' => AddTricksDTO::class,
+			'data_class' => AddTricksDtoInterface::class,
 			'empty_data' => function (FormInterface $form){
 				return new AddTricksDTO(
 					$form->get('name')->getData(),

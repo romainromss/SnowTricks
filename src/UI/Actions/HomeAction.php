@@ -30,9 +30,13 @@ class HomeAction
 	 */
 	private $tricksRepository;
 
-	public function __construct(
-		TricksRepositoryInterface $tricksRepository
-	) {
+	/**
+	 * HomeAction constructor.
+	 *
+	 * @param TricksRepositoryInterface $tricksRepository
+	 */
+	public function __construct(TricksRepositoryInterface $tricksRepository)
+	{
 		$this->tricksRepository = $tricksRepository;
 	}
 

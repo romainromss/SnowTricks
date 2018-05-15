@@ -26,35 +26,41 @@ use Ramsey\Uuid\UuidInterface;
  */
 class Pictures implements PicturesInterface
 {
-    /**
-     * @var TricksInterface|null
-     */
-    private $trick;
-    /**
-     * @var UsersInterface|null
-     */
-    private $users;
+
     /**
      * @var UuidInterface
      */
     private $id;
+
     /**
      * @var string
      */
     private $name;
+
     /**
      * @var string
      */
     private $legend;
+
     /**
      * @var bool
      */
     private $first;
+
     /**
      * @var null|string
      */
     private $avatar;
 
+	/**
+	 * @var TricksInterface|null
+	 */
+	private $trick;
+
+	/**
+	 * @var UsersInterface|null
+	 */
+	private $users;
 
     /**
      * Pictures constructor.

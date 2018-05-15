@@ -12,12 +12,11 @@ declare(strict_types=1);
  */
 
 namespace App\UI\Actions;
-use App\Domain\DTO\AddTricksDTO;
+
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\Intefaces\AddTricksTypeHandlerInterface;
 use App\UI\Form\Type\AddTricksType;
 use App\UI\Responder\Interfaces\ResponderAddTricksInterface;
-use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -35,21 +34,29 @@ class AddTricksAction
 	 * @var FormFactoryInterface
 	 */
 	private $formFactory;
+
 	/**
 	 * @var AddTricksTypeHandlerInterface
 	 */
 	private $addTricksTypeHandler;
+
 	/**
 	 * @var TricksRepositoryInterface
 	 */
 	private $tricksRepository;
 
+	/**
+	 * AddTricksAction constructor.
+	 *
+	 * @param FormFactoryInterface           $formFactory
+	 * @param AddTricksTypeHandlerInterface  $addTricksTypeHandler
+	 * @param TricksRepositoryInterface      $tricksRepository
+	 */
 	public function __construct(
 		FormFactoryInterface $formFactory,
 		AddTricksTypeHandlerInterface $addTricksTypeHandler,
 		TricksRepositoryInterface $tricksRepository
-	)
-	{
+	) {
 		$this->formFactory = $formFactory;
 		$this->addTricksTypeHandler = $addTricksTypeHandler;
 		$this->tricksRepository = $tricksRepository;

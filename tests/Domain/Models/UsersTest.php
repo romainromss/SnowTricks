@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Tests\Entity;
+namespace App\Tests\Domain\Models;
 
 use App\Domain\Models\Comments;
 use App\Domain\Models\Pictures;
@@ -57,8 +57,8 @@ class UsersTest extends TestCase
             'ads#p23*',
             'user',
             $this->pictures,
-            $this->tricks,
-            $this->comments
+			['tricks'],
+			['comments']
         );
     }
 
@@ -91,9 +91,9 @@ class UsersTest extends TestCase
         static::assertSame('lastname', $this->users->getLastname());
         static::assertSame('ads#p23*', $this->users->getPassword());
         static::assertEquals('user', $this->users->getRole());
-        static::assertNotNull(0, $this->users->getCreatedAt());
+        static::assertNotNull(new \DateTime('now'), $this->users->getCreatedAt());
         static::assertInstanceOf(Pictures::class, $this->users->getPictures());
-        static::assertInstanceOf(Tricks::class, $this->users->getTricks());
-        static::assertInstanceOf(Comments::class, $this->users->getComments());
+        static::assertCount(1, $this->users->getTricks());
+        static::assertCount(1, $this->users->getComments());
     }
 }
