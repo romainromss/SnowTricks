@@ -21,7 +21,7 @@ jobs:
             - save_cache:
                 key: composer-v1-{{ checksum "composer.json" }}
                 paths:
-                    - vendor
+                    - vendor  
             - run: ./bin/phpunit -v --exclude-group Blackfire
 
 workflows:
