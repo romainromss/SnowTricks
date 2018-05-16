@@ -5,9 +5,6 @@ before_script:
     - composer install --no-scripts -n
     - cp .env.dist .env
 script:
-    - ./bin/console d:d:c --env=test
-    - ./bin/console d:s:c --env=test
-    - ./bin/console d:f:l -n --env=test
     - ./bin/phpunit -v --exclude-group Blackfire
 notifications:
 email: false
