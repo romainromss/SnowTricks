@@ -1,4 +1,7 @@
 version: 2
+machine:
+  php:
+    version: 7.2.3
 jobs:
     phpunit:
         docker:
@@ -9,6 +12,7 @@ jobs:
             - run: sudo apt install -y libsqlite3-dev zlib1g-dev
             - run: sudo docker-php-ext-install zip
             - run: sudo composer self-update
+            - run: php -v
             - restore_cache:
                 keys:
                     - composer-v1-{{ checksum "composer.json" }}
