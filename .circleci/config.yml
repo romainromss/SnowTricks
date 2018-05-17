@@ -3,9 +3,6 @@ jobs:
     phpunit:
         docker:
             - image: circleci/php:7.2.3-apache-node-browsers
-        machine:
-          php:
-            version: 7.2.3
         steps:
             - checkout
             - run: echo 'Hello World'
@@ -26,8 +23,9 @@ jobs:
             - run: php bin/console d:s:c --env=snowtricks
             - run: php bin/console d:f:l --env=snowtricks -n
             - run: php bin/phpunit -v --exclude-group Blackfire
+
 workflows:
     version: 2
     unit_test:
         jobs:
-          - phpunit
+            - phpunit
