@@ -21,9 +21,11 @@ jobs:
             - save_cache:
                 key: composer-v1-{{ checksum "composer.json" }}
                 paths:
-                    - vendor  
-            - run: ./bin/phpunit -v --exclude-group Blackfire
-
+                    - vendor
+            - run: php bin/console d:d:c --env=snowtricks
+            - run: php bin/console d:s:c --env=snowtricks
+            - run: php bin/console d:f:l --env=snowtricks -n
+            - run: php bin/phpunit -v --exclude-group Blackfire
 workflows:
     version: 2
     unit_test:
