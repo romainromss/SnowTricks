@@ -35,4 +35,14 @@ interface TricksRepositoryInterface
      * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function getBySlug($slug);
+
+	/**
+	 * @param $tricks
+	 *
+	 * @throws \Doctrine\ORM\ORMException
+	 * @throws \Doctrine\ORM\OptimisticLockException
+	 */
+    public function save($tricks);
+
+
 }

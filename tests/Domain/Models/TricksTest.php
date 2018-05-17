@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Tests\Entity;
+namespace App\Tests\Domain\Models;
 
 use App\Domain\Models\Comments;
 use App\Domain\Models\Movies;
@@ -99,7 +99,7 @@ class TricksTest extends TestCase
         static::assertEquals('description', $this->trick->getDescription());
         static::assertEquals('group', $this->trick->getGroup());
         static::assertEquals('slug', $this->trick->getSlug());
-        static::assertNotNull(0, $this->trick->getCreatedAt());
+        static::assertNotNull(new \DateTime('now'), $this->trick->getCreatedAt());
         static::assertNotNull(0, $this->trick->getUpdatedAt());
         static::assertInstanceOf(Users::class, $this->trick->getUsers());
         static::assertCount(0, $this->trick->getMovies());
@@ -111,7 +111,7 @@ class TricksTest extends TestCase
     {
         static::assertCount(0, $this->trick->getPictures());
 
-        $this->trick->addPictures(new Pictures('pictures', 'pictures', '', false));
+        $this->trick->addPictures(new Pictures('pictures', 'pictures', true));
         static::assertCount(1, $this->trick->getPictures());
     }
 

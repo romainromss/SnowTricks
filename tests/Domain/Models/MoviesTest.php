@@ -10,7 +10,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Tests\Entity;
+namespace App\Tests\Domain\Models;
 
 
 use App\Domain\Models\Movies;

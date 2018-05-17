@@ -17,6 +17,7 @@ use App\Domain\Models\Interfaces\CommentsInterface;
 use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
@@ -27,66 +28,77 @@ use Ramsey\Uuid\UuidInterface;
  */
 class Users implements UsersInterface
 {
-    /**
-     * @var TricksInterface|null
-     */
-    private $tricks;
-    /**
-     * @var CommentsInterface|null
-     */
-    private $comments;
-    /**
-     * @var PicturesInterface
-     */
-    private $pictures;
+
     /**
      * @var UuidInterface
      */
     private $id;
+
     /**
      * @var string
      */
     private $username;
+
     /**
      * @var string
      */
     private $email;
+
     /**
      * @var string
      */
     private $name;
+
     /**
      * @var string
      */
     private $lastname;
+
     /**
      * @var string
      */
     private $password;
+
     /**
      * @var string
      */
     private $role;
+
     /**
      * @var string
      */
     private $createdAt;
 
+	/**
+	 * @var PicturesInterface
+	 */
+	private $pictures;
 
-    /**
-     * Users constructor.
-     *
-     * @param string                  $username
-     * @param string                  $email
-     * @param string                  $name
-     * @param string                  $lastname
-     * @param string                  $password
-     * @param string                  $role
-     * @param string                  $createdAt
-     * @param PicturesInterface       $pictures
-     * @param TricksInterface|null    $tricks
-     * @param CommentsInterface|null  $comments
-     */
+	/**
+	 * @var \ArrayAccess
+	 *
+	 */
+	private $tricks;
+
+	/**
+	 * @var \ArrayAccess
+	 */
+	private $comments;
+
+
+	/**
+	 * Users constructor.
+	 *
+	 * @param string             $username
+	 * @param string             $email
+	 * @param string             $name
+	 * @param string             $lastname
+	 * @param string             $password
+	 * @param string             $role
+	 * @param PicturesInterface  $pictures
+	 * @param array       $tricks
+	 * @param array       $comments
+	 */
     public function __construct(
         string $username,
         string $email,
@@ -95,8 +107,8 @@ class Users implements UsersInterface
         string $password,
         string $role,
         PicturesInterface $pictures,
-        TricksInterface $tricks = null,
-        CommentsInterface $comments = null
+        array $tricks = null,
+        array $comments = null
     ) {
         $this->id = Uuid::uuid4();
         $this->username = $username;
@@ -107,30 +119,14 @@ class Users implements UsersInterface
         $this->role = $role;
         $this->createdAt = time();
         $this->pictures = $pictures;
-        $this->tricks = $tricks;
-        $this->comments = $comments;
-    }
-
-    /**
-     * @return TricksInterface
-     */
-    public function getTricks()
-    {
-        return $this->tricks;
-    }
-
-    /**
-     * @return CommentsInterface
-     */
-    public function getComments()
-    {
-        return $this->comments;
+        $this->tricks = new ArrayCollection($tricks);
+        $this->comments = new ArrayCollection($comments);
     }
 
     /**
      * @return UuidInterface
      */
-    public function getId()
+    public function getId(): UuidInterface
     {
         return $this->id;
     }
@@ -138,7 +134,7 @@ class Users implements UsersInterface
     /**
      * @return string
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->username;
     }
@@ -146,7 +142,7 @@ class Users implements UsersInterface
     /**
      * @return string
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -154,7 +150,7 @@ class Users implements UsersInterface
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -162,7 +158,7 @@ class Users implements UsersInterface
     /**
      * @return string
      */
-    public function getLastname()
+    public function getLastname(): string
     {
         return $this->lastname;
     }
@@ -170,7 +166,7 @@ class Users implements UsersInterface
     /**
      * @return string
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->password;
     }
@@ -178,24 +174,40 @@ class Users implements UsersInterface
     /**
      * @return string
      */
-    public function getRole()
+    public function getRole(): string
     {
         return $this->role;
     }
 
-    /**
-     * @return string
-     */
-    public function getCreatedAt()
+	/**
+	 * @return bool|\DateTime
+	 */
+    public function getCreatedAt(): \DateTime
     {
-        return $this->createdAt;
+        return \DateTime::createFromFormat('U', (string) $this->createdAt);
     }
 
-    /**
-     * @return PicturesInterface
-     */
-    public function getPictures()
+	/**
+	 * @return PicturesInterface
+	 */
+    public function getPictures(): PicturesInterface
     {
         return $this->pictures;
     }
+
+	/**
+	 * @return \ArrayAccess
+	 */
+	public function getTricks(): \ArrayAccess
+	{
+		return $this->tricks;
+	}
+
+	/**
+	 * @return \ArrayAccess
+	 */
+	public function getComments(): \ArrayAccess
+	{
+		return $this->comments;
+	}
 }

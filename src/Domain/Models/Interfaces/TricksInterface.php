@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace App\Domain\Models\Interfaces;
+use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -21,15 +22,14 @@ use Ramsey\Uuid\UuidInterface;
  */
 interface TricksInterface
 {
+	/**
+	 * @return \ArrayAccess
+	 */
+    public function getPictures();
     /**
      * @return \ArrayAccess
      */
-    public function getPictures(): \ArrayAccess;
-
-    /**
-     * @return \ArrayAccess
-     */
-    public function getComments(): \ArrayAccess;
+    public function getComments();
 
     /**
      * @return UsersInterface
@@ -62,14 +62,14 @@ interface TricksInterface
     public function getUpdatedAt(): ? string;
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getCreatedAt(): ? string;
+    public function getCreatedAt();
 
-    /**
-     * @return \ArrayAccess
-     */
-    public function getMovies(): \ArrayAccess;
+	/**
+	 * @return \ArrayAccess
+	 */
+    public function getMovies();
 
     /**
      * @return string
@@ -95,7 +95,6 @@ interface TricksInterface
      * @return mixed
      */
     public function addMovies(MoviesInterface $movies);
-
 
 
     /**

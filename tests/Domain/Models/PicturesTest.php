@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Tests\Entity;
+namespace App\Tests\Domain\Models;
 
 
 use App\Domain\Models\Pictures;
@@ -46,7 +46,6 @@ class PicturesTest extends TestCase
         $this->pictures = new Pictures(
             'name',
             'legend',
-            'pictures',
             true,
             'avatar',
             $this->tricks,
@@ -64,8 +63,7 @@ class PicturesTest extends TestCase
         static::assertObjectHasAttribute('id', $this->pictures);
         static::assertObjectHasAttribute('name', $this->pictures);
         static::assertObjectHasAttribute('legend', $this->pictures);
-        static::assertObjectHasAttribute('pictures', $this->pictures);
-        static::assertTrue(true, $this->pictures);
+		static::assertTrue(true, $this->pictures);
         static::assertObjectHasAttribute('avatar', $this->pictures);
     }
 
@@ -74,8 +72,7 @@ class PicturesTest extends TestCase
         static::assertNotNull($this->pictures->getId());
         static::assertEquals('name', $this->pictures->getName());
         static::assertEquals('legend', $this->pictures->getLegend());
-        static::assertEquals('pictures', $this->pictures->getPictures());
-        static::assertEquals(true, $this->pictures->isFirst());
+		static::assertEquals(true, $this->pictures->isFirst());
         static::assertEquals('avatar', $this->pictures->getAvatar());
         static::assertInstanceOf(Users::class, $this->pictures->getUser());
         static::assertInstanceOf(Tricks::class, $this->pictures->getTrick());

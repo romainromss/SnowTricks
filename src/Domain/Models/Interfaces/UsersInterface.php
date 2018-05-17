@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace App\Domain\Models\Interfaces;
+use Prophecy\Argument;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -22,9 +23,9 @@ use Ramsey\Uuid\UuidInterface;
 interface UsersInterface
 {
     /**
-     * @return TricksInterface
+     * @return \ArrayAccess
      */
-    public function getTricks();
+    public function getTricks(): \ArrayAccess;
 
     /**
      * @return CommentsInterface
@@ -34,45 +35,45 @@ interface UsersInterface
     /**
      * @return UuidInterface
      */
-    public function getId();
+    public function getId(): UuidInterface;
 
     /**
      * @return string
      */
-    public function getUsername();
+    public function getUsername(): string ;
 
     /**
      * @return string
      */
-    public function getEmail();
+    public function getEmail(): string;
 
     /**
      * @return string
      */
-    public function getName();
+    public function getName(): string ;
 
     /**
      * @return string
      */
-    public function getLastname();
+    public function getLastname(): string;
 
     /**
      * @return string
      */
-    public function getPassword();
+    public function getPassword(): string;
 
     /**
      * @return string
      */
-    public function getRole();
+    public function getRole(): string ;
 
     /**
      * @return PicturesInterface
      */
-    public function getPictures();
+    public function getPictures(): PicturesInterface;
 
-    /**
-     * @return string
-     */
-    public function getCreatedAt();
+	/**
+	 * @return bool|\DateTime
+	 */
+	public function getCreatedAt(): \DateTime;
 }

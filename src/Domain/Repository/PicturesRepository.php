@@ -34,16 +34,18 @@ class PicturesRepository extends ServiceEntityRepository
         parent::__construct($registry, Pictures::class);
     }
 
-    /*
-    public function findBySomething($value)
+	/**
+	 * @param bool $first
+	 *
+	 * @return mixed
+	 */
+    public function getPicturesFirst(bool $first= false)
     {
         return $this->createQueryBuilder('p')
-            ->where('p.something = :value')->setParameter('value', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->where('p.first = :first')
+			->setParameter('first', $first)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 }

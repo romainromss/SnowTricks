@@ -30,72 +30,71 @@ use Ramsey\Uuid\UuidInterface;
 class Tricks implements TricksInterface
 {
     /**
-     * @var ArrayCollection
+     * @var \ArrayAccess
      */
     private $pictures;
+
     /**
-     * @var ArrayCollection
+     * @var \ArrayAccess
      */
     private $comments;
+
     /**
-     * @var ArrayCollection
+     * @var \ArrayAccess
      */
     private $movies;
-    /**
-     * @var UsersInterface
-     */
+
+	/**
+	 * @var UsersInterface
+	 */
     private $users;
+
     /**
      * @var UuidInterface
      */
     private $id;
+
     /**
      * @var string
      */
     private $name;
+
     /**
      * @var string
      */
     private $description;
+
     /**
      * @var string
      */
     private $group;
+
     /**
      * @var string
      */
     private $slug;
+
     /**
      * @var string
      */
     private $updatedAt;
+
     /**
-     * @var string
+     * @var int
      */
     private $createdAt;
 
 
-    /**
-     * Tricks constructor.
-     *
-     * @param string                   $name
-     * @param string                   $description
-     * @param string                   $group
-     * @param string                   $slug
-     * @param UsersInterface           $users
-     * @param PicturesInterface|null   $pictures
-     * @param MoviesInterface|null     $movies
-     * @param CommentsInterface        $comments
-     */
+
     public function __construct(
         string $name,
         string $description,
         string $group,
         string $slug,
-        UsersInterface $users,
-        PicturesInterface $pictures = null,
-        MoviesInterface $movies = null,
-        CommentsInterface $comments = null
+		UsersInterface $users,
+        array $pictures = null,
+        array $movies = null,
+        array $comments = null
     ) {
         $this->id = Uuid::uuid4();
         $this->name = $name;
@@ -104,15 +103,15 @@ class Tricks implements TricksInterface
         $this->slug = $slug;
         $this->createdAt = time();
         $this->users = $users;
-        $this->pictures = new ArrayCollection();
-        $this->movies = new ArrayCollection();
-        $this->comments = new ArrayCollection();
+        $this->pictures = new ArrayCollection($pictures ?? []);
+        $this->movies = new ArrayCollection($movies ?? []);
+        $this->comments = new ArrayCollection($comments ?? []);
     }
 
-    /**
-     * @return \ArrayAccess
-     */
-    public function getPictures(): \ArrayAccess
+	/**
+	 * @return \ArrayAccess
+	 */
+    public function getPictures()
     {
         return $this->pictures;
     }
@@ -120,16 +119,16 @@ class Tricks implements TricksInterface
     /**
      * @return \ArrayAccess
      */
-    public function getComments(): \ArrayAccess
+    public function getComments()
     {
         return $this->comments;
     }
 
 
-    /**
-     * @return UsersInterface
-     */
-    public function getUsers()
+	/**
+	 * @return UsersInterface | string
+	 */
+	public function getUsers()
     {
         return $this->users;
     }
@@ -178,19 +177,19 @@ class Tricks implements TricksInterface
     }
 
 
-    /**
-     * @return string
-     */
-    public function getCreatedAt(): ? string
+	/**
+	 * @return \DateTime
+	 */
+    public function getCreatedAt(): \DateTime
     {
-        return $this->createdAt;
+        return \DateTime::createFromFormat('U', (string) $this->createdAt);
     }
 
 
-    /**
-     * @return \ArrayAccess
-     */
-    public function getMovies(): \ArrayAccess
+	/**
+	 * @return \ArrayAccess
+	 */
+    public function getMovies()
     {
         return $this->movies;
     }

@@ -6,13 +6,6 @@
 
     <entity name="App\Domain\Models\Tricks" table="tricks" repository-class="App\Repository\TricksRepository">
 
-        <indexes>
-            <index name="name_idx" columns="name" />
-        </indexes>
-        <indexes>
-            <index name="id_idx" columns="id" />
-        </indexes>
-
         <one-to-many field="movies" target-entity="Movies" mapped-by="trick">
         </one-to-many>
 

@@ -29,14 +29,17 @@ class Movies implements MoviesInterface
      * @var \Ramsey\Uuid\UuidInterface
      */
     private $id;
+
     /**
      * @var string
      */
     private $embed;
+
     /**
      * @var string
      */
     private $legend;
+
     /**
      * @var TricksInterface
      */

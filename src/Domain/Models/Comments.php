@@ -30,18 +30,22 @@ class Comments implements CommentsInterface
      * @var \Ramsey\Uuid\UuidInterface
      */
     private $id;
+
     /**
      * @var string
      */
     private $content;
+
     /**
      * @var int
      */
     private $createdAt;
+
     /**
      * @var TricksInterface
      */
     private $trick;
+
     /**
      * @var UsersInterface
      */

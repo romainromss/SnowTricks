@@ -15,7 +15,6 @@ namespace App\UI\Actions;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responder\Interfaces\ResponderHomeInterface;
-use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -26,21 +25,36 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class HomeAction
 {
-    /**
-     * @Route("/", name="index")
-     *
-     * @param ResponderHomeInterface $responderHome
-     * @param TricksRepositoryInterface $tricksRepository
-     *
-     * @return Response
-     */
-    public function __invoke(
-        ResponderHomeInterface $responderHome,
-        TricksRepositoryInterface $tricksRepository
-    ):  Response {
-        $uuid = Uuid::uuid4();
-        echo $uuid;
-        return $responderHome(['tricks' => $tricksRepository->getAllWithPictures(true)]);
-    }
-}
+	/**
+	 * @var TricksRepositoryInterface
+	 */
+	private $tricksRepository;
 
+	/**
+	 * HomeAction constructor.
+	 *
+	 * @param TricksRepositoryInterface $tricksRepository
+	 */
+	public function __construct(TricksRepositoryInterface $tricksRepository)
+	{
+		$this->tricksRepository = $tricksRepository;
+	}
+
+	/**
+	 * @Route("/", name="index")
+	 *
+	 * @param ResponderHomeInterface $responderHome
+	 *
+	 * @return Response
+	 */
+	public function __invoke(
+		ResponderHomeInterface $responderHome
+	):  Response {
+
+		$tricks = $this->tricksRepository->getAllWithPictures(true);
+
+		return $responderHome([
+			'tricks' => $tricks
+		]);
+	}
+}

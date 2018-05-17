@@ -17,7 +17,6 @@ use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
 use App\UI\Form\Type\AddCommentType;
 use App\UI\Responder\Interfaces\ResponderTricksDetailsInterface;
-use Ramsey\Uuid\Uuid;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -34,10 +33,12 @@ class TricksDetailsAction
      * @var FormFactoryInterface
      */
     private $formFactory;
+
     /**
      * @var AddCommentTypeHandlerInterface
      */
     private $addCommentTypeHandler;
+
     /**
      * @var TricksRepositoryInterface
      */
@@ -54,9 +55,7 @@ class TricksDetailsAction
         FormFactoryInterface $formFactory,
         AddCommentTypeHandlerInterface $addCommentTypeHandler,
         TricksRepositoryInterface $tricksRepository
-
     ) {
-
         $this->formFactory = $formFactory;
         $this->addCommentTypeHandler = $addCommentTypeHandler;
         $this->tricksRepository = $tricksRepository;

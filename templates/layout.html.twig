@@ -76,7 +76,7 @@
                         </li>
                         <li>
                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <a href="">
+                            <a href="{{ 'addTricks' }}">
                                 <i class="si si-note"></i> Tricks
                             </a>
                         <li>
@@ -153,7 +153,7 @@
                     </li>
                     <li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <a href="">
+                        <a href="{{ path('addTricks') }}">
                             <i class="si si-note"></i> Tricks
                         </a>
                     <li>
