@@ -44,5 +44,11 @@ interface TricksRepositoryInterface
 	 */
     public function save($tricks);
 
-
+	/**
+	 * @param $tricks
+	 *
+	 * @throws \Doctrine\ORM\ORMException
+	 * @throws \Doctrine\ORM\OptimisticLockException
+	 */
+	public function flush($tricks);
 }

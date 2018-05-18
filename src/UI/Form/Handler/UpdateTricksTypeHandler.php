@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the snowtricks project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -14,17 +14,19 @@ declare(strict_types=1);
 namespace App\UI\Form\Handler;
 
 use App\Domain\Builder\Interfaces\TricksBuilderInterface;
+use App\Domain\DTO\UpdateTricksDTO;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\UI\Form\Handler\Intefaces\AddTricksTypeHandlerInterface;
+use Symfony\Component\Form\Form;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 /**
- * Class AddTricksTypeHandler.
+ * Class UpdateTricksTypeHandler.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class AddTricksTypeHandler implements AddTricksTypeHandlerInterface
+class UpdateTricksTypeHandler
 {
 	/**
 	 * @var TricksBuilderInterface
@@ -41,6 +43,10 @@ class AddTricksTypeHandler implements AddTricksTypeHandlerInterface
 	 */
 	private $tokenStorage;
 
+
+	/**
+	 * {@inheritdoc}
+	 */
 	public function __construct(
 		TricksBuilderInterface $tricksBuilder,
 		TricksRepositoryInterface $tricksRepository,
@@ -52,9 +58,7 @@ class AddTricksTypeHandler implements AddTricksTypeHandlerInterface
 	}
 
 	/**
-	 * @param FormInterface      $form
-	 *
-	 * @return bool
+	 * {@inheritdoc}
 	 *
 	 * @throws \Doctrine\ORM\ORMException
 	 * @throws \Doctrine\ORM\OptimisticLockException
@@ -72,7 +76,7 @@ class AddTricksTypeHandler implements AddTricksTypeHandlerInterface
 				$this->tokenStorage->getToken()->getUser()
 			);
 
-			$this->tricksRepository->save($this->tricksBuilder->getTricks());
+			$this->tricksRepository->flush($this->tricksBuilder->getTricks());
 
 			return true;
 		}
