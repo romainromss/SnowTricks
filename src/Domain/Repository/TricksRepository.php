@@ -82,4 +82,12 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
 		$this->getEntityManager()->persist($tricks);
 		$this->getEntityManager()->flush();
 	}
+
+	/**
+	 *{@inheritdoc}
+	 */
+	public function flush($tricks)
+	{
+		$this->getEntityManager()->flush();
+	}
 }

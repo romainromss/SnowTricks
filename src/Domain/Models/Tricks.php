@@ -30,26 +30,6 @@ use Ramsey\Uuid\UuidInterface;
 class Tricks implements TricksInterface
 {
     /**
-     * @var \ArrayAccess
-     */
-    private $pictures;
-
-    /**
-     * @var \ArrayAccess
-     */
-    private $comments;
-
-    /**
-     * @var \ArrayAccess
-     */
-    private $movies;
-
-	/**
-	 * @var UsersInterface
-	 */
-    private $users;
-
-    /**
      * @var UuidInterface
      */
     private $id;
@@ -84,6 +64,26 @@ class Tricks implements TricksInterface
      */
     private $createdAt;
 
+	/**
+	 * @var \ArrayAccess
+	 */
+	private $pictures;
+
+	/**
+	 * @var \ArrayAccess
+	 */
+	private $comments;
+
+	/**
+	 * @var \ArrayAccess
+	 */
+	private $movies;
+
+	/**
+	 * @var UsersInterface
+	 */
+	private $users;
+
 
 
     public function __construct(
@@ -108,31 +108,6 @@ class Tricks implements TricksInterface
         $this->comments = new ArrayCollection($comments ?? []);
     }
 
-	/**
-	 * @return \ArrayAccess
-	 */
-    public function getPictures()
-    {
-        return $this->pictures;
-    }
-
-    /**
-     * @return \ArrayAccess
-     */
-    public function getComments()
-    {
-        return $this->comments;
-    }
-
-
-	/**
-	 * @return UsersInterface | string
-	 */
-	public function getUsers()
-    {
-        return $this->users;
-    }
-
     /**
      * @return UuidInterface
      */
@@ -149,7 +124,6 @@ class Tricks implements TricksInterface
         return $this->name;
     }
 
-
     /**
      * @return string
      */
@@ -157,7 +131,6 @@ class Tricks implements TricksInterface
     {
         return $this->description;
     }
-
 
     /**
      * @return string
@@ -167,7 +140,6 @@ class Tricks implements TricksInterface
         return $this->group;
     }
 
-
     /**
      * @return string
      */
@@ -175,7 +147,6 @@ class Tricks implements TricksInterface
     {
         return $this->updatedAt;
     }
-
 
 	/**
 	 * @return \DateTime
@@ -185,16 +156,6 @@ class Tricks implements TricksInterface
         return \DateTime::createFromFormat('U', (string) $this->createdAt);
     }
 
-
-	/**
-	 * @return \ArrayAccess
-	 */
-    public function getMovies()
-    {
-        return $this->movies;
-    }
-
-
     /**
      * @return string
      */
@@ -203,6 +164,37 @@ class Tricks implements TricksInterface
         return $this->slug;
     }
 
+	/**
+	 * @return UsersInterface | string
+	 */
+	public function getUsers()
+	{
+		return $this->users;
+	}
+
+	/**
+	 * @return \ArrayAccess
+	 */
+	public function getMovies()
+	{
+		return $this->movies;
+	}
+
+	/**
+	 * @return \ArrayAccess
+	 */
+	public function getPictures()
+	{
+		return $this->pictures;
+	}
+
+	/**
+	 * @return \ArrayAccess
+	 */
+	public function getComments()
+	{
+		return $this->comments;
+	}
 
     /**
      * @param PicturesInterface $pictures
@@ -212,7 +204,6 @@ class Tricks implements TricksInterface
         $this->pictures[] = $pictures;
     }
 
-
     /**
      * @param PicturesInterface $pictures
      */
@@ -220,7 +211,6 @@ class Tricks implements TricksInterface
     {
         unset($this->pictures[array_search($pictures, (array) $this->pictures, true)]);
     }
-
 
     /**
      * @param MoviesInterface $movies
@@ -230,7 +220,6 @@ class Tricks implements TricksInterface
         $this->movies[] = $movies;
     }
 
-
     /**
      * @param MoviesInterface $movies
      */
@@ -239,7 +228,6 @@ class Tricks implements TricksInterface
         unset($this->movies[array_search($movies, (array) $this->movies, true)]);
     }
 
-
     /**
      * @param CommentsInterface $comment
      */
@@ -247,7 +235,6 @@ class Tricks implements TricksInterface
     {
         $this->comments[] = $comment;
     }
-
 
     /**
      * @param CommentsInterface $comment
