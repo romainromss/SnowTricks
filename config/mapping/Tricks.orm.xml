@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          http://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
+
+    <entity name="App\Domain\Models\Tricks" table="tricks" repository-class="App\Repository\TricksRepository">
+
+        <one-to-many field="movies" target-entity="Movies" mapped-by="trick">
+        </one-to-many>
+
+        <one-to-many field="pictures" target-entity="Pictures" mapped-by="trick">
+        </one-to-many>
+
+        <one-to-many field="comments" target-entity="Comments" mapped-by="trick">
+        </one-to-many>
+
+        <many-to-one field="users" target-entity="Users" inversed-by="tricks">
+        </many-to-one>
+
+        <id name="id" column="id" type="uuid" />
+
+        <field name="name" column="name" type="string" length="20" nullable="false" />
+        <field name="description" column="description" type="text" nullable="false"  />
+        <field name="group" column="group" type="string" length="20" nullable="false" />
+        <field name="slug" column="slug" type="string" length="100" nullable="false" />
+        <field name="createdAt" column="createdAt" type="bigint" length="20" nullable="false" />
+        <field name="updatedAt" column="updatedAt" type="bigint" length="20" nullable="false" />
+
+    </entity>
+</doctrine-mapping>
