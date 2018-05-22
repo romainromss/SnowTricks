@@ -22,7 +22,7 @@ use App\Domain\Models\Tricks;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-final class TrickBuilder implements TrickBuilderInterface
+class TrickBuilder implements TrickBuilderInterface
 {
 	/**
 	 * @var Tricks

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Domain\DTO;
 
-use App\Domain\DTO\Interfaces\AddTrickDtoInterface;
+use App\Domain\DTO\Interfaces\AddTrickDTOInterface;
 
 
 /**
@@ -21,7 +21,7 @@ use App\Domain\DTO\Interfaces\AddTrickDtoInterface;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class AddTrickDTO implements AddTrickDtoInterface
+class AddTrickDTO implements AddTrickDTOInterface
 {
 	/**
 	 * @var string

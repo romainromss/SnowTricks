@@ -85,8 +85,8 @@ class UpdateTrickAction
 			$tricks->getDescription(),
 			$tricks->getGroup(),
 			$tricks->getSlug(),
-			$tricks->getPictures(),
-			$tricks->getMovies()
+			$tricks->getPictures()->toArray(),
+			$tricks->getMovies()->toArray()
 		);
 
 		$updateTricksType = $this->formFactory

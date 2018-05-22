@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Form\Type;
 
 use App\Domain\DTO\AddCommentDTO;
-use App\Domain\DTO\Interfaces\AddCommentDtoInterface;
+use App\Domain\DTO\Interfaces\AddCommentDTOInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -38,7 +38,7 @@ class AddCommentType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => AddCommentDtoInterface::class,
+            'data_class' => AddCommentDTOInterface::class,
             'empty_data' => function (FormInterface $form){
                 return new AddCommentDTO(
                     $form->get('content')->getData()

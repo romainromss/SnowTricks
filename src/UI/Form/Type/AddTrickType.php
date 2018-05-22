@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Form\Type;
 
 use App\Domain\DTO\AddTrickDTO;
-use App\Domain\DTO\Interfaces\AddTrickDtoInterface;
+use App\Domain\DTO\Interfaces\AddTrickDTOInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -63,7 +63,7 @@ class AddTrickType extends AbstractType
 	public function configureOptions(OptionsResolver $resolver)
 	{
 		$resolver->setDefaults([
-			'data_class' => AddTrickDtoInterface::class,
+			'data_class' => AddTrickDTOInterface::class,
 			'empty_data' => function (FormInterface $form){
 				return new AddTrickDTO(
 					$form->get('name')->getData(),
