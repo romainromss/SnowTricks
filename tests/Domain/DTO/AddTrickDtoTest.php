@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\Tests\Domain\DTO;
 
 
-use App\Domain\DTO\AddTricksDTO;
+use App\Domain\DTO\AddTrickDTO;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -33,7 +33,7 @@ class AddTrickDtoTest extends TestCase
 		$pictures = ['pictures'];
 		$movies = ['movies'];
 
-		$tricksDtoConstruct = new AddTricksDTO($name, $description, $group, $slug, $pictures, $movies);
-		static::assertInstanceOf(AddTricksDTO::class, $tricksDtoConstruct);
+		$tricksDtoConstruct = new AddTrickDTO($name, $description, $group, $slug, $pictures, $movies);
+		static::assertInstanceOf(AddTrickDTO::class, $tricksDtoConstruct);
 	}
 }

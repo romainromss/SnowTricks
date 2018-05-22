@@ -1,13 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+
+    <h1 style="margin-top: 100px">Test</h1>
     <div class="form-group row">
         <div class="col-md-8 offset-md-2 formMaterial" style="margin-top: 100px">
             <div class="form-material form-material-info floating">
                 {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
                     {{ form_start(form) }}
-                    {{ form_row(form) }}
-                    <button type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Ajouter</button>
                     {{ form_end(form) }}
                 {% endif %}
             </div>

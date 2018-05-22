@@ -24,7 +24,7 @@ use Ramsey\Uuid\UuidInterface;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class Comments implements CommentsInterface
+final class Comments implements CommentsInterface
 {
     /**
      * @var \Ramsey\Uuid\UuidInterface
