@@ -19,10 +19,10 @@ jobs:
                 key: composer-v1-{{ checksum "composer.json" }}
                 paths:
                     - vendor
-            - run: ./bin/console d:d:c --env=test
-            - run: ./bin/console d:s:c --env=test
+            - run: php bin/console d:d:c --env=test
+            - run: php bin/console d:s:c --env=test
             #- run: php bin/console d:f:l --env=test -n
-            - run: ./bin/phpunit -v --exclude-group Blackfire
+            - run: php bin/phpunit -v --exclude-group Blackfire
 
 workflows:
     version: 2
