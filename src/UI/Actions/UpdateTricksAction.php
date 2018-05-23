@@ -81,7 +81,14 @@ class UpdateTricksAction
 		$tricks = $this->tricksRepository->getBySlug($request->attributes->get('id'));
 
 		$updateTricksType = $this->formFactory
-			->create(Form::class, (new UpdateTricksDTO())->unserialize(serialize($tricks)))
+			->create(Form::class, new UpdateTricksDTO(
+				$tricks->getName(),
+				$tricks->getDescription(),
+				$tricks->getGroup(),
+				$tricks->getSlug(),
+				$tricks->getPictures(),
+				$tricks->getMovies()
+			))
 			->handleRequest($request);
 
 		if ($this->updateTricksTypeHandler->handle($updateTricksType)){
