@@ -52,34 +52,6 @@ class UpdateTricksDTO implements UpdateTrickDTOInterface
 	 */
 	public $movies = [];
 
-
-//	public function serialize()
-//	{
-//		return serialize([
-//			$this->name,
-//			$this->description,
-//			$this->group,
-//			$this->slug,
-//			$this->pictures,
-//			$this->movies,
-//		]);
-//	}
-//
-//	/**
-//	 * @param string $serialized
-//	 */
-//	public function unserialize($serialized)
-//	{
-//		list(
-//			$this->name,
-//			$this->description,
-//			$this->group,
-//			$this->slug,
-//			$this->pictures,
-//			$this->movies
-//			) = unserialize($serialized);
-//	}
-
 	/**
 	 * {@inheritdoc}
 	 */
@@ -98,4 +70,5 @@ class UpdateTricksDTO implements UpdateTrickDTOInterface
 		$this->pictures = $pictures;
 		$this->movies = $movies;
 	}
+
 }
