@@ -15,16 +15,18 @@ namespace App\UI\Actions;
 
 use App\Domain\DTO\UpdateTricksDTO;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\UI\Form\Handler\UpdateTricksTypeHandler;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
-use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Responder\Interfaces\ResponderUpdateTrickInterface;
+use App\UI\Responder\Interfaces\ResponderUpdateTricksInterface;
+use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Class UpdateTrickAction.
+ * Class UpdateTricksAction.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
@@ -48,9 +50,9 @@ class UpdateTrickAction
 	/**
 	 * UpdateTrickAction constructor.
 	 *
-	 * @param FormFactoryInterface      $formFactory
-	 * @param UpdateTrickTypeHandler    $updateTricksTypeHandler
-	 * @param TricksRepositoryInterface $tricksRepository
+	 * @param FormFactoryInterface       $formFactory
+	 * @param UpdateTrickTypeHandler     $updateTricksTypeHandler
+	 * @param TricksRepositoryInterface  $tricksRepository
 	 */
 	public function __construct(
 		FormFactoryInterface $formFactory,
@@ -63,10 +65,8 @@ class UpdateTrickAction
 	}
 
 	/**
-	 * @Route("update/tricks/{slug}", name="updateTricks")
-	 *
-	 * @param ResponderUpdateTrickInterface $responderUpdateTricks
-	 * @param Request                       $request
+	 * @param ResponderUpdateTrickInterface  $responderUpdateTricks
+	 * @param Request                        $request
 	 *
 	 * @return Response
 	 * @throws \Doctrine\ORM\NonUniqueResultException
@@ -78,20 +78,18 @@ class UpdateTrickAction
 		Request $request
 	):  Response {
 
-		$tricks = $this->tricksRepository->getBySlug($request->attributes->get('slug'));
-
-		$dto = new UpdateTricksDTO(
-			$tricks->getName(),
-			$tricks->getDescription(),
-			$tricks->getGroup(),
-			$tricks->getSlug(),
-			$tricks->getPictures()->toArray(),
-			$tricks->getMovies()->toArray()
-		);
+		$tricks = $this->tricksRepository->getBySlug($request->attributes->get('id'));
 
 		$updateTricksType = $this->formFactory
-				->create(UpdateTrickType::class, $dto)
-				->handleRequest($request);
+			->create(Form::class, new UpdateTricksDTO(
+				$tricks->getName(),
+				$tricks->getDescription(),
+				$tricks->getGroup(),
+				$tricks->getSlug(),
+				$tricks->getPictures()->toArray(),
+				$tricks->getMovies()->toArray()
+			))
+			->handleRequest($request);
 
 		if ($this->updateTricksTypeHandler->handle($updateTricksType)){
 			return $responderUpdateTricks(true);
