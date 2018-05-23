@@ -36,26 +36,32 @@ class UpdateTrickActionTest extends TestCase
 	 * @var FormFactoryInterface
 	 */
 	private $formFactory;
+
 	/**
 	 * @var Environment
 	 */
 	private $twig;
+
 	/**
 	 * @var UrlGeneratorInterface
 	 */
 	private $urlGenerator;
+
 	/**
 	 * @var Request
 	 */
 	private $request;
+
 	/**
 	 * @var UpdateTrickTypeHandler
 	 */
 	private $updateTrickTypeHandler;
+
 	/**
 	 * @var TricksRepository
 	 */
 	private $tricksRepository;
+
 	/**
 	 * @var TricksInterface
 	 */
@@ -68,7 +74,7 @@ class UpdateTrickActionTest extends TestCase
 		$this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
 		$this->urlGenerator->method('generate')->willReturn('/');
 		$this->request = Request::create('/tricks/details/mute', 'POST');
-		$this->updateTrickTypeHandler = $this->createMock(UpdateTricksTypeHandlerInterface::class);
+		$this->updateTrickTypeHandler = $this->createMock(UpdateTrickTypeHandler::class);
 		$this->tricksRepository = $this->createMock(TricksRepository::class);
 		$this->tricks = $this->createMock(TricksInterface::class);
 		$this->tricksRepository->method('getBySlug')->willReturn($this->tricks);

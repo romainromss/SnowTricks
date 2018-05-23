@@ -34,14 +34,17 @@ class ResponderTrickDetailsActionTest extends TestCase
      * @var Environment
      */
     private $twig;
+
     /**
      * @var TricksRepository
      */
     private $tricksRepository;
+
     /**
      * @var AddCommentTypeHandlerInterface
      */
     private $addCommentType;
+
     /**
      * @var UrlGeneratorInterface
      */
