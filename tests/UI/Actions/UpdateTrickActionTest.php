@@ -16,9 +16,8 @@ namespace App\Tests\UI\Actions;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Repository\TricksRepository;
 use App\UI\Actions\UpdateTrickAction;
-use App\UI\Form\Handler\Intefaces\UpdateTricksTypeHandlerInterface;
-use App\UI\Form\Handler\UpdateTricksTypeHandler;
-use App\UI\Responder\ResponderUpdateTricks;
+use App\UI\Form\Handler\UpdateTrickTypeHandler;
+use App\UI\Responder\ResponderUpdateTrick;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,7 +49,7 @@ class UpdateTrickActionTest extends TestCase
 	 */
 	private $request;
 	/**
-	 * @var UpdateTricksTypeHandler
+	 * @var UpdateTrickTypeHandler
 	 */
 	private $updateTrickTypeHandler;
 	/**
@@ -91,7 +90,7 @@ class UpdateTrickActionTest extends TestCase
 
 
 	/**
-	 * @return ResponderUpdateTricks
+	 * @return ResponderUpdateTrick
 	 *
 	 * @throws \Doctrine\ORM\NonUniqueResultException
 	 * @throws \Doctrine\ORM\ORMException
@@ -105,7 +104,7 @@ class UpdateTrickActionTest extends TestCase
 			$this->tricksRepository
 		);
 
-		$responder = new ResponderUpdateTricks(
+		$responder = new ResponderUpdateTrick(
 			$this->twig,
 			$this->urlGenerator
 		);
@@ -138,7 +137,7 @@ class UpdateTrickActionTest extends TestCase
 			$this->tricksRepository
 		);
 
-		$responder = new ResponderUpdateTricks(
+		$responder = new ResponderUpdateTrick(
 			$this->twig,
 			$this->urlGenerator
 		);
