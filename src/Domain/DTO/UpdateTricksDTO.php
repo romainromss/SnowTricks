@@ -13,12 +13,14 @@ declare(strict_types=1);
 
 namespace App\Domain\DTO;
 
+use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
+
 /**
  * Class UpdateTricksDTOInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class UpdateTricksDTO
+class UpdateTricksDTO implements UpdateTrickDTOInterface
 {
 	/**
 	 * @var string
@@ -51,30 +53,49 @@ class UpdateTricksDTO
 	public $movies = [];
 
 
-	public function serialize()
-	{
-		return serialize([
-			$this->name,
-			$this->description,
-			$this->group,
-			$this->slug,
-			$this->pictures,
-			$this->movies,
-		]);
-	}
+//	public function serialize()
+//	{
+//		return serialize([
+//			$this->name,
+//			$this->description,
+//			$this->group,
+//			$this->slug,
+//			$this->pictures,
+//			$this->movies,
+//		]);
+//	}
+//
+//	/**
+//	 * @param string $serialized
+//	 */
+//	public function unserialize($serialized)
+//	{
+//		list(
+//			$this->name,
+//			$this->description,
+//			$this->group,
+//			$this->slug,
+//			$this->pictures,
+//			$this->movies
+//			) = unserialize($serialized);
+//	}
 
 	/**
-	 * @param string $serialized
+	 * {@inheritdoc}
 	 */
-	public function unserialize($serialized)
-	{
-		list(
-			$this->name,
-			$this->description,
-			$this->group,
-			$this->slug,
-			$this->pictures,
-			$this->movies
-			) = unserialize($serialized);
+	public function __construct(
+		string $name,
+		string $description,
+		string $group,
+		string $slug,
+		array $pictures,
+		array $movies
+	) {
+		$this->name = $name;
+		$this->description = $description;
+		$this->group = $group;
+		$this->slug = $slug;
+		$this->pictures = $pictures;
+		$this->movies = $movies;
 	}
 }
