@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\DTO\UpdateTricksDTO;
+use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\UpdateTricksTypeHandler;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
@@ -80,8 +80,8 @@ class UpdateTrickAction
 
 		$tricks = $this->tricksRepository->getBySlug($request->attributes->get('id'));
 
-		$updateTricksType = $this->formFactory
-			->create(Form::class, new UpdateTricksDTO(
+		$updateTrickType = $this->formFactory
+			->create(Form::class, new UpdateTrickDTO(
 				$tricks->getName(),
 				$tricks->getDescription(),
 				$tricks->getGroup(),
@@ -91,13 +91,13 @@ class UpdateTrickAction
 			))
 			->handleRequest($request);
 
-		if ($this->updateTricksTypeHandler->handle($updateTricksType)){
+		if ($this->updateTricksTypeHandler->handle($updateTrickType)){
 			return $responderUpdateTricks(true);
 		}
 
 		return $responderUpdateTricks(false,[
 			'tricks' => $tricks,
-			'form' => $updateTricksType->createView()
-		], $updateTricksType);
+			'form' => $updateTrickType->createView()
+		], $updateTrickType);
 	}
 }

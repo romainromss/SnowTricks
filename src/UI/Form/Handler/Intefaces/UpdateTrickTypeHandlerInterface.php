@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Form\Handler\Intefaces;
 
 use App\Domain\Builder\Interfaces\TrickBuilderInterface;
-use App\Domain\DTO\UpdateTricksDTO;
+use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;

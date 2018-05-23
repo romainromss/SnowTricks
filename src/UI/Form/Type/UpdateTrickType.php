@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Form\Type;
 
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
-use App\Domain\DTO\UpdateTricksDTO;
+use App\Domain\DTO\UpdateTrickDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -72,7 +72,7 @@ class UpdateTrickType extends AbstractType
 		$resolver->setDefaults([
 			'data_class' => UpdateTrickDTOInterface::class,
 			'empty_data' => function (FormInterface $form){
-				return new UpdateTricksDTO(
+				return new UpdateTrickDTO(
 					$form->get('name')->getData(),
 					$form->get('description')->getData(),
 					$form->get('group')->getData(),
