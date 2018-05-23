@@ -15,7 +15,7 @@ namespace App\Tests\UI\Actions;
 
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Repository\TricksRepository;
-use App\UI\Actions\UpdateTricksAction;
+use App\UI\Actions\UpdateTrickAction;
 use App\UI\Form\Handler\Intefaces\UpdateTricksTypeHandlerInterface;
 use App\UI\Form\Handler\UpdateTricksTypeHandler;
 use App\UI\Responder\ResponderUpdateTricks;
@@ -78,13 +78,13 @@ class UpdateTrickActionTest extends TestCase
 
 	public function testConstructor()
 	{
-		$constructResponder = new UpdateTricksAction(
+		$constructResponder = new UpdateTrickAction(
 			$this->formFactory,
 			$this->updateTrickTypeHandler,
 			$this->tricksRepository);
 
 		static::assertInstanceOf(
-			UpdateTricksAction::class,
+			UpdateTrickAction::class,
 			$constructResponder
 		);
 	}
@@ -99,7 +99,7 @@ class UpdateTrickActionTest extends TestCase
 	 */
 	public function testReturnFalse()
 	{
-		$updateTrickAction = new UpdateTricksAction(
+		$updateTrickAction = new UpdateTrickAction(
 			$this->formFactory,
 			$this->updateTrickTypeHandler,
 			$this->tricksRepository
@@ -132,7 +132,7 @@ class UpdateTrickActionTest extends TestCase
 	 */
 	public function testReturnTrue()
 	{
-		$updateTrickAction = new UpdateTricksAction(
+		$updateTrickAction = new UpdateTrickAction(
 			$this->formFactory,
 			$this->updateTrickTypeHandler,
 			$this->tricksRepository
