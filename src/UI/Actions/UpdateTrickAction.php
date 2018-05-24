@@ -15,10 +15,9 @@ namespace App\UI\Actions;
 
 use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\UI\Form\Handler\UpdateTricksTypeHandler;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
+use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Responder\Interfaces\ResponderUpdateTrickInterface;
-use App\UI\Responder\Interfaces\ResponderUpdateTricksInterface;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -63,10 +62,11 @@ class UpdateTrickAction
 		$this->updateTricksTypeHandler = $updateTricksTypeHandler;
 		$this->tricksRepository = $tricksRepository;
 	}
-
 	/**
-	 * @param ResponderUpdateTrickInterface  $responderUpdateTricks
-	 * @param Request                        $request
+	 * @Route("update/tricks/{slug}", name="updateTricks")
+	 *
+	 * @param ResponderUpdateTrickInterface $responderUpdateTricks
+	 * @param Request                       $request
 	 *
 	 * @return Response
 	 * @throws \Doctrine\ORM\NonUniqueResultException
@@ -78,26 +78,28 @@ class UpdateTrickAction
 		Request $request
 	):  Response {
 
-		$tricks = $this->tricksRepository->getBySlug($request->attributes->get('id'));
+		$tricks = $this->tricksRepository->getBySlug($request->attributes->get('slug'));
 
-		$updateTrickType = $this->formFactory
-			->create(Form::class, new UpdateTrickDTO(
-				$tricks->getName(),
-				$tricks->getDescription(),
-				$tricks->getGroup(),
-				$tricks->getSlug(),
-				$tricks->getPictures()->toArray(),
-				$tricks->getMovies()->toArray()
-			))
+		$dto = new UpdateTrickDTO(
+			$tricks->getName(),
+			$tricks->getDescription(),
+			$tricks->getGroup(),
+			$tricks->getSlug(),
+			$tricks->getPictures()->toArray(),
+			$tricks->getMovies()->toArray()
+		);
+
+		$updateTricksType = $this->formFactory
+			->create(UpdateTrickType::class, $dto)
 			->handleRequest($request);
 
-		if ($this->updateTricksTypeHandler->handle($updateTrickType)){
+		if ($this->updateTricksTypeHandler->handle($updateTricksType)){
 			return $responderUpdateTricks(true);
 		}
 
 		return $responderUpdateTricks(false,[
 			'tricks' => $tricks,
-			'form' => $updateTrickType->createView()
-		], $updateTrickType);
+			'form' => $updateTricksType->createView()
+		], $updateTricksType);
 	}
 }
