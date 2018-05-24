@@ -2,7 +2,7 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="Tricks.php" path="/Domain/Models">
     <totals>
-      <lines total="259" comments="97" code="162" executable="34" executed="34" percent="100.00"/>
+      <lines total="246" comments="97" code="149" executable="34" executed="34" percent="100.00"/>
       <methods count="18" tested="18" percent="100.00"/>
       <functions count="0" tested="0" percent="0"/>
       <classes count="1" tested="1" percent="100.00"/>
@@ -12,27 +12,27 @@
       <package full="" name="" sub="" category=""/>
       <namespace name="App\Domain\Models"/>
       <method name="__construct" signature="__construct(&#10;        string $name,&#10;        string $description,&#10;        string $group,&#10;        string $slug,&#10;&#9;&#9;UsersInterface $users,&#10;        array $pictures = null,&#10;        array $movies = null,&#10;        array $comments = null&#10;    )" start="89" end="109" crap="1" executable="11" executed="11" coverage="100"/>
-      <method name="getPictures" signature="getPictures()" start="114" end="117" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getComments" signature="getComments()" start="122" end="125" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getUsers" signature="getUsers()" start="131" end="134" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getId" signature="getId(): UuidInterface" start="139" end="142" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getName" signature="getName(): string" start="147" end="150" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getDescription" signature="getDescription(): string" start="156" end="159" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getGroup" signature="getGroup(): string" start="165" end="168" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getUpdatedAt" signature="getUpdatedAt(): ? string" start="174" end="177" crap="2" executable="1" executed="1" coverage="100"/>
-      <method name="getCreatedAt" signature="getCreatedAt(): \DateTime" start="183" end="186" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getMovies" signature="getMovies()" start="192" end="195" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getSlug" signature="getSlug(): string" start="201" end="204" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="addPictures" signature="addPictures(PicturesInterface $pictures): void" start="210" end="213" crap="1" executable="2" executed="2" coverage="100"/>
-      <method name="unsetPictures" signature="unsetPictures(PicturesInterface $pictures): void" start="219" end="222" crap="1" executable="2" executed="2" coverage="100"/>
-      <method name="addMovies" signature="addMovies(MoviesInterface $movies): void" start="228" end="231" crap="1" executable="2" executed="2" coverage="100"/>
-      <method name="unsetMovies" signature="unsetMovies(MoviesInterface $movies): void" start="237" end="240" crap="1" executable="2" executed="2" coverage="100"/>
-      <method name="addComments" signature="addComments(CommentsInterface $comment): void" start="246" end="249" crap="1" executable="2" executed="2" coverage="100"/>
-      <method name="unsetComment" signature="unsetComment(CommentsInterface $comment): void" start="255" end="258" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getId" signature="getId(): UuidInterface" start="114" end="117" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getName" signature="getName(): string" start="122" end="125" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getDescription" signature="getDescription(): string" start="130" end="133" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getGroup" signature="getGroup(): string" start="138" end="141" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getUpdatedAt" signature="getUpdatedAt(): ? string" start="146" end="149" crap="2" executable="1" executed="1" coverage="100"/>
+      <method name="getCreatedAt" signature="getCreatedAt(): \DateTime" start="154" end="157" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getSlug" signature="getSlug(): string" start="162" end="165" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getUsers" signature="getUsers()" start="170" end="173" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getMovies" signature="getMovies()" start="178" end="181" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getPictures" signature="getPictures()" start="186" end="189" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getComments" signature="getComments()" start="194" end="197" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="addPictures" signature="addPictures(PicturesInterface $pictures): void" start="202" end="205" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="unsetPictures" signature="unsetPictures(PicturesInterface $pictures): void" start="210" end="213" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="addMovies" signature="addMovies(MoviesInterface $movies): void" start="218" end="221" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="unsetMovies" signature="unsetMovies(MoviesInterface $movies): void" start="226" end="229" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="addComments" signature="addComments(CommentsInterface $comment): void" start="234" end="237" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="unsetComment" signature="unsetComment(CommentsInterface $comment): void" start="242" end="245" crap="1" executable="2" executed="2" coverage="100"/>
     </class>
     <coverage>
       <line nr="99">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -44,7 +44,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="100">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -56,7 +56,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="101">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -68,7 +68,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="102">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -80,7 +80,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="103">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -92,7 +92,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="104">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -104,7 +104,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="105">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -116,7 +116,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="106">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -128,7 +128,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="107">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -140,7 +140,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="108">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -152,7 +152,7 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
       <line nr="109">
-        <covered by="App\Tests\Domain\Builder\TricksBuilderTest::testcreate"/>
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testGoodAttributes"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
@@ -165,84 +165,84 @@
       </line>
       <line nr="116">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
-        <covered by="App\Tests\Domain\Models\TricksTest::testAddPictures"/>
-        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetPictures"/>
-        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetMovies"/>
       </line>
       <line nr="124">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
-        <covered by="App\Tests\Domain\Models\TricksTest::testAddComments"/>
-        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
-      <line nr="133">
+      <line nr="132">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
       </line>
-      <line nr="141">
+      <line nr="140">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
       </line>
-      <line nr="149">
+      <line nr="148">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
       </line>
-      <line nr="158">
+      <line nr="156">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
       </line>
-      <line nr="167">
+      <line nr="164">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
       </line>
-      <line nr="176">
+      <line nr="172">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
       </line>
-      <line nr="185">
-        <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
-      </line>
-      <line nr="194">
+      <line nr="180">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testAddMovies"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetMovies"/>
       </line>
-      <line nr="203">
+      <line nr="188">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
+        <covered by="App\Tests\Domain\Models\TricksTest::testAddPictures"/>
+        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetPictures"/>
+        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetMovies"/>
+      </line>
+      <line nr="196">
+        <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
+        <covered by="App\Tests\Domain\Models\TricksTest::testAddComments"/>
+        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
+      </line>
+      <line nr="204">
+        <covered by="App\Tests\Domain\Models\TricksTest::testAddPictures"/>
+        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetPictures"/>
+      </line>
+      <line nr="205">
+        <covered by="App\Tests\Domain\Models\TricksTest::testAddPictures"/>
+        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetPictures"/>
       </line>
       <line nr="212">
-        <covered by="App\Tests\Domain\Models\TricksTest::testAddPictures"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetPictures"/>
       </line>
       <line nr="213">
-        <covered by="App\Tests\Domain\Models\TricksTest::testAddPictures"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetPictures"/>
+      </line>
+      <line nr="220">
+        <covered by="App\Tests\Domain\Models\TricksTest::testAddMovies"/>
+        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetMovies"/>
       </line>
       <line nr="221">
-        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetPictures"/>
-      </line>
-      <line nr="222">
-        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetPictures"/>
-      </line>
-      <line nr="230">
         <covered by="App\Tests\Domain\Models\TricksTest::testAddMovies"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetMovies"/>
       </line>
-      <line nr="231">
-        <covered by="App\Tests\Domain\Models\TricksTest::testAddMovies"/>
+      <line nr="228">
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetMovies"/>
       </line>
-      <line nr="239">
+      <line nr="229">
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetMovies"/>
       </line>
-      <line nr="240">
-        <covered by="App\Tests\Domain\Models\TricksTest::testUnsetMovies"/>
-      </line>
-      <line nr="248">
+      <line nr="236">
         <covered by="App\Tests\Domain\Models\TricksTest::testAddComments"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
-      <line nr="249">
+      <line nr="237">
         <covered by="App\Tests\Domain\Models\TricksTest::testAddComments"/>
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
-      <line nr="257">
+      <line nr="244">
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
-      <line nr="258">
+      <line nr="245">
         <covered by="App\Tests\Domain\Models\TricksTest::testUnsetComment"/>
       </line>
     </coverage>
@@ -432,7 +432,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="33">
-        <token name="T_DOC_COMMENT">     * @var \ArrayAccess</token>
+        <token name="T_DOC_COMMENT">     * @var UuidInterface</token>
       </line>
       <line no="34">
         <token name="T_DOC_COMMENT">     */</token>
@@ -441,7 +441,7 @@
         <token name="T_WHITESPACE">    </token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$pictures</token>
+        <token name="T_VARIABLE">$id</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="36"/>
@@ -450,7 +450,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="38">
-        <token name="T_DOC_COMMENT">     * @var \ArrayAccess</token>
+        <token name="T_DOC_COMMENT">     * @var string</token>
       </line>
       <line no="39">
         <token name="T_DOC_COMMENT">     */</token>
@@ -459,7 +459,7 @@
         <token name="T_WHITESPACE">    </token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$comments</token>
+        <token name="T_VARIABLE">$name</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="41"/>
@@ -468,7 +468,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="43">
-        <token name="T_DOC_COMMENT">     * @var \ArrayAccess</token>
+        <token name="T_DOC_COMMENT">     * @var string</token>
       </line>
       <line no="44">
         <token name="T_DOC_COMMENT">     */</token>
@@ -477,25 +477,25 @@
         <token name="T_WHITESPACE">    </token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$movies</token>
+        <token name="T_VARIABLE">$description</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="46"/>
       <line no="47">
-        <token name="T_WHITESPACE">	</token>
+        <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="48">
-        <token name="T_DOC_COMMENT">	 * @var UsersInterface</token>
+        <token name="T_DOC_COMMENT">     * @var string</token>
       </line>
       <line no="49">
-        <token name="T_DOC_COMMENT">	 */</token>
+        <token name="T_DOC_COMMENT">     */</token>
       </line>
       <line no="50">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$users</token>
+        <token name="T_VARIABLE">$group</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="51"/>
@@ -504,7 +504,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="53">
-        <token name="T_DOC_COMMENT">     * @var UuidInterface</token>
+        <token name="T_DOC_COMMENT">     * @var string</token>
       </line>
       <line no="54">
         <token name="T_DOC_COMMENT">     */</token>
@@ -513,7 +513,7 @@
         <token name="T_WHITESPACE">    </token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$id</token>
+        <token name="T_VARIABLE">$slug</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="56"/>
@@ -531,7 +531,7 @@
         <token name="T_WHITESPACE">    </token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$name</token>
+        <token name="T_VARIABLE">$updatedAt</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="61"/>
@@ -540,7 +540,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="63">
-        <token name="T_DOC_COMMENT">     * @var string</token>
+        <token name="T_DOC_COMMENT">     * @var int</token>
       </line>
       <line no="64">
         <token name="T_DOC_COMMENT">     */</token>
@@ -549,79 +549,79 @@
         <token name="T_WHITESPACE">    </token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$description</token>
+        <token name="T_VARIABLE">$createdAt</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="66"/>
       <line no="67">
-        <token name="T_WHITESPACE">    </token>
+        <token name="T_WHITESPACE">	</token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="68">
-        <token name="T_DOC_COMMENT">     * @var string</token>
+        <token name="T_DOC_COMMENT">	 * @var \ArrayAccess</token>
       </line>
       <line no="69">
-        <token name="T_DOC_COMMENT">     */</token>
+        <token name="T_DOC_COMMENT">	 */</token>
       </line>
       <line no="70">
-        <token name="T_WHITESPACE">    </token>
+        <token name="T_WHITESPACE">	</token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$group</token>
+        <token name="T_VARIABLE">$pictures</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="71"/>
       <line no="72">
-        <token name="T_WHITESPACE">    </token>
+        <token name="T_WHITESPACE">	</token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="73">
-        <token name="T_DOC_COMMENT">     * @var string</token>
+        <token name="T_DOC_COMMENT">	 * @var \ArrayAccess</token>
       </line>
       <line no="74">
-        <token name="T_DOC_COMMENT">     */</token>
+        <token name="T_DOC_COMMENT">	 */</token>
       </line>
       <line no="75">
-        <token name="T_WHITESPACE">    </token>
+        <token name="T_WHITESPACE">	</token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$slug</token>
+        <token name="T_VARIABLE">$comments</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="76"/>
       <line no="77">
-        <token name="T_WHITESPACE">    </token>
+        <token name="T_WHITESPACE">	</token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="78">
-        <token name="T_DOC_COMMENT">     * @var string</token>
+        <token name="T_DOC_COMMENT">	 * @var \ArrayAccess</token>
       </line>
       <line no="79">
-        <token name="T_DOC_COMMENT">     */</token>
+        <token name="T_DOC_COMMENT">	 */</token>
       </line>
       <line no="80">
-        <token name="T_WHITESPACE">    </token>
+        <token name="T_WHITESPACE">	</token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$updatedAt</token>
+        <token name="T_VARIABLE">$movies</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="81"/>
       <line no="82">
-        <token name="T_WHITESPACE">    </token>
+        <token name="T_WHITESPACE">	</token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="83">
-        <token name="T_DOC_COMMENT">     * @var int</token>
+        <token name="T_DOC_COMMENT">	 * @var UsersInterface</token>
       </line>
       <line no="84">
-        <token name="T_DOC_COMMENT">     */</token>
+        <token name="T_DOC_COMMENT">	 */</token>
       </line>
       <line no="85">
-        <token name="T_WHITESPACE">    </token>
+        <token name="T_WHITESPACE">	</token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$createdAt</token>
+        <token name="T_VARIABLE">$users</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="86"/>
@@ -861,131 +861,16 @@
       </line>
       <line no="110"/>
       <line no="111">
-        <token name="T_WHITESPACE">	</token>
+        <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="112">
-        <token name="T_DOC_COMMENT">	 * @return \ArrayAccess</token>
-      </line>
-      <line no="113">
-        <token name="T_DOC_COMMENT">	 */</token>
-      </line>
-      <line no="114">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">getPictures</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="115">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="116">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_RETURN">return</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">pictures</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="117">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="118"/>
-      <line no="119">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_DOC_COMMENT">/**</token>
-      </line>
-      <line no="120">
-        <token name="T_DOC_COMMENT">     * @return \ArrayAccess</token>
-      </line>
-      <line no="121">
-        <token name="T_DOC_COMMENT">     */</token>
-      </line>
-      <line no="122">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">getComments</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="123">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="124">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_RETURN">return</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">comments</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="125">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="126"/>
-      <line no="127"/>
-      <line no="128">
-        <token name="T_WHITESPACE">	</token>
-        <token name="T_DOC_COMMENT">/**</token>
-      </line>
-      <line no="129">
-        <token name="T_DOC_COMMENT">	 * @return UsersInterface | string</token>
-      </line>
-      <line no="130">
-        <token name="T_DOC_COMMENT">	 */</token>
-      </line>
-      <line no="131">
-        <token name="T_WHITESPACE">	</token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">getUsers</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="132">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="133">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_RETURN">return</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">users</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="134">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="135"/>
-      <line no="136">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_DOC_COMMENT">/**</token>
-      </line>
-      <line no="137">
         <token name="T_DOC_COMMENT">     * @return UuidInterface</token>
       </line>
-      <line no="138">
+      <line no="113">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="139">
+      <line no="114">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -998,11 +883,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">UuidInterface</token>
       </line>
-      <line no="140">
+      <line no="115">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="141">
+      <line no="116">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -1011,22 +896,22 @@
         <token name="T_STRING">id</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="142">
+      <line no="117">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="143"/>
-      <line no="144">
+      <line no="118"/>
+      <line no="119">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="145">
+      <line no="120">
         <token name="T_DOC_COMMENT">     * @return string</token>
       </line>
-      <line no="146">
+      <line no="121">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="147">
+      <line no="122">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1039,11 +924,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">string</token>
       </line>
-      <line no="148">
+      <line no="123">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="149">
+      <line no="124">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -1052,23 +937,22 @@
         <token name="T_STRING">name</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="150">
+      <line no="125">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="151"/>
-      <line no="152"/>
-      <line no="153">
+      <line no="126"/>
+      <line no="127">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="154">
+      <line no="128">
         <token name="T_DOC_COMMENT">     * @return string</token>
       </line>
-      <line no="155">
+      <line no="129">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="156">
+      <line no="130">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1081,11 +965,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">string</token>
       </line>
-      <line no="157">
+      <line no="131">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="158">
+      <line no="132">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -1094,23 +978,22 @@
         <token name="T_STRING">description</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="159">
+      <line no="133">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="160"/>
-      <line no="161"/>
-      <line no="162">
+      <line no="134"/>
+      <line no="135">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="163">
+      <line no="136">
         <token name="T_DOC_COMMENT">     * @return string</token>
       </line>
-      <line no="164">
+      <line no="137">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="165">
+      <line no="138">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1123,11 +1006,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">string</token>
       </line>
-      <line no="166">
+      <line no="139">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="167">
+      <line no="140">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -1136,23 +1019,22 @@
         <token name="T_STRING">group</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="168">
+      <line no="141">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="169"/>
-      <line no="170"/>
-      <line no="171">
+      <line no="142"/>
+      <line no="143">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="172">
+      <line no="144">
         <token name="T_DOC_COMMENT">     * @return string</token>
       </line>
-      <line no="173">
+      <line no="145">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="174">
+      <line no="146">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1167,11 +1049,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">string</token>
       </line>
-      <line no="175">
+      <line no="147">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="176">
+      <line no="148">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -1180,23 +1062,22 @@
         <token name="T_STRING">updatedAt</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="177">
+      <line no="149">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="178"/>
-      <line no="179"/>
-      <line no="180">
+      <line no="150"/>
+      <line no="151">
         <token name="T_WHITESPACE">	</token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="181">
+      <line no="152">
         <token name="T_DOC_COMMENT">	 * @return \DateTime</token>
       </line>
-      <line no="182">
+      <line no="153">
         <token name="T_DOC_COMMENT">	 */</token>
       </line>
-      <line no="183">
+      <line no="154">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1210,11 +1091,11 @@
         <token name="T_NS_SEPARATOR">\</token>
         <token name="T_STRING">DateTime</token>
       </line>
-      <line no="184">
+      <line no="155">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="185">
+      <line no="156">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -1234,62 +1115,22 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="186">
+      <line no="157">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="187"/>
-      <line no="188"/>
-      <line no="189">
-        <token name="T_WHITESPACE">	</token>
-        <token name="T_DOC_COMMENT">/**</token>
-      </line>
-      <line no="190">
-        <token name="T_DOC_COMMENT">	 * @return \ArrayAccess</token>
-      </line>
-      <line no="191">
-        <token name="T_DOC_COMMENT">	 */</token>
-      </line>
-      <line no="192">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">getMovies</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-      </line>
-      <line no="193">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="194">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_RETURN">return</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">movies</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="195">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="196"/>
-      <line no="197"/>
-      <line no="198">
+      <line no="158"/>
+      <line no="159">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="199">
+      <line no="160">
         <token name="T_DOC_COMMENT">     * @return string</token>
       </line>
-      <line no="200">
+      <line no="161">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="201">
+      <line no="162">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1302,11 +1143,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">string</token>
       </line>
-      <line no="202">
+      <line no="163">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="203">
+      <line no="164">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -1315,11 +1156,210 @@
         <token name="T_STRING">slug</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="204">
+      <line no="165">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="205"/>
+      <line no="166"/>
+      <line no="167">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="168">
+        <token name="T_DOC_COMMENT">	 * @return UsersInterface | string</token>
+      </line>
+      <line no="169">
+        <token name="T_DOC_COMMENT">	 */</token>
+      </line>
+      <line no="170">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getUsers</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="171">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="172">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">users</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="173">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="174"/>
+      <line no="175">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="176">
+        <token name="T_DOC_COMMENT">	 * @return \ArrayAccess</token>
+      </line>
+      <line no="177">
+        <token name="T_DOC_COMMENT">	 */</token>
+      </line>
+      <line no="178">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getMovies</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="179">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="180">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">movies</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="181">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="182"/>
+      <line no="183">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="184">
+        <token name="T_DOC_COMMENT">	 * @return \ArrayAccess</token>
+      </line>
+      <line no="185">
+        <token name="T_DOC_COMMENT">	 */</token>
+      </line>
+      <line no="186">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getPictures</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="187">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="188">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">pictures</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="189">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="190"/>
+      <line no="191">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="192">
+        <token name="T_DOC_COMMENT">	 * @return \ArrayAccess</token>
+      </line>
+      <line no="193">
+        <token name="T_DOC_COMMENT">	 */</token>
+      </line>
+      <line no="194">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getComments</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="195">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="196">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">comments</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="197">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="198"/>
+      <line no="199">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="200">
+        <token name="T_DOC_COMMENT">     * @param PicturesInterface $pictures</token>
+      </line>
+      <line no="201">
+        <token name="T_DOC_COMMENT">     */</token>
+      </line>
+      <line no="202">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">addPictures</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">PicturesInterface</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$pictures</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">void</token>
+      </line>
+      <line no="203">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="204">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">pictures</token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$pictures</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="205">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
       <line no="206"/>
       <line no="207">
         <token name="T_WHITESPACE">    </token>
@@ -1337,7 +1377,7 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_FUNCTION">function</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">addPictures</token>
+        <token name="T_STRING">unsetPictures</token>
         <token name="T_OPEN_BRACKET">(</token>
         <token name="T_STRING">PicturesInterface</token>
         <token name="T_WHITESPACE"> </token>
@@ -1353,55 +1393,6 @@
       </line>
       <line no="212">
         <token name="T_WHITESPACE">        </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">pictures</token>
-        <token name="T_OPEN_SQUARE">[</token>
-        <token name="T_CLOSE_SQUARE">]</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$pictures</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="213">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="214"/>
-      <line no="215"/>
-      <line no="216">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_DOC_COMMENT">/**</token>
-      </line>
-      <line no="217">
-        <token name="T_DOC_COMMENT">     * @param PicturesInterface $pictures</token>
-      </line>
-      <line no="218">
-        <token name="T_DOC_COMMENT">     */</token>
-      </line>
-      <line no="219">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_PUBLIC">public</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_FUNCTION">function</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">unsetPictures</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_STRING">PicturesInterface</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$pictures</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_COLON">:</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">void</token>
-      </line>
-      <line no="220">
-        <token name="T_WHITESPACE">    </token>
-        <token name="T_OPEN_CURLY">{</token>
-      </line>
-      <line no="221">
-        <token name="T_WHITESPACE">        </token>
         <token name="T_UNSET">unset</token>
         <token name="T_OPEN_BRACKET">(</token>
         <token name="T_VARIABLE">$this</token>
@@ -1426,23 +1417,22 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="222">
+      <line no="213">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="223"/>
-      <line no="224"/>
-      <line no="225">
+      <line no="214"/>
+      <line no="215">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="226">
+      <line no="216">
         <token name="T_DOC_COMMENT">     * @param MoviesInterface $movies</token>
       </line>
-      <line no="227">
+      <line no="217">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="228">
+      <line no="218">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1458,11 +1448,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">void</token>
       </line>
-      <line no="229">
+      <line no="219">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="230">
+      <line no="220">
         <token name="T_WHITESPACE">        </token>
         <token name="T_VARIABLE">$this</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -1475,23 +1465,22 @@
         <token name="T_VARIABLE">$movies</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="231">
+      <line no="221">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="232"/>
-      <line no="233"/>
-      <line no="234">
+      <line no="222"/>
+      <line no="223">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="235">
+      <line no="224">
         <token name="T_DOC_COMMENT">     * @param MoviesInterface $movies</token>
       </line>
-      <line no="236">
+      <line no="225">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="237">
+      <line no="226">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1507,11 +1496,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">void</token>
       </line>
-      <line no="238">
+      <line no="227">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="239">
+      <line no="228">
         <token name="T_WHITESPACE">        </token>
         <token name="T_UNSET">unset</token>
         <token name="T_OPEN_BRACKET">(</token>
@@ -1537,23 +1526,22 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="240">
+      <line no="229">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="241"/>
-      <line no="242"/>
-      <line no="243">
+      <line no="230"/>
+      <line no="231">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="244">
+      <line no="232">
         <token name="T_DOC_COMMENT">     * @param CommentsInterface $comment</token>
       </line>
-      <line no="245">
+      <line no="233">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="246">
+      <line no="234">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1569,11 +1557,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">void</token>
       </line>
-      <line no="247">
+      <line no="235">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="248">
+      <line no="236">
         <token name="T_WHITESPACE">        </token>
         <token name="T_VARIABLE">$this</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -1586,23 +1574,22 @@
         <token name="T_VARIABLE">$comment</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="249">
+      <line no="237">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="250"/>
-      <line no="251"/>
-      <line no="252">
+      <line no="238"/>
+      <line no="239">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="253">
+      <line no="240">
         <token name="T_DOC_COMMENT">     * @param CommentsInterface $comment</token>
       </line>
-      <line no="254">
+      <line no="241">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="255">
+      <line no="242">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -1618,11 +1605,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">void</token>
       </line>
-      <line no="256">
+      <line no="243">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="257">
+      <line no="244">
         <token name="T_WHITESPACE">        </token>
         <token name="T_UNSET">unset</token>
         <token name="T_OPEN_BRACKET">(</token>
@@ -1650,14 +1637,14 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="258">
+      <line no="245">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="259">
+      <line no="246">
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="260"/>
+      <line no="247"/>
     </source>
   </file>
 </phpunit>

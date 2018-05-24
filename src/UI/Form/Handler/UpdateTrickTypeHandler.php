@@ -15,6 +15,7 @@ namespace App\UI\Form\Handler;
 
 use App\Domain\Builder\Interfaces\TrickBuilderInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\UI\Form\Handler\Intefaces\UpdateTrickTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -23,7 +24,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class UpdateTrickTypeHandler
+class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
 {
 	/**
 	 * @var TrickBuilderInterface

@@ -70,5 +70,4 @@ class UpdateTrickDTO implements UpdateTrickDTOInterface
 		$this->pictures = $pictures;
 		$this->movies = $movies;
 	}
-
 }

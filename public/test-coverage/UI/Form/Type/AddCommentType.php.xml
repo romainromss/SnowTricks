@@ -17,23 +17,23 @@
     </class>
     <coverage>
       <line nr="34">
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnFalse"/>
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnTrue"/>
         <covered by="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData"/>
       </line>
       <line nr="36">
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnFalse"/>
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnTrue"/>
         <covered by="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData"/>
       </line>
       <line nr="40">
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnFalse"/>
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnTrue"/>
         <covered by="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData"/>
       </line>
       <line nr="41">
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnFalse"/>
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnTrue"/>
         <covered by="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData"/>
       </line>
       <line nr="43">
@@ -43,13 +43,13 @@
         <covered by="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData"/>
       </line>
       <line nr="46">
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnFalse"/>
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnTrue"/>
         <covered by="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData"/>
       </line>
       <line nr="48">
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnFalse"/>
-        <covered by="App\Tests\UI\Actions\TricksDetailsActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnTrue"/>
         <covered by="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData"/>
       </line>
     </coverage>
@@ -129,7 +129,7 @@
         <token name="T_NS_SEPARATOR">\</token>
         <token name="T_STRING">Interfaces</token>
         <token name="T_NS_SEPARATOR">\</token>
-        <token name="T_STRING">AddCommentDtoInterface</token>
+        <token name="T_STRING">AddCommentDTOInterface</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="18">
@@ -305,7 +305,7 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_DOUBLE_ARROW">=&gt;</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">AddCommentDtoInterface</token>
+        <token name="T_STRING">AddCommentDTOInterface</token>
         <token name="T_DOUBLE_COLON">::</token>
         <token name="T_CLASS">class</token>
         <token name="T_COMMA">,</token>

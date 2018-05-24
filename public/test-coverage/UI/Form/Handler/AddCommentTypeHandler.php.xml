@@ -2,30 +2,57 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="AddCommentTypeHandler.php" path="/UI/Form/Handler">
     <totals>
-      <lines total="80" comments="28" code="52" executable="12" executed="4" percent="33.33"/>
+      <lines total="80" comments="28" code="52" executable="12" executed="10" percent="83.33"/>
       <methods count="2" tested="1" percent="50.00"/>
       <functions count="0" tested="0" percent="0"/>
       <classes count="1" tested="0" percent="0.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\UI\Form\Handler\AddCommentTypeHandler" start="29" executable="12" executed="4" crap="8.74">
+    <class name="App\UI\Form\Handler\AddCommentTypeHandler" start="29" executable="12" executed="10" crap="4.07">
       <package full="" name="" sub="" category=""/>
       <namespace name="App\UI\Form\Handler"/>
       <method name="__construct" signature="__construct(&#10;        CommentBuilderInterface $commentBuilder,&#10;        CommentsRepositoryInterface $commentsRepository,&#10;&#9;&#9;TokenStorageInterface $tokenStorage&#10;    )" start="46" end="54" crap="1" executable="4" executed="4" coverage="100"/>
-      <method name="handle" signature="handle(&#10;        FormInterface $form,&#10;&#9;&#9;TricksInterface $tricks&#10;    ):  bool" start="62" end="79" crap="12" executable="8" executed="0" coverage="0"/>
+      <method name="handle" signature="handle(&#10;        FormInterface $form,&#10;&#9;&#9;TricksInterface $tricks&#10;    ):  bool" start="62" end="79" crap="3.14" executable="8" executed="6" coverage="75"/>
     </class>
     <coverage>
       <line nr="51">
         <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnFalse"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
       </line>
       <line nr="52">
         <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnFalse"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
       </line>
       <line nr="53">
         <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnFalse"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
       </line>
       <line nr="54">
         <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnFalse"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="67">
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnFalse"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="68">
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="69">
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="70">
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="71">
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="78">
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnFalse"/>
       </line>
     </coverage>
     <source>

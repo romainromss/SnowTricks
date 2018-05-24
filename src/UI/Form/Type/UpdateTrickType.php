@@ -15,6 +15,7 @@ namespace App\UI\Form\Type;
 
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Domain\DTO\UpdateTrickDTO;
+use App\UI\Subscriber\UpdateTrickSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -61,6 +62,7 @@ class UpdateTrickType extends AbstractType
 					'label' => 'ajouter une vidéo youtube'
 				],
 			])
+			->addEventSubscriber(new UpdateTrickSubscriber())
 		;
 	}
 

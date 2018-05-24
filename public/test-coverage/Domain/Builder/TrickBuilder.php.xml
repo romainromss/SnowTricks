@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <file name="TrickBuilder.php" path="/Domain/Builder">
+    <totals>
+      <lines total="64" comments="30" code="34" executable="3" executed="3" percent="100.00"/>
+      <methods count="2" tested="2" percent="100.00"/>
+      <functions count="0" tested="0" percent="0"/>
+      <classes count="1" tested="1" percent="100.00"/>
+      <traits count="0" tested="0" percent="0"/>
+    </totals>
+    <class name="App\Domain\Builder\TrickBuilder" start="25" executable="3" executed="3" crap="2">
+      <package full="" name="" sub="" category=""/>
+      <namespace name="App\Domain\Builder"/>
+      <method name="create" signature="create(&#10;&#9;&#9;string $name,&#10;&#9;&#9;string $description,&#10;&#9;&#9;string $group,&#10;&#9;&#9;string $slug,&#10;&#9;&#9;UsersInterface $users,&#10;&#9;&#9;array $pictures,&#10;&#9;&#9;array $movies&#10;&#9;):  self" start="43" end="55" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getTrick" signature="getTrick(): Tricks" start="60" end="63" crap="1" executable="1" executed="1" coverage="100"/>
+    </class>
+    <coverage>
+      <line nr="53">
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
+      </line>
+      <line nr="54">
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
+      </line>
+      <line nr="62">
+        <covered by="App\Tests\Domain\Builder\TrickBuilderTest::testcreate"/>
+      </line>
+    </coverage>
+    <source>
+      <line no="1">
+        <token name="T_OPEN_TAG">&lt;?php</token>
+      </line>
+      <line no="2"/>
+      <line no="3">
+        <token name="T_DECLARE">declare</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_STRING">strict_types</token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_LNUMBER">1</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="4"/>
+      <line no="5">
+        <token name="T_COMMENT">/*</token>
+      </line>
+      <line no="6">
+        <token name="T_COMMENT"> * This file is part of the Snowtricks project.</token>
+      </line>
+      <line no="7">
+        <token name="T_COMMENT"> *</token>
+      </line>
+      <line no="8">
+        <token name="T_COMMENT"> * (c) Romain Bayette &lt;romain.romss@gmail.com&gt;</token>
+      </line>
+      <line no="9">
+        <token name="T_COMMENT"> *</token>
+      </line>
+      <line no="10">
+        <token name="T_COMMENT"> * For the full copyright and license information, please view the LICENSE</token>
+      </line>
+      <line no="11">
+        <token name="T_COMMENT"> * file that was distributed with this source code.</token>
+      </line>
+      <line no="12">
+        <token name="T_COMMENT"> */</token>
+      </line>
+      <line no="13"/>
+      <line no="14">
+        <token name="T_NAMESPACE">namespace</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">App</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Domain</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Builder</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="15"/>
+      <line no="16">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">App</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Domain</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Builder</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Interfaces</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">TrickBuilderInterface</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="17">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">App</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Domain</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Models</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Interfaces</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">UsersInterface</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="18">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">App</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Domain</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Models</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Tricks</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="19"/>
+      <line no="20">
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="21">
+        <token name="T_DOC_COMMENT"> * Class TrickBuilder.</token>
+      </line>
+      <line no="22">
+        <token name="T_DOC_COMMENT"> *</token>
+      </line>
+      <line no="23">
+        <token name="T_DOC_COMMENT"> * @author Romain Bayette &lt;romain.romss@gmail.com&gt;</token>
+      </line>
+      <line no="24">
+        <token name="T_DOC_COMMENT"> */</token>
+      </line>
+      <line no="25">
+        <token name="T_CLASS">class</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">TrickBuilder</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_IMPLEMENTS">implements</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">TrickBuilderInterface</token>
+      </line>
+      <line no="26">
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="27">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="28">
+        <token name="T_DOC_COMMENT">	 * @var Tricks</token>
+      </line>
+      <line no="29">
+        <token name="T_DOC_COMMENT">	 */</token>
+      </line>
+      <line no="30">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_PRIVATE">private</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$tricks</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="31"/>
+      <line no="32">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="33">
+        <token name="T_DOC_COMMENT">	 * @param string         $name</token>
+      </line>
+      <line no="34">
+        <token name="T_DOC_COMMENT">	 * @param string         $description</token>
+      </line>
+      <line no="35">
+        <token name="T_DOC_COMMENT">	 * @param string         $group</token>
+      </line>
+      <line no="36">
+        <token name="T_DOC_COMMENT">	 * @param string         $slug</token>
+      </line>
+      <line no="37">
+        <token name="T_DOC_COMMENT">	 * @param UsersInterface $users</token>
+      </line>
+      <line no="38">
+        <token name="T_DOC_COMMENT">	 * @param array          $pictures</token>
+      </line>
+      <line no="39">
+        <token name="T_DOC_COMMENT">	 * @param array          $movies</token>
+      </line>
+      <line no="40">
+        <token name="T_DOC_COMMENT">	 *</token>
+      </line>
+      <line no="41">
+        <token name="T_DOC_COMMENT">	 * @return TrickBuilder</token>
+      </line>
+      <line no="42">
+        <token name="T_DOC_COMMENT">	 */</token>
+      </line>
+      <line no="43">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">create</token>
+        <token name="T_OPEN_BRACKET">(</token>
+      </line>
+      <line no="44">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="45">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$description</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="46">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$group</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="47">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_STRING">string</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$slug</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="48">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_STRING">UsersInterface</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$users</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="49">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$pictures</token>
+        <token name="T_COMMA">,</token>
+      </line>
+      <line no="50">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_ARRAY">array</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$movies</token>
+      </line>
+      <line no="51">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE">  </token>
+        <token name="T_STRING">self</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="52"/>
+      <line no="53">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">tricks</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_NEW">new</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Tricks</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$description</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$group</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$slug</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$users</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$pictures</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$movies</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="54">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="55">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="56"/>
+      <line no="57">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_DOC_COMMENT">/**</token>
+      </line>
+      <line no="58">
+        <token name="T_DOC_COMMENT">	 * @return tricks</token>
+      </line>
+      <line no="59">
+        <token name="T_DOC_COMMENT">	 */</token>
+      </line>
+      <line no="60">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">getTrick</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+        <token name="T_COLON">:</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">Tricks</token>
+      </line>
+      <line no="61">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="62">
+        <token name="T_WHITESPACE">		</token>
+        <token name="T_RETURN">return</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">tricks</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="63">
+        <token name="T_WHITESPACE">	</token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="64">
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="65"/>
+    </source>
+  </file>
+</phpunit>

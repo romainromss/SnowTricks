@@ -16,10 +16,12 @@
     <coverage>
       <line nr="34">
         <covered by="App\Tests\Domain\DTO\AddCommentDtoTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
         <covered by="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData"/>
       </line>
       <line nr="35">
         <covered by="App\Tests\Domain\DTO\AddCommentDtoTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
         <covered by="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData"/>
       </line>
     </coverage>
