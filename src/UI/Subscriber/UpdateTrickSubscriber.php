@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace App\UI\Subscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class UpdateTrickSubscriber.
@@ -25,6 +25,26 @@ use Symfony\Component\Form\FormEvents;
  */
 class UpdateTrickSubscriber implements EventSubscriberInterface
 {
+	/**
+	 * @var array
+	 */
+	private $pictures = [];
+
+	/**
+	 * @var array
+	 */
+	private $movies = [];
+
+	/**
+	 * @var string
+	 */
+	private $imageFolder;
+
+	public function __construct(string $imageFolder)
+	{
+		$this->imageFolder = $imageFolder;
+	}
+
 	public static function getSubscribedEvents()
 	{
 		return [
@@ -32,10 +52,22 @@ class UpdateTrickSubscriber implements EventSubscriberInterface
 		];
 	}
 
-	public function onPreSetData(FormEvent $events)
+	public function onPreSetData(FormEvent $event)
 	{
-		$form = $events->getForm();
+		$this->pictures = $event->getData()->pictures;
 
-		$form->add('pictures', FileType::class);
+		foreach ($event->getData()->pictures as $picture) {
+			$event->getData()->pictures[] = new File($this->imageFolder.$picture->getName());
+
+			unset($event->getData()->pictures[array_search($picture, $event->getData()->pictures)]);
+		}
+
+		$this->movies = $event->getData()->movies;
+
+		foreach ($event->getData()->movies as $movies) {
+			$event->getData()->movies[] = is_string($movies->getEmbed());
+
+			unset($event->getData()->movies[array_search($movies, $event->getData()->movies)]);
+		}
 	}
 }
