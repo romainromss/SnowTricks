@@ -32,12 +32,25 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class UpdateTrickType extends AbstractType
 {
+
+	/**
+	 * @var UpdateTrickSubscriber
+	 */
+	private $updateTrickSubscriber;
+
+	public function __construct(UpdateTrickSubscriber $updateTrickSubscriber)
+	{
+		$this->updateTrickSubscriber = $updateTrickSubscriber;
+	}
+
 	/**
 	 * @param FormBuilderInterface  $builder
 	 * @param array                 $options
 	 */
-	public function buildForm(FormBuilderInterface $builder, array $options)
-	{
+	public function buildForm(
+		FormBuilderInterface $builder,
+		array $options
+	) {
 		$builder
 			->add('name', TextType::class)
 			->add('description', TextareaType::class)
@@ -62,7 +75,7 @@ class UpdateTrickType extends AbstractType
 					'label' => 'ajouter une vidéo youtube'
 				],
 			])
-			->addEventSubscriber(new UpdateTrickSubscriber())
+			->addEventSubscriber($this->updateTrickSubscriber)
 		;
 	}
 

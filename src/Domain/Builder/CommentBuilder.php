@@ -23,7 +23,7 @@ use App\Domain\Models\Interfaces\UsersInterface;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-final class CommentBuilder implements CommentBuilderInterface
+class CommentBuilder implements CommentBuilderInterface
 {
     /**
      * @var Comments

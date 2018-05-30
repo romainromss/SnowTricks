@@ -18,7 +18,6 @@ use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
 use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Responder\Interfaces\ResponderUpdateTrickInterface;
-use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
