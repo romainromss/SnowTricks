@@ -49,7 +49,7 @@ class ResponderUpdateTrickTest extends TestCase
 	 */
 	private $urlGenerator;
 
-	public function setUp()
+	protected function setUp()
 	{
 		$this->twig = $this->createMock(Environment::class);
 		$this->tricksRepository = $this->createMock(TricksRepository::class);

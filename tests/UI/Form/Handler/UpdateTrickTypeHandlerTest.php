@@ -15,12 +15,15 @@ namespace App\Tests\UI\Form\Handler;
 
 use App\Domain\Builder\TrickBuilder;
 use App\Domain\DTO\UpdateTrickDTO;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\TricksRepository;
 use App\UI\Form\Handler\Intefaces\UpdateTrickTypeHandlerInterface;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 
 /**
@@ -50,11 +53,14 @@ class UpdateTrickTypeHandlerTest extends TestCase
 	 */
 	private $formInterface;
 
-	public function setUp()
+	protected function setUp()
 	{
 		$this->tricksBuilder = $this->createMock(TrickBuilder::class);
 		$this->tricksRepository = $this->createMock(TricksRepository::class);
 		$this->tokenstorage = $this->createMock(TokenStorageInterface::class);
+		$token = $this->createMock(TokenInterface::class);
+		$this->tokenstorage->method('getToken')->willReturn($token);
+		$token->method('getUser')->willReturn($this->createMock(UsersInterface::class));
 		$this->formInterface = $this->createMock(FormInterface::class);
 	}
 

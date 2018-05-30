@@ -18,8 +18,10 @@ use App\Domain\Repository\TricksRepository;
 use App\UI\Actions\UpdateTrickAction;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
 use App\UI\Responder\ResponderUpdateTrick;
+use Doctrine\Common\Collections\Collection;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -67,16 +69,29 @@ class UpdateTrickActionTest extends TestCase
 	 */
 	private $tricks;
 
-	public function setUp()
+	/**
+	 * @var Collection
+	 */
+	private $collection;
+
+	protected function setUp()
 	{
 		$this->formFactory = $this->createMock(FormFactoryInterface::class);
 		$this->twig = $this->createMock(Environment::class);
 		$this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
-		$this->urlGenerator->method('generate')->willReturn('/');
 		$this->request = Request::create('/tricks/details/mute', 'POST');
 		$this->updateTrickTypeHandler = $this->createMock(UpdateTrickTypeHandler::class);
 		$this->tricksRepository = $this->createMock(TricksRepository::class);
 		$this->tricks = $this->createMock(TricksInterface::class);
+		$this->collection = $this->createMock(Collection::class);
+		$formInterface = $this->createMock(FormInterface::class);
+
+		$formInterface->method('handleRequest')->willReturnSelf();
+		$this->formFactory->method('create')->willReturn($formInterface);
+		$this->collection->method('toArray')->willReturn([]);
+		$this->urlGenerator->method('generate')->willReturn('/');
+		$this->tricks->method('getPictures')->willReturn($this->collection);
+		$this->tricks->method('getMovies')->willReturn($this->collection);
 		$this->tricksRepository->method('getBySlug')->willReturn($this->tricks);
 	}
 

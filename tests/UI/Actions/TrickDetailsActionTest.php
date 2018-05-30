@@ -63,7 +63,7 @@ class TrickDetailsActionTest extends KernelTestCase
      */
     private $tricks;
 
-    public function setUp()
+    protected function setUp()
     {
         static::bootKernel();
         $this->formFactory = static::$kernel->getContainer()->get('form.factory');

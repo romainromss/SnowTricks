@@ -16,19 +16,22 @@ namespace App\Tests\UI\Form\Handler;
 
 use App\Domain\Builder\TrickBuilder;
 use App\Domain\DTO\AddTrickDTO;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\TricksRepository;
 use App\UI\Form\Handler\AddTrickTypeHandler;
 use App\UI\Form\Handler\Intefaces\AddTrickTypeHandlerInterface;
+use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
  * Class AddTricksTypeHandlerTest.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class AddTrickTypeHandlerTest extends KernelTestCase
+class AddTrickTypeHandlerTest extends TestCase
 {
 	/**
 	 * @var TrickBuilder
@@ -50,12 +53,14 @@ class AddTrickTypeHandlerTest extends KernelTestCase
 	 */
 	private $formInterface;
 
-	public function setUp()
+	protected function setUp()
 	{
-		static::BootKernel();
 		$this->tricksBuilder = $this->createMock(TrickBuilder::class);
 		$this->tricksRepository = $this->createMock(TricksRepository::class);
-		$this->tokenstorage = static::$kernel->getContainer()->get('security.token_storage');
+		$this->tokenstorage = $this->createMock(TokenStorageInterface::class);
+		$token = $this->createMock(TokenInterface::class);
+		$this->tokenstorage->method('getToken')->willReturn($token);
+		$token->method('getUser')->willReturn($this->createMock(UsersInterface::class));
 		$this->formInterface = $this->createMock(FormInterface::class);
 	}
 

@@ -57,7 +57,7 @@ class AddTrickActionTest extends KernelTestCase
 	private $twig;
 
 
-	public function setUp()
+	protected function setUp()
 	{
 		static::bootKernel();
 		$this->formFactory = static::$kernel->getContainer()->get('form.factory');

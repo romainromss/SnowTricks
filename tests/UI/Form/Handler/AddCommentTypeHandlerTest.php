@@ -16,11 +16,14 @@ namespace App\Tests\UI\Form\Handler;
 use App\Domain\Builder\Interfaces\CommentBuilderInterface;
 use App\Domain\DTO\AddCommentDTO;
 use App\Domain\Models\Interfaces\TricksInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
 use App\UI\Form\Handler\AddCommentTypeHandler;
 use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 
 class AddCommentTypeHandlerTest extends KernelTestCase
@@ -50,14 +53,16 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 	 */
 	private $tricksInterface;
 
-	public function setUp()
+	protected function setUp()
     {
-    	static::BootKernel();
         $this->commentBuilder = $this->createMock(CommentBuilderInterface::class);
         $this->commentRepository = $this->createMock(CommentsRepositoryInterface::class);
-        $this->tokenstorage = static::$kernel->getContainer()->get('security.token_storage');
-        $this->formInterface = $this->createMock(FormInterface::class);
-        $this->tricksInterface = $this->createMock(TricksInterface::class);
+		$this->tricksInterface = $this->createMock(TricksInterface::class);
+		$this->tokenstorage = $this->createMock(TokenStorage::class);
+		$token = $this->createMock(TokenInterface::class);
+		$this->tokenstorage->method('getToken')->willReturn($token);
+		$token->method('getUser')->willReturn($this->createMock(UsersInterface::class));
+		$this->formInterface = $this->createMock(FormInterface::class);
     }
 
     public function testConstruct()
@@ -82,7 +87,6 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 			$addCommentTypeHandler->handle($this->formInterface, $this->tricksInterface)
 		);
 	}
-
 
 	public function testHandleReturnTrue()
     {

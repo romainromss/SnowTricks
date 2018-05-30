@@ -36,7 +36,7 @@ class HomeActionTest extends TestCase
      */
     private $twig;
 
-    public function setUp()
+    protected function setUp()
     {
         $this->tricksRepository = $this->createMock(TricksRepository::class);
         $this->twig = $this->createMock(Environment::class);
