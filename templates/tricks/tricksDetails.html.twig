@@ -4,11 +4,11 @@
     <!-- Page Content -->
     <div class="bg-image" style='background-image: url("{{ asset('images/Upload/' ~ tricks.pictures.0.name ) }}");'>
         <div class="btnheader">
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" href="{{ asset('img/photos/photo16@2x.jpg') }}">
-                    <i class="fa fa-trash"></i> Supprimer
+            {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" href="">
+                    <i class="fa fa-trash"></i>
                 </a>
-                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Editer</a>
+                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
             {% endif %}
         </div>
         <div class="hero bg-primary-dark-op">
