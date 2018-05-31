@@ -38,7 +38,7 @@ class PicturesTest extends TestCase
      */
     private $pictures;
 
-    public function setUp()
+    protected function setUp()
     {
         $this->users = $this->createMock(Users::class);
         $this->tricks = $this->createMock(Tricks::class);

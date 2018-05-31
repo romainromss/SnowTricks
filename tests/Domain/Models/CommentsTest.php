@@ -38,7 +38,7 @@ class CommentsTest extends TestCase
      */
     private $comments;
 
-    public function setUp()
+    protected function setUp()
     {
         $this->user = $this->createMock(Users::class);
         $this->trick = $this->createMock(Tricks::class);

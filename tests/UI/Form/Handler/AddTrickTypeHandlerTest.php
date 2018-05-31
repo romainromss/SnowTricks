@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the ${$project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *

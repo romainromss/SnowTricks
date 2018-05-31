@@ -33,7 +33,7 @@ class MoviesTest extends TestCase
      */
     private $movies;
 
-    public function setUp()
+    protected function setUp()
     {
         $this->trick = $this->createMock(Tricks::class);
 
