@@ -62,7 +62,7 @@ class UpdateTrickAction
 		$this->tricksRepository = $tricksRepository;
 	}
 	/**
-	 * @Route("update/tricks/{slug}", name="updateTricks")
+	 * @Route("update/trick/{slug}", name="updateTrick")
 	 *
 	 * @param ResponderUpdateTrickInterface $responderUpdateTricks
 	 * @param Request                       $request
