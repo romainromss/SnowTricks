@@ -90,4 +90,17 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
 	{
 		$this->getEntityManager()->flush();
 	}
+
+	/**
+	 *{@inheritdoc}
+	 */
+	public function deleteTrick($slug)
+	{
+		return $this->createQueryBuilder('t')
+			->delete('App\Domain\Models\Tricks', 't')
+			->where('t.id = :trick_id')
+			->setParameter('trick_id', $slug)
+			->getQuery()
+			->execute();
+	}
 }

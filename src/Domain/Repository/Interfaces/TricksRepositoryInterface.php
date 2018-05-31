@@ -51,4 +51,11 @@ interface TricksRepositoryInterface
 	 * @throws \Doctrine\ORM\OptimisticLockException
 	 */
 	public function flush($tricks);
+
+	/**
+	 * @param $id
+	 *
+	 * @return void
+	 */
+	public function deleteTrick($id);
 }
