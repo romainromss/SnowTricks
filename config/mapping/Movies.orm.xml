@@ -11,6 +11,9 @@
         </indexes>
 
         <many-to-one field="trick" target-entity="Tricks" inversed-by="movies">
+            <cascade>
+                <cascade-remove/>
+            </cascade>
         </many-to-one>
 
         <id name="id" column="id" type="uuid" />
