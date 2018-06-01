@@ -26,18 +26,12 @@ use Twig\Environment;
  */
 class ResponderHomeTest extends TestCase
 {
-    /**
-     *@test
-     */
     public function testResponderHomeInstanceOf()
     {
         $responder = $this->createMock(ResponderHome::class);
         static::assertInstanceOf(ResponderHome::class, $responder);
     }
 
-    /**
-     *@test
-     */
     public function testConstructResponderHome()
     {
         $twig = $this->createMock(Environment::class);
