@@ -8,15 +8,11 @@
 
         <indexes>
             <index name="avatar_idx" columns="avatar"/>
-            <index name="name_idx" columns="name" />
             <index name="first_idx" columns="first"/>
             <index name="trick_id_idx" columns="trick_id"/>
         </indexes>
 
         <many-to-one field="trick" target-entity="Tricks" inversed-by="pictures">
-            <cascade>
-                <cascade-remove/>
-            </cascade>
         </many-to-one>
         <one-to-one field="users" target-entity="Users" inversed-by="pictures">
         </one-to-one>

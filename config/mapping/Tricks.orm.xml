@@ -6,13 +6,22 @@
 
     <entity name="App\Domain\Models\Tricks" table="tricks" repository-class="App\Repository\TricksRepository">
 
-        <one-to-many field="movies" target-entity="Movies" mapped-by="trick">
+        <one-to-many field="movies" target-entity="Movies" mapped-by="trick" orphan-removal="true">
+            <cascade>
+                <cascade-remove/>
+            </cascade>
         </one-to-many>
 
-        <one-to-many field="pictures" target-entity="Pictures" mapped-by="trick">
+        <one-to-many field="pictures" target-entity="Pictures" mapped-by="trick" orphan-removal="true">
+            <cascade>
+                <cascade-remove/>
+            </cascade>
         </one-to-many>
 
         <one-to-many field="comments" target-entity="Comments" mapped-by="trick">
+            <cascade>
+                <cascade-remove/>
+            </cascade>
         </one-to-many>
 
         <many-to-one field="users" target-entity="Users" inversed-by="tricks">
