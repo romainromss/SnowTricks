@@ -5,7 +5,7 @@
     <div class="bg-image" style='background-image: url("{{ asset('images/Upload/' ~ tricks.pictures.0.name ) }}");'>
         <div class="btnheader">
             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" href="">
+                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" data-toggle="modal" data-target="#1">
                     <i class="fa fa-trash"></i>
                 </a>
                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
@@ -92,8 +92,8 @@
      {% endif %}
 
      <div id="Disp">
-     <div class="row" style="justify-content: center">
-         <div class="col-sm-6 col-md-8 col-lg-8" style="border-top: 2px solid rgba(40,40,40,0.6); padding-top:50px">
+         <div class="row" style="justify-content: center">
+             <div class="col-sm-6 col-md-8 col-lg-8" style="border-top: 2px solid rgba(40,40,40,0.6); padding-top:50px">
                  <ul class="nav-users push">
                      {% for comment in tricks.comments %}
                          <li class="comments">
@@ -116,7 +116,28 @@
      <div class="" >
          <button  id="seemore" type="button" class="btn btn-rounded btn-noborder btn-info min-width-125 mb-10" style="display: block; margin: auto">More</button><br>
      </div>
-     <!-- END Page Content -->
+
+     <div class="modal fade" id="1" tabindex="-1" role="dialog" aria-labelledby="modal-popout" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-popout" role="document">
+             <div class="modal-content">
+                 <div class="block block-themed block-transparent mb-0">
+                     <div class="block-content text-center text-danger">
+                         <i class="fas fa-exclamation-triangle fa-5x"></i>
+                         <h3>Êtes vous sur de vouloir supprimer cette figure ?</h3>
+                         <p>Rappel: vous êtes sur un site communataire, attention à vos suppressions</p>
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-alt-primary" data-dismiss="modal">Annuler</button>
+                     <button type="button" class="btn btn-alt-danger" href="{{ path('deleteTrick', {'slug' : tricks.slug}  ) }}" data-dismiss="modal">
+                         <i class="fa fa-check"></i> Supprimer
+                     </button>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <!-- END Pop Out Modal -->
+
 
      <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.1/mobile-detect.min.js"></script>
      <script src="{{ asset('js/seemore.js') }}"></script>
