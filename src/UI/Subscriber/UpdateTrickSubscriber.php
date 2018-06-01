@@ -52,6 +52,9 @@ class UpdateTrickSubscriber implements EventSubscriberInterface
 		];
 	}
 
+	/**
+	 * @param FormEvent $event
+	 */
 	public function onPreSetData(FormEvent $event)
 	{
 		$this->pictures = $event->getData()->pictures;

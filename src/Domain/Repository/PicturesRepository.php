@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Repository;
 
+use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Pictures;
+use App\Domain\Repository\Interfaces\PicturesRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -22,7 +24,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class PicturesRepository extends ServiceEntityRepository
+class PicturesRepository extends ServiceEntityRepository implements PicturesRepositoryInterface
 {
     /**
      * PicturesRepository constructor.
@@ -35,9 +37,7 @@ class PicturesRepository extends ServiceEntityRepository
     }
 
 	/**
-	 * @param bool $first
-	 *
-	 * @return mixed
+	 *{@inheritdoc}
 	 */
     public function getPicturesFirst(bool $first= false)
     {
@@ -48,4 +48,27 @@ class PicturesRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+	/**
+	 * {@inheritdoc}
+	 *
+	 * @throws \Doctrine\ORM\NonUniqueResultException
+	 */
+    public function getPicturesByTrickId($trick)
+	{
+		return $this->createQueryBuilder('p')
+			->where('p.trick = :trick')
+			->setParameter('trick', $trick )
+			->getQuery()
+			->getOneOrNullResult();
+	}
+
+	/**
+	 *{@inheritdoc}
+	 */
+	public function deletePictures(PicturesInterface $pictures)
+	{
+		$this->_em->remove($pictures);
+		$this->_em->flush();
+	}
 }

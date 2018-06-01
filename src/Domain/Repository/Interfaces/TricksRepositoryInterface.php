@@ -12,6 +12,8 @@ declare(strict_types=1);
  */
 
 namespace App\Domain\Repository\Interfaces;
+use App\Domain\Models\Interfaces\TricksInterface;
+use App\Domain\Models\Tricks;
 
 /**
  * Interface TricksRepositoryInterface.
@@ -45,17 +47,16 @@ interface TricksRepositoryInterface
     public function save($tricks);
 
 	/**
-	 * @param $tricks
-	 *
 	 * @throws \Doctrine\ORM\ORMException
 	 * @throws \Doctrine\ORM\OptimisticLockException
 	 */
-	public function flush($tricks);
+	public function flush();
 
 	/**
-	 * @param $id
+	 * @param TricksInterface $tricks
 	 *
 	 * @return void
 	 */
-	public function deleteTrick($id);
+	public function deleteTrick(TricksInterface $tricks);
+
 }
