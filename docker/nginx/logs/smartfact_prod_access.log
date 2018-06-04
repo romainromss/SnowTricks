@@ -1870,3 +1870,6 @@
 172.18.0.1 - - [01/Jun/2018:14:13:28 +0000] "GET /_wdt/74bc20 HTTP/1.1" 200 21388 "http://localhost:8080/tricks/noseslide" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:61.0) Gecko/20100101 Firefox/61.0"
 172.18.0.1 - - [01/Jun/2018:14:13:32 +0000] "GET / HTTP/1.1" 200 64547 "http://localhost:8080/tricks/noseslide" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:61.0) Gecko/20100101 Firefox/61.0"
 172.18.0.1 - - [01/Jun/2018:14:13:33 +0000] "GET /_wdt/15174e HTTP/1.1" 200 19920 "http://localhost:8080/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:61.0) Gecko/20100101 Firefox/61.0"
+172.18.0.1 - - [01/Jun/2018:16:52:45 +0000] "GET / HTTP/1.1" 200 64547 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:61.0) Gecko/20100101 Firefox/61.0"
+172.18.0.1 - - [01/Jun/2018:16:52:46 +0000] "GET /img/photos/hero.jpg HTTP/1.1" 200 248480 "http://localhost:8080/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:61.0) Gecko/20100101 Firefox/61.0"
+172.18.0.1 - - [01/Jun/2018:16:52:47 +0000] "GET /_wdt/4f8edd HTTP/1.1" 200 19934 "http://localhost:8080/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.13; rv:61.0) Gecko/20100101 Firefox/61.0"
