@@ -124,7 +124,6 @@ class TrickDetailsActionTest extends KernelTestCase
             $responder,
             $this->request
         ));
-        return $responder(true);
 
     }
 }

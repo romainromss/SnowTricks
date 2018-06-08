@@ -44,6 +44,7 @@ class DeleteTrickAction
 		$this->tricksRepository = $tricksRepository;
 	}
 
+
 	/**
 	 * @Route("/delete/{slug}", name="deleteTrick")
 	 *
@@ -58,9 +59,9 @@ class DeleteTrickAction
 		ResponderDeleteTrickInterface $responderDeleteTrick,
 		Request $request
 	) {
-		$this->tricksRepository->deleteTrick($this->tricksRepository
-			 ->getBySlug($request->get('slug'))
-		);
+		$trick = $this->tricksRepository->getBySlug($request->get('slug'));
+
+		$this->tricksRepository->deleteTrick($trick);
 
 		return $responderDeleteTrick();
 	}

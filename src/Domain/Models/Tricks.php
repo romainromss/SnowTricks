@@ -105,8 +105,8 @@ class Tricks implements TricksInterface
         $this->users = $users;
         $this->pictures = new ArrayCollection($pictures ?? []);
         $this->movies = new ArrayCollection($movies ?? []);
-        $this->comments = new ArrayCollection($comments ?? []);
-    }
+		$this->comments = new ArrayCollection($comments ?? []);
+	}
 
     /**
      * @return UuidInterface

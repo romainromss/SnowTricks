@@ -16,6 +16,7 @@ namespace App\Tests\UI\Form\Type;
 use App\Domain\DTO\UpdateTrickDTO;
 use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Subscriber\UpdateTrickSubscriber;
+use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
 
 
@@ -38,8 +39,6 @@ class UpdateTrickTypeTest extends TypeTestCase
 
 	protected function setUp()
 	{
-		parent::setUp();
-
 		$this->dto = new UpdateTrickDTO(
 			'name' ,
 			'description',
@@ -48,14 +47,23 @@ class UpdateTrickTypeTest extends TypeTestCase
 			[],
 			[]
 		);
-
 		$this->updateTrickSubscriber  = $this->createMock(UpdateTrickSubscriber::class);
+
+		parent::setUp();
 	}
 
 	public function testConstruct()
 	{
 		$updateTrickType = new UpdateTrickType($this->updateTrickSubscriber);
 		static::assertInstanceOf(UpdateTrickType::class, $updateTrickType);
+	}
+
+	protected function getExtensions()
+	{
+		$type = new UpdateTrickType($this->updateTrickSubscriber);
+		return [
+			new PreloadedExtension([$type], [])
+		];
 	}
 
 	public function testGoodData()

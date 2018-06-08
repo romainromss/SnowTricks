@@ -60,13 +60,13 @@ class DeleteTrickActionTest extends TestCase
 
 	protected function setUp()
 	{
-		$this->trick = $this->createMock(Tricks::class);
+		$this->trick = $this->createMock(TricksInterface::class);
 		$this->tricksRepository = $this->createMock(TricksRepositoryInterface::class);
-		$this->tricksRepository->method('deleteTrick')->willReturn($this->trick);
+		$this->tricksRepository->method('getBySlug')->willReturn($this->trick);
 		$this->urlGenerator = $this->createMock(UrlGenerator::class);
 		$this->urlGenerator->method('generate')->willReturn('/');
 		$this->request = $this->createMock(Request::class);
-		//$this->request = Request::create('/delete/mute', 'POST');
+		$this->request = Request::create('/delete/mute', 'GET');
 		$this->responderDeleteTrick = $this->createMock(ResponderDeleteTrickInterface::class);
 	}
 
