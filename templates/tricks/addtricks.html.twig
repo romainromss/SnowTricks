@@ -6,7 +6,6 @@
              <div class="form-material form-material-info floating">
                  {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
                      {{ form_start(form) }}
-                     {{ form_row(form) }}
                      <button type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Ajouter</button>
                      {{ form_end(form) }}
                  {% endif %}
@@ -14,7 +13,27 @@
          </div>
      </div>
 
-    <script src="{{ asset('js/AddTricks.js') }}"></script>
-     <script src="{{ asset('js/AddMovies.js') }}"></script>
-
+{% block javascripts %}
+    <script type="text/javascript">
+        let form = document.querySelector('div#add_trick_pictures');
+        console.log(form);
+        let formCount = form.children.length;
+        console.info(form);
+        let button = document.querySelector('button#add_file');
+        button.addEventListener('click', function () {
+            add()
+        });
+        if (formCount === 0) {
+            add();
+        }
+        function add() {
+            let prototype = form.getAttribute('data-prototype');
+            let template = prototype.replace(/__name__label__/, 'New file')
+                .replace(/__name__/, formCount);
+            console.info(template);
+            form.innerHTML += template;
+            formCount++;
+        }
+    </script>
  {% endblock %}
+{% endblock %}

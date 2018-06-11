@@ -63,7 +63,7 @@ class AddTrickAction
 	}
 
 	/**
-	 * @Route("/addtricks", name="addTricks")
+	 * @Route("/addtrick", name="addTricks")
 	 *
 	 * @param ResponderAddTrickInterface $responderAddTricks
 	 * @param Request                    $request
