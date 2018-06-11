@@ -52,10 +52,17 @@ class UpdateTrickType extends AbstractType
 		array $options
 	) {
 		$builder
-			->add('name', TextType::class)
+			->add('name', TextType::class, [
+				'label' => 'Titre'
+			])
 			->add('description', TextareaType::class)
-			->add('group', TextType::class)
-			->add('slug', TextType::class)
+			->add('group', TextType::class, [
+				'label' => 'Groupe'
+			])
+			->add('slug', TextType::class, [
+				'label' => 'Slug',
+				'help' => 'le slug, correspond généralement au titre'
+			])
 			->add('pictures', CollectionType::class, [
 				'entry_type' => FileType::class,
 				'allow_add' => true,
@@ -72,7 +79,7 @@ class UpdateTrickType extends AbstractType
 				'label' => false,
 				'required' => false,
 				'entry_options' => [
-					'label' => 'ajouter une vidéo youtube'
+					'label' => false
 				],
 			])
 			->addEventSubscriber($this->updateTrickSubscriber)
