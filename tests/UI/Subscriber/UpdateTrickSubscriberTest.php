@@ -22,5 +22,5 @@ use PHPUnit\Framework\TestCase;
  */
 class UpdateTrickSubscriberTest extends TestCase
 {
-	
+
 }
