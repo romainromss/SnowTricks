@@ -19,7 +19,7 @@ public/images/\.DS_Store
 
 templates/\.DS_Store
 
-public/test-coverage
+tests/test-coverage
 
 ###> behat/symfony2-extension ###
 behat.yml
