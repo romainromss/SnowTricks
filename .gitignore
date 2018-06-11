@@ -9,20 +9,14 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
-\.DS_Store
-
-\.idea/
-
-tests/\.DS_Store
-
-public/images/\.DS_Store
-
-templates/\.DS_Store
-
-tests/test-coverage
-
 ###> behat/symfony2-extension ###
 behat.yml
 ###< behat/symfony2-extension ###
 
-public/\.DS_Store
+\.DS_Store
+\.idea/
+tests/\.DS_Store
+public/images/\.DS_Store
+public/.DS_Store
+templates/\.DS_Store
+tests/test-coverage
