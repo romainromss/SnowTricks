@@ -105,14 +105,11 @@ class TrickDetailsActionTest extends KernelTestCase
 
     }
 
-    /**
-     * @return Response
-     *
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
-     */
+	/**
+	 * @return void
+	 *
+	 * @throws \Doctrine\ORM\NonUniqueResultException
+	 */
     public function testReturnTrue()
     {
         $tricksDetailsAction = new TrickDetailsAction($this->formFactory, $this->addCommentTypeHandler, $this->tricksRepository);
