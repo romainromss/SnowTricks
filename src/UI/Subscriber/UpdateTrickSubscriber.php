@@ -66,13 +66,13 @@ class UpdateTrickSubscriber implements EventSubscriberInterface, UpdateTrickSubs
 	 */
 	public function onPreSetData(FormEvent $event)
 	{
-		$this->pictures = $event->getData()->pictures;
-
-		foreach ($event->getData()->pictures as $picture) {
-			$event->getData()->pictures[] = new File($this->imageFolder.$picture->getName());
-
-			unset($event->getData()->pictures[array_search($picture, $event->getData()->pictures)]);
-		}
+//		$this->pictures = $event->getData()->pictures;
+//
+//		foreach ($event->getData()->pictures as $picture) {
+//			$event->getData()->pictures[] = new File($this->imageFolder.$picture->getName());
+//
+//			unset($event->getData()->pictures[array_search($picture, $event->getData()->pictures)]);
+//		}
 
 		$this->movies = $event->getData()->movies;
 

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the ${$project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,11 @@ declare(strict_types=1);
 
 namespace App\UI\Form\DataTransformer;
 
-
+/**
+ * Interface PicturesToFileTransformerInterface
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 interface PicturesToFileTransformerInterface
 {
 

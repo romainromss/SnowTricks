@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the ${$project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,8 +13,61 @@ declare(strict_types=1);
 
 namespace App\UI\Form\DataTransformer;
 
+use App\Domain\Models\Pictures;
+use Symfony\Component\Form\DataTransformerInterface;
+use Symfony\Component\HttpFoundation\File\File;
 
-class PicturesToFIleTransformer
+/**
+ * Class PicturesToFIleTransformer.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
+class PicturesToFIleTransformer implements DataTransformerInterface, PicturesToFileTransformerInterface
 {
+	/**
+	 * @var string
+	 */
+	private $imageFolder;
 
+	/**
+	 * PicturesToFIleTransformer constructor.
+	 *
+	 * @param string $imageFolder
+	 */
+	public function __construct(string $imageFolder)
+	{
+		$this->imageFolder = $imageFolder;
+	}
+
+	/**
+	 * @param mixed $value
+	 *
+	 * @return mixed|void
+	 */
+	public function transform($value)
+	{
+		if (!\is_array($value)) {
+			return;
+		}
+
+		foreach ($value as $picture) {
+			$value[] = new File($this->imageFolder.$picture->getName());
+
+			unset($value[array_search($picture, $value)]);
+		}
+	}
+
+	public function reverseTransform($value)
+	{
+		if (!$value) {
+			return;
+		}
+
+		foreach ($value as $picture) {
+			if ($value->getPictures() == $value){
+			$value[] = [$picture];
+			}
+
+		}
+	}
 }

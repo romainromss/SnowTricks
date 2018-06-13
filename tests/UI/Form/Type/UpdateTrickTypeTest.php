@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\Tests\UI\Form\Type;
 
 use App\Domain\DTO\UpdateTrickDTO;
+use App\UI\Form\DataTransformer\PicturesToFIleTransformer;
 use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Subscriber\UpdateTrickSubscriber;
 use Symfony\Component\Form\FormInterface;
@@ -38,6 +39,11 @@ class UpdateTrickTypeTest extends TypeTestCase
 	 */
 	private $updateTrickSubscriber;
 
+	/**
+	 * @var PicturesToFIleTransformer
+	 */
+	private $picturesToFileTransformer;
+
 	protected function setUp()
 	{
 		$this->dto = new UpdateTrickDTO(
@@ -48,20 +54,21 @@ class UpdateTrickTypeTest extends TypeTestCase
 			[],
 			[]
 		);
-		$this->updateTrickSubscriber  = $this->createMock(UpdateTrickSubscriber::class);
+		$this->updateTrickSubscriber  = new UpdateTrickSubscriber(__DIR__."./../../../assets/");
+		$this->picturesToFileTransformer = new PicturesToFIleTransformer(__DIR__."./../../../assets/");
 
 		parent::setUp();
 	}
 
 	public function testConstruct()
 	{
-		$updateTrickType = new UpdateTrickType($this->updateTrickSubscriber);
+		$updateTrickType = new UpdateTrickType($this->updateTrickSubscriber, $this->picturesToFileTransformer);
 		static::assertInstanceOf(UpdateTrickType::class, $updateTrickType);
 	}
 
 	protected function getExtensions()
 	{
-		$type = new UpdateTrickType($this->updateTrickSubscriber);
+		$type = new UpdateTrickType($this->updateTrickSubscriber, $this->picturesToFileTransformer);
 		return [
 			new PreloadedExtension([$type], [])
 		];
@@ -70,39 +77,34 @@ class UpdateTrickTypeTest extends TypeTestCase
 	public function testGoodData()
 	{
 		$form = $this->factory->create(UpdateTrickType::class, $this->dto);
-		$form->submit($this->dto);
+		$form->submit([
+			'name' => 'name' ,
+			'description' => 'description',
+			'group' => 'group',
+			'slug' => 'slug',
+			'pictures' => [],
+			'movies' => []
+	]);
 
 		static::assertInstanceOf(
 			FormInterface::class,
 			$form
 		);
 
-		$form->submit([
-			'name' => 'name',
-			'description' => 'description',
-			'group' => 'group',
-			'slug' => 'slug',
-			'pictures' => 'pictures',
-			'movies' => 'movies'
-		]);
-
 		static::assertTrue(
 			$form->isSubmitted()
 		);
 
-		static::assertSame([
-			'name' => 'name',
-			'description' => 'description',
-			'group' => 'group',
-			'slug' => 'slug',
-			'pictures' => 'pictures',
-			'movies' => 'movies'
-		],
+		static::assertSame($this->dto,
 			$form->getData()
 		);
 
 		static::assertTrue(
 			$form->isValid()
+		);
+
+		static::assertNotNull(
+			$form->getConfig()->getEmptyData()
 		);
 	}
 }

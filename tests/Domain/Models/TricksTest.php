@@ -98,7 +98,6 @@ class TricksTest extends TestCase
         static::assertEquals('name', $this->trick->getName());
         static::assertEquals('description', $this->trick->getDescription());
         static::assertEquals('group', $this->trick->getGroup());
-        static::assertEquals('slug', $this->trick->getSlug());
         static::assertNotNull(new \DateTime('now'), $this->trick->getCreatedAt());
         static::assertNotNull(0, $this->trick->getUpdatedAt());
         static::assertInstanceOf(Users::class, $this->trick->getUsers());

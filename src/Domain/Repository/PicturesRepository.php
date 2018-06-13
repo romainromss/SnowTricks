@@ -39,7 +39,7 @@ class PicturesRepository extends ServiceEntityRepository implements PicturesRepo
 	/**
 	 *{@inheritdoc}
 	 */
-    public function getPicturesFirst(bool $first= false)
+    public function getPicturesFirst(bool $first = false)
     {
         return $this->createQueryBuilder('p')
             ->where('p.first = :first')
@@ -58,7 +58,7 @@ class PicturesRepository extends ServiceEntityRepository implements PicturesRepo
 	{
 		return $this->createQueryBuilder('p')
 			->where('p.trick = :trick')
-			->setParameter('trick', $trick )
+			->setParameter('trick', $trick)
 			->getQuery()
 			->getOneOrNullResult();
 	}

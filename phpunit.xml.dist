@@ -15,9 +15,9 @@
         <env name="APP_SECRET" value="s$cretf0rt3st" />
         <env name="SHELL_VERBOSITY" value="-1" />
         <env name="MAILER_URL" />
-        <env name="DB_CHARSET_TEST" />
-        <env name="DB_VERSION_TEST" />
-        <env name="DB_DRIVER_TEST" />
+        <env name="DB_CHARSET_TEST=utf8mb4" />
+        <env name="DB_VERSION_TEST=5.7" />
+        <env name="DB_DRIVER_TEST=pdo_sqlite" />
         <env name="DATABASE_URL_TEST" />
         <env name="REDIS_PORT" />
         <env name="REDIS_URL" />

@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace App\Domain\Repository\Interfaces;
+
 use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 
@@ -27,7 +28,7 @@ interface PicturesRepositoryInterface
 	 *
 	 * @return mixed
 	 */
-	public function getPicturesFirst(bool $first= false);
+	public function getPicturesFirst(bool $first = false);
 
 	/**
 	 * @param $trick

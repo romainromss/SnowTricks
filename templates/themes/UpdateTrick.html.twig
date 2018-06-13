@@ -1,80 +1,43 @@
 {% block form %}
-
-    <div class="bg-image" style='background-image: url("{{ asset('images/Upload/' ~ tricks.pictures.0.name ) }}");'>
-        <div class="btnheader">
+    <!-- Floating Labels -->
+    <div class="block">
+        <div class="block-content">
             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" data-toggle="modal" data-target="#1">
-                    <i class="fa fa-trash"></i>
-                </a>
-                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
-            {% endif %}
-        </div>
-        <div class="hero bg-primary-dark-op">
-            <div class="hero-inner">
-                <div class="content content-full text-center">
-                    <h1 class="display-4 font-w700 text-white mb-10 invisible"
-                        data-toggle="appear" data-class="animated fadeInDown">{{ tricks.name }}</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="content container">
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- Floating Labels -->
-                <div class="block">
-                    <div class="block-content">
-                        {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                            {{ form_start(form) }}
-                            <div style="margin-top: 50px" class="form-group row">
-                                <div class="col-md-9">
-                                    <div class="form-material floating">
-                                        {{ form_widget(form.name, {'attr': { 'class':'form-control'}}) }}
-                                        {{ form_label(form.name) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-9">
-                                    <div class="form-material material-text-small">
-                                        {{ form_widget(form.description, {'attr': { 'class':'form-control'}}) }}
-                                        {{ form_label(form.description) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-9">
-                                    <div class="form-material floating">
-                                        {{ form_widget(form.group, {'attr': { 'class':'form-control'}}) }}
-                                        {{ form_label(form.group) }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-9">
-                                    <div class="form-material floating">
-                                        <button type="button" class="btn btn-sm btn-circle btn-alt-info mr-5 mb-5" data-toggle="popover" title="Slug" data-placement="top" data-content="Le slug correspond souvent au titre">
-                                            <i class="fa fa-exclamation-circle"></i>
-                                        </button>
-                                        {{ form_widget(form.slug, {'attr': { 'class':'form-control'}}) }}
-                                        {{ form_label(form.slug ) }}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {{ form_widget(form.pictures) }}
-                            {{ form_label(form.pictures) }}
-
-                            {{ form_widget(form.movies) }}
-                            {{ form_label(form.movies) }}
-
-                            {{ form_end(form) }}
-                            <button type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Envoyer</button>
-                        {% endif %}
+                {{ form_start(form) }}
+                <div style="margin-top: 50px" class="form-group row">
+                    <div class="col-md-9">
+                        <div class="form-material floating">
+                            {{ form_widget(form.name, {'attr': { 'class':'form-control'}}) }}
+                            {{ form_label(form.name) }}
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="form-group row">
+                    <div class="col-md-9">
+                        <div class="form-material material-text-small">
+                            {{ form_widget(form.description, {'attr': { 'class':'form-control'}}) }}
+                            {{ form_label(form.description) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-9">
+                        <div class="form-material floating">
+                            {{ form_widget(form.group, {'attr': { 'class':'form-control'}}) }}
+                            {{ form_label(form.group) }}
+                        </div>
+                    </div>
+                </div>
+
+                {{ form_widget(form.pictures) }}
+                {{ form_label(form.pictures) }}
+
+                {{ form_widget(form.movies) }}
+                {{ form_label(form.movies) }}
+
+                {{ form_end(form) }}
+                <button type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Envoyer</button>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

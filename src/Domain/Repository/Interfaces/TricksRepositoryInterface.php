@@ -12,6 +12,7 @@ declare(strict_types=1);
  */
 
 namespace App\Domain\Repository\Interfaces;
+
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Tricks;
 

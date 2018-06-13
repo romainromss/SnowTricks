@@ -15,6 +15,8 @@ namespace App\UI\Form\Type;
 
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Domain\DTO\UpdateTrickDTO;
+use App\UI\Form\DataTransformer\PicturesToFIleTransformer;
+use App\UI\Form\DataTransformer\PicturesToFileTransformerInterface;
 use App\UI\Subscriber\UpdateTrickSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -37,10 +39,18 @@ class UpdateTrickType extends AbstractType
 	 * @var UpdateTrickSubscriber
 	 */
 	private $updateTrickSubscriber;
+	/**
+	 * @var PicturesToFileTransformerInterface
+	 */
+	private $picturesToFileTransformer;
 
-	public function __construct(UpdateTrickSubscriber $updateTrickSubscriber)
+	public function __construct(
+		UpdateTrickSubscriber $updateTrickSubscriber,
+		PicturesToFileTransformer $picturesToFileTransformer
+	)
 	{
 		$this->updateTrickSubscriber = $updateTrickSubscriber;
+		$this->picturesToFileTransformer = $picturesToFileTransformer;
 	}
 
 	/**
@@ -58,10 +68,6 @@ class UpdateTrickType extends AbstractType
 			->add('description', TextareaType::class)
 			->add('group', TextType::class, [
 				'label' => 'Groupe'
-			])
-			->add('slug', TextType::class, [
-				'label' => 'Slug',
-				'help' => 'le slug, correspond généralement au titre'
 			])
 			->add('pictures', CollectionType::class, [
 				'entry_type' => FileType::class,
@@ -84,6 +90,8 @@ class UpdateTrickType extends AbstractType
 			])
 			->addEventSubscriber($this->updateTrickSubscriber)
 		;
+		$builder->get('pictures')
+			->addModelTransformer($this->picturesToFileTransformer);
 	}
 
 	/**

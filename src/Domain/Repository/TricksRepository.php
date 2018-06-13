@@ -40,7 +40,7 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
     {
         return $this->createQueryBuilder('t')
             ->innerJoin('t.pictures', 'p')
-			->setParameter(':first' , $first)
+			->setParameter(':first', $first)
             ->where('p.first = :first')
             ->orderBy('t.createdAt', 'DESC')
             ->getQuery()

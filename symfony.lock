@@ -17,6 +17,9 @@
     "behat/transliterator": {
         "version": "v1.2.0"
     },
+    "codacy/coverage": {
+        "version": "dev-master"
+    },
     "container-interop/container-interop": {
         "version": "1.2.0"
     },
@@ -94,6 +97,9 @@
     },
     "fzaninotto/faker": {
         "version": "v1.7.1"
+    },
+    "gitonomy/gitlib": {
+        "version": "v1.0.4"
     },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"

@@ -100,7 +100,7 @@ class Tricks implements TricksInterface
         $this->name = $name;
         $this->description = $description;
         $this->group = $group;
-        $this->slug = $slug;
+        $this->slug = strtr($name, [' ' => '-']);
         $this->createdAt = time();
         $this->users = $users;
         $this->pictures = new ArrayCollection($pictures ?? []);
