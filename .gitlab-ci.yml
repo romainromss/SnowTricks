@@ -11,7 +11,7 @@ standard:
     script:
         - php composer.phar install --prefer-dist
         - php composer.phar require "squizlabs/php_codesniffer=*"
-        
+        - vendor/bin/phpcs --standard=PSR1,PSR2 --ignore=src/Domain/Migrations/*,src/DataFixtures/* src/
 
 test:
     image: php:fpm-alpine
@@ -30,14 +30,3 @@ test:
     script:
         - php bin/phpunit --coverage-text -v
         - vendor/bin/behat -v
-staging:
-    image: php:7.2-fpm
-    type: deploy
-    image: ruby
-    script:
-        - apt-get update -qy
-        - apt-get install -yqq ruby ruby-dev nodejs --silent
-        - gem install dpl
-        - dpl --provider=heroku --app=gitlab --api-key=e9dac657-bf54-46cd-8350-53b60e6e6627
-    only:
-        - staging
