@@ -2,6 +2,9 @@ standard:
     image: php:7.2-fpm
     stage: test
     before_script:
+        - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        - php composer-setup.php
+        - php -r "unlink('composer-setup.php');"
         - php composer.phar install -n --optimize-autoloader --apcu-autoloader
         - php composer dump-autoload --optimize --apcu
     script:
