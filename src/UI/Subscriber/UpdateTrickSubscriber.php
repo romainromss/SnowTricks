@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Subscriber;
 
+use App\UI\Subscriber\Interfaces\UpdateTrickSubscriberInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -23,7 +24,7 @@ use Symfony\Component\HttpFoundation\File\File;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class UpdateTrickSubscriber implements EventSubscriberInterface
+class UpdateTrickSubscriber implements EventSubscriberInterface, UpdateTrickSubscriberInterface
 {
 	/**
 	 * @var array
@@ -40,11 +41,19 @@ class UpdateTrickSubscriber implements EventSubscriberInterface
 	 */
 	private $imageFolder;
 
+	/**
+	 * UpdateTrickSubscriber constructor.
+	 *
+	 * @param string $imageFolder
+	 */
 	public function __construct(string $imageFolder)
 	{
 		$this->imageFolder = $imageFolder;
 	}
 
+	/**
+	 * {@inheritdoc}
+	 */
 	public static function getSubscribedEvents()
 	{
 		return [
@@ -53,7 +62,7 @@ class UpdateTrickSubscriber implements EventSubscriberInterface
 	}
 
 	/**
-	 * @param FormEvent $event
+	 * {@inheritdoc}
 	 */
 	public function onPreSetData(FormEvent $event)
 	{

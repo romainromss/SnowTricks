@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the ${$project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,8 +13,22 @@ declare(strict_types=1);
 
 namespace App\UI\Subscriber\Interfaces;
 
+use Symfony\Component\Form\FormEvent;
 
-class UpdateTrickSubscriberInterface
+/**
+ * Class UpdateTrickSubscriberInterface.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
+interface UpdateTrickSubscriberInterface
 {
+	/**
+	 * @return array
+	 */
+	public static function getSubscribedEvents();
 
+	/**
+	 * @param FormEvent $event
+	 */
+	public function onPreSetData(FormEvent $event);
 }

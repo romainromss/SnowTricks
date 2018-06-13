@@ -37,6 +37,12 @@
                              <a href="{{ asset('images/Upload/' ~ picture.name ) }}">
                                  <img class="img-fluid" style="height: 190px" src="{{ asset('images/Upload/' ~ picture.name ) }}" alt="">
                              </a>
+                             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" data-toggle="modal" data-target="#1">
+                                     <i class="fa fa-trash"></i>
+                                 </a>
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
+                             {% endif %}
                          </div>
                      {% endfor %}
 
@@ -44,7 +50,14 @@
                          <div class="col-md-6 col-lg-4 col-xl-3 medias" style="height: 200px">
                              <iframe style="height: 190px; width: 100%; min-height: 180px"
                                      src="https://www.youtube.com/embed/{{ movie.embed }}?ecver=1"
-                                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                             </iframe>
+                             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" data-toggle="modal" data-target="#1">
+                                     <i class="fa fa-trash"></i>
+                                 </a>
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
+                             {% endif %}
                          </div>
                      {% endfor %}
                  </div>
