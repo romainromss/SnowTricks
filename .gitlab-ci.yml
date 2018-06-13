@@ -7,7 +7,7 @@ standard:
         - php composer-setup.php
         - php -r "unlink('composer-setup.php');"
         - php composer.phar install -n --optimize-autoloader --apcu-autoloader
-        - php composer dump-autoload --optimize --apcu
+        - php composer.phar dump-autoload --optimize --apcu
     script:
         - composer install --prefer-dist
         - composer require "squizlabs/php_codesniffer=*"
