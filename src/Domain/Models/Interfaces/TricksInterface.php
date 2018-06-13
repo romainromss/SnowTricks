@@ -23,79 +23,80 @@ use Ramsey\Uuid\UuidInterface;
  */
 interface TricksInterface
 {
-	/**
-	 * @return \ArrayAccess
-	 */
-	public function getPictures();
-	/**
-	 * @return \ArrayAccess
-	 */
-	public function getComments();
+	 /**
+	  * @return \ArrayAccess
+	  */
+	 public function getPictures();
+	
+	 /**
+	  * @return \ArrayAccess
+	  */
+	 public function getComments();
 
-	/**
-	 * @return UsersInterface
-	 */
-	public function getUsers();
+	 /**
+	  * @return UsersInterface
+	  */
+	 public function getUsers();
 
-	/**
-	 * @return UuidInterface
-	 */
-	public function getId(): UuidInterface;
+	 /**
+	  * @return UuidInterface
+	  */
+	 public function getId(): UuidInterface;
 
-	/**
-	 * @return string
-	 */
-	public function getName(): string;
+	 /**
+	  * @return string
+	  */
+	 public function getName(): string;
 
-	/**
-	 * @return string
-	 */
-	public function getDescription(): string;
+	 /**
+	  * @return string
+	  */
+	 public function getDescription(): string;
 
-	/**
-	 * @return string
-	 */
-	public function getGroup(): string;
+	 /**
+	  * @return string
+	  */
+	 public function getGroup(): string;
 
-	/**
-	 * @return string
-	 */
-	public function getUpdatedAt(): ? string;
+	 /**
+	  * @return string
+	  */
+	 public function getUpdatedAt(): ? string;
 
-	/**
-	 * @return mixed
-	 */
-	public function getCreatedAt();
+	 /**
+	  * @return mixed
+	  */
+	 public function getCreatedAt();
 
-	/**
-	 * @return \ArrayAccess
-	 */
-	public function getMovies();
+	 /**
+	  * @return \ArrayAccess
+	  */
+	 public function getMovies();
 
-	/**
-	 * @return string
-	 */
-	public function getSlug(): string;
+	 /**
+	  * @return string
+	  */
+	 public function getSlug(): string;
 
-	/**
-	 * @param PicturesInterface $pictures
-	 *
-	 * @return array
-	 */
-	public function addPictures(PicturesInterface $pictures);
+	 /**
+	  * @param PicturesInterface $pictures
+	  *
+	  * @return array
+	  */
+	 public function addPictures(PicturesInterface $pictures);
 
 
-	/**
-	 * @param PicturesInterface $pictures
-	 */
-	public function unsetPictures(PicturesInterface $pictures): void;
+	 /**
+	  * @param PicturesInterface $pictures
+	  */
+	 public function unsetPictures(PicturesInterface $pictures): void;
 
-	/**
-	 * @param $movies
-	 *
-	 * @return mixed
-	 */
-	public function addMovies(MoviesInterface $movies);
+	 /**
+	  * @param $movies
+	  *
+	  * @return mixed
+	  */
+	 public function addMovies(MoviesInterface $movies);
 
 
 	/**
