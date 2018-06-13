@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\UI\Form\DataTransformer;
 
-use App\Domain\Models\Pictures;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\HttpFoundation\File\File;
 
