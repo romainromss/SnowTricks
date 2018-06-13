@@ -16,6 +16,7 @@ namespace App\Tests\UI\Form\Type;
 use App\Domain\DTO\UpdateTrickDTO;
 use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Subscriber\UpdateTrickSubscriber;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
 
@@ -71,8 +72,33 @@ class UpdateTrickTypeTest extends TypeTestCase
 		$form = $this->factory->create(UpdateTrickType::class, $this->dto);
 		$form->submit($this->dto);
 
+		static::assertInstanceOf(
+			FormInterface::class,
+			$form
+		);
+
+		$form->submit([
+			'name' => 'name',
+			'description' => 'description',
+			'group' => 'group',
+			'slug' => 'slug',
+			'pictures' => 'pictures',
+			'movies' => 'movies'
+		]);
+
 		static::assertTrue(
 			$form->isSubmitted()
+		);
+
+		static::assertSame([
+			'name' => 'name',
+			'description' => 'description',
+			'group' => 'group',
+			'slug' => 'slug',
+			'pictures' => 'pictures',
+			'movies' => 'movies'
+		],
+			$form->getData()
 		);
 
 		static::assertTrue(

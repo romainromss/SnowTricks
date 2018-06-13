@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Subscriber;
 
+use App\UI\Subscriber\UpdateTrickSubscriber;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -22,5 +23,34 @@ use PHPUnit\Framework\TestCase;
  */
 class UpdateTrickSubscriberTest extends TestCase
 {
+	/**
+	 * @var array
+	 */
+	private $pictures = [];
 
+	/**
+	 * @var array
+	 */
+	private $movies = [];
+
+	/**
+	 * @var string
+	 */
+	private $imageFolder;
+
+	/**
+	 * UpdateTrickSubscriberTest constructor.
+	 *
+	 */
+	public function SetUp()
+	{
+		$this->imageFolder = $this->createMock($this->imageFolder);
+	}
+
+	public function InstanceOf()
+	{
+		$updateTrickSubscriber = new UpdateTrickSubscriber($this->imageFolder);
+
+
+	}
 }
