@@ -8,6 +8,7 @@ standard:
         - php composer.phar install -n --optimize-autoloader --apcu-autoloader
         - php composer dump-autoload --optimize --apcu
     script:
+        - composer install --prefer-dist
         - composer require "squizlabs/php_codesniffer=*"
         - vendor/bin/phpcs --standard=PSR1,PSR2 --ignore=src/Domain/Migrations/*,src/DataFixtures/* src/
 
