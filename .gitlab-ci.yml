@@ -3,6 +3,9 @@ standard:
     stage: test
     before_script:
         - php -vv
+        - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        - php composer-setup.php
+        - php -r "unlink('composer-setup.php');"
         - composer install -n --optimize-autoloader --apcu-autoloader
         - composer dump-autoload --optimize --apcu
     script:
@@ -24,7 +27,7 @@ test:
              && docker-php-ext-install zip
         - docker-php-ext-install zip
     script:
-        - bin/phpunit --coverage-text -v
+        - php bin/phpunit --coverage-text -v
         - vendor/bin/behat -v
 staging:
     image: php:7.2-fpm
