@@ -2,6 +2,7 @@ standard:
     image: php:7.2-fpm
     stage: test
     before_script:
+        - apt-get update && apt-get install -y unzip git
         - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
         - php composer-setup.php
         - php -r "unlink('composer-setup.php');"
