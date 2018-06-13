@@ -2,12 +2,8 @@ standard:
     image: php:7.2-fpm
     stage: test
     before_script:
-        - php -vv
-        - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-        - php composer-setup.php
-        - php -r "unlink('composer-setup.php');"
-        - composer install -n --optimize-autoloader --apcu-autoloader
-        - composer dump-autoload --optimize --apcu
+        - php composer install -n --optimize-autoloader --apcu-autoloader
+        - php composer dump-autoload --optimize --apcu
     script:
         - composer require "squizlabs/php_codesniffer=*"
         - vendor/bin/phpcs --standard=PSR1,PSR2 --ignore=src/Domain/Migrations/*,src/DataFixtures/* src/
