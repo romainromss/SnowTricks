@@ -2,17 +2,17 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="AddCommentTypeHandler.php" path="/UI/Form/Handler">
     <totals>
-      <lines total="80" comments="28" code="52" executable="12" executed="10" percent="83.33"/>
-      <methods count="2" tested="1" percent="50.00"/>
+      <lines total="80" comments="28" code="52" executable="12" executed="12" percent="100.00"/>
+      <methods count="2" tested="2" percent="100.00"/>
       <functions count="0" tested="0" percent="0"/>
-      <classes count="1" tested="0" percent="0.00"/>
+      <classes count="1" tested="1" percent="100.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\UI\Form\Handler\AddCommentTypeHandler" start="29" executable="12" executed="10" crap="4.07">
+    <class name="App\UI\Form\Handler\AddCommentTypeHandler" start="29" executable="12" executed="12" crap="4">
       <package full="" name="" sub="" category=""/>
       <namespace name="App\UI\Form\Handler"/>
       <method name="__construct" signature="__construct(&#10;        CommentBuilderInterface $commentBuilder,&#10;        CommentsRepositoryInterface $commentsRepository,&#10;&#9;&#9;TokenStorageInterface $tokenStorage&#10;    )" start="46" end="54" crap="1" executable="4" executed="4" coverage="100"/>
-      <method name="handle" signature="handle(&#10;        FormInterface $form,&#10;&#9;&#9;TricksInterface $tricks&#10;    ):  bool" start="62" end="79" crap="3.14" executable="8" executed="6" coverage="75"/>
+      <method name="handle" signature="handle(&#10;        FormInterface $form,&#10;&#9;&#9;TricksInterface $tricks&#10;    ):  bool" start="62" end="79" crap="3" executable="8" executed="8" coverage="100"/>
     </class>
     <coverage>
       <line nr="51">
@@ -49,6 +49,12 @@
         <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
       </line>
       <line nr="71">
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="74">
+        <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="76">
         <covered by="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue"/>
       </line>
       <line nr="78">

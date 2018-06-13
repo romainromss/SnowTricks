@@ -147,8 +147,6 @@
         <token name="T_DOC_COMMENT"> */</token>
       </line>
       <line no="26">
-        <token name="T_FINAL">final</token>
-        <token name="T_WHITESPACE"> </token>
         <token name="T_CLASS">class</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">CommentBuilder</token>

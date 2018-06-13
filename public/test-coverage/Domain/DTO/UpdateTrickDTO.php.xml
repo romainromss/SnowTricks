@@ -2,17 +2,68 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="UpdateTrickDTO.php" path="/Domain/DTO">
     <totals>
-      <lines total="74" comments="34" code="40" executable="7" executed="0" percent="0.00"/>
-      <methods count="1" tested="0" percent="0.00"/>
+      <lines total="73" comments="34" code="39" executable="7" executed="7" percent="100.00"/>
+      <methods count="1" tested="1" percent="100.00"/>
       <functions count="0" tested="0" percent="0"/>
-      <classes count="1" tested="0" percent="0.00"/>
+      <classes count="1" tested="1" percent="100.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Domain\DTO\UpdateTrickDTO" start="23" executable="7" executed="0" crap="2">
+    <class name="App\Domain\DTO\UpdateTrickDTO" start="23" executable="7" executed="7" crap="1">
       <package full="" name="" sub="" category=""/>
       <namespace name="App\Domain\DTO"/>
-      <method name="__construct" signature="__construct(&#10;&#9;&#9;string $name,&#10;&#9;&#9;string $description,&#10;&#9;&#9;string $group,&#10;&#9;&#9;string $slug,&#10;&#9;&#9;array $pictures,&#10;&#9;&#9;array $movies&#10;&#9;)" start="58" end="72" crap="2" executable="7" executed="0" coverage="0"/>
+      <method name="__construct" signature="__construct(&#10;&#9;&#9;string $name,&#10;&#9;&#9;string $description,&#10;&#9;&#9;string $group,&#10;&#9;&#9;string $slug,&#10;&#9;&#9;array $pictures,&#10;&#9;&#9;array $movies&#10;&#9;)" start="58" end="72" crap="1" executable="7" executed="7" coverage="100"/>
     </class>
+    <coverage>
+      <line nr="66">
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testHandleReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testGoodData"/>
+      </line>
+      <line nr="67">
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testHandleReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testGoodData"/>
+      </line>
+      <line nr="68">
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testHandleReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testGoodData"/>
+      </line>
+      <line nr="69">
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testHandleReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testGoodData"/>
+      </line>
+      <line nr="70">
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testHandleReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testGoodData"/>
+      </line>
+      <line nr="71">
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testHandleReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testGoodData"/>
+      </line>
+      <line nr="72">
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnFalse"/>
+        <covered by="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testHandleReturnTrue"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testConstruct"/>
+        <covered by="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testGoodData"/>
+      </line>
+    </coverage>
     <source>
       <line no="1">
         <token name="T_OPEN_TAG">&lt;?php</token>
@@ -360,11 +411,10 @@
         <token name="T_WHITESPACE">	</token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="73"/>
-      <line no="74">
+      <line no="73">
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="75"/>
+      <line no="74"/>
     </source>
   </file>
 </phpunit>

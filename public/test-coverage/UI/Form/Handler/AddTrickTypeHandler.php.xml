@@ -2,17 +2,17 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="AddTrickTypeHandler.php" path="/UI/Form/Handler">
     <totals>
-      <lines total="81" comments="30" code="51" executable="16" executed="12" percent="75.00"/>
-      <methods count="2" tested="1" percent="50.00"/>
+      <lines total="81" comments="30" code="51" executable="16" executed="16" percent="100.00"/>
+      <methods count="2" tested="2" percent="100.00"/>
       <functions count="0" tested="0" percent="0"/>
-      <classes count="1" tested="0" percent="0.00"/>
+      <classes count="1" tested="1" percent="100.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\UI\Form\Handler\AddTrickTypeHandler" start="27" executable="16" executed="12" crap="4.25">
+    <class name="App\UI\Form\Handler\AddTrickTypeHandler" start="27" executable="16" executed="16" crap="4">
       <package full="" name="" sub="" category=""/>
       <namespace name="App\UI\Form\Handler"/>
       <method name="__construct" signature="__construct(&#10;&#9;&#9;TrickBuilderInterface $tricksBuilder,&#10;&#9;&#9;TricksRepositoryInterface $tricksRepository,&#10;&#9;&#9;TokenStorageInterface $tokenStorage&#10;&#9;)" start="44" end="52" crap="1" executable="4" executed="4" coverage="100"/>
-      <method name="handle" signature="handle(FormInterface $form):  bool" start="62" end="80" crap="3.33" executable="12" executed="8" coverage="66.666666666667"/>
+      <method name="handle" signature="handle(FormInterface $form):  bool" start="62" end="80" crap="3" executable="12" executed="12" coverage="100"/>
     </class>
     <coverage>
       <line nr="49">
@@ -55,6 +55,18 @@
         <covered by="App\Tests\UI\Form\Handler\AddTrickTypeHandlerTest::testHandleReturnTrue"/>
       </line>
       <line nr="70">
+        <covered by="App\Tests\UI\Form\Handler\AddTrickTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="71">
+        <covered by="App\Tests\UI\Form\Handler\AddTrickTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="72">
+        <covered by="App\Tests\UI\Form\Handler\AddTrickTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="75">
+        <covered by="App\Tests\UI\Form\Handler\AddTrickTypeHandlerTest::testHandleReturnTrue"/>
+      </line>
+      <line nr="77">
         <covered by="App\Tests\UI\Form\Handler\AddTrickTypeHandlerTest::testHandleReturnTrue"/>
       </line>
       <line nr="79">

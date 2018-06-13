@@ -399,7 +399,7 @@
         <token name="T_DOC_COMMENT">/**</token>
       </line>
       <line no="66">
-        <token name="T_DOC_COMMENT">	 * @Route("/addtricks", name="addTricks")</token>
+        <token name="T_DOC_COMMENT">	 * @Route("/addtrick", name="addTricks")</token>
       </line>
       <line no="67">
         <token name="T_DOC_COMMENT">	 *</token>

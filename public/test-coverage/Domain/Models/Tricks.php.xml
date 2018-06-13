@@ -2,13 +2,13 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="Tricks.php" path="/Domain/Models">
     <totals>
-      <lines total="246" comments="97" code="149" executable="34" executed="34" percent="100.00"/>
-      <methods count="18" tested="18" percent="100.00"/>
+      <lines total="246" comments="97" code="149" executable="34" executed="33" percent="97.06"/>
+      <methods count="18" tested="17" percent="94.44"/>
       <functions count="0" tested="0" percent="0"/>
-      <classes count="1" tested="1" percent="100.00"/>
+      <classes count="1" tested="0" percent="0.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Domain\Models\Tricks" start="30" executable="34" executed="34" crap="19">
+    <class name="App\Domain\Models\Tricks" start="30" executable="34" executed="33" crap="19">
       <package full="" name="" sub="" category=""/>
       <namespace name="App\Domain\Models"/>
       <method name="__construct" signature="__construct(&#10;        string $name,&#10;        string $description,&#10;        string $group,&#10;        string $slug,&#10;&#9;&#9;UsersInterface $users,&#10;        array $pictures = null,&#10;        array $movies = null,&#10;        array $comments = null&#10;    )" start="89" end="109" crap="1" executable="11" executed="11" coverage="100"/>
@@ -18,7 +18,7 @@
       <method name="getGroup" signature="getGroup(): string" start="138" end="141" crap="1" executable="1" executed="1" coverage="100"/>
       <method name="getUpdatedAt" signature="getUpdatedAt(): ? string" start="146" end="149" crap="2" executable="1" executed="1" coverage="100"/>
       <method name="getCreatedAt" signature="getCreatedAt(): \DateTime" start="154" end="157" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="getSlug" signature="getSlug(): string" start="162" end="165" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="getSlug" signature="getSlug(): string" start="162" end="165" crap="2" executable="1" executed="0" coverage="0"/>
       <method name="getUsers" signature="getUsers()" start="170" end="173" crap="1" executable="1" executed="1" coverage="100"/>
       <method name="getMovies" signature="getMovies()" start="178" end="181" crap="1" executable="1" executed="1" coverage="100"/>
       <method name="getPictures" signature="getPictures()" start="186" end="189" crap="1" executable="1" executed="1" coverage="100"/>
@@ -179,9 +179,6 @@
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
       </line>
       <line nr="156">
-        <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
-      </line>
-      <line nr="164">
         <covered by="App\Tests\Domain\Models\TricksTest::testReturnOfGetters"/>
       </line>
       <line nr="172">
@@ -765,7 +762,19 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_EQUAL">=</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$slug</token>
+        <token name="T_STRING">strtr</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$name</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_OPEN_SQUARE">[</token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">' '</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_DOUBLE_ARROW">=&gt;</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_CONSTANT_ENCAPSED_STRING">'-'</token>
+        <token name="T_CLOSE_SQUARE">]</token>
+        <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="104">
@@ -835,7 +844,7 @@
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="108">
-        <token name="T_WHITESPACE">        </token>
+        <token name="T_WHITESPACE">		</token>
         <token name="T_VARIABLE">$this</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
         <token name="T_STRING">comments</token>
@@ -856,7 +865,7 @@
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="109">
-        <token name="T_WHITESPACE">    </token>
+        <token name="T_WHITESPACE">	</token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
       <line no="110"/>
