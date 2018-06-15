@@ -1,9 +1,9 @@
 <?php
 
-  declare(strict_types = 1);
+  declare(strict_types=1);
 
   /*
-   * This file is part of the ${$project} project.
+   * This file is part of the Snowtricks project.
    *
    * (c) Romain Bayette <romain.romss@gmail.com>
    *
@@ -13,8 +13,49 @@
 
   namespace App\Tests\UI\Subscriber;
 
+  use App\UI\Subscriber\UpdateTrickSubscriber;
+  use PHPUnit\Framework\TestCase;
 
-  class UpdateTrickSubscriberTest
+  /**
+   * Class UpdateTrickSubscriberTest.
+   *
+   * @author Romain Bayette <romain.romss@gmail.com>
+   */
+  class UpdateTrickSubscriberTest extends TestCase
   {
+    /**
+     * @var array
+     */
+    private $pictures = [];
 
+    /**
+     * @var array
+     */
+    private $movies = [];
+
+    /**
+     * @var string
+     */
+    private $imageFolder;
+
+    /**
+     * @var UpdateTrickSubscriber
+     */
+    private $updateTrickSubscriber;
+
+    /**
+     * UpdateTrickSubscriberTest constructor.
+     *
+     */
+    public function SetUp()
+    {
+      $this->imageFolder = $this->createMock($this->imageFolder);
+      $this->updateTrickSubscriber = $this->createMock(UpdateTrickSubscriber::class);
+    }
+
+    public function InstanceOf()
+    {
+      $updateTrickSubscriber = new UpdateTrickSubscriber($this->imageFolder);
+      static::assertInstanceOf($updateTrickSubscriber, $this->updateTrickSubscriber);
+    }
   }
