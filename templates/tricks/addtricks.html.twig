@@ -1,39 +1,16 @@
 {% extends 'layout.html.twig' %}
 
- {% block content %}
-     <div class="form-group row">
-         <div class="col-md-8 offset-md-2 formMaterial" style="margin-top: 100px">
-             <div class="form-material form-material-info floating">
-                 {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                     {{ form_start(form) }}
-                     <button type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Ajouter</button>
-                     {{ form_end(form) }}
-                 {% endif %}
-             </div>
-         </div>
-     </div>
+{% block content %}
+    {% form_theme form 'themes/AddTrick.html.twig' %}
+    <div class="content container">
+        <div class="row">
+            <div class="col-lg-12">
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
 
-{% block javascripts %}
-    <script type="text/javascript">
-        let form = document.querySelector('div#add_trick_pictures');
-        console.log(form);
-        let formCount = form.children.length;
-        console.info(form);
-        let button = document.querySelector('button#add_file');
-        button.addEventListener('click', function () {
-            add()
-        });
-        if (formCount === 0) {
-            add();
-        }
-        function add() {
-            let prototype = form.getAttribute('data-prototype');
-            let template = prototype.replace(/__name__label__/, 'New file')
-                .replace(/__name__/, formCount);
-            console.info(template);
-            form.innerHTML += template;
-            formCount++;
-        }
-    </script>
- {% endblock %}
+    <script src="{{ asset('/js/AddPictures.js') }}"></script>
+    <script src="{{ asset('/js/AddMovies.js') }}"></script>
 {% endblock %}
+
