@@ -22,7 +22,6 @@ interface AddTrickDTOInterface
 	 * @param string  $name
 	 * @param string  $description
 	 * @param string  $group
-	 * @param string  $slug
 	 * @param array   $pictures
 	 * @param array   $movies
 	 */
@@ -30,7 +29,6 @@ interface AddTrickDTOInterface
 		string $name,
 		string $description,
 		string $group,
-		string $slug,
 		array $pictures,
 		array $movies
 	);

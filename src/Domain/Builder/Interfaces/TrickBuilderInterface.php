@@ -28,7 +28,6 @@ interface TrickBuilderInterface
 	 * @param string  $name
 	 * @param string  $description
 	 * @param string  $group
-	 * @param string  $slug
 	 * @param string | UsersInterface  $users
 	 * @param array   $pictures
 	 * @param array   $movies
@@ -39,7 +38,6 @@ interface TrickBuilderInterface
 		string $name,
 		string $description,
 		string $group,
-		string $slug,
 		UsersInterface $users,
 		array $pictures,
 		array $movies

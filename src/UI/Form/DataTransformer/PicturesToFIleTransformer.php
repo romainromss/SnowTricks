@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Form\DataTransformer;
 
+use App\UI\Form\DataTransformer\Interfaces\PicturesToFileTransformerInterface;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\HttpFoundation\File\File;
 
@@ -45,7 +46,7 @@ class PicturesToFIleTransformer implements DataTransformerInterface, PicturesToF
 	 */
 	public function transform($value)
 	{
-		if (!\is_array($value)) {
+		if (!is_array($value)) {
 			return;
 		}
 
@@ -62,11 +63,6 @@ class PicturesToFIleTransformer implements DataTransformerInterface, PicturesToF
 			return;
 		}
 
-		foreach ($value as $picture) {
-			if ($value->getPictures() == $value){
-			$value[] = [$picture];
-			}
 
-		}
 	}
 }

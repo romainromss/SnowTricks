@@ -33,7 +33,6 @@ class TrickBuilder implements TrickBuilderInterface
 	 * @param string         $name
 	 * @param string         $description
 	 * @param string         $group
-	 * @param string         $slug
 	 * @param UsersInterface $users
 	 * @param array          $pictures
 	 * @param array          $movies
@@ -44,13 +43,12 @@ class TrickBuilder implements TrickBuilderInterface
 		string $name,
 		string $description,
 		string $group,
-		string $slug,
 		UsersInterface $users,
 		array $pictures,
 		array $movies
 	):  self {
 
-		$this->tricks = new Tricks($name, $description, $group, $slug, $users, $pictures, $movies);
+		$this->tricks = new Tricks($name, $description, $group, $users, $pictures, $movies);
 		return $this;
 	}
 

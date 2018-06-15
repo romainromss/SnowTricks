@@ -37,7 +37,6 @@ class AddTrickType extends AbstractType
 			->add('name', TextType::class)
 			->add('description', TextareaType::class)
 			->add('group', TextType::class)
-			->add('slug', TextType::class)
 			->add('pictures', CollectionType::class, [
 				'entry_type' => FileType::class,
 				'allow_add' => true,
@@ -54,7 +53,7 @@ class AddTrickType extends AbstractType
 				'label' => false,
 				'required' => false,
 				'entry_options' => [
-					'label' => 'ajouter une vidéo youtube'
+					'label' => false
 				],
 			])
 		;
@@ -69,7 +68,6 @@ class AddTrickType extends AbstractType
 					$form->get('name')->getData(),
 					$form->get('description')->getData(),
 					$form->get('group')->getData(),
-					$form->get('slug')->getData(),
 					$form->get('pictures')->getData(),
 					$form->get('movies')->getData()
 				);

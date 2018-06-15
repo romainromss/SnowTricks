@@ -39,11 +39,6 @@ class AddTrickDTO implements AddTrickDTOInterface
 	public $group;
 
 	/**
-	 * @var string
-	 */
-	public $slug;
-
-	/**
 	 * @var array
 	 */
 	public $pictures = [];
@@ -60,14 +55,12 @@ class AddTrickDTO implements AddTrickDTOInterface
 		string $name,
 		string $description,
 		string $group,
-		string $slug,
 		array $pictures,
 		array $movies
 	) {
 		$this->name = $name;
 		$this->description = $description;
 		$this->group = $group;
-		$this->slug = $slug;
 		$this->pictures = $pictures;
 		$this->movies = $movies;
 	}

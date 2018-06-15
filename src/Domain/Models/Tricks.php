@@ -90,8 +90,7 @@ class Tricks implements TricksInterface
         string $name,
         string $description,
         string $group,
-        string $slug,
-		UsersInterface $users,
+		    UsersInterface $users,
         array $pictures = null,
         array $movies = null,
         array $comments = null

@@ -66,7 +66,6 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
 				$form->getData()->name,
 				$form->getData()->description,
 				$form->getData()->group,
-				$form->getData()->slug,
 				$this->tokenStorage->getToken()->getUser(),
 				$form->getData()->pictures,
 				$form->getData()->movies
