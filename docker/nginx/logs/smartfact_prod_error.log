@@ -1,1 +1,0 @@
-2018/06/13 12:05:38 [error] 5#5: *109 upstream timed out (110: Connection timed out) while reading response header from upstream, client: 172.18.0.1, server: , request: "GET /robots.txt HTTP/1.1", upstream: "fastcgi://172.18.0.3:9000", host: "localhost:8080"
