@@ -28,15 +28,18 @@
                         </div>
                     </div>
                 </div>
-
-                {{ form_widget(form.pictures) }}
-                {{ form_label(form.pictures) }}
-
-                {{ form_widget(form.movies) }}
-                {{ form_label(form.movies) }}
-
-                {{ form_end(form) }}
+                <div>
+                    {{ form_widget(form.pictures) }}
+                    {{ form_label(form.pictures) }}
+                    <button style="margin-top: 10px; margin-bottom: 20px" type="button" id="update_pictures" class="btn btn-alt-primary">Ajouter</button>
+                </div>
+                <div>
+                    {{ form_widget(form.movies) }}
+                    {{ form_label(form.movies) }}
+                    <button style="margin-top: 10px" type="button" id="update_movies" class="btn btn-alt-primary">Ajouter</button>
+                </div>
                 <button type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Envoyer</button>
+                {{ form_end(form) }}
             {% endif %}
         </div>
     </div>
