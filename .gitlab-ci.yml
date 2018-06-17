@@ -1,6 +1,3 @@
-job:
-  tags:
-    - docker
 standard:
     image: php:7.2-fpm
     stage: test
@@ -27,10 +24,11 @@ test:
         - php composer.phar install -n --optimize-autoloader --apcu-autoloader
         - php composer.phar dump-autoload --optimize --apcu
         - apk add --no-cache zlib-dev
-        - docker-php-ext-configure zlib --with-dir/usr/local/zlib \
-             && docker-php-ext-install zip
+        - docker-php-ext-configure zlib --with-dir/usr/local/zlib \ && docker-php-ext-install zip
         - docker-php-ext-install zip
     script:
         - php bin/phpunit --coverage-text -v
         - vendor/bin/behat -v
-
+    job:
+    tags:
+        - docker
