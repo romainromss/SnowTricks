@@ -30,7 +30,7 @@ test:
     script:
         - php bin/phpunit --coverage-text -v
         - vendor/bin/behat -v
-job:
+    job:
     tags:
         - docker
 
