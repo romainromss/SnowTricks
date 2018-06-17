@@ -1,3 +1,6 @@
+job:
+  tags:
+    - docker
 standard:
     image: php:7.2-fpm
     stage: test
@@ -30,7 +33,4 @@ test:
     script:
         - php bin/phpunit --coverage-text -v
         - vendor/bin/behat -v
-    job:
-    tags:
-        - docker
 
