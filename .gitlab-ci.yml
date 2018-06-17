@@ -29,4 +29,4 @@ test:
         - docker-php-ext-install zip
     script:
         - php bin/phpunit --coverage-text -v
-        - vendor/bin/behat -v
+        - vendor/bin/behat -v 
