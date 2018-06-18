@@ -38,30 +38,7 @@
                                  <img class="img-fluid" style="height: 190px" src="{{ asset('images/Upload/' ~ picture.name ) }}" alt="">
                              </a>
                              {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75"  data-toggle="modal" data-target="#2"><i class="fa fa-trash"></i></a>
-
-                                 <!--Modal-->
-                                 <div class="modal fade" id="2" tabindex="-1" role="dialog" aria-labelledby="modal-popout" aria-hidden="true">
-                                     <div class="modal-dialog modal-dialog-popout" role="document">
-                                         <div class="modal-content">
-                                             <div class="block block-themed block-transparent mb-0">
-                                                 <div class="block-content text-center text-danger">
-                                                     <i class="fas fa-exclamation-triangle fa-5x"></i>
-                                                     <h3>Êtes vous sur de vouloir supprimer cette image ?</h3>
-                                                     <p>Rappel: vous êtes sur un site communautaire, attention à vos suppressions</p>
-                                                 </div>
-                                             </div>
-                                             <div class="modal-footer">
-                                                 <button type="button" class="btn btn-alt-primary" data-dismiss="modal">Annuler</button>
-                                                 <button type="button" class="btn btn-alt-danger" href="{{ path('deletePicture', {'id' : picture.id}  ) }}" data-dismiss="modal">
-                                                     <i class="fa fa-check"></i> Supprimer
-                                                 </button>
-                                             </div>
-                                         </div>
-                                     </div>
-                                 </div>
-                                 <!-- END Pop Out Modal -->
-
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75" href="{{ path('deletePicture', {'id' : picture.id}  ) }}"><i class="fa fa-trash"></i></a>
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
                              {% endif %}
                          </div>
@@ -74,9 +51,7 @@
                                      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
                              </iframe>
                              {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" data-toggle="modal" data-target="#1">
-                                     <i class="fa fa-trash"></i>
-                                 </a>
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75" href="{{ path('deleteMovie', {'id' : movie.id}  ) }}"><i class="fa fa-trash"></i></a>
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
                              {% endif %}
                          </div>

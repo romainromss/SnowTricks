@@ -14,7 +14,7 @@
   namespace App\UI\Actions;
 
   use App\Domain\Repository\Interfaces\PicturesRepositoryInterface;
-  use App\UI\Responder\ResponderDeletePicture;
+  use App\UI\Responder\Interfaces\ResponderDeletePictureInterface;
   use Symfony\Component\HttpFoundation\Request;
   use Symfony\Component\Routing\Annotation\Route;
 
@@ -43,19 +43,19 @@
     /**
      * @Route("/delete/picture/{id}", name="deletePicture")
      *
-     * @param ResponderDeletePicture $responderDeletePicture
+     * @param ResponderDeletePictureInterface $responderDeletePicture
      * @param Request                $request
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
       public function __invoke (
-       ResponderDeletePicture $responderDeletePicture,
+       ResponderDeletePictureInterface $responderDeletePicture,
        Request $request
       ) {
         $picture = $this->picturesRepository->getPicturesById($request->get('id'));
 
         $this->picturesRepository->deletePictures ($picture);
 
-        return $responderDeletePicture($request);
+        return $responderDeletePicture();
       }
   }

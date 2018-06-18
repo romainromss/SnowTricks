@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Repository;
 
+use App\Domain\Models\Interfaces\MoviesInterface;
 use App\Domain\Models\Movies;
+use App\Domain\Repository\Interfaces\MoviesRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -22,7 +24,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class MoviesRepository extends ServiceEntityRepository
+class MoviesRepository extends ServiceEntityRepository implements MoviesRepositoryInterface
 {
     /**
      * MoviesRepository constructor.
@@ -34,16 +36,27 @@ class MoviesRepository extends ServiceEntityRepository
         parent::__construct($registry, Movies::class);
     }
 
-    /*
-    public function findBySomething($value)
-    {
-        return $this->createQueryBuilder('m')
-            ->where('m.something = :value')->setParameter('value', $value)
-            ->orderBy('m.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+  /**
+   * {@inheritdoc}
+   *
+   * @throws \Doctrine\ORM\NonUniqueResultException
+   */
+  public function getMoviesByEmbed($id)
+  {
+    return $this->createQueryBuilder('m')
+     ->where('m.id = :id')
+     ->setParameter(':id', $id)
+     ->getQuery()
+     ->getOneOrNullResult()
+     ;
+  }
+
+  /**
+   *{@inheritdoc}
+   */
+  public function deleteMovies(MoviesInterface $movies)
+  {
+    $this->_em->remove($movies);
+    $this->_em->flush();
+  }
 }

@@ -15,8 +15,8 @@ namespace App\UI\Form\Type;
 
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Domain\DTO\UpdateTrickDTO;
+use App\UI\Form\DataTransformer\Interfaces\PicturesToFileTransformerInterface;
 use App\UI\Form\DataTransformer\PicturesToFIleTransformer;
-use App\UI\Form\DataTransformer\PicturesToFileTransformerInterface;
 use App\UI\Subscriber\UpdateTrickSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -74,6 +74,7 @@ class UpdateTrickType extends AbstractType
 				'allow_add' => true,
 				'allow_delete' => true,
 				'label' => false,
+				'required' => false,
 				'entry_options' => [
 					'label' => false
 				],
@@ -106,7 +107,6 @@ class UpdateTrickType extends AbstractType
 					$form->get('name')->getData(),
 					$form->get('description')->getData(),
 					$form->get('group')->getData(),
-					$form->get('slug')->getData(),
 					$form->get('pictures')->getData(),
 					$form->get('movies')->getData()
 				);

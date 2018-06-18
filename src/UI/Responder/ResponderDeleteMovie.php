@@ -13,16 +13,16 @@
 
   namespace App\UI\Responder;
 
-  use App\UI\Responder\Interfaces\ResponderDeletePictureInterface;
+  use App\UI\Responder\Interfaces\ResponderDeleteMovieInterface;
   use Symfony\Component\HttpFoundation\RedirectResponse;
   use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
   /**
-   * Class ResponderDeletePicture.
+   * Class ResponderDeleteMovie.
    *
    * @author Romain Bayette <romain.romss@gmail.com>
    */
-  class ResponderDeletePicture implements ResponderDeletePictureInterface
+  class ResponderDeleteMovie implements ResponderDeleteMovieInterface
   {
     /**
      * @var UrlGeneratorInterface
@@ -30,9 +30,7 @@
     private $urlGenerator;
 
     /**
-     * ResponderDeletePicture constructor.
-     *
-     * @param UrlGeneratorInterface     $urlGenerator
+     * {@inheritdoc}
      */
     public function __construct (UrlGeneratorInterface $urlGenerator)
     {
@@ -40,7 +38,7 @@
     }
 
     /**
-     * @return RedirectResponse
+     *{@inheritdoc}
      */
     public function __invoke()
     {

@@ -15,6 +15,8 @@ namespace App\UI\Actions;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responder\Interfaces\ResponderHomeInterface;
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 

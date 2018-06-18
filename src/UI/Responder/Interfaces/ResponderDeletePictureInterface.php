@@ -33,9 +33,8 @@
    public function __construct (UrlGeneratorInterface $urlGenerator);
 
    /**
-    * @param Request                    $request
     *
     * @return RedirectResponse
     */
-   public function __invoke(Request $request);
+   public function __invoke();
  }

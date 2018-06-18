@@ -11,39 +11,27 @@
    * file that was distributed with this source code.
    */
 
-  namespace App\UI\Responder;
+  namespace App\UI\Responder\Interfaces;
 
-  use App\UI\Responder\Interfaces\ResponderDeletePictureInterface;
   use Symfony\Component\HttpFoundation\RedirectResponse;
   use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
   /**
-   * Class ResponderDeletePicture.
+   * Interface ResponderDeleteMovieInterface
    *
    * @author Romain Bayette <romain.romss@gmail.com>
    */
-  class ResponderDeletePicture implements ResponderDeletePictureInterface
+  interface ResponderDeleteMovieInterface
   {
-    /**
-     * @var UrlGeneratorInterface
-     */
-    private $urlGenerator;
-
     /**
      * ResponderDeletePicture constructor.
      *
      * @param UrlGeneratorInterface     $urlGenerator
      */
-    public function __construct (UrlGeneratorInterface $urlGenerator)
-    {
-      $this -> urlGenerator = $urlGenerator;
-    }
+    public function __construct (UrlGeneratorInterface $urlGenerator);
 
     /**
      * @return RedirectResponse
      */
-    public function __invoke()
-    {
-      return new RedirectResponse($this->urlGenerator->generate('index'));
-    }
+    public function __invoke();
   }
