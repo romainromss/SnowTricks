@@ -104,7 +104,6 @@ class AddTrickTypeHandlerTest extends TestCase
 			'name',
 			'description',
 			'group',
-			'slug',
 			['pictures'],
 			['movies']
 		);

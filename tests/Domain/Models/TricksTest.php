@@ -31,18 +31,22 @@ class TricksTest extends TestCase
      * @var Tricks
      */
     private $trick;
+
     /**
      * @var Users
      */
     private $user;
+
     /**
      * @var Comments
      */
     private $comment;
+
     /**
      * @var Movies
      */
     private $movies;
+
     /**
      * @var Pictures
      */
@@ -56,7 +60,6 @@ class TricksTest extends TestCase
             'name',
             'description',
             'group',
-            'slug',
             $this->user
         );
 

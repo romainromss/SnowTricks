@@ -83,7 +83,6 @@ class UpdateTrickAction
 			$tricks->getName(),
 			$tricks->getDescription(),
 			$tricks->getGroup(),
-			$tricks->getSlug(),
 			$tricks->getPictures()->toArray(),
 			$tricks->getMovies()->toArray()
 		);

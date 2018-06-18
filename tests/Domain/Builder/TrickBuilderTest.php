@@ -31,26 +31,28 @@ class TrickBuilderTest extends TestCase
 	 * @var string
 	 */
 	private $name;
+
 	/**
 	 * @var string
 	 */
 	private $description;
+
 	/**
 	 * @var string
 	 */
 	private $group;
+
 	/**
 	 * @var string
 	 */
-	private $slug;
-	/**
-	 * @var UsersInterface
-	 */
+
 	private $users;
+
 	/**
 	 * @var
 	 */
 	private $pictures;
+
 	/**
 	 * @var
 	 */
@@ -61,7 +63,6 @@ class TrickBuilderTest extends TestCase
 		$this->name = 'name';
 		$this->description = 'description';
 		$this->group = 'group';
-		$this->slug = 'slug';
 		$this->users = $this->createMock(UsersInterface::class);
 		$this->pictures = ['picture'];
 		$this->movies = ['movies'];
@@ -80,7 +81,6 @@ class TrickBuilderTest extends TestCase
 			$this->name,
 			$this->description,
 			$this->group,
-			$this->slug,
 			$this->users,
 			$this->pictures,
 			$this->movies

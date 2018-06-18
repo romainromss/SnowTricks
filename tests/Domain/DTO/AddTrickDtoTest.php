@@ -29,11 +29,10 @@ class AddTrickDtoTest extends TestCase
 		$name = 'name';
 		$description = 'description';
 		$group = 'group';
-		$slug = 'slug';
 		$pictures = ['pictures'];
 		$movies = ['movies'];
 
-		$tricksDtoConstruct = new AddTrickDTO($name, $description, $group, $slug, $pictures, $movies);
+		$tricksDtoConstruct = new AddTrickDTO($name, $description, $group, $pictures, $movies);
 		static::assertInstanceOf(AddTrickDTO::class, $tricksDtoConstruct);
 	}
 }
