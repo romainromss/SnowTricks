@@ -30,12 +30,12 @@ interface PicturesRepositoryInterface
 	 */
 	public function getPicturesFirst(bool $first = false);
 
-	/**
-	 * @param $trick
-	 *
-	 * @return mixed
-	 */
-	public function getPicturesByTrickId($trick);
+  /**
+   * @param $id
+   *
+   * @return mixed
+   */
+	public function getPicturesById($id);
 
 	/**
 	 * @param PicturesInterface $pictures

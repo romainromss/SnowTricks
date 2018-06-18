@@ -49,18 +49,21 @@ class PicturesRepository extends ServiceEntityRepository implements PicturesRepo
         ;
     }
 
-	/**
-	 * {@inheritdoc}
-	 *
-	 * @throws \Doctrine\ORM\NonUniqueResultException
-	 */
-    public function getPicturesByTrickId($trick)
+  /**
+   * @param $id
+   *
+   * @return mixed
+   *
+   * @throws \Doctrine\ORM\NonUniqueResultException
+   */
+    public function getPicturesById($id)
 	{
 		return $this->createQueryBuilder('p')
-			->where('p.trick = :trick')
-			->setParameter('trick', $trick)
-			->getQuery()
-			->getOneOrNullResult();
+     ->where('p.id = :id')
+     ->setParameter(':id', $id)
+     ->getQuery()
+     ->getOneOrNullResult()
+     ;
 	}
 
 	/**

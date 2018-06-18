@@ -15,12 +15,9 @@ namespace App\UI\Actions;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Responder\Interfaces\ResponderDeleteTrickInterface;
-use App\UI\Responder\ResponderDeleteTrick;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-
 
 /**
  * Class DeleteTrickAction.
