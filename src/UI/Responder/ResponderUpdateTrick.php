@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Responder;
 
 use App\UI\Responder\Interfaces\ResponderUpdateTrickInterface;
+use Symfony\Bridge\Twig\Extension\FormExtension;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -59,7 +60,7 @@ class ResponderUpdateTrick implements ResponderUpdateTrickInterface
 		$data = null,
 		FormInterface $updateTricksType = null
 	):  Response {
-
+	  
 		$response = $redirect
 			?  new RedirectResponse($this->urlGenerator->generate('index'))
 			:  new Response($this->twig->render('tricks/updateTricks.html.twig', $data));

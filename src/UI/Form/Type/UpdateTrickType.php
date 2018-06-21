@@ -70,7 +70,7 @@ class UpdateTrickType extends AbstractType
 				'label' => 'Groupe'
 			])
 			->add('pictures', CollectionType::class, [
-				'entry_type' => FileType::class,
+				'entry_type' => PictureType::class,
 				'allow_add' => true,
 				'allow_delete' => true,
 				'label' => false,

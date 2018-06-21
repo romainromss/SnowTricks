@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace App\UI\Form\DataTransformer;
 
+use App\Domain\DTO\UpdateTrickDTO;
+use App\Domain\Models\Pictures;
 use App\UI\Form\DataTransformer\Interfaces\PicturesToFileTransformerInterface;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\HttpFoundation\File\File;
@@ -42,27 +44,30 @@ class PicturesToFIleTransformer implements DataTransformerInterface, PicturesToF
 	/**
 	 * @param mixed $value
 	 *
-	 * @return mixed|void
+	 * @return mixed
 	 */
 	public function transform($value)
 	{
-		if (!is_array($value)) {
+		if (!$value instanceof UpdateTrickDTO) {
 			return;
 		}
 
-		foreach ($value as $picture) {
-			$value[] = new File($this->imageFolder.$picture->getName());
+		foreach ($value->pictures as $picture) {
+			$value->pictures[] = new File($this->imageFolder.$picture->getName());
 
-			unset($value[array_search($picture, $value)]);
+			unset($value->pictures[array_search($picture, $value->pictures)]);
 		}
+		return $value;
 	}
+
 
 	public function reverseTransform($value)
 	{
-		if (!$value) {
-			return;
-		}
+	  foreach ($value->pictures as $file){
+	    $value->pictures[] = new  Pictures($file->name, $file->legend, $file->first);
 
-
+	    unset($value->pictures[array_search($file, $value->pictures)]);
+    }
+    return $value;
 	}
 }
