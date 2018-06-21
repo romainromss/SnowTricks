@@ -2,7 +2,9 @@
 
 {% block head %}
     <!-- Page Content -->
-    <div class="bg-image" style='background-image: url("{{ asset('images/Upload/' ~ tricks.pictures.0.name ) }}");'>
+    {% for picture in tricks.pictures if picture.first == true %}
+    <div class="bg-image" style='background-image: url("{{ asset('images/Upload/' ~ picture.name ) }}");'>
+        {% endfor %}
         <div class="btnheader">
             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" data-toggle="modal" data-target="#1">
@@ -40,6 +42,7 @@
                              {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75" href="{{ path('deletePicture', {'id' : picture.id}  ) }}"><i class="fa fa-trash"></i></a>
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75" href="{{ path('pictureFirst', {'slug' : tricks.slug, 'id': picture.id}  ) }}"><i class="fa fa-angle-double-up"></i> </a>
                              {% endif %}
                          </div>
                      {% endfor %}

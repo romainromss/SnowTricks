@@ -56,9 +56,7 @@ class DeleteTrickAction
 		ResponderDeleteTrickInterface $responderDeleteTrick,
 		Request $request
 	) {
-		$trick = $this->tricksRepository->getBySlug($request->get('slug'));
-
-		$this->tricksRepository->deleteTrick($trick);
+	  $this->tricksRepository->deleteTrick($request->get('slug'));
 
 		return $responderDeleteTrick();
 	}
