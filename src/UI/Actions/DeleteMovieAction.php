@@ -48,9 +48,7 @@
      ResponderDeleteMovieInterface $responderDeleteMovie,
      Request $request
     ) {
-      $movie = $this->moviesRepository->getMoviesByEmbed($request->get('id'));
-
-      $this->moviesRepository->deleteMovies($movie);
+      $this->moviesRepository->deleteMovies($request->get('id'));
 
       return $responderDeleteMovie();
     }

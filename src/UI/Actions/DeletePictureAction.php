@@ -52,9 +52,7 @@
        ResponderDeletePictureInterface $responderDeletePicture,
        Request $request
       ) {
-        $picture = $this->picturesRepository->getPicturesById($request->get('id'));
-
-        $this->picturesRepository->deletePictures ($picture);
+        $this->picturesRepository->deletePictures($request->get('id'));
 
         return $responderDeletePicture();
       }
