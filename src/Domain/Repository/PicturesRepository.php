@@ -1,31 +1,31 @@
 <?php
 
-declare(strict_types=1);
+  declare(strict_types=1);
 
-/*
- * This file is part of the Snowtricks project.
- *
- * (c) Romain Bayette <romain.romss@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+  /*
+   * This file is part of the Snowtricks project.
+   *
+   * (c) Romain Bayette <romain.romss@gmail.com>
+   *
+   * For the full copyright and license information, please view the LICENSE
+   * file that was distributed with this source code.
+   */
 
-namespace App\Domain\Repository;
+  namespace App\Domain\Repository;
 
-use App\Domain\Models\Interfaces\PicturesInterface;
-use App\Domain\Models\Pictures;
-use App\Domain\Repository\Interfaces\PicturesRepositoryInterface;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+  use App\Domain\Models\Interfaces\PicturesInterface;
+  use App\Domain\Models\Pictures;
+  use App\Domain\Repository\Interfaces\PicturesRepositoryInterface;
+  use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+  use Symfony\Bridge\Doctrine\RegistryInterface;
 
-/**
- * Class PicturesRepository.
- *
- * @author Romain Bayette <romain.romss@gmail.com>
- */
-class PicturesRepository extends ServiceEntityRepository implements PicturesRepositoryInterface
-{
+  /**
+   * Class PicturesRepository.
+   *
+   * @author Romain Bayette <romain.romss@gmail.com>
+   */
+  class PicturesRepository extends ServiceEntityRepository implements PicturesRepositoryInterface
+  {
     /**
      * PicturesRepository constructor.
      *
@@ -33,45 +33,71 @@ class PicturesRepository extends ServiceEntityRepository implements PicturesRepo
      */
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Pictures::class);
+      parent::__construct($registry, Pictures::class);
     }
 
-	/**
-	 *{@inheritdoc}
-	 */
+    /**
+     *{@inheritdoc}
+     */
     public function getPicturesFirst(bool $first = false)
     {
-        return $this->createQueryBuilder('p')
-            ->where('p.first = :first')
-			->setParameter('first', $first)
-            ->getQuery()
-            ->getResult()
-        ;
+      return $this->createQueryBuilder('p')
+       ->where('p.first = :first')
+       ->setParameter('first', $first)
+       ->getQuery()
+       ->getResult()
+       ;
     }
 
-  /**
-   * @param $id
-   *
-   * @return mixed
-   *
-   * @throws \Doctrine\ORM\NonUniqueResultException
-   */
-    public function getPicturesById($id)
-	{
-		return $this->createQueryBuilder('p')
-     ->where('p.id = :id')
-     ->setParameter(':id', $id)
-     ->getQuery()
-     ->getOneOrNullResult()
-     ;
-	}
+    /**
+     * @param $slug
+     *
+     * @return mixed
+     */
+    public function getPictureByTrickSlugAndFirst($slug)
+    {
+      return $this->createQueryBuilder('p')
+       ->innerJoin('p.trick', 't')
+       ->setParameter(':slug', $slug)
+       ->where('t.slug = :slug')
+       ->getQuery()
+       ->getResult ()
+       ;
+    }
 
-	/**
-	 *{@inheritdoc}
-	 */
-	public function deletePictures(PicturesInterface $pictures)
-	{
-		$this->_em->remove($pictures);
-		$this->_em->flush();
-	}
-}
+    /**
+     * @param $id
+     *
+     * @return mixed
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
+     */
+    public function getPicturesById($id)
+    {
+      return $this->createQueryBuilder('p')
+       ->where('p.id = :id')
+       ->setParameter(':id', $id)
+       ->getQuery()
+       ->getOneOrNullResult()
+       ;
+    }
+
+    /**
+     *{@inheritdoc}
+     */
+    public function deletePictures(string $id)
+    {
+      $picture = $this->getPicturesById ($id);
+
+      $this->_em->remove($picture);
+      $this->_em->flush();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function flush()
+    {
+      $this->_em->flush();
+    }
+  }

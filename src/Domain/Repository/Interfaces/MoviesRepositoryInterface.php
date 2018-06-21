@@ -28,9 +28,11 @@
     public function getMoviesByEmbed($id);
 
     /**
-     * @param MoviesInterface $movies
+     * @param string $id
      *
      * @return mixed
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
-    public function deleteMovies(MoviesInterface $movies);
+    public function deleteMovies(string $id);
   }

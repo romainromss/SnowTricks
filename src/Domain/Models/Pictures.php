@@ -1,31 +1,31 @@
 <?php
 
-declare(strict_types=1);
+  declare(strict_types=1);
 
-/*
- * This file is part of the Snowtricks project.
- *
- * (c) Romain Bayette <romain.romss@gmail.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+  /*
+   * This file is part of the Snowtricks project.
+   *
+   * (c) Romain Bayette <romain.romss@gmail.com>
+   *
+   * For the full copyright and license information, please view the LICENSE
+   * file that was distributed with this source code.
+   */
 
-namespace App\Domain\Models;
+  namespace App\Domain\Models;
 
-use App\Domain\Models\Interfaces\PicturesInterface;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Interfaces\UsersInterface;
-use Ramsey\Uuid\Uuid;
-use Ramsey\Uuid\UuidInterface;
+  use App\Domain\Models\Interfaces\PicturesInterface;
+  use App\Domain\Models\Interfaces\TricksInterface;
+  use App\Domain\Models\Interfaces\UsersInterface;
+  use Ramsey\Uuid\Uuid;
+  use Ramsey\Uuid\UuidInterface;
 
-/**
- * Class Pictures.
- *
- * @author Romain Bayette <romain.romss@gmail.com>
- */
-class Pictures implements PicturesInterface
-{
+  /**
+   * Class Pictures.
+   *
+   * @author Romain Bayette <romain.romss@gmail.com>
+   */
+  class Pictures implements PicturesInterface
+  {
 
     /**
      * @var UuidInterface
@@ -52,15 +52,15 @@ class Pictures implements PicturesInterface
      */
     private $avatar;
 
-	/**
-	 * @var TricksInterface|null
-	 */
-	private $trick;
+    /**
+     * @var TricksInterface|null
+     */
+    private $trick;
 
-	/**
-	 * @var UsersInterface|null
-	 */
-	private $users;
+    /**
+     * @var UsersInterface|null
+     */
+    private $users;
 
     /**
      * Pictures constructor.
@@ -73,20 +73,20 @@ class Pictures implements PicturesInterface
      * @param UsersInterface|null   $user
      */
     public function __construct(
-        string $name,
-        string $legend,
-        bool $first,
-        string $avatar = null,
-        TricksInterface $tricks = null,
-        UsersInterface $user = null
+     string $name,
+     string $legend,
+     bool $first,
+     string $avatar = null,
+     TricksInterface $tricks = null,
+     UsersInterface $user = null
     ) {
-        $this->id = Uuid::uuid4();
-        $this->name = $name;
-        $this->legend = $legend;
-        $this->first = $first;
-        $this->avatar = $avatar;
-        $this->trick = $tricks;
-        $this->users = $user;
+      $this->id = Uuid::uuid4();
+      $this->name = $name;
+      $this->legend = $legend;
+      $this->first = $first;
+      $this->avatar = $avatar;
+      $this->trick = $tricks;
+      $this->users = $user;
     }
 
     /**
@@ -94,7 +94,7 @@ class Pictures implements PicturesInterface
      */
     public function getTrick()
     {
-        return $this->trick;
+      return $this->trick;
     }
 
 
@@ -103,7 +103,7 @@ class Pictures implements PicturesInterface
      */
     public function getUser()
     {
-        return $this->users;
+      return $this->users;
     }
 
     /**
@@ -111,7 +111,7 @@ class Pictures implements PicturesInterface
      */
     public function getId()
     {
-        return $this->id;
+      return $this->id;
     }
 
     /**
@@ -119,7 +119,7 @@ class Pictures implements PicturesInterface
      */
     public function getName()
     {
-        return $this->name;
+      return $this->name;
     }
 
     /**
@@ -127,7 +127,7 @@ class Pictures implements PicturesInterface
      */
     public function getLegend()
     {
-        return $this->legend;
+      return $this->legend;
     }
 
     /**
@@ -135,7 +135,15 @@ class Pictures implements PicturesInterface
      */
     public function isFirst(): bool
     {
-        return $this->first;
+      return $this->first;
+    }
+
+    /**
+     * @param bool $first
+     */
+    public function addFirst(bool $first = false)
+    {
+      $this->first = $first;
     }
 
     /**
@@ -143,6 +151,6 @@ class Pictures implements PicturesInterface
      */
     public function getAvatar()
     {
-        return $this->avatar;
+      return $this->avatar;
     }
-}
+  }

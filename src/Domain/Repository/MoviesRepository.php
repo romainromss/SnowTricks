@@ -54,8 +54,9 @@ class MoviesRepository extends ServiceEntityRepository implements MoviesReposito
   /**
    *{@inheritdoc}
    */
-  public function deleteMovies(MoviesInterface $movies)
+  public function deleteMovies(string $id)
   {
+    $movies = $this->getMoviesByEmbed($id);
     $this->_em->remove($movies);
     $this->_em->flush();
   }

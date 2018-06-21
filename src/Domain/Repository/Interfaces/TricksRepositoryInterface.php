@@ -53,11 +53,11 @@ interface TricksRepositoryInterface
 	 */
 	public function flush();
 
-	/**
-	 * @param TricksInterface $tricks
-	 *
-	 * @return void
-	 */
-	public function deleteTrick(TricksInterface $tricks);
+  /**
+   * @param string $slug
+   *
+   * @throws \Doctrine\ORM\NonUniqueResultException
+   */
+	public function deleteTrick(string $slug);
 
 }

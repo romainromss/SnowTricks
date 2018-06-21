@@ -76,4 +76,9 @@ interface PicturesInterface
      * @return bool
      */
     public function isFirst();
+
+  /**
+   * @param bool $first
+   */
+  public function addFirst(bool $first = false);
 }

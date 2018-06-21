@@ -30,6 +30,14 @@ interface PicturesRepositoryInterface
 	 */
 	public function getPicturesFirst(bool $first = false);
 
+
+  /**
+   * @param $slug
+   *
+   * @return mixed
+   */
+  public function getPictureByTrickSlugAndFirst($slug);
+
   /**
    * @param $id
    *
@@ -37,10 +45,15 @@ interface PicturesRepositoryInterface
    */
 	public function getPicturesById($id);
 
-	/**
-	 * @param PicturesInterface $pictures
-	 *
-	 * @return mixed
-	 */
-	public function deletePictures(PicturesInterface $pictures);
+  /**
+   * @param string $id
+   *
+   * @return void
+   */
+	public function deletePictures(string $id);
+
+  /**
+   * @return void
+   */
+	public function flush();
 }
