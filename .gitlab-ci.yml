@@ -33,3 +33,4 @@ test:
     script:
         - php bin/phpunit --coverage-text -v
         - vendor/bin/behat -v
+
