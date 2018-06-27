@@ -11,8 +11,8 @@ standard:
         - php composer.phar dump-autoload --optimize --apcu
     script:
         - php composer.phar install --prefer-dist
-        - php composer.phar require "squizlabs/php_codesniffer=*"
-        - vendor/bin/phpcs --standard=PSR1,PSR2 --ignore=src/Domain/Migrations/*,src/DataFixtures/* src/
+        - php composer.phar require --dev phpstan/phpstan
+        - vendor/bin/phpstan analyse src tests
 
 test:
     image: php:fpm-alpine
