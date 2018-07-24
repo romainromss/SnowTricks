@@ -23,8 +23,8 @@
                 <div class="form-group row">
                     <div class="col-md-9">
                         <div class="form-material floating">
-                            {{ form_widget(form.group, {'attr': { 'class':'form-control'}}) }}
-                            {{ form_label(form.group) }}
+                            {{ form_widget(form.category, {'attr': { 'class':'form-control'}}) }}
+                            {{ form_label(form.category) }}
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     {{ form_label(form.movies) }}
                     <button style="margin-top: 10px" type="button" id="add_movies" class="btn btn-alt-primary">Ajouter</button>
                 </div>
-                <button type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Envoyer</button>
+                <button id="add_trick" type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Envoyer</button>
                 {{ form_end(form) }}
             {% endif %}
         </div>

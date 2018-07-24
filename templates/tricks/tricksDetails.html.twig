@@ -3,24 +3,26 @@
 {% block head %}
     <!-- Page Content -->
     {% for picture in tricks.pictures if picture.first == true %}
-    <div class="bg-image" style='background-image: url("{{ asset('images/Upload/' ~ picture.name ) }}");'>
-        {% endfor %}
-        <div class="btnheader">
-            {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" data-toggle="modal" data-target="#1">
-                    <i class="fa fa-trash"></i>
-                </a>
-                <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
-            {% endif %}
-        </div>
-        <div class="hero bg-primary-dark-op">
-            <div class="hero-inner">
-                <div class="content content-full text-center">
-                    <h1 class="display-4 font-w700 text-white mb-10 invisible"
-                        data-toggle="appear" data-class="animated fadeInDown">{{ tricks.name }}</h1>
-                </div>
+        <div class="bg-image" style='background-image: url("{{ asset('images/Upload/' ~ picture.name ) }}");'>
+    {% endfor %}
+    <div class="btnheader">
+        {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+            <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 test" href="{{ path('deleteTrick', {'slug' : tricks.slug}  ) }}">
+                <i class="fa fa-trash"> Supprimer </i>
+            </a>
+           <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75 update" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}">
+                <i class="fa fa-pencil"> Modifier </i>
+            </a>
+        {% endif %}
+    </div>
+    <div class="hero bg-primary-dark-op">
+        <div class="hero-inner">
+            <div class="content content-full text-center">
+                <h1 class="display-4 font-w700 text-white mb-10 invisible"
+                    data-toggle="appear" data-class="animated fadeInDown">{{ tricks.name }}</h1>
             </div>
         </div>
+    </div>
     </div>
     <!-- END Page Content -->
 {% endblock %}
@@ -82,7 +84,7 @@
      </main>
 
      <hr>
-     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+     {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
          {{ form_start(form) }}
          <div class="form-group row">
              <div class="col-md-8 offset-md-2 formMaterial">
@@ -90,7 +92,7 @@
                      {{ form_widget(form.content, {'attr': { 'class': 'form-control'}}) }}
                      <!-- <textarea class="form-control" id="material-color-info2" name="material-color-info2"></textarea> -->
                      <label for="material-color-info2">Ajouter votre message</label>
-                     <button type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Submit</button>
+                     <button id="add_comment" type="submit" class="col-lg-4 offset-lg-4 btn btn-alt-primary submit">Submit</button>
                  </div>
              </div>
          </div>
@@ -110,10 +112,10 @@
                      {% for comment in tricks.comments %}
                          <li class="comments">
                              {% if comment.users %}
-                                 {% if comment.users.pictures.avatar == '' %}
+                                 {% if comment.users.pictures is defined %}
                                      <img class="img-avatar" src="{{ asset('images/Upload/avatar_defaut.png') }}" alt="">
                                  {% else %}
-                                     <img class="img-avatar" src="{{ asset('images/Upload/' ~ comment.users.pictures.avatar ) }}" alt="">
+                                     <img class="img-avatar" src="{{ asset('img/avatars/' ~ comment.users.pictures.name ) }}" alt="">
                                  {% endif %}
                                  <p class="d-inline-block" style="font-weight: bold; font-size: 15px; margin-left: 16px"> {{ comment.users.username }} </p>
                              {% endif %}
@@ -141,7 +143,7 @@
                  </div>
                  <div class="modal-footer">
                      <button type="button" class="btn btn-alt-primary" data-dismiss="modal">Annuler</button>
-                     <button type="button" class="btn btn-alt-danger" href="{{ path('deleteTrick', {'slug' : tricks.slug}  ) }}" data-dismiss="modal">
+                     <button type="button" class="btn btn-alt-danger"  data-dismiss="modal">
                          <i class="fa fa-check"></i> Supprimer
                      </button>
                  </div>
@@ -149,7 +151,6 @@
          </div>
      </div>
      <!-- END Pop Out Modal -->
-
 
      <script src="//cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.1/mobile-detect.min.js"></script>
      <script src="{{ asset('js/seemore.js') }}"></script>
