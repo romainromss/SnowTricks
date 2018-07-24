@@ -11,25 +11,20 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Domain\Builder;
+namespace App\Domain\Factory\Interfaces;
 
-use App\Domain\Builder\Interfaces\CommentBuilderInterface;
+use App\Domain\Factory\CommentBuilder;
 use App\Domain\Models\Comments;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 
 /**
- * Class CommentBuilder.
+ * Interface CommentBuilderInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class CommentBuilder implements CommentBuilderInterface
+interface CommentBuilderInterface
 {
-    /**
-     * @var Comments
-     */
-    private $comment;
-
     /**
      * @param string           $content
      * @param TricksInterface  $tricks
@@ -41,17 +36,10 @@ class CommentBuilder implements CommentBuilderInterface
         string $content,
         TricksInterface $tricks,
         UsersInterface $users
-    ):  self {
-
-        $this->comment = new Comments($content, $tricks, $users);
-        return $this;
-    }
+    ):  CommentBuilder;
 
     /**
      * @return Comments
      */
-    public function getComment(): Comments
-    {
-      return $this->comment;
-    }
+    public function getComment(): Comments;
 }

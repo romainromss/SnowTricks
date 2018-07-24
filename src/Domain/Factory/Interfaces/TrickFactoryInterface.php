@@ -14,14 +14,15 @@ declare(strict_types=1);
 namespace App\Domain\Builder\Interfaces;
 
 
-use App\Domain\Builder\TrickBuilder;
+use App\Domain\Builder\TrickFactory;
 use App\Domain\Models\Interfaces\CommentsInterface;
 use App\Domain\Models\Interfaces\MoviesInterface;
 use App\Domain\Models\Interfaces\PicturesInterface;
+use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Models\Tricks;
 
-interface TrickBuilderInterface
+interface TrickFactoryInterface
 {
 
 	/**
@@ -32,7 +33,7 @@ interface TrickBuilderInterface
 	 * @param array   $pictures
 	 * @param array   $movies
 	 *
-	 * @return TrickBuilder
+	 * @return TricksInterface
 	 */
 	public function create(
 		string $name,
@@ -41,10 +42,5 @@ interface TrickBuilderInterface
 		UsersInterface $users,
 		array $pictures,
 		array $movies
-	):  TrickBuilder;
-
-	/**
-	 * @return Tricks
-	 */
-	public function getTrick(): Tricks;
+	):  TricksInterface;
 }
