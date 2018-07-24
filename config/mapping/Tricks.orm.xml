@@ -9,32 +9,45 @@
         <one-to-many field="movies" target-entity="Movies" mapped-by="trick" orphan-removal="true">
             <cascade>
                 <cascade-remove/>
+                <cascade-persist/>
             </cascade>
         </one-to-many>
 
-        <one-to-many field="pictures" target-entity="Pictures" mapped-by="trick" orphan-removal="true">
+        <many-to-many field="pictures" target-entity="Pictures" orphan-removal="true">
+            <join-table name="trick_pictures">
+                <join-columns>
+                    <join-column name="trick_id" referenced-column-name="id"/>
+                </join-columns>
+                <inverse-join-columns>
+                    <join-column name="picture_id" referenced-column-name="id" unique="true"/>
+                </inverse-join-columns>
+            </join-table>
             <cascade>
-                <cascade-remove/>
+                <cascade-persist/>
             </cascade>
-        </one-to-many>
+        </many-to-many>
 
         <one-to-many field="comments" target-entity="Comments" mapped-by="trick">
             <cascade>
                 <cascade-remove/>
+                <cascade-persist/>
             </cascade>
         </one-to-many>
 
         <many-to-one field="users" target-entity="Users" inversed-by="tricks">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
         </many-to-one>
 
         <id name="id" column="id" type="uuid" />
 
         <field name="name" column="name" type="string" length="20" nullable="false" />
         <field name="description" column="description" type="text" nullable="false"  />
-        <field name="group" column="group" type="string" length="20" nullable="false" />
+        <field name="category" column="category" type="string" length="20" nullable="false" />
         <field name="slug" column="slug" type="string" length="100" nullable="false" />
         <field name="createdAt" column="createdAt" type="bigint" length="20" nullable="false" />
-        <field name="updatedAt" column="updatedAt" type="bigint" length="20" nullable="false" />
+        <field name="updatedAt" column="updatedAt" type="bigint" length="20" nullable="true" />
 
     </entity>
 </doctrine-mapping>

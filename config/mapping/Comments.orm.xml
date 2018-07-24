@@ -11,6 +11,9 @@
         </many-to-one>
 
         <many-to-one field="users" target-entity="Users" inversed-by="comments">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
         </many-to-one>
 
         <id name="id" column="id" type="uuid" />

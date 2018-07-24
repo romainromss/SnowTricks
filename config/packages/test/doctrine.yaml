@@ -1,7 +1,7 @@
 doctrine:
     dbal:
         driver: 'pdo_sqlite'
-        server_version: '%env(DB_VERSION_TEST)%'
-        charset: '%env(DB_CHARSET_TEST)%'
+        server_version: '5.7'
+        charset: 'utf8mb4'
         memory: true
-        url: '%env(resolve:DATABASE_URL_TEST)%'
+        url: 'sqlite:///%kernel.project_dir%/var/data.db'
