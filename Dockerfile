@@ -1,41 +1,26 @@
-FROM composer
-FROM php:fpm-alpine3.7
+# Development build
+FROM php:fpm-alpine as base
 
 ENV WORKPATH "/var/www/snowtricks"
+ENV COMPOSER_ALLOW_SUPERUSER 1
 
-RUN set -xe \
-          	&& apk add --no-cache --virtual .build-deps \
-          		$PHPIZE_DEPS \
-          		icu-dev \
-          		postgresql-dev \
-          		zlib-dev \
-          		gnupg \
-          		graphviz \
-          		make \
-          	&& docker-php-ext-install \
-          		intl \
-          		pdo_pgsql \
-          		zip \
-          	&& pecl install apcu \
-                   && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
-                   && docker-php-ext-install pdo_mysql opcache json pdo_pgsql pgsql mysqli \
-                   && docker-php-ext-enable apcu mysqli \
-          	&& runDeps="$( \
-          		scanelf --needed --nobanner --format '%n#p' --recursive /usr/local/lib/php/extensions \
-          			| tr ',' '\n' \
-          			| sort -u \
-          			| awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' \
-          	)" \
-          	&& apk add --no-cache --virtual .php-phpexts-rundeps $runDeps \
-          	&& apk del .build-deps
+RUN apk add --no-cache --virtual .build-deps $PHPIZE_DEPS icu-dev postgresql-dev gnupg graphviz make autoconf git zlib-dev curl chromium go \
+    && docker-php-ext-configure pgsql --with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install zip intl pdo_pgsql pdo_mysql opcache json pgsql mysqli \
+    && pecl install apcu redis \
+    && docker-php-ext-enable apcu mysqli redis
+
+##xdebug
+RUN yes | pecl install xdebug \
+    && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
+    && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
 
 COPY docker/php/conf/php.ini /usr/local/etc/php/php.ini
 
-# COPY conf/production/php.ini /usr/local/etc/php/php.ini -> Only for production usage.
 
 # Composer
-ENV COMPOSER_ALLOW_SUPERUSER 1
-COPY --from=0 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Blackfire (Docker approach) & Blackfire Player
 RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
@@ -77,3 +62,9 @@ COPY . ./
 EXPOSE 9000
 
 CMD ["php-fpm"]
+
+## Production build
+FROM base
+
+COPY docker/php/conf/production/php.ini /usr/local/etc/php/php.ini
+
