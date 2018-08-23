@@ -11,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Tests\Domain\Builder;
+namespace App\Tests\Domain\Factory;
 
-use App\Domain\Builder\CommentBuilder;
+use App\Domain\Factory\CommentFactory;
 use App\Domain\Models\Comments;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
@@ -47,13 +47,13 @@ class CommentBuilderTest extends TestCase
     }
     public function testInstanceOf()
     {
-        $commentBuilder = new CommentBuilder();
-        static::assertInstanceOf(CommentBuilder::class, $commentBuilder);
+        $commentBuilder = new CommentFactory();
+        static::assertInstanceOf(CommentFactory::class, $commentBuilder);
     }
 
     public function testcreate()
     {
-        $comment = new CommentBuilder();
+        $comment = new CommentFactory();
         $comment->create($this->content, $this->tricks, $this->users);
 
         static::assertInstanceOf(Comments::class, $comment->getComment());

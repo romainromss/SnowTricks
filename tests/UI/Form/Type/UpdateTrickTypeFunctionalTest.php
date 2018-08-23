@@ -1,0 +1,63 @@
+<?php
+
+declare(strict_types = 1);
+
+/*
+ * This file is part of the Snowtricks project.
+ *
+ * (c) Romain Bayette <romain.romss@gmail.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace App\Tests\UI\Form\Type;
+
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\BrowserKit\Client;
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * Class PictureTypeFunctionalTest.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
+class UpdateTrickTypeFunctionalTest extends WebTestCase
+{
+  /**
+   * @var null | Client
+   */
+  private $client = null;
+  
+  protected function setUp()
+  {
+    $this->client = static::createClient();
+  }
+  
+  public function testGetStatusCode()
+  {
+    $this->client->request('GET', '/update/trick/mute');
+    static::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+  }
+  
+  public function testUpdateTrickForm()
+  {
+    $crawler = $this->client->request('GET', '/tricks/mute');
+    $link = $crawler->selectLink('Modifier')->link();
+    $crawler = $this->client->click($link);
+    $form = $crawler->selectButton('update_trick')->form();
+    $form['update_trick[name]'] = 'Name';
+    $form['update_trick[description]'] = 'Description';
+    $form['update_trick[category]'] = 'Category';
+    $form['update_trick[pictures]'];
+    $form['update_trick[pictures][0][legend]'] = 'legend';
+    $form['update_trick[movies]'] = ['Movies'];
+    $this->client->submit($form);
+    static::assertEquals(1, $crawler->filter('div.flash-notice')->count());
+  }
+  
+  protected function tearDown()
+  {
+    $this->client = null;
+  }
+}
