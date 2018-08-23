@@ -27,7 +27,7 @@
         public function buildForm (FormBuilderInterface $builder, array $options)
         {
           $builder
-            ->add('name', FileType::class)
+            ->add('file', FileType::class)
             ->add ('legend', TextType::class);
         }
         
@@ -37,9 +37,8 @@
             'data_class' => PictureDTOInterface::class,
             'empty_data' => function (FormInterface $form){
               return new PictureDTO(
-                $form->get('name')->getData(),
-                $form->get('legend')->getData(),
-                $form->get ('first')->getData ()
+                $form->get('file')->getData(),
+                $form->get('legend')->getData()
               );
             }
           ]);

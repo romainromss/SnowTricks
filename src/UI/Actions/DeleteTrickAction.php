@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Actions;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Repository\PicturesRepository;
 use App\UI\Responder\Interfaces\ResponderDeleteTrickInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,8 +31,8 @@ class DeleteTrickAction
 	 * @var TricksRepositoryInterface
 	 */
 	private $tricksRepository;
-
-	/**
+  
+  /**
 	 * DeleteTrickAction constructor.
 	 *
 	 * @param TricksRepositoryInterface $tricksRepository
@@ -39,7 +40,7 @@ class DeleteTrickAction
 	public function __construct(TricksRepositoryInterface $tricksRepository)
 	{
 		$this->tricksRepository = $tricksRepository;
-	}
+    }
 
 
 	/**
@@ -56,8 +57,8 @@ class DeleteTrickAction
 		ResponderDeleteTrickInterface $responderDeleteTrick,
 		Request $request
 	) {
-	  $this->tricksRepository->deleteTrick($request->get('slug'));
-
+	  $this->tricksRepository->deleteTrick($request->attributes->get('slug'));
+	  
 		return $responderDeleteTrick();
 	}
 }

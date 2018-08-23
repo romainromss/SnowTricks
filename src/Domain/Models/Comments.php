@@ -62,7 +62,7 @@ class Comments implements CommentsInterface
     public function __construct(
         string $content,
         TricksInterface $trick,
-        UsersInterface $users
+        UsersInterface $users = null
     ) {
         $this->id = Uuid::uuid4();
         $this->content = $content;

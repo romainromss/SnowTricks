@@ -47,7 +47,7 @@ class Tricks implements TricksInterface
     /**
      * @var string
      */
-    private $group;
+    private $category;
 
     /**
      * @var string
@@ -89,8 +89,8 @@ class Tricks implements TricksInterface
     public function __construct(
         string $name,
         string $description,
-        string $group,
-		    UsersInterface $users,
+        string $category,
+        UsersInterface $users,
         array $pictures = null,
         array $movies = null,
         array $comments = null
@@ -98,7 +98,7 @@ class Tricks implements TricksInterface
         $this->id = Uuid::uuid4();
         $this->name = $name;
         $this->description = $description;
-        $this->group = $group;
+        $this->category = $category;
         $this->slug = strtr($name, [' ' => '-']);
         $this->createdAt = time();
         $this->users = $users;
@@ -136,7 +136,7 @@ class Tricks implements TricksInterface
      */
     public function getGroup(): string
     {
-        return $this->group;
+        return $this->category;
     }
 
     /**

@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the snowtricks project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -36,7 +36,7 @@ class AddTrickDTO implements AddTrickDTOInterface
 	/**
 	 * @var string
 	 */
-	public $group;
+	public $category;
 
 	/**
 	 * @var array
@@ -54,13 +54,13 @@ class AddTrickDTO implements AddTrickDTOInterface
 	public function __construct(
 		string $name,
 		string $description,
-		string $group,
-		array $pictures,
-		array $movies
+		string $category,
+		array $pictures = [],
+		array $movies = []
 	) {
 		$this->name = $name;
 		$this->description = $description;
-		$this->group = $group;
+		$this->category = $category;
 		$this->pictures = $pictures;
 		$this->movies = $movies;
 	}

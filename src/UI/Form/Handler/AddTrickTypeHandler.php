@@ -13,8 +13,14 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
-use App\Domain\Builder\Interfaces\TrickBuilderInterface;
+use App\Domain\Factory\Interfaces\MoviesFactoryInterface;
+use App\Domain\Factory\Interfaces\PictureFactoryInterface;
+use App\Domain\Factory\Interfaces\TrickFactoryInterface;
+use App\Domain\Models\Pictures;
+use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Repository\PicturesRepository;
+use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\Intefaces\AddTrickTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -26,55 +32,107 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
  */
 class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
 {
-	/**
-	 * @var TrickBuilderInterface
-	 */
-	private $tricksBuilder;
-
-	/**
-	 * @var TricksRepositoryInterface
-	 */
-	private $tricksRepository;
-
-	/**
-	 * @var TokenStorageInterface
-	 */
-	private $tokenStorage;
-
-	public function __construct(
-		TrickBuilderInterface $tricksBuilder,
-		TricksRepositoryInterface $tricksRepository,
-		TokenStorageInterface $tokenStorage
-	) {
-		$this->tricksBuilder = $tricksBuilder;
-		$this->tricksRepository = $tricksRepository;
-		$this->tokenStorage = $tokenStorage;
-	}
-
-	/**
-	 * @param FormInterface      $form
-	 *
-	 * @return bool
-	 *
-	 * @throws \Doctrine\ORM\ORMException
-	 * @throws \Doctrine\ORM\OptimisticLockException
-	 */
-	public function handle(FormInterface $form):  bool
-	{
-		if ($form->isSubmitted() && $form->isValid()){
-			$this->tricksBuilder->create(
-				$form->getData()->name,
-				$form->getData()->description,
-				$form->getData()->group,
-				$this->tokenStorage->getToken()->getUser(),
-				$form->getData()->pictures,
-				$form->getData()->movies
-			);
-
-			$this->tricksRepository->save($this->tricksBuilder->getTrick());
-
-			return true;
-		}
-		return false;
-	}
+  /**
+   * @var TrickFactoryInterface
+   */
+  private $trickFactory;
+  
+  /**
+   * @var PictureFactoryInterface
+   */
+  private $pictureFactory;
+  
+  /**
+   * @var MoviesFactoryInterface
+   */
+  private $moviesFactory;
+  
+  /**
+   * @var TricksRepositoryInterface
+   */
+  private $tricksRepository;
+  
+  /**
+   * @var TokenStorageInterface
+   */
+  private $tokenStorage;
+  
+  /**
+   * @var UploaderHelper
+   */
+  private $uploaderHelper;
+  
+  
+  /**
+   * AddTrickTypeHandler constructor.
+   *
+   * @param TrickFactoryInterface     $trickFactory
+   * @param PictureFactoryInterface   $pictureFactory
+   * @param MoviesFactoryInterface    $moviesFactory
+   * @param TricksRepositoryInterface $tricksRepository
+   * @param TokenStorageInterface     $tokenStorage
+   * @param UploaderHelper            $uploaderHelper
+   */
+  public function __construct(
+    TrickFactoryInterface $trickFactory,
+    PictureFactoryInterface $pictureFactory,
+    MoviesFactoryInterface $moviesFactory,
+    TricksRepositoryInterface $tricksRepository,
+    TokenStorageInterface $tokenStorage,
+    UploaderHelper $uploaderHelper
+  ) {
+    $this->trickFactory = $trickFactory;
+    $this->tricksRepository = $tricksRepository;
+    $this->tokenStorage = $tokenStorage;
+    $this->pictureFactory = $pictureFactory;
+    $this->uploaderHelper = $uploaderHelper;
+    $this->moviesFactory = $moviesFactory;
+  }
+  
+  /**
+   * @param FormInterface      $form
+   *
+   * @return bool
+   *
+   * @throws \Doctrine\ORM\ORMException
+   * @throws \Doctrine\ORM\OptimisticLockException
+   */
+  public function handle(FormInterface $form):  bool
+  {
+    if ($form->isSubmitted() && $form->isValid()){
+      if (\count($form->getData()->pictures) > 0) {
+        $pictures = [];
+        foreach ($form->getData()->pictures as $picture) {
+          $fileName = $this->uploaderHelper->upload($picture->file);
+          
+          $picture->first = false;
+          if($pictures == []){
+            $picture->first = true;
+          }
+          \is_array($pictures) ? $picture->first = true : $picture->first = false;
+          
+          $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
+        }
+      }
+      if (\count($form->getData()->movies) > 0) {
+        $movies = [];
+        foreach ($form->getData()->movies as $movie){
+          $movies[] = $this->moviesFactory->create($movie->embed, $movie->legend);
+        }
+      }
+      
+      $trick = $this->trickFactory->create(
+        $form->getData()->name,
+        $form->getData()->description,
+        $form->getData()->category,
+        is_object($this->tokenStorage->getToken()->getUser()) ?$this->tokenStorage->getToken()->getUser(): new Users('', '', '', '', '', ''),
+        $pictures ?? [],
+        $movies ?? []
+      );
+      $this->tricksRepository->save($trick);
+      
+      return true;
+    }
+    return false;
+  }
 }

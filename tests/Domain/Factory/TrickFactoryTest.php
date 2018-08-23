@@ -11,9 +11,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\Tests\Domain\Builder;
+namespace App\Tests\Domain\Factory;
 
-use App\Domain\Builder\TrickFactory;
+use App\Domain\Factory\TrickFactory;
 use App\Domain\Models\Interfaces\MoviesInterface;
 use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;

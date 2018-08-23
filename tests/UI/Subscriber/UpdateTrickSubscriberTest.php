@@ -13,8 +13,10 @@
 
   namespace App\Tests\UI\Subscriber;
 
+  use App\Domain\Models\Movies;
   use App\UI\Subscriber\UpdateTrickSubscriber;
   use PHPUnit\Framework\TestCase;
+  use Symfony\Component\Form\FormEvent;
 
   /**
    * Class UpdateTrickSubscriberTest.
@@ -23,11 +25,6 @@
    */
   class UpdateTrickSubscriberTest extends TestCase
   {
-    /**
-     * @var array
-     */
-    private $pictures = [];
-
     /**
      * @var array
      */
@@ -42,6 +39,11 @@
      * @var UpdateTrickSubscriber
      */
     private $updateTrickSubscriber;
+  
+    /**
+     * @var FormEvent
+     */
+    private $formEvent;
 
     /**
      * UpdateTrickSubscriberTest constructor.
@@ -49,13 +51,16 @@
      */
     public function SetUp()
     {
-      $this->imageFolder = $this->createMock($this->imageFolder);
       $this->updateTrickSubscriber = $this->createMock(UpdateTrickSubscriber::class);
+      $this->formEvent = $this->createMock(FormEvent::class);
+      $this->movies = $this->createMock(Movies::class);
+      
+      $this->imageFolder = '360.svg';
     }
 
-    public function InstanceOf()
+    public function testInstanceOf()
     {
-      $updateTrickSubscriber = new UpdateTrickSubscriber($this->imageFolder);
-      static::assertInstanceOf($updateTrickSubscriber, $this->updateTrickSubscriber);
+      $updateTrickSubscriber = new UpdateTrickSubscriber();
+      static::assertInstanceOf(UpdateTrickSubscriber::class , $updateTrickSubscriber);
     }
   }

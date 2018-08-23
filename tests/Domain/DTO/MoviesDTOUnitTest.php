@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,25 @@ declare(strict_types = 1);
 
 namespace App\Tests\Domain\DTO;
 
-class MoviesDTOUnitTest
+use App\Domain\DTO\MoviesDTO;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * Class MoviesDTOUnitTest.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
+class MoviesDTOUnitTest extends TestCase
 {
-  
+  /**
+   * PictureDTOTest constructor.
+   */
+  public function testConstruct ()
+  {
+    $embed = 'embed';
+    $legend = 'legend';
+    
+    $moviesDTO = new MoviesDTO($legend, $embed);
+    static::assertInstanceOf (MoviesDTO::class, $moviesDTO);
+  }
 }

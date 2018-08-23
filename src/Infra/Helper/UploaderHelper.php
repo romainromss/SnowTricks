@@ -13,10 +13,30 @@ declare(strict_types = 1);
 
 namespace App\Infra\Helper;
 
-class UploadeHelper
+/**
+ * Class UploaderHelper.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
+class UploaderHelper
 {
   public $imageFolder;
   
+  /**
+   * UploaderHelper constructor.
+   *
+   * @param string $imageFolder
+   */
+  public function __construct(string $imageFolder)
+  {
+    $this->imageFolder = $imageFolder;
+  }
+  
+  /**
+   * @param \SplFileInfo $fileInfo
+   *
+   * @return string
+   */
   public function upload(\SplFileInfo $fileInfo)
   {
     $fileName = md5(uniqid(str_rot13($fileInfo->getFilename()))).'.'.$fileInfo->guessExtension();

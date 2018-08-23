@@ -106,7 +106,7 @@ class Users implements UsersInterface
         string $lastname,
         string $password,
         string $role,
-        PicturesInterface $pictures,
+        PicturesInterface $pictures = null,
         array $tricks = null,
         array $comments = null
     ) {
@@ -119,8 +119,8 @@ class Users implements UsersInterface
         $this->role = $role;
         $this->createdAt = time();
         $this->pictures = $pictures;
-        $this->tricks = new ArrayCollection($tricks);
-        $this->comments = new ArrayCollection($comments);
+        $this->tricks = new ArrayCollection($tricks ?? []);
+        $this->comments = new ArrayCollection($comments ?? []);
     }
 
     /**

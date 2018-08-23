@@ -52,7 +52,7 @@ class HomeAction
 	public function __invoke(
 		ResponderHomeInterface $responderHome
 	):  Response {
-
+	 
 		$tricks = $this->tricksRepository->getAllWithPictures(true);
 
 		return $responderHome([

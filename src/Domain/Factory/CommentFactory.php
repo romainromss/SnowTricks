@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Factory;
 
-use App\Domain\Factory\Interfaces\CommentBuilderInterface;
+use App\Domain\Factory\Interfaces\CommentFactoryInterface;
 use App\Domain\Models\Comments;
+use App\Domain\Models\Interfaces\CommentsInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 
@@ -23,35 +24,21 @@ use App\Domain\Models\Interfaces\UsersInterface;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class CommentBuilder implements CommentBuilderInterface
+class CommentFactory implements CommentFactoryInterface
 {
-    /**
-     * @var Comments
-     */
-    private $comment;
-
-    /**
-     * @param string           $content
-     * @param TricksInterface  $tricks
-     * @param UsersInterface   $users
-     *
-     * @return CommentBuilder
-     */
+  /**
+   * @param string          $content
+   * @param TricksInterface $tricks
+   * @param UsersInterface  $users
+   *
+   * @return CommentsInterface
+   */
     public function create(
         string $content,
         TricksInterface $tricks,
         UsersInterface $users
-    ):  self {
+    ): CommentsInterface {
 
-        $this->comment = new Comments($content, $tricks, $users);
-        return $this;
-    }
-
-    /**
-     * @return Comments
-     */
-    public function getComment(): Comments
-    {
-      return $this->comment;
+         return new Comments($content, $tricks, $users);
     }
 }

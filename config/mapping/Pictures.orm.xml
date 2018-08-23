@@ -6,9 +6,9 @@
 
     <entity name="App\Domain\Models\Pictures" table="pictures" repository-class="App\Repository\PicturesRepository">
 
-        <id name="id" column="id" type="uuid" />
+        <id name="id" column="id" type="uuid"/>
 
-        <field name="name" column="name" type="string" length="50" nullable="true"/>
+        <field name="name" column="name" type="string" length="50" nullable="true" />
         <field name="legend" column="legend" type="string" length="50" nullable="false"/>
         <field name="first" column="first" type="boolean" nullable="true"/>
 

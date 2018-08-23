@@ -35,7 +35,7 @@ class UpdateTrickDTO implements UpdateTrickDTOInterface
 	/**
 	 * @var string
 	 */
-	public $group;
+	public $category;
 
 	/**
 	 * @var array
@@ -53,13 +53,13 @@ class UpdateTrickDTO implements UpdateTrickDTOInterface
 	public function __construct(
 		string $name,
 		string $description,
-		string $group,
-		array $pictures,
-		array $movies
+		string $category,
+		array $pictures = [],
+		array $movies = []
 	) {
 		$this->name = $name;
 		$this->description = $description;
-		$this->group = $group;
+		$this->category = $category;
 		$this->pictures = $pictures;
 		$this->movies = $movies;
 	}

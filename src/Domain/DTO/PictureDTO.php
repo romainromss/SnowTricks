@@ -18,9 +18,9 @@
   class PictureDTO implements PictureDTOInterface
   {
     /**
-     * @var string
+     * @var \SplFileInfo
      */
-    public $name;
+    public $file;
   
     /**
      * @var string
@@ -36,11 +36,11 @@
      * {@inheritdoc}
      */
     public function __construct (
-      string $name,
-      string $legend,
-      bool $first
+      \SplFileInfo $file = null,
+      string $legend = null,
+      bool $first = false
     ) {
-      $this->name = $name;
+      $this->file = $file;
       $this->legend = $legend;
       $this->first = $first;
     }

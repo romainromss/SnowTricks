@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,17 @@ declare(strict_types = 1);
 
 namespace App\Infra\Helper\Interfaces;
 
+/**
+ * Interface UploaderHelperInterface
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 interface UploaderHelperInterface
 {
-  
+  /**
+   * @param \SplFileInfo $fileInfo
+   *
+   * @return string
+   */
+  public function upload(\SplFileInfo $fileInfo);
 }

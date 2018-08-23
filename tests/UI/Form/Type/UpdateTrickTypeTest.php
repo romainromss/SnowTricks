@@ -14,7 +14,9 @@ declare(strict_types=1);
 namespace App\Tests\UI\Form\Type;
 
 use App\Domain\DTO\UpdateTrickDTO;
+use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\DataTransformer\PicturesToFIleTransformer;
+use App\UI\Form\Type\PictureType;
 use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Subscriber\UpdateTrickSubscriber;
 use Symfony\Component\Form\FormInterface;
@@ -43,9 +45,16 @@ class UpdateTrickTypeTest extends TypeTestCase
 	 * @var PicturesToFIleTransformer
 	 */
 	private $picturesToFileTransformer;
+  
+  /**
+   * @var UploaderHelper
+   */
+	private $uploader;
 
 	protected function setUp()
 	{
+	  $this->uploader = $this->createMock(UploaderHelper::class);
+	  
 		$this->dto = new UpdateTrickDTO(
 			'name' ,
 			'description',
@@ -53,8 +62,8 @@ class UpdateTrickTypeTest extends TypeTestCase
 			[],
 			[]
 		);
-		$this->updateTrickSubscriber  = new UpdateTrickSubscriber(__DIR__."./../../../assets/");
-		$this->picturesToFileTransformer = new PicturesToFIleTransformer(__DIR__."./../../../assets/");
+		$this->updateTrickSubscriber  = new UpdateTrickSubscriber();
+		$this->picturesToFileTransformer = new PicturesToFIleTransformer(__DIR__."./../../../assets/", $this->uploader);
 
 		parent::setUp();
 	}
@@ -81,7 +90,7 @@ class UpdateTrickTypeTest extends TypeTestCase
 			'description' => 'description',
 			'group' => 'group',
 			'slug' => 'slug',
-			'pictures' => [],
+			'pictures' => PictureType::class,
 			'movies' => []
 	]);
 

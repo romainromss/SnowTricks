@@ -82,7 +82,7 @@ class TricksTest extends TestCase
         static::assertObjectHasAttribute('id', $this->trick);
         static::assertObjectHasAttribute('name', $this->trick);
         static::assertObjectHasAttribute('description', $this->trick);
-        static::assertObjectHasAttribute('group', $this->trick);
+        static::assertObjectHasAttribute('category', $this->trick);
         static::assertObjectHasAttribute('slug', $this->trick);
         static::assertObjectHasAttribute('createdAt', $this->trick);
         static::assertObjectHasAttribute('updatedAt', $this->trick);
@@ -101,6 +101,7 @@ class TricksTest extends TestCase
         static::assertEquals('name', $this->trick->getName());
         static::assertEquals('description', $this->trick->getDescription());
         static::assertEquals('group', $this->trick->getGroup());
+        static::assertSame('name', $this->trick->getSlug());
         static::assertNotNull(new \DateTime('now'), $this->trick->getCreatedAt());
         static::assertNotNull(0, $this->trick->getUpdatedAt());
         static::assertInstanceOf(Users::class, $this->trick->getUsers());

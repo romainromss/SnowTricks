@@ -11,7 +11,7 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace App\Domain\Builder\Interfaces;
+namespace App\Domain\Factory\Interfaces;
 
 use App\Domain\Models\Interfaces\PicturesInterface;
 

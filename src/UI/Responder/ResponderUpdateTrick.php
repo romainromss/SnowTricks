@@ -60,7 +60,7 @@ class ResponderUpdateTrick implements ResponderUpdateTrickInterface
 		$data = null,
 		FormInterface $updateTricksType = null
 	):  Response {
-	  
+	 
 		$response = $redirect
 			?  new RedirectResponse($this->urlGenerator->generate('index'))
 			:  new Response($this->twig->render('tricks/updateTricks.html.twig', $data));

@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class CommentBuilderTest extends TestCase
+class CommentFactoryTest extends TestCase
 {
     /**
      * @var TricksInterface
@@ -54,8 +54,12 @@ class CommentBuilderTest extends TestCase
     public function testcreate()
     {
         $comment = new CommentFactory();
-        $comment->create($this->content, $this->tricks, $this->users);
+        $comment->create(
+          $this->content,
+          $this->tricks,
+          $this->users
+        );
 
-        static::assertInstanceOf(Comments::class, $comment->getComment());
+        static::assertInstanceOf(CommentFactory::class, $comment);
     }
 }

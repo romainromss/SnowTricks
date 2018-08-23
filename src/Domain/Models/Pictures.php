@@ -15,7 +15,6 @@
 
   use App\Domain\Models\Interfaces\PicturesInterface;
   use App\Domain\Models\Interfaces\TricksInterface;
-  use App\Domain\Models\Interfaces\UsersInterface;
   use Ramsey\Uuid\Uuid;
   use Ramsey\Uuid\UuidInterface;
 
@@ -48,62 +47,21 @@
     private $first;
 
     /**
-     * @var null|string
-     */
-    private $avatar;
-
-    /**
-     * @var TricksInterface|null
-     */
-    private $trick;
-
-    /**
-     * @var UsersInterface|null
-     */
-    private $users;
-
-    /**
      * Pictures constructor.
      *
      * @param string                $name
      * @param string                $legend
      * @param bool                  $first
-     * @param string|null           $avatar
-     * @param TricksInterface|null  $tricks
-     * @param UsersInterface|null   $user
      */
     public function __construct(
      string $name,
      string $legend,
-     bool $first,
-     string $avatar = null,
-     TricksInterface $tricks = null,
-     UsersInterface $user = null
+     bool $first
     ) {
       $this->id = Uuid::uuid4();
       $this->name = $name;
       $this->legend = $legend;
       $this->first = $first;
-      $this->avatar = $avatar;
-      $this->trick = $tricks;
-      $this->users = $user;
-    }
-
-    /**
-     * @return TricksInterface
-     */
-    public function getTrick()
-    {
-      return $this->trick;
-    }
-
-
-    /**
-     * @return UsersInterface
-     */
-    public function getUser()
-    {
-      return $this->users;
     }
 
     /**
@@ -144,13 +102,5 @@
     public function addFirst(bool $first = false)
     {
       $this->first = $first;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAvatar()
-    {
-      return $this->avatar;
     }
   }

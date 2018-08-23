@@ -66,7 +66,7 @@ class UpdateTrickType extends AbstractType
 				'label' => 'Titre'
 			])
 			->add('description', TextareaType::class)
-			->add('group', TextType::class, [
+			->add('category', TextType::class, [
 				'label' => 'Groupe'
 			])
 			->add('pictures', CollectionType::class, [
@@ -106,7 +106,7 @@ class UpdateTrickType extends AbstractType
 				return new UpdateTrickDTO(
 					$form->get('name')->getData(),
 					$form->get('description')->getData(),
-					$form->get('group')->getData(),
+					$form->get('category')->getData(),
 					$form->get('pictures')->getData(),
 					$form->get('movies')->getData()
 				);

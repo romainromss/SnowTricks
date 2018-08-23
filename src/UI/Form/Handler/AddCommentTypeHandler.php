@@ -14,8 +14,11 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
-use App\Domain\Builder\Interfaces\CommentBuilderInterface;
+use App\Domain\Factory\Interfaces\CommentFactoryInterface;
+use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
+use App\Domain\Models\Pictures;
+use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
 use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -29,9 +32,9 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
 {
     /**
-     * @var CommentBuilderInterface
+     * @var CommentFactoryInterface
      */
-    private $commentBuilder;
+    private $commentFactory;
 
     /**
      * @var CommentsRepositoryInterface
@@ -44,11 +47,11 @@ class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
 	private $tokenStorage;
 
 	public function __construct(
-        CommentBuilderInterface $commentBuilder,
-        CommentsRepositoryInterface $commentsRepository,
-		TokenStorageInterface $tokenStorage
+      CommentFactoryInterface $commentFactory,
+      CommentsRepositoryInterface $commentsRepository,
+      TokenStorageInterface $tokenStorage
     ) {
-        $this->commentBuilder = $commentBuilder;
+        $this->commentFactory = $commentFactory;
         $this->commentsRepository = $commentsRepository;
 		$this->tokenStorage = $tokenStorage;
 	}
@@ -65,13 +68,13 @@ class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
     ):  bool {
 
         if ($form->isSubmitted() && $form->isValid()){
-            $this->commentBuilder->create(
+           $comment = $this->commentFactory->create(
             	$form->getData()->content,
 				$tricks,
-				$this->tokenStorage->getToken()->getUser()
+              is_object($this->tokenStorage->getToken()->getUser()) ? $this->tokenStorage->getToken()->getUser(): new Users('', '', '', '', '', '')
 			);
 
-            $this->commentsRepository->save($this->commentBuilder->getComment());
+            $this->commentsRepository->save($comment);
 
             return true;
         }

@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,30 @@ declare(strict_types = 1);
 
 namespace App\Domain\DTO;
 
-class MoviesDTO
+use App\Domain\DTO\Interfaces\MoviesDTOInterface;
+
+/**
+ * Class MoviesDTO.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
+class MoviesDTO implements MoviesDTOInterface
 {
+  /**
+   * @var string
+   */
+  public $embed;
   
+  /**
+   * @var string
+   */
+  public $legend;
+  
+  public function __construct(
+    string $embed = null,
+    string $legend = null
+  ) {
+    $this->embed = $embed;
+    $this->legend = $legend;
+  }
 }

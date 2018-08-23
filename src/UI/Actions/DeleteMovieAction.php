@@ -30,9 +30,9 @@
      */
     private $moviesRepository;
 
-    public  function  __construct (MoviesRepositoryInterface $moviesRepository)
+    public  function __construct(MoviesRepositoryInterface $moviesRepository)
     {
-      $this -> moviesRepository = $moviesRepository;
+      $this->moviesRepository = $moviesRepository;
     }
 
     /**

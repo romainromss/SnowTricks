@@ -13,7 +13,8 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
-use App\Domain\Builder\Interfaces\TrickBuilderInterface;
+use App\Domain\Factory\Interfaces\TrickFactoryInterface;
+use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\Intefaces\UpdateTrickTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -27,9 +28,9 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
 {
 	/**
-	 * @var TrickBuilderInterface
+	 * @var TrickFactoryInterface
 	 */
-	private $tricksBuilder;
+	private $trickFactory;
 
 	/**
 	 * @var TricksRepositoryInterface
@@ -46,34 +47,39 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
 	 * {@inheritdoc}
 	 */
 	public function __construct(
-		TrickBuilderInterface $tricksBuilder,
-		TricksRepositoryInterface $tricksRepository,
-		TokenStorageInterface $tokenStorage
+      TrickFactoryInterface $trickFactory,
+      TricksRepositoryInterface $tricksRepository,
+      TokenStorageInterface $tokenStorage
 	) {
-		$this->tricksBuilder = $tricksBuilder;
+		$this->trickFactory = $trickFactory;
 		$this->tricksRepository = $tricksRepository;
 		$this->tokenStorage = $tokenStorage;
 	}
-
-	/**
-	 * {@inheritdoc}
-	 *
-	 * @throws \Doctrine\ORM\ORMException
-	 * @throws \Doctrine\ORM\OptimisticLockException
-	 */
-	public function handle(FormInterface $form):  bool
+  
+  /**
+   * {@inheritdoc}
+   *
+   * @param FormInterface   $form
+   * @param TricksInterface $tricks
+   *
+   * @return bool
+   */
+	public function handle(
+	  FormInterface $form,
+      TricksInterface $tricks
+):  bool
 	{
 		if ($form->isSubmitted() && $form->isValid()){
-			$this->tricksBuilder->create(
+			$this->trickFactory->create(
 				$form->getData()->name,
 				$form->getData()->description,
-				$form->getData()->group,
+				$form->getData()->category,
 				$this->tokenStorage->getToken()->getUser(),
 				$form->getData()->pictures,
 				$form->getData()->movies
 			);
 
-			$this->tricksRepository->flush($this->tricksBuilder->getTrick());
+			$this->tricksRepository->update();
 
 			return true;
 		}

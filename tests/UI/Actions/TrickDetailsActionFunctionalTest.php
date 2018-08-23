@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,30 @@ declare(strict_types = 1);
 
 namespace App\Tests\UI\Actions;
 
-class TrickDetailsActionFunctionalTest
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\BrowserKit\Client;
+use Symfony\Component\HttpFoundation\Response;
+
+class TrickDetailsActionFunctionalTest extends WebTestCase
 {
+  /**
+   * @var null | Client
+   */
+  private $client = null;
   
+  protected function setUp()
+  {
+    $this->client = static::createClient();
+  }
+  
+  public function testGetStatusCode()
+  {
+    $this->client->request('GET', '/tricks/mute');
+    static::assertEquals(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
+  }
+  
+  protected function tearDown()
+  {
+    $this->client = null;
+  }
 }

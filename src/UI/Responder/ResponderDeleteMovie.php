@@ -33,9 +33,9 @@
     /**
      * {@inheritdoc}
      */
-    public function __construct (UrlGeneratorInterface $urlGenerator)
+    public function __construct(UrlGeneratorInterface $urlGenerator)
     {
-      $this -> urlGenerator = $urlGenerator;
+      $this->urlGenerator = $urlGenerator;
     }
 
     /**

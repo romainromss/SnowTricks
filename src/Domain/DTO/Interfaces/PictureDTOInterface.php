@@ -18,14 +18,14 @@
     /**
      * PictureDTO constructor.
      *
-     * @param string $name
-     * @param string $legend
-     * @param bool   $first
+     * @param \SplFileInfo $file
+     * @param string       $legend
+     * @param bool         $first
      */
     public function __construct (
-      string $name,
+      \SplFileInfo $file,
       string $legend,
-      bool $first
+      bool $first = false
     );
   }
   

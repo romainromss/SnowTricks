@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Factory\Interfaces;
 
-use App\Domain\Factory\CommentBuilder;
+use App\Domain\Factory\CommentFactory;
 use App\Domain\Models\Comments;
+use App\Domain\Models\Interfaces\CommentsInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 
@@ -23,23 +24,18 @@ use App\Domain\Models\Interfaces\UsersInterface;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-interface CommentBuilderInterface
+interface CommentFactoryInterface
 {
-    /**
-     * @param string           $content
-     * @param TricksInterface  $tricks
-     * @param UsersInterface   $users
-     *
-     * @return CommentBuilder
-     */
+  /**
+   * @param string          $content
+   * @param TricksInterface $tricks
+   * @param UsersInterface  $users
+   *
+   * @return CommentsInterface
+   */
     public function create(
         string $content,
         TricksInterface $tricks,
         UsersInterface $users
-    ):  CommentBuilder;
-
-    /**
-     * @return Comments
-     */
-    public function getComment(): Comments;
+    ):  CommentsInterface;
 }

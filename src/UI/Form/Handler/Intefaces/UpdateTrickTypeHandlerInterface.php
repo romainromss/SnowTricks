@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler\Intefaces;
 
-use App\Domain\Builder\Interfaces\TrickBuilderInterface;
+use App\Domain\Factory\Interfaces\TrickFactoryInterface;
 use App\Domain\DTO\UpdateTrickDTO;
+use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -29,24 +30,27 @@ interface UpdateTrickTypeHandlerInterface
 	/**
 	 * UpdateTrickTypeHandler constructor.
 	 *
-	 * @param TrickBuilderInterface     $tricksBuilder
+	 * @param TrickFactoryInterface     $tricksBuilder
 	 * @param TricksRepositoryInterface $tricksRepository
 	 * @param TokenStorageInterface     $tokenStorage
 	 */
 	public function __construct(
-		TrickBuilderInterface $tricksBuilder,
-		TricksRepositoryInterface $tricksRepository,
-		TokenStorageInterface $tokenStorage
+      TrickFactoryInterface $tricksBuilder,
+      TricksRepositoryInterface $tricksRepository,
+      TokenStorageInterface $tokenStorage
 	);
-
-	/**
-	 * @param FormInterface      $form
-	 *
-	 * @return bool
-	 *
-	 * @throws \Doctrine\ORM\ORMException
-	 * @throws \Doctrine\ORM\OptimisticLockException
-	 */
-	public function handle(FormInterface $form):  bool;
+  
+  /**
+   * @param FormInterface   $form
+   *
+   * @param TricksInterface $tricks
+   *
+   * @return bool
+   *
+   */
+	public function handle(
+	  FormInterface $form,
+      TricksInterface $tricks
+    ):  bool;
 
 }

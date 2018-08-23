@@ -27,7 +27,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class ResponderDeleteTrickTest extends TestCase
 {
 	/**
-	 * @var ResponderDeleteTrickInterface
+	 * @var ResponderDeleteTrick
 	 */
 	private $responder;
 
@@ -49,8 +49,7 @@ class ResponderDeleteTrickTest extends TestCase
 		static::assertInstanceOf(ResponderDeleteTrick::class, $this->responder);
 	}
 
-	public function testResponderDeleteTrick()
-	{
+	public function testResponderDeleteTrick(){
 		$responder = new ResponderDeleteTrick($this->urlGenerator);
 
 		static::assertInstanceOf(RedirectResponse::class, $responder());

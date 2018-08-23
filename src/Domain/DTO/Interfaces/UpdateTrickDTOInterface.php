@@ -20,19 +20,19 @@ namespace App\Domain\DTO\Interfaces;
  */
 interface UpdateTrickDTOInterface
 {
-	/**
-	 * UpdateTrickDTOInterface constructor.
-	 *
-	 * @param string  $name
-	 * @param string  $description
-	 * @param string  $group
-	 * @param array   $pictures
-	 * @param array   $movies
-	 */
+  /**
+   * UpdateTrickDTOInterface constructor.
+   *
+   * @param string $name
+   * @param string $description
+   * @param string $category
+   * @param array  $pictures
+   * @param array  $movies
+   */
 	public function __construct(
 		string $name,
 		string $description,
-		string $group,
+		string $category,
 		array $pictures,
 		array $movies
 	);

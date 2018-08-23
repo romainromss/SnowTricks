@@ -23,41 +23,42 @@ use App\Domain\Models\Tricks;
  */
 interface TricksRepositoryInterface
 {
-    /**
-     * @param bool $first
-     *
-     * @return mixed
-     */
-    public function getAllWithPictures(bool $first = false);
-
-    /**
-     * @param $slug
-     *
-     * @return mixed
-     *
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     */
-    public function getBySlug($slug);
-
-	/**
-	 * @param $tricks
-	 *
-	 * @throws \Doctrine\ORM\ORMException
-	 * @throws \Doctrine\ORM\OptimisticLockException
-	 */
-    public function save($tricks);
-
-	/**
-	 * @throws \Doctrine\ORM\ORMException
-	 * @throws \Doctrine\ORM\OptimisticLockException
-	 */
-	public function flush();
-
+  /**
+   * @param bool $first
+   *
+   * @return mixed
+   */
+  public function getAllWithPictures(bool $first = false);
+  
+  public function getBySlugWithPicturesId($slug, $id);
+  
+  /**
+   * @param $slug
+   *
+   * @return mixed
+   *
+   * @throws \Doctrine\ORM\NonUniqueResultException
+   */
+  public function getBySlug($slug);
+  
+  /**
+   * @param $tricks
+   *
+   * @throws \Doctrine\ORM\ORMException
+   * @throws \Doctrine\ORM\OptimisticLockException
+   */
+  public function save($tricks);
+  
+  /**
+   * @return void
+   */
+  public function update();
+  
   /**
    * @param string $slug
    *
    * @throws \Doctrine\ORM\NonUniqueResultException
    */
-	public function deleteTrick(string $slug);
-
+  public function deleteTrick(string $slug);
+  
 }

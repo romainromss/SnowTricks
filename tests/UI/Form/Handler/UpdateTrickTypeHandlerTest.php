@@ -13,8 +13,9 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Form\Handler;
 
-use App\Domain\Builder\TrickBuilder;
+use App\Domain\Factory\TrickFactory;
 use App\Domain\DTO\UpdateTrickDTO;
+use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\TricksRepository;
 use App\UI\Form\Handler\Intefaces\UpdateTrickTypeHandlerInterface;
@@ -34,9 +35,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class UpdateTrickTypeHandlerTest extends TestCase
 {
 	/**
-	 * @var TrickBuilder
+	 * @var TrickFactory
 	 */
-	private $tricksBuilder;
+	private $trickFactory;
 
 	/**
 	 * @var TricksRepository
@@ -52,13 +53,20 @@ class UpdateTrickTypeHandlerTest extends TestCase
 	 * @var FormInterface
 	 */
 	private $formInterface;
-
-	protected function setUp()
+  
+  /**
+   * @var TricksInterface
+   */
+    private $tricks;
+  
+  protected function setUp()
 	{
-		$this->tricksBuilder = $this->createMock(TrickBuilder::class);
+		$this->trickFactory = $this->createMock(TrickFactory::class);
 		$this->tricksRepository = $this->createMock(TricksRepository::class);
+		$this->tricks = $this->createMock(TricksInterface::class);
 		$this->tokenstorage = $this->createMock(TokenStorageInterface::class);
 		$token = $this->createMock(TokenInterface::class);
+		
 		$this->tokenstorage->method('getToken')->willReturn($token);
 		$token->method('getUser')->willReturn($this->createMock(UsersInterface::class));
 		$this->formInterface = $this->createMock(FormInterface::class);
@@ -67,18 +75,15 @@ class UpdateTrickTypeHandlerTest extends TestCase
 
 	public function testConstruct()
 	{
-		$updateTrickTypeHandler = new UpdateTrickTypeHandler($this->tricksBuilder, $this->tricksRepository, $this->tokenstorage);
+		$updateTrickTypeHandler = new UpdateTrickTypeHandler($this->trickFactory, $this->tricksRepository, $this->tokenstorage);
 		static::assertInstanceOf(UpdateTrickTypeHandlerInterface::class, $updateTrickTypeHandler);
 	}
-
-	/**
-	 * @throws \Doctrine\ORM\ORMException
-	 * @throws \Doctrine\ORM\OptimisticLockException
-	 */
+ 
+ 
 	public function testHandleReturnFalse()
 	{
 		$updateTrickTypeHandler = new UpdateTrickTypeHandler(
-			$this->tricksBuilder,
+		    $this->trickFactory,
 			$this->tricksRepository,
 			$this->tokenstorage
 		);
@@ -89,15 +94,10 @@ class UpdateTrickTypeHandlerTest extends TestCase
 		);
 
 		static::assertFalse(
-			$updateTrickTypeHandler->handle($this->formInterface)
+			$updateTrickTypeHandler->handle($this->formInterface, $this->tricks)
 		);
 	}
-
-
-	/**
-	 * @throws \Doctrine\ORM\ORMException
-	 * @throws \Doctrine\ORM\OptimisticLockException
-	 */
+	
 	public function testHandleReturnTrue()
 	{
 		$addTrickDTO = new UpdateTrickDTO(
@@ -114,12 +114,12 @@ class UpdateTrickTypeHandlerTest extends TestCase
 
 
 		$updateTrickTypeHandler = new UpdateTrickTypeHandler(
-			$this->tricksBuilder,
+			$this->trickFactory,
 			$this->tricksRepository,
 			$this->tokenstorage
 		);
 
-		$this->tricksRepository->save($this->tricksBuilder->getTrick());
+		$this->tricksRepository->update();
 
 		static::assertInstanceOf(
 			UpdateTrickTypeHandlerInterface::class,
@@ -127,7 +127,7 @@ class UpdateTrickTypeHandlerTest extends TestCase
 		);
 
 		static::assertTrue(
-			$updateTrickTypeHandler->handle($this->formInterface)
+			$updateTrickTypeHandler->handle($this->formInterface, $this->tricks)
 		);
 	}
 }

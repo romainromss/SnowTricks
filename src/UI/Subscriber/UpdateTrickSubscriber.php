@@ -29,27 +29,7 @@ class UpdateTrickSubscriber implements EventSubscriberInterface, UpdateTrickSubs
 	/**
 	 * @var array
 	 */
-	private $pictures = [];
-
-	/**
-	 * @var array
-	 */
 	private $movies = [];
-
-	/**
-	 * @var string
-	 */
-	private $imageFolder;
-
-	/**
-	 * UpdateTrickSubscriber constructor.
-	 *
-	 * @param string $imageFolder
-	 */
-	public function __construct(string $imageFolder)
-	{
-		$this->imageFolder = $imageFolder;
-	}
 
 	/**
 	 * {@inheritdoc}
@@ -66,14 +46,6 @@ class UpdateTrickSubscriber implements EventSubscriberInterface, UpdateTrickSubs
 	 */
 	public function onPreSetData(FormEvent $event)
 	{
-//		$this->pictures = $event->getData()->pictures;
-//
-//		foreach ($event->getData()->pictures as $picture) {
-//			$event->getData()->pictures[] = new File($this->imageFolder.$picture->getName());
-//
-//			unset($event->getData()->pictures[array_search($picture, $event->getData()->pictures)]);
-//		}
-
 		$this->movies = $event->getData()->movies;
 
 		foreach ($event->getData()->movies as $movies) {

@@ -23,35 +23,6 @@ use Ramsey\Uuid\UuidInterface;
  */
 interface PicturesInterface
 {
-	/**
-	 * PicturesInterface constructor.
-	 *
-	 * @param string               $name
-	 * @param string               $legend
-	 * @param bool                 $first
-	 * @param string|null          $avatar
-	 * @param TricksInterface|null $tricks
-	 * @param UsersInterface|null  $user
-	 */
-    public function __construct(
-        string $name,
-        string $legend,
-        bool $first,
-        string $avatar = null,
-        TricksInterface $tricks = null,
-        UsersInterface $user = null
-    );
-
-    /**
-     * @return TricksInterface
-     */
-    public function getTrick();
-
-    /**
-     * @return UsersInterface
-     */
-    public function getUser();
-
     /**
      * @return UuidInterface
      */
@@ -66,11 +37,6 @@ interface PicturesInterface
      * @return string
      */
     public function getLegend();
-
-    /**
-     * @return string
-     */
-    public function getAvatar();
 
     /**
      * @return bool

@@ -61,17 +61,16 @@ class UpdateTrickAction
 		$this->updateTricksTypeHandler = $updateTricksTypeHandler;
 		$this->tricksRepository = $tricksRepository;
 	}
-	/**
-	 * @Route("update/trick/{slug}", name="updateTrick")
-	 *
-	 * @param ResponderUpdateTrickInterface $responderUpdateTricks
-	 * @param Request                       $request
-	 *
-	 * @return Response
-	 * @throws \Doctrine\ORM\NonUniqueResultException
-	 * @throws \Doctrine\ORM\ORMException
-	 * @throws \Doctrine\ORM\OptimisticLockException
-	 */
+  
+  /**
+   * @Route("update/trick/{slug}", name="updateTrick")
+   *
+   * @param ResponderUpdateTrickInterface $responderUpdateTricks
+   * @param Request                       $request
+   *
+   * @return Response
+   * @throws \Doctrine\ORM\NonUniqueResultException
+   */
 	public function __invoke(
 		ResponderUpdateTrickInterface $responderUpdateTricks,
 		Request $request
@@ -91,7 +90,7 @@ class UpdateTrickAction
 			->create(UpdateTrickType::class, $dto)
 			->handleRequest($request);
 
-		if ($this->updateTricksTypeHandler->handle($updateTricksType)){
+		if ($this->updateTricksTypeHandler->handle($updateTricksType, $tricks)){
 			return $responderUpdateTricks(true);
 		}
 

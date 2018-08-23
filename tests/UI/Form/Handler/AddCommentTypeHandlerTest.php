@@ -13,8 +13,10 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Form\Handler;
 
-use App\Domain\Builder\Interfaces\CommentBuilderInterface;
+use App\Domain\Factory\CommentFactory;
+use App\Domain\Factory\Interfaces\CommentFactoryInterface;
 use App\Domain\DTO\AddCommentDTO;
+use App\Domain\Models\Comments;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
@@ -29,7 +31,7 @@ use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 class AddCommentTypeHandlerTest extends KernelTestCase
 {
     /**
-     * @var CommentBuilderInterface
+     * @var CommentFactoryInterface
      */
     private $commentBuilder;
 
@@ -55,7 +57,7 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 
 	protected function setUp()
     {
-        $this->commentBuilder = $this->createMock(CommentBuilderInterface::class);
+        $this->commentBuilder = $this->createMock(CommentFactoryInterface::class);
         $this->commentRepository = $this->createMock(CommentsRepositoryInterface::class);
 		$this->tricksInterface = $this->createMock(TricksInterface::class);
 		$this->tokenstorage = $this->createMock(TokenStorage::class);
@@ -105,7 +107,7 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 			$this->tokenstorage
 		);
 
-		$this->commentRepository->save($this->commentBuilder->getComment());
+		$this->commentRepository->save($comment = $this->createMock(CommentFactory::class));
 
 		static::assertInstanceOf(
 			AddCommentTypeHandlerInterface::class,

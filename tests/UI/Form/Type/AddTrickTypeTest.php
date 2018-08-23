@@ -15,6 +15,7 @@ namespace App\Tests\UI\Form\Type;
 
 use App\UI\Form\Type\AddTrickType;
 use Symfony\Component\Form\Test\TypeTestCase;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class AddTricksTypeTest.
@@ -23,13 +24,49 @@ use Symfony\Component\Form\Test\TypeTestCase;
  */
 class AddTrickTypeTest extends TypeTestCase
 {
+    public function testFormWithoutPicture()
+    {
+      $form = $this->factory->create(AddTrickType::class);
+      $form->submit([
+        'name' => 'name',
+        'description' => 'description',
+        'category' => 'category',
+      ]);
+      static::assertTrue($form->isSynchronized());
+      static::assertTrue($form->isValid());
+    }
+  
+  public function testFormWithPicture()
+  {
+    $file = $this->createMock(File::class);
+    
+    $form = $this->factory->create(AddTrickType::class);
+    $form->submit([
+      'name' => 'name',
+      'description' => 'description',
+      'category' => 'category',
+      'pictures' => [
+        0 => [
+          'file' => $file,
+          'legend' => 'legend'
+        ],
+        1 => [
+          'file' => $file,
+          'legend' => 'legend'
+        ]
+      ]
+    ]);
+    static::assertTrue($form->isSynchronized());
+    static::assertTrue($form->isValid());
+  }
+  
 	public function testGoodData()
 	{
 		$form = $this->factory->create(AddTrickType::class);
 		$form->submit([
 			'name' => 'name',
 			'description' => 'description',
-			'group' => 'group',
+			'category' => 'category',
 			'slug' => 'slug',
 			'pictures' => ['pictures'],
 			'movies' => ['movies']

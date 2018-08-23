@@ -36,18 +36,19 @@ class AddTrickType extends AbstractType
 		$builder
 			->add('name', TextType::class)
 			->add('description', TextareaType::class)
-			->add('group', TextType::class)
+			->add('category', TextType::class)
 			->add('pictures', CollectionType::class, [
-				'entry_type' => FileType::class,
+				'entry_type' => PictureType::class,
 				'allow_add' => true,
 				'allow_delete' => true,
 				'label' => false,
+				'required' => false,
 				'entry_options' => [
 					'label' => false
 				],
 			])
 			->add('movies', CollectionType::class, [
-				'entry_type' => TextType::class,
+				'entry_type' => MoviesType::class,
 				'allow_add' => true,
 				'allow_delete' => true,
 				'label' => false,
@@ -67,7 +68,7 @@ class AddTrickType extends AbstractType
 				return new AddTrickDTO(
 					$form->get('name')->getData(),
 					$form->get('description')->getData(),
-					$form->get('group')->getData(),
+					$form->get('category')->getData(),
 					$form->get('pictures')->getData(),
 					$form->get('movies')->getData()
 				);

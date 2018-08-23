@@ -15,6 +15,7 @@ namespace App\Tests\UI\Form\Type;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\BrowserKit\Client;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -46,12 +47,13 @@ class UpdateTrickTypeFunctionalTest extends WebTestCase
     $link = $crawler->selectLink('Modifier')->link();
     $crawler = $this->client->click($link);
     $form = $crawler->selectButton('update_trick')->form();
+    $fields = $form->getPhpValues();
+  
     $form['update_trick[name]'] = 'Name';
     $form['update_trick[description]'] = 'Description';
     $form['update_trick[category]'] = 'Category';
-    $form['update_trick[pictures]'];
-    $form['update_trick[pictures][0][legend]'] = 'legend';
-    $form['update_trick[movies]'] = ['Movies'];
+    $fields['update_trick']['pictures'][0]['file'] = new UploadedFile(__DIR__.'/../../../assets/360.svg', '360.svg', 'image/svg+xml');
+    $fields['update_trick']['movies'][0]['embed'] = 'rwop22485';
     $this->client->submit($form);
     static::assertEquals(1, $crawler->filter('div.flash-notice')->count());
   }

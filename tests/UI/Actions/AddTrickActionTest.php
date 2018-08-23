@@ -65,7 +65,7 @@ class AddTrickActionTest extends KernelTestCase
 		$this->tricksRepository = $this->createMock(TricksRepositoryInterface::class);
 		$this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
 		$this->urlGenerator->method('generate')->willReturn('/');
-		$this->request = Request::create('/addtricks', 'POST');
+		$this->request = Request::create('/addtrick', 'POST');
 		$this->twig = $this->createMock(Environment::class);
 	}
 

@@ -11,9 +11,9 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace App\Domain\Builder;
+namespace App\Domain\Factory;
 
-use App\Domain\Builder\Interfaces\PictureFactoryInterface;
+use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Pictures;
 
@@ -24,6 +24,9 @@ use App\Domain\Models\Pictures;
  */
 class PictureFactory implements PictureFactoryInterface
 {
+  /**
+   *{@inheritdoc}
+   */
   public function create(
     string $name,
     string $legend,

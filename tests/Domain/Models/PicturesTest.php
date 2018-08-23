@@ -40,16 +40,10 @@ class PicturesTest extends TestCase
 
     protected function setUp()
     {
-        $this->users = $this->createMock(Users::class);
-        $this->tricks = $this->createMock(Tricks::class);
-
         $this->pictures = new Pictures(
             'name',
             'legend',
-            true,
-            'avatar',
-            $this->tricks,
-            $this->users
+            true
         );
     }
 
@@ -64,7 +58,7 @@ class PicturesTest extends TestCase
         static::assertObjectHasAttribute('name', $this->pictures);
         static::assertObjectHasAttribute('legend', $this->pictures);
 		static::assertTrue(true, $this->pictures);
-        static::assertObjectHasAttribute('avatar', $this->pictures);
+		static::assertFalse(false, $this->pictures);
     }
 
     public function testReturnOfGetters()
@@ -73,8 +67,6 @@ class PicturesTest extends TestCase
         static::assertEquals('name', $this->pictures->getName());
         static::assertEquals('legend', $this->pictures->getLegend());
 		static::assertEquals(true, $this->pictures->isFirst());
-        static::assertEquals('avatar', $this->pictures->getAvatar());
-        static::assertInstanceOf(Users::class, $this->pictures->getUser());
-        static::assertInstanceOf(Tricks::class, $this->pictures->getTrick());
+		static::assertEquals(false, $this->pictures->addFirst(false));
     }
 }

@@ -13,7 +13,6 @@
 
   namespace App\Domain\Repository;
 
-  use App\Domain\Models\Interfaces\PicturesInterface;
   use App\Domain\Models\Pictures;
   use App\Domain\Repository\Interfaces\PicturesRepositoryInterface;
   use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -57,7 +56,7 @@
     public function getPictureByTrickSlugAndFirst($slug)
     {
       return $this->createQueryBuilder('p')
-       ->innerJoin('p.trick', 't')
+       ->leftJoin('p.trick', 't')
        ->setParameter(':slug', $slug)
        ->where('t.slug = :slug')
        ->getQuery()
@@ -81,9 +80,11 @@
        ->getOneOrNullResult()
        ;
     }
-
+  
     /**
-     *{@inheritdoc}
+     * @param string $id
+     *
+     * @throws \Doctrine\ORM\NonUniqueResultException
      */
     public function deletePictures(string $id)
     {
