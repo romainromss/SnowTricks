@@ -16,10 +16,8 @@ namespace App\UI\Form\Handler;
 use App\Domain\Factory\Interfaces\MoviesFactoryInterface;
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
-use App\Domain\Models\Pictures;
 use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\Domain\Repository\PicturesRepository;
 use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\Intefaces\AddTrickTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -90,7 +88,7 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
   }
   
   /**
-   * @param FormInterface      $form
+   * @param FormInterface  $form
    *
    * @return bool
    *
@@ -100,25 +98,13 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
   public function handle(FormInterface $form):  bool
   {
     if ($form->isSubmitted() && $form->isValid()){
+  
       if (\count($form->getData()->pictures) > 0) {
-        $pictures = [];
-        foreach ($form->getData()->pictures as $picture) {
-          $fileName = $this->uploaderHelper->upload($picture->file);
-          
-          $picture->first = false;
-          if($pictures == []){
-            $picture->first = true;
-          }
-          \is_array($pictures) ? $picture->first = true : $picture->first = false;
-          
-          $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
-        }
+        $pictures = $this->pictureFactory->createFromArray($form->getData()->pictures);
       }
+      
       if (\count($form->getData()->movies) > 0) {
-        $movies = [];
-        foreach ($form->getData()->movies as $movie){
-          $movies[] = $this->moviesFactory->create($movie->embed, $movie->legend);
-        }
+          $movies = $this->moviesFactory->createFromArray($form->getData()->movies);
       }
       
       $trick = $this->trickFactory->create(
