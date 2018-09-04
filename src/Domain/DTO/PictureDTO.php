@@ -44,5 +44,7 @@
       $this->legend = $legend;
       $this->first = $first;
     }
+    
+    
   }
   
