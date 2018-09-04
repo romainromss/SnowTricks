@@ -10,9 +10,6 @@
             <index name="embed_idx" columns="embed"/>
         </indexes>
 
-        <many-to-one field="trick" target-entity="Tricks" inversed-by="movies">
-        </many-to-one>
-
         <id name="id" column="id" type="uuid" />
 
         <field name="embed" column="embed" type="string" length="100" nullable="false"/>

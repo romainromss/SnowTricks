@@ -45,13 +45,15 @@
      * @var bool
      */
     private $first;
-
+  
     /**
      * Pictures constructor.
      *
-     * @param string                $name
-     * @param string                $legend
-     * @param bool                  $first
+     * @param string $name
+     * @param string $legend
+     * @param bool   $first
+     *
+     * @throws \Exception
      */
     public function __construct(
      string $name,

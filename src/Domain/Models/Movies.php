@@ -39,28 +39,22 @@ class Movies implements MoviesInterface
      * @var string
      */
     private $legend;
-
-    /**
-     * @var TricksInterface
-     */
-    private $trick;
-
-    /**
-     * Movies constructor.
-     *
-     * @param string       $embed
-     * @param string       $legend
-     * @param Tricks|null  $tricks
-     */
+  
+  /**
+   * Movies constructor.
+   *
+   * @param string $embed
+   * @param string $legend
+   *
+   * @throws \Exception
+   */
     public function __construct(
         string $embed,
-        string $legend,
-        Tricks $tricks = null
+        string $legend
     ) {
         $this->id = Uuid::uuid4();
         $this->embed = $embed;
         $this->legend = $legend;
-        $this->trick = $tricks;
     }
 
     /**
@@ -85,13 +79,5 @@ class Movies implements MoviesInterface
     public function getLegend()
     {
         return $this->legend;
-    }
-
-    /**
-     * @return TricksInterface
-     */
-    public function getTricks()
-    {
-        return $this->trick;
     }
 }

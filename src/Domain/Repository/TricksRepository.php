@@ -14,7 +14,6 @@ declare(strict_types=1);
 namespace App\Domain\Repository;
 
 use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Pictures;
 use App\Domain\Models\Tricks;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
