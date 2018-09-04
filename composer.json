@@ -38,7 +38,6 @@
         "symfony/yaml": "^4.0"
     },
     "require-dev": {
-        "behat/behat": "^3.4",
         "behat/symfony2-extension": "^2.1",
         "codacy/coverage": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "^3.0",
