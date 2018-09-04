@@ -22,9 +22,23 @@ use App\Domain\Models\Interfaces\PicturesInterface;
  */
 interface PictureFactoryInterface
 {
+  /**
+   * @param string $name
+   * @param string $legend
+   * @param bool   $first
+   *
+   * @return PicturesInterface
+   */
   public function create(
     string $name,
     string $legend,
     bool $first
   ): PicturesInterface;
+  
+  /**
+   * @param array $pictures
+   *
+   * @return mixed
+   */
+  public function createFromArray(array $pictures = []);
 }

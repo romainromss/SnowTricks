@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,18 +13,11 @@ declare(strict_types=1);
 
 namespace App\Domain\Factory\Interfaces;
 
-
-use App\Domain\Factory\TrickFactory;
-use App\Domain\Models\Interfaces\CommentsInterface;
-use App\Domain\Models\Interfaces\MoviesInterface;
-use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
-use App\Domain\Models\Tricks;
 
 interface TrickFactoryInterface
 {
-
 	/**
 	 * @param string  $name
 	 * @param string  $description

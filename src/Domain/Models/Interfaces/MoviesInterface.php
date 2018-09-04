@@ -22,8 +22,7 @@ interface MoviesInterface
 {
     public function __construct(
         string $embed,
-        string $legend,
-        Tricks $tricks = null
+        string $legend
     );
 
     /**
@@ -40,9 +39,4 @@ interface MoviesInterface
      * @return mixed
      */
     public function getLegend();
-
-    /**
-     * @return mixed
-     */
-    public function getTricks();
 }

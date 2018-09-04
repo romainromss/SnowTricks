@@ -33,4 +33,17 @@ class MoviesFactory implements MoviesFactoryInterface
   ): MoviesInterface {
     return new Movies($embed, $legend);
   }
+  
+  public function createFromArray(array $movies = [])
+  {
+    if (\count($movies) == 0) {
+      return;
+    }
+    
+    $entries = [];
+    foreach ($movies as $movie) {
+      $entries[] = new Movies($movie->embed, $movie->legend);
+    }
+    return $entries;
+  }
 }

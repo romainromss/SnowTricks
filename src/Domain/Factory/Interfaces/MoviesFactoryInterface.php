@@ -32,4 +32,11 @@ interface MoviesFactoryInterface
     string $embed,
     string $legend
   ): MoviesInterface;
+  
+  /**
+   * @param array $movies
+   *
+   * @return mixed
+   */
+  public function createFromArray(array $movies = []);
 }

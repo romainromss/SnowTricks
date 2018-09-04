@@ -16,6 +16,7 @@ namespace App\Domain\Factory;
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Pictures;
+use App\Infra\Helper\UploaderHelper;
 
 /**
  * Class PictureFactory.
@@ -25,6 +26,21 @@ use App\Domain\Models\Pictures;
 class PictureFactory implements PictureFactoryInterface
 {
   /**
+   * @var UploaderHelper
+   */
+  private $uploaderHelper;
+  
+  /**
+   * PictureFactory constructor.
+   *
+   * @param UploaderHelper $uploaderHelper
+   */
+  public function __construct(UploaderHelper $uploaderHelper)
+  {
+    $this->uploaderHelper = $uploaderHelper;
+  }
+  
+  /**
    *{@inheritdoc}
    */
   public function create(
@@ -33,5 +49,27 @@ class PictureFactory implements PictureFactoryInterface
     bool $first
   ): PicturesInterface {
     return new Pictures($name, $legend, $first);
+  }
+  
+  public function createFromArray(array $pictures = [])
+  {
+    if (\count($pictures) == 0) {
+      return;
+    }
+  
+    $entries = [];
+    
+    foreach ($pictures as $picture) {
+      $fileName = $this->uploaderHelper->upload($picture->file);
+  
+      $picture->first = false;
+      if (\count($pictures) > 0) {
+        $pictures[0]->first = true;
+      }
+      
+      $entries[] = new Pictures($fileName, $picture->legend, $picture->first);
+    }
+    
+    return $entries;
   }
 }
