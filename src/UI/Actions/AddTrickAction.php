@@ -17,7 +17,7 @@ use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\Intefaces\AddTrickTypeHandlerInterface;
 use App\UI\Form\Type\AddTrickType;
 use App\UI\Responder\Interfaces\ResponderAddTrickInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
