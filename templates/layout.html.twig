@@ -237,6 +237,19 @@
         <!-- END Header Loader -->
     </header>
     <!-- END Header -->
+    {% block FlashMessage %}
+        {% for flash_message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+        {% for flash_message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ flash_message }}
+            </div>
+        {% endfor %}
+    {% endblock %}
+
     <main id="main-container">
     {% block head %}
     {% endblock %}
