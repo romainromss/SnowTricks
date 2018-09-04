@@ -1,0 +1,10 @@
+App\Domain\DTO\MoviesDTO:
+  properties:
+    embed:
+    - NotBlank: ~
+    - Length:
+        min: 3
+    legend:
+    - NotBlank: ~
+    - Length:
+        min: 3
