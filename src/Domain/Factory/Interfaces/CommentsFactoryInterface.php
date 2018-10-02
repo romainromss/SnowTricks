@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Factory\Interfaces;
 
-use App\Domain\Factory\CommentFactory;
+use App\Domain\Factory\CommentsFactory;
 use App\Domain\Models\Comments;
 use App\Domain\Models\Interfaces\CommentsInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
@@ -24,7 +24,7 @@ use App\Domain\Models\Interfaces\UsersInterface;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-interface CommentFactoryInterface
+interface CommentsFactoryInterface
 {
   /**
    * @param string          $content

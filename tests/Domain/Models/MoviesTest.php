@@ -25,22 +25,15 @@ use PHPUnit\Framework\TestCase;
 class MoviesTest extends TestCase
 {
     /**
-     * @var Tricks
-     */
-    private $trick;
-    /**
      * @var Movies
      */
     private $movies;
 
     protected function setUp()
     {
-        $this->trick = $this->createMock(Tricks::class);
-
         $this->movies = new Movies(
             'embed',
-            'legend',
-            $this->trick
+            'legend'
         );
     }
 
@@ -54,8 +47,6 @@ class MoviesTest extends TestCase
         static::assertObjectHasAttribute('id', $this->movies);
         static::assertObjectHasAttribute('embed', $this->movies);
         static::assertObjectHasAttribute('legend', $this->movies);
-        static::assertObjectHasAttribute('trick', $this->movies);
-
     }
 
     public function testReturnOfGetters()
@@ -63,6 +54,5 @@ class MoviesTest extends TestCase
         static::assertNotNull($this->movies->getId());
         static::assertEquals('embed', $this->movies->getEmbed());
         static::assertEquals('legend', $this->movies->getLegend());
-        static::assertInstanceOf(Tricks::class, $this->movies->getTricks());
     }
 }

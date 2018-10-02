@@ -1,6 +1,6 @@
-App\Domain\DTO\PictureDTO:
+App\Domain\Models\Pictures:
     properties:
-        headshot:
+        name:
             - Image:
                 maxSize: 3M
                 mimeTypes:

@@ -31,7 +31,7 @@ class TrickDetailsActionFunctionalTest extends WebTestCase
   
   public function testGetStatusCode()
   {
-    $this->client->request('GET', '/tricks/mute');
+    $this->client->request('GET', '/tricks/indy');
     static::assertEquals(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
   }
   

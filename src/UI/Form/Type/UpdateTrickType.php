@@ -110,7 +110,8 @@ class UpdateTrickType extends AbstractType
 					$form->get('pictures')->getData(),
 					$form->get('movies')->getData()
 				);
-			}
+			},
+          'validation_groups' => ['UpdateTrick']
 		]);
 	}
 }

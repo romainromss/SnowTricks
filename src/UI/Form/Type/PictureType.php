@@ -40,7 +40,8 @@
                 $form->get('file')->getData(),
                 $form->get('legend')->getData()
               );
-            }
+            },
+            'validation_groups' => ['Picture']
           ]);
         }
     }

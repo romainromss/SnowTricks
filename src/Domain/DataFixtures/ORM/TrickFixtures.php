@@ -11,7 +11,7 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace App\Domain\DataFixtures;
+namespace App\Domain\DataFixtures\ORM;
 
 use App\Domain\Models\Tricks;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -25,16 +25,95 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
    */
   public function load(ObjectManager $manager)
   {
-    for($i = 1; $i > 10; $i++) {
-      $trick = new Tricks(
-        'Trick'.$i,
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.$i,
-        'Groupe'.$i,
-        $this->getReference('user'),
-        $this->getReference('pictures')
-      );
-      $manager->persist($trick);
-    }
+    $trick1 = new Tricks(
+      '1080',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
+      'Groupe'.'a',
+      $this->getReference('user'),
+      [$this->getReference('pictures1'), $this->getReference('pictures11')],
+      [$this->getReference('movies1')]
+    );
+    $this->addReference('tricks1', $trick1);
+    
+    $trick2 = new Tricks(
+      '360',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
+      'Groupe'.'a',
+      $this->getReference('user'),
+      [$this->getReference('pictures2')],
+      [$this->getReference('movies2')]
+    );
+    $this->addReference('tricks2', $trick2);
+    
+    $trick3 = new Tricks(
+      '540',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
+      'Groupe'.'a',
+      $this->getReference('user'),
+      [$this->getReference('pictures3')],
+      [$this->getReference('movies3')]
+    );
+    $this->addReference('tricks3', $trick3);
+    
+    $trick4 = new Tricks(
+      'backflip',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
+      'Groupe'.'a',
+      $this->getReference('user'),
+      [$this->getReference('pictures4')],
+      [$this->getReference('movies4')]
+    );
+    $this->addReference('tricks4', $trick4);
+    
+    $trick5 = new Tricks(
+      'frontflip',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
+      'Groupe'.'a',
+      $this->getReference('user'),
+      [$this->getReference('pictures5')],
+      [$this->getReference('movies5')]
+    );
+    $this->addReference('tricks5', $trick5);
+    
+    $trick6 = new Tricks(
+      'indy',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
+      'Groupe'.'a',
+      $this->getReference('user'),
+      [$this->getReference('pictures6')],
+      [$this->getReference('movies6')]
+    );
+    $this->addReference('tricks6', $trick6);
+    
+    $trick7 = new Tricks(
+      'melancholie',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
+      'Groupe'.'a',
+      $this->getReference('user'),
+      [$this->getReference('pictures7')],
+      [$this->getReference('movies7')]
+    );
+    $this->addReference('tricks7', $trick7);
+    
+    $trick8 = new Tricks(
+      'methodair',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
+      'Groupe'.'a',
+      $this->getReference('user'),
+      [$this->getReference('pictures8')],
+      [$this->getReference('movies8')]
+    );
+    $this->addReference('tricks8', $trick8);
+    
+    $manager->persist($trick1);
+    $manager->persist($trick2);
+    $manager->persist($trick3);
+    $manager->persist($trick4);
+    $manager->persist($trick5);
+    $manager->persist($trick6);
+    $manager->persist($trick7);
+    $manager->persist($trick8);
+    
     $manager->flush();
   }
   

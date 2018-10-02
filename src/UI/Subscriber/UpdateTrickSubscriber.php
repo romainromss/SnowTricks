@@ -49,7 +49,7 @@ class UpdateTrickSubscriber implements EventSubscriberInterface, UpdateTrickSubs
 		$this->movies = $event->getData()->movies;
 
 		foreach ($event->getData()->movies as $movies) {
-			$event->getData()->movies[] = is_string($movies->getEmbed());
+			$event->getData()->movies[] = \is_string($movies->getEmbed()); $movies->getLegend()  ? $movies->getEmbed(): null;
 
 			unset($event->getData()->movies[array_search($movies, $event->getData()->movies)]);
 		}

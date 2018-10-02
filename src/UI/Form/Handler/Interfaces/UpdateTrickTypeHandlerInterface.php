@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace App\UI\Form\Handler\Intefaces;
+namespace App\UI\Form\Handler\Interfaces;
 
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
 use App\Domain\DTO\UpdateTrickDTO;

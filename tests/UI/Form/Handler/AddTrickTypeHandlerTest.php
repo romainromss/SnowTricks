@@ -22,7 +22,7 @@ use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\TricksRepository;
 use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\AddTrickTypeHandler;
-use App\UI\Form\Handler\Intefaces\AddTrickTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Form\FormInterface;

@@ -31,7 +31,7 @@ class UpdateTrickActionFunctionalTest extends WebTestCase
   
   public function testGetStatusCode()
   {
-    $this->client->request('POST', '/update/trick/mute');
+    $this->client->request('POST', '/update/trick/methodair');
     static::assertEquals(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
   }
   

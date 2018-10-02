@@ -31,7 +31,7 @@ class DeleteTrickActionFunctionalTest extends WebTestCase
   
   public function testGetStatusCode()
   {
-    $this->client->request('GET', '/delete/540');
+    $this->client->request('GET', '/delete/backflip');
     static::assertEquals(Response::HTTP_FOUND, $this->client->getResponse()->getStatusCode());
   }
   

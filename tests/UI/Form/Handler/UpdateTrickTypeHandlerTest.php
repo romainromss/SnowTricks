@@ -18,7 +18,7 @@ use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\TricksRepository;
-use App\UI\Form\Handler\Intefaces\UpdateTrickTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\UpdateTrickTypeHandlerInterface;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormInterface;

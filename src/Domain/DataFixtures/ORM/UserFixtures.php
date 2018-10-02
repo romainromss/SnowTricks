@@ -10,7 +10,7 @@ declare(strict_types = 1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace App\Domain\DataFixtures;
+namespace App\Domain\DataFixtures\ORM;
 
 use App\Domain\Models\Users;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -25,17 +25,17 @@ class UserFixtures extends Fixture
    */
   public function load(ObjectManager $manager)
   {
-    for($i = 1; $i > 10; $i++) {
       $users = new Users(
-        'username'. $i,
+        'username'. 'a',
         'email@gmail.com',
-        'name'. $i,
-        'lastname'. $i,
-        '12345678'.$i,
+        'name'. 'a',
+        'lastname'. 'a',
+        '12345678'.'a',
         'user'
       );
+      $this->addReference('user', $users);
+      
       $manager->persist($users);
-    }
     $manager->flush();
   }
 }

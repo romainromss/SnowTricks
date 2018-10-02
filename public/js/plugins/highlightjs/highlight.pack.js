@@ -12927,7 +12927,7 @@ hljs.registerLanguage('roboconf', function(hljs) {
         ]
       },
 
-      // Comments
+      // Comment
       hljs.HASH_COMMENT_MODE
     ]
   };

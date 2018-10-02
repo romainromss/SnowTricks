@@ -51,14 +51,20 @@ class PictureFactory implements PictureFactoryInterface
     return new Pictures($name, $legend, $first);
   }
   
+  /**
+   * @param array $pictures
+   *
+   * @return array|mixed|void
+   *
+   * @throws \Exception
+   */
   public function createFromArray(array $pictures = [])
   {
     if (\count($pictures) == 0) {
       return;
     }
-  
-    $entries = [];
     
+    $entries = [];
     foreach ($pictures as $picture) {
       $fileName = $this->uploaderHelper->upload($picture->file);
   

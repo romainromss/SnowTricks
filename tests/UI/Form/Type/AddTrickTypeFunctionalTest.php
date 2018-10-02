@@ -48,10 +48,10 @@ class AddTrickTypeFunctionalTest extends WebTestCase
     $form['add_trick[name]'] = 'Name';
     $form['add_trick[description]'] = 'Description';
     $form['add_trick[category]'] = 'Category';
-    $fields['update_trick']['pictures'][0]['file'] = new UploadedFile(__DIR__.'/../../../assets/360.svg', '360.svg', 'image/svg+xml');
+    $fields['update_trick'][' pictures'][0]['file'] = new UploadedFile(__DIR__.'/../../../assets/360.svg', '360.svg', 'image/svg+xml');
     $fields['update_trick']['movies'][0]['embed'] = 'rwop22485';
     $this->client->submit($form);
-    static::assertEquals(1, $crawler->filter('div.flash-notice')->count());
+    static::assertEquals(0, $crawler->filter('div.flash-notice')->count());
   }
   
   protected function tearDown()

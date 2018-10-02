@@ -42,7 +42,7 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 	color: #000000; /* Black */
 }
 
-.hljs-comment, /* --- used for PureBASIC Comments --- */
+.hljs-comment, /* --- used for PureBASIC Comment --- */
 .hljs-regexp,
 .hljs-section,
 .hljs-selector-pseudo,

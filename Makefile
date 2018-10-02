@@ -87,3 +87,15 @@ php-cs: ## Allow to use php-cs-fixer
 
 deptrac: ## Allow to use the deptrac analyzer
 	    $(ENV_PHP) deptrac
+
+## Unit
+unit: ## launch unit test
+	    $(ENV_PHP) php bin/phpunit
+
+## Blackfire
+blackfire: ## launch performance test
+	    $(ENV_BLACKFIRE) blackfire curl http://172.18.0.1:8080$(URL) --samples $(SAMPLES)
+
+## Fixtures
+fixture: src/Domain/DataFixtures
+	$(ENV_PHP) bin/console d:f:l -n

@@ -11,7 +11,7 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
-namespace App\Domain\DataFixtures;
+namespace App\Domain\DataFixtures\ORM;
 
 use App\Domain\Models\Comments;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -27,13 +27,12 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
    */
   public function load(ObjectManager $manager)
   {
-    for($i = 1; $i > 10; $i++) {
+   
       $comment = new Comments(
-        'content'. $i,
-        $this->getReference('tricks')
+        'content'. 1,
+        $this->getReference('tricks1')
       );
       $manager->persist($comment);
-    }
     $manager->flush();
   }
   

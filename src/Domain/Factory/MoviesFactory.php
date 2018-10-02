@@ -34,6 +34,12 @@ class MoviesFactory implements MoviesFactoryInterface
     return new Movies($embed, $legend);
   }
   
+  /**
+   * @param array $movies
+   *
+   * @return array|mixed|void
+   * @throws \Exception
+   */
   public function createFromArray(array $movies = [])
   {
     if (\count($movies) == 0) {

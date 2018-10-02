@@ -1,4 +1,4 @@
-App\Domain\DTO\MoviesDTO:
+App\Domain\Models\Movies:
   properties:
     embed:
     - NotBlank: ~

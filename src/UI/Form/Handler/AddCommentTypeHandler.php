@@ -14,13 +14,13 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
-use App\Domain\Factory\Interfaces\CommentFactoryInterface;
+use App\Domain\Factory\Interfaces\CommentsFactoryInterface;
 use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Pictures;
 use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
-use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -32,7 +32,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
 {
     /**
-     * @var CommentFactoryInterface
+     * @var CommentsFactoryInterface
      */
     private $commentFactory;
 
@@ -47,7 +47,7 @@ class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
 	private $tokenStorage;
 
 	public function __construct(
-      CommentFactoryInterface $commentFactory,
+      CommentsFactoryInterface $commentFactory,
       CommentsRepositoryInterface $commentsRepository,
       TokenStorageInterface $tokenStorage
     ) {

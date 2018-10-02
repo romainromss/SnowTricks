@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace App\Tests\Domain\Factory;
 
-use App\Domain\Factory\CommentFactory;
-use App\Domain\Models\Comments;
+use App\Domain\Factory\CommentsFactory;
+use App\Domain\Models\Comment;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 use PHPUnit\Framework\TestCase;
@@ -47,19 +47,19 @@ class CommentFactoryTest extends TestCase
     }
     public function testInstanceOf()
     {
-        $commentBuilder = new CommentFactory();
-        static::assertInstanceOf(CommentFactory::class, $commentBuilder);
+        $commentBuilder = new CommentsFactory();
+        static::assertInstanceOf(CommentsFactory::class, $commentBuilder);
     }
 
     public function testcreate()
     {
-        $comment = new CommentFactory();
+        $comment = new CommentsFactory();
         $comment->create(
           $this->content,
           $this->tricks,
           $this->users
         );
 
-        static::assertInstanceOf(CommentFactory::class, $comment);
+        static::assertInstanceOf(CommentsFactory::class, $comment);
     }
 }

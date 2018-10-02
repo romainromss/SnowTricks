@@ -84,21 +84,22 @@ class Users implements UsersInterface
 	 * @var \ArrayAccess
 	 */
 	private $comments;
-
-
-	/**
-	 * Users constructor.
-	 *
-	 * @param string             $username
-	 * @param string             $email
-	 * @param string             $name
-	 * @param string             $lastname
-	 * @param string             $password
-	 * @param string             $role
-	 * @param PicturesInterface  $pictures
-	 * @param array       $tricks
-	 * @param array       $comments
-	 */
+  
+  /**
+   * Users constructor.
+   *
+   * @param string            $username
+   * @param string            $email
+   * @param string            $name
+   * @param string            $lastname
+   * @param string            $password
+   * @param string            $role
+   * @param PicturesInterface $pictures
+   * @param array             $tricks
+   * @param array             $comments
+   *
+   * @throws \Exception
+   */
     public function __construct(
         string $username,
         string $email,

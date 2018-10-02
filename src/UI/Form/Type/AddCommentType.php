@@ -43,7 +43,8 @@ class AddCommentType extends AbstractType
                 return new AddCommentDTO(
                     $form->get('content')->getData()
                 );
-            }
+            },
+          'validation_groups' => ['AddComment']
         ]);
     }
 }

@@ -31,7 +31,7 @@ class DeleteMovieActionFunctionalTest extends WebTestCase
   
   public function testGetStatusCode()
   {
-    $this->client->request('GET', '/delete/movie/e176534a-45bd-4437-be49-f7742862f2e1');
+    $this->client->request('GET', '/delete/movie/7e0f7886-689a-44ec-98bb-3b028b9c6d58');
     static::assertEquals(Response::HTTP_FOUND, $this->client->getResponse()->getStatusCode());
   }
   

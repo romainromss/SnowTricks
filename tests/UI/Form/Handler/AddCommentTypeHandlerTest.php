@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Form\Handler;
 
-use App\Domain\Factory\CommentFactory;
-use App\Domain\Factory\Interfaces\CommentFactoryInterface;
+use App\Domain\Factory\CommentsFactory;
+use App\Domain\Factory\Interfaces\CommentsFactoryInterface;
 use App\Domain\DTO\AddCommentDTO;
-use App\Domain\Models\Comments;
+use App\Domain\Models\Comment;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
 use App\UI\Form\Handler\AddCommentTypeHandler;
-use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
@@ -31,7 +31,7 @@ use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 class AddCommentTypeHandlerTest extends KernelTestCase
 {
     /**
-     * @var CommentFactoryInterface
+     * @var CommentsFactoryInterface
      */
     private $commentBuilder;
 
@@ -57,7 +57,7 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 
 	protected function setUp()
     {
-        $this->commentBuilder = $this->createMock(CommentFactoryInterface::class);
+        $this->commentBuilder = $this->createMock(CommentsFactoryInterface::class);
         $this->commentRepository = $this->createMock(CommentsRepositoryInterface::class);
 		$this->tricksInterface = $this->createMock(TricksInterface::class);
 		$this->tokenstorage = $this->createMock(TokenStorage::class);
@@ -107,7 +107,7 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 			$this->tokenstorage
 		);
 
-		$this->commentRepository->save($comment = $this->createMock(CommentFactory::class));
+		$this->commentRepository->save($comment = $this->createMock(CommentsFactory::class));
 
 		static::assertInstanceOf(
 			AddCommentTypeHandlerInterface::class,

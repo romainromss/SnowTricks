@@ -1,5 +1,5 @@
-#App\Domain\DTO\AddTrickDTO:
-#  properties:
-#    content:
-#    - NotBlank: ~
-#          groups: ['AddComment']
+App\Domain\Models\Comments:
+  properties:
+    content:
+    - NotBlank:
+        groups: ['AddComment']

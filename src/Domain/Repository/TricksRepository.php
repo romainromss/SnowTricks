@@ -14,9 +14,12 @@ declare(strict_types=1);
 namespace App\Domain\Repository;
 
 use App\Domain\Models\Interfaces\TricksInterface;
+use App\Domain\Models\Pictures;
 use App\Domain\Models\Tricks;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
+use Doctrine\ORM\Query\ResultSetMappingBuilder;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
@@ -31,11 +34,7 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
     parent::__construct($registry, Tricks::class);
   }
   
-  /**
-   * @param bool $first
-   *
-   * @return mixed
-   */
+  
   public function getAllWithPictures(bool $first = false)
   {
     return $this->createQueryBuilder('t')
@@ -43,6 +42,7 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
       ->setParameter(':first', $first)
       ->where('p.first = :first')
       ->orderBy('t.createdAt', 'DESC')
+      ->setCacheable(true)
       ->getQuery()
       ->getResult()
       ;

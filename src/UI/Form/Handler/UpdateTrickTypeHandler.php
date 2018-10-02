@@ -16,7 +16,7 @@ namespace App\UI\Form\Handler;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\UI\Form\Handler\Intefaces\UpdateTrickTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\UpdateTrickTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 

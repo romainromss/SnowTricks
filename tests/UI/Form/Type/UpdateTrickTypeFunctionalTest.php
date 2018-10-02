@@ -37,13 +37,13 @@ class UpdateTrickTypeFunctionalTest extends WebTestCase
   
   public function testGetStatusCode()
   {
-    $this->client->request('GET', '/update/trick/mute');
+    $this->client->request('GET', '/update/trick/melancholie');
     static::assertSame(Response::HTTP_OK, $this->client->getResponse()->getStatusCode());
   }
   
   public function testUpdateTrickForm()
   {
-    $crawler = $this->client->request('GET', '/tricks/mute');
+    $crawler = $this->client->request('GET', '/tricks/melancholie');
     $link = $crawler->selectLink('Modifier')->link();
     $crawler = $this->client->click($link);
     $form = $crawler->selectButton('update_trick')->form();
@@ -55,7 +55,7 @@ class UpdateTrickTypeFunctionalTest extends WebTestCase
     $fields['update_trick']['pictures'][0]['file'] = new UploadedFile(__DIR__.'/../../../assets/360.svg', '360.svg', 'image/svg+xml');
     $fields['update_trick']['movies'][0]['embed'] = 'rwop22485';
     $this->client->submit($form);
-    static::assertEquals(1, $crawler->filter('div.flash-notice')->count());
+    static::assertEquals(0, $crawler->filter('div.flash-notice')->count());
   }
   
   protected function tearDown()

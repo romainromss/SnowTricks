@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\Tests\UI\Responder;
 
 use App\Domain\Repository\TricksRepository;
-use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use App\UI\Responder\ResponderTrickDetails;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormInterface;

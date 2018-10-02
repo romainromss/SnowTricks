@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Actions;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\UI\Form\Handler\Intefaces\AddTrickTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use App\UI\Form\Type\AddTrickType;
 use App\UI\Responder\Interfaces\ResponderAddTrickInterface;
 use Symfony\Component\Routing\Annotation\Route;

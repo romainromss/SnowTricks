@@ -19,7 +19,7 @@ use App\Domain\Factory\Interfaces\TrickFactoryInterface;
 use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\Infra\Helper\UploaderHelper;
-use App\UI\Form\Handler\Intefaces\AddTrickTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Responder;
 use App\Domain\Repository\TricksRepository;
-use App\UI\Form\Handler\Intefaces\AddTrickTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use App\UI\Responder\ResponderAddTrick;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormInterface;

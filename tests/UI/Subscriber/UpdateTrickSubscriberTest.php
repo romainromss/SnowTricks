@@ -13,6 +13,9 @@
 
   namespace App\Tests\UI\Subscriber;
 
+  use App\Domain\DTO\MoviesDTO;
+  use App\Domain\DTO\UpdateTrickDTO;
+  use App\Domain\Models\Interfaces\MoviesInterface;
   use App\Domain\Models\Movies;
   use App\UI\Subscriber\UpdateTrickSubscriber;
   use PHPUnit\Framework\TestCase;
@@ -49,7 +52,7 @@
      * UpdateTrickSubscriberTest constructor.
      *
      */
-    public function SetUp()
+    protected function setUp()
     {
       $this->updateTrickSubscriber = $this->createMock(UpdateTrickSubscriber::class);
       $this->formEvent = $this->createMock(FormEvent::class);
@@ -62,5 +65,19 @@
     {
       $updateTrickSubscriber = new UpdateTrickSubscriber();
       static::assertInstanceOf(UpdateTrickSubscriber::class , $updateTrickSubscriber);
+    }
+  
+    
+    public function testDataAreSet()
+    {
+      $movieMock = $this->createMock(MoviesInterface::class);
+      $movies[] = $movieMock;
+      $movieDTOMock = new UpdateTrickDTO('name','','',[],$movies);
+      $this->formEvent->method('getData')->willReturn($movieDTOMock);
+      
+      $updateTrickSubscriber = new UpdateTrickSubscriber();
+      $updateTrickSubscriber->onPreSetData($this->formEvent);
+      static::assertNotNull($movieDTOMock->movies);
+      static::assertCount(1, $movieDTOMock->movies);
     }
   }

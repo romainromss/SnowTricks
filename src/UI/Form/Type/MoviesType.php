@@ -48,7 +48,8 @@ class MoviesType extends AbstractType
           $form->get('embed')->getData(),
           $form->get('legend')->getData()
         );
-      }
+      },
+      'validation_groups' => ['Movie']
     ]);
   }
 }

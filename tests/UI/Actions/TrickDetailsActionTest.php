@@ -16,7 +16,7 @@ namespace App\Tests\UI\Actions;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Repository\TricksRepository;
 use App\UI\Actions\TrickDetailsAction;
-use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use App\UI\Responder\Interfaces\ResponderTrickDetailsInterface;
 use App\UI\Responder\ResponderTrickDetails;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;

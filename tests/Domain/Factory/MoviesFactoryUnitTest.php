@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the Snowticks project.
+ * This file is part of the Snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Tests\Domain\Factory;
 
+use App\Domain\DTO\MoviesDTO;
 use App\Domain\Factory\MoviesFactory;
 use PHPUnit\Framework\TestCase;
 
@@ -21,7 +22,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class MoviesFactoryTest extends TestCase
+class MoviesFactoryUnitTest extends TestCase
 {
   /**
    * @var string
@@ -61,5 +62,40 @@ class MoviesFactoryTest extends TestCase
     );
     
     static::assertInstanceOf(MoviesFactory::class, $movies);
+  }
+  
+  /**
+   * @param string $embed
+   * @param string $legend
+   *
+   * @dataProvider provideValues
+   *
+   * @throws \Exception
+   */
+  public function testCreateFromArray(string $embed, string $legend)
+  {
+    $movie[] = new MoviesDTO($embed, $legend);
+    
+    $movies = new MoviesFactory();
+    $values =  $movies->createFromArray($movie);
+    static::assertGreaterThan(0, \count($values));
+  }
+  
+  /**
+   * @return \Generator
+   */
+  public function provideValues()
+  {
+    yield array('toto', 'toto');
+    yield array('titi', 'titi');
+    yield array('tata', 'tata');
+  }
+  
+  public function testCreateFromEmptyArray()
+  {
+    $movies = new MoviesFactory();
+    $values =  $movies->createFromArray();
+    
+    static::assertNull($values);
   }
 }

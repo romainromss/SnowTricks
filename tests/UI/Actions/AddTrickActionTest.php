@@ -15,7 +15,7 @@ namespace App\Tests\UI\Actions;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Actions\AddTrickAction;
-use App\UI\Form\Handler\Intefaces\AddTrickTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use App\UI\Responder\ResponderAddTrick;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Form\FormFactoryInterface;

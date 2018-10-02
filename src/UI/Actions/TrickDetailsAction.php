@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Actions;
 
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
-use App\UI\Form\Handler\Intefaces\AddCommentTypeHandlerInterface;
+use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use App\UI\Form\Type\AddCommentType;
 use App\UI\Responder\Interfaces\ResponderTrickDetailsInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;

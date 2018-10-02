@@ -41,8 +41,8 @@ class AddTrickType extends AbstractType
 				'entry_type' => PictureType::class,
 				'allow_add' => true,
 				'allow_delete' => true,
-				'label' => false,
-				'required' => false,
+				'label' => 'Au moins une image est obligatoire',
+				'required' => true,
 				'entry_options' => [
 					'label' => false
 				],
@@ -51,8 +51,8 @@ class AddTrickType extends AbstractType
 				'entry_type' => MoviesType::class,
 				'allow_add' => true,
 				'allow_delete' => true,
-				'label' => false,
-				'required' => false,
+				'label' => 'Au moins une vidéo est obligatoire',
+				'required' => true,
 				'entry_options' => [
 					'label' => false
 				],
@@ -72,7 +72,8 @@ class AddTrickType extends AbstractType
 					$form->get('pictures')->getData(),
 					$form->get('movies')->getData()
 				);
-			}
+			},
+          'validation_groups' => ['AddTrick'],
 		]);
 	}
 }
