@@ -31,7 +31,7 @@ class DeletePictureActionFunctionalTest extends WebTestCase
   
   public function testGetStatusCode()
   {
-    $this->client->request('GET', '/delete/picture/7ab6f1ea-df06-4357-a476-1ef6444ae426');
+    $this->client->request('GET', '/delete/picture/9c1fd5d6-5d57-4030-8e94-9f315b87b323');
     static::assertEquals(Response::HTTP_FOUND, $this->client->getResponse()->getStatusCode());
   }
   
