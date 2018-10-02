@@ -1,4 +1,0 @@
-#App\Domain\DTO\AddTrickDTO:
-#  properties:
-#    content:
-#    - NotBlank: ~

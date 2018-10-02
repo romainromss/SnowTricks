@@ -50,15 +50,16 @@ class Comments implements CommentsInterface
      * @var UsersInterface
      */
     private $users;
-
-
-    /**
-     * Comments constructor.
-     *
-     * @param string            $content
-     * @param TricksInterface   $trick
-     * @param UsersInterface    $users
-     */
+  
+  /**
+   * Comments constructor.
+   *
+   * @param string          $content
+   * @param TricksInterface $trick
+   * @param UsersInterface  $users
+   *
+   * @throws \Exception
+   */
     public function __construct(
         string $content,
         TricksInterface $trick,

@@ -22,7 +22,7 @@ use App\Domain\Models\Users;
 interface CommentsInterface
 {
     /**
-     * Comments constructor.
+     * Comment constructor.
      *
      * @param string $content
      * @param TricksInterface $trick
