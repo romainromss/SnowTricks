@@ -99,3 +99,7 @@ blackfire: ## launch performance test
 ## Fixtures
 fixture: src/Domain/DataFixtures
 	$(ENV_PHP) bin/console d:f:l -n
+
+## Coverage
+coverage: public
+	$(ENV_PHP) bin/phpunit --coverage-html  public/test-coverage/
