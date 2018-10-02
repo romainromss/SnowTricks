@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the Snowtrick project.
+ * This file is part of the snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
