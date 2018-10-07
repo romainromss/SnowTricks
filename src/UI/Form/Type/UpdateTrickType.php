@@ -15,12 +15,10 @@ namespace App\UI\Form\Type;
 
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
 use App\Domain\DTO\UpdateTrickDTO;
-use App\UI\Form\DataTransformer\Interfaces\PicturesToFileTransformerInterface;
-use App\UI\Form\DataTransformer\PicturesToFIleTransformer;
+use App\UI\Subscriber\PictureUpdateSubscriber;
 use App\UI\Subscriber\UpdateTrickSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -39,18 +37,26 @@ class UpdateTrickType extends AbstractType
 	 * @var UpdateTrickSubscriber
 	 */
 	private $updateTrickSubscriber;
-	/**
-	 * @var PicturesToFileTransformerInterface
-	 */
-	private $picturesToFileTransformer;
-
-	public function __construct(
+	
+  
+  /**
+   * @var PictureUpdateSubscriber
+   */
+	private $pictureUpdateSubscriber;
+	
+  /**
+   * UpdateTrickType constructor.
+   *
+   * @param UpdateTrickSubscriber   $updateTrickSubscriber
+   * @param PictureUpdateSubscriber $pictureUpdateSubscriber
+   */
+  public function __construct(
 		UpdateTrickSubscriber $updateTrickSubscriber,
-		PicturesToFileTransformer $picturesToFileTransformer
+		PictureUpdateSubscriber $pictureUpdateSubscriber
 	)
 	{
 		$this->updateTrickSubscriber = $updateTrickSubscriber;
-		$this->picturesToFileTransformer = $picturesToFileTransformer;
+		$this->pictureUpdateSubscriber = $pictureUpdateSubscriber;
 	}
 
 	/**
@@ -90,9 +96,8 @@ class UpdateTrickType extends AbstractType
 				],
 			])
 			->addEventSubscriber($this->updateTrickSubscriber)
+            ->addEventSubscriber($this->pictureUpdateSubscriber)
 		;
-		$builder->get('pictures')
-			->addModelTransformer($this->picturesToFileTransformer);
 	}
 
 	/**

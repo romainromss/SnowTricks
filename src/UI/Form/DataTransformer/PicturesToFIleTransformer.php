@@ -79,21 +79,21 @@ class PicturesToFIleTransformer implements DataTransformerInterface, PicturesToF
    * @param PictureDTOInterface $value
    *
    * @return PictureDTOInterface
+   * @throws \Exception
    */
   public function reverseTransform($value)
   {
-    if (\count($value->pictures) == 0) {
+    
+    if (\count($value) == 0) {
       return $value;
     }
     
-    $pictures = [];
-    
-    foreach ($value->pictures as $pictureDTO) {
+    foreach ($value as $key => $pictureDTO) {
       $fileName = $this->uploaderHelper->upload($pictureDTO->file);
-      $pictures[] = new Pictures($fileName, $pictureDTO->legend, $pictureDTO->first);
-      $value->pictures = array_replace($value->pictures, $pictures);
+      $value[$key] = new Pictures($fileName, $pictureDTO->legend, $pictureDTO->first);
     }
     
     return $value;
   }
 }
+
