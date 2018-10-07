@@ -31,7 +31,7 @@ class PictureFirstActionFunctionalTest extends WebTestCase
   
   public function testGetStatusCode()
   {
-    $this->client->request('GET', '/tricks/1080/picture-first/341c004a-fb3a-48f0-bbd2-34116149b946');
+    $this->client->request('GET', '/tricks/1080/picture-first/62a3f47a-9df2-42d7-9c59-333c7fd960b96');
     static::assertEquals(Response::HTTP_FOUND, $this->client->getResponse()->getStatusCode());
   }
   
