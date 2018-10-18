@@ -34,7 +34,11 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
     parent::__construct($registry, Tricks::class);
   }
   
-  
+  /**
+   * @param bool $first
+   *
+   * @return mixed
+   */
   public function getAllWithPictures(bool $first = false)
   {
     return $this->createQueryBuilder('t')
@@ -88,6 +92,7 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
       ->leftJoin('u.pictures', 'up')
       ->where('t.slug = :slug')
       ->setParameter('slug', $slug)
+      ->setCacheable(true)
       ->getQuery()
       ->getOneOrNullResult()
       ;
@@ -96,6 +101,8 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
   /**
    * @param $tricks
    *
+   * @throws \Doctrine\ORM\ORMException
+   * @throws \Doctrine\ORM\OptimisticLockException
    */
   public function save($tricks)
   {
@@ -115,6 +122,8 @@ class TricksRepository extends ServiceEntityRepository implements TricksReposito
    * @param string $slug
    *
    * @throws \Doctrine\ORM\NonUniqueResultException
+   * @throws \Doctrine\ORM\ORMException
+   * @throws \Doctrine\ORM\OptimisticLockException
    */
   public function deleteTrick(string $slug)
   {

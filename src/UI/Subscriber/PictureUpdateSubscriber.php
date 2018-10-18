@@ -13,7 +13,9 @@ declare(strict_types = 1);
 
 namespace App\UI\Subscriber;
 
+use App\Domain\DTO\PictureDTO;
 use App\Infra\Helper\UploaderHelper;
+use function Couchbase\defaultDecoder;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -54,7 +56,8 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
   {
     return [
       FormEvents::PRE_SET_DATA => "onPreSetData",
-      FormEvents::PRE_SUBMIT => "onPreSubmit"
+      FormEvents::PRE_SUBMIT => "onPreSubmit",
+      FormEvents::SUBMIT => "onSubmit"
     ];
   }
   
@@ -68,14 +71,38 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
     $pictures = [];
     
     foreach ($formEvent->getData()->pictures as $picture) {
-      $pictures[] = new File($this->imageFolder.$picture->getName());
+      $pictures[] = new PictureDTO(new File($this->imageFolder.$picture->getName()), $picture->getLegend(), $picture->isFirst());
     }
+    
     $formEvent->getData()->pictures = $pictures;
-    dd($pictures);
   }
   
+  /**
+   * @param FormEvent $formEvent
+   *
+   * @throws \Exception
+   */
   public function onPreSubmit(FormEvent $formEvent)
   {
-    dd($formEvent->getData());
+    $values = $formEvent->getData()['pictures'];
+    foreach(array_values($values) as $key => $value) {
+      if(\is_null($value['file'])) {
+        $value['file']['name'] = $this->pictures[$key]->getName();
+        $value['legend'] = $this->pictures[$key]->getLegend();
+        $value['file']['file'] = null;
+        $values[$key] = $value;
+      }
+    }
+  }
+  
+  
+  public function onSubmit(FormEvent $formEvent)
+  {
+    dd($formEvent->getForm());
+    if(\count($formEvent->getData()->pictures) > \count($this->pictures)) {
+      foreach($this->pictures as $picture) {
+        $formEvent->getData()->pictures[] = $picture;
+      }
+    }
   }
 }

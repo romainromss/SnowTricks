@@ -13,10 +13,12 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler\Interfaces;
 
+use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
 use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Infra\Helper\Interfaces\UploaderHelperInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
@@ -30,14 +32,14 @@ interface UpdateTrickTypeHandlerInterface
 	/**
 	 * UpdateTrickTypeHandler constructor.
 	 *
-	 * @param TrickFactoryInterface     $tricksBuilder
 	 * @param TricksRepositoryInterface $tricksRepository
 	 * @param TokenStorageInterface     $tokenStorage
 	 */
 	public function __construct(
-      TrickFactoryInterface $tricksBuilder,
+      PictureFactoryInterface $pictureFactory,
       TricksRepositoryInterface $tricksRepository,
-      TokenStorageInterface $tokenStorage
+      TokenStorageInterface $tokenStorage,
+      UploaderHelperInterface $uploaderHelper
 	);
   
   /**

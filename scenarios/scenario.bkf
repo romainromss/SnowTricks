@@ -1,0 +1,17 @@
+name "addTrick form"
+
+scenario
+    name "form page"
+
+    visit url('http://localhost:8080/addtrick')
+        expect status_code() == 200
+
+scenario
+    name "trick page"
+
+    submit button("Submit")
+        param name "trick-blackfire"
+        param description "description-blackfire"
+        param category "category-blackfire"
+        param pictures file('../public/images/upload/360.png','360.png')
+        param movies "1234test"

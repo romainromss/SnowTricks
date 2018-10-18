@@ -13,12 +13,14 @@ declare(strict_types = 1);
 
 namespace App\Infra\Helper;
 
+use App\Infra\Helper\Interfaces\UploaderHelperInterface;
+
 /**
  * Class UploaderHelper.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class UploaderHelper
+class UploaderHelper implements UploaderHelperInterface
 {
   public $imageFolder;
   

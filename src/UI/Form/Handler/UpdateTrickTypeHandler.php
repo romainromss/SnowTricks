@@ -13,9 +13,13 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
+use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
+use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Infra\Helper\Interfaces\UploaderHelperInterface;
+use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\Interfaces\UpdateTrickTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -27,34 +31,38 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
  */
 class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
 {
-	/**
-	 * @var TrickFactoryInterface
-	 */
-	private $trickFactory;
-
-	/**
-	 * @var TricksRepositoryInterface
-	 */
-	private $tricksRepository;
-
-	/**
-	 * @var TokenStorageInterface
-	 */
-	private $tokenStorage;
-
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function __construct(
-      TrickFactoryInterface $trickFactory,
-      TricksRepositoryInterface $tricksRepository,
-      TokenStorageInterface $tokenStorage
-	) {
-		$this->trickFactory = $trickFactory;
-		$this->tricksRepository = $tricksRepository;
-		$this->tokenStorage = $tokenStorage;
-	}
+  /**
+   * @var TricksRepositoryInterface
+   */
+  private $tricksRepository;
+  
+  /**
+   * @var TokenStorageInterface
+   */
+  private $tokenStorage;
+  /**
+   * @var PictureFactoryInterface
+   */
+  private $pictureFactory;
+  /**
+   * @var UploaderHelperInterface
+   */
+  private $uploaderHelper;
+  
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(
+    PictureFactoryInterface $pictureFactory,
+    TricksRepositoryInterface $tricksRepository,
+    TokenStorageInterface $tokenStorage,
+    UploaderHelperInterface $uploaderHelper
+  ) {
+    $this->tricksRepository = $tricksRepository;
+    $this->tokenStorage = $tokenStorage;
+    $this->pictureFactory = $pictureFactory;
+    $this->uploaderHelper = $uploaderHelper;
+  }
   
   /**
    * {@inheritdoc}
@@ -64,25 +72,23 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
    *
    * @return bool
    */
-	public function handle(
-	  FormInterface $form,
-      TricksInterface $tricks
-):  bool
-	{
-		if ($form->isSubmitted() && $form->isValid()){
-			$this->trickFactory->create(
-				$form->getData()->name,
-				$form->getData()->description,
-				$form->getData()->category,
-				$this->tokenStorage->getToken()->getUser(),
-				$form->getData()->pictures,
-				$form->getData()->movies
-			);
-
-			$this->tricksRepository->update();
-
-			return true;
-		}
-		return false;
-	}
+  public function handle(
+    FormInterface $form,
+    TricksInterface $tricks
+  ):  bool
+  {
+    if ($form->isSubmitted() && $form->isValid()){
+      foreach($form->getData()->pictures as $picture) {
+        if(\is_a($picture, PicturesInterface::class)) {
+          continue;
+        }
+        $fileName = $this->uploaderHelper->upload($picture->file);
+        $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
+      }
+      $this->tricksRepository->update();
+      
+      return true;
+    }
+    return false;
+  }
 }

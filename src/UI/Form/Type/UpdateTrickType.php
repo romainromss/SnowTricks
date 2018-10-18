@@ -32,18 +32,18 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class UpdateTrickType extends AbstractType
 {
-
-	/**
-	 * @var UpdateTrickSubscriber
-	 */
-	private $updateTrickSubscriber;
-	
+  
+  /**
+   * @var UpdateTrickSubscriber
+   */
+  private $updateTrickSubscriber;
+  
   
   /**
    * @var PictureUpdateSubscriber
    */
-	private $pictureUpdateSubscriber;
-	
+  private $pictureUpdateSubscriber;
+  
   /**
    * UpdateTrickType constructor.
    *
@@ -51,72 +51,73 @@ class UpdateTrickType extends AbstractType
    * @param PictureUpdateSubscriber $pictureUpdateSubscriber
    */
   public function __construct(
-		UpdateTrickSubscriber $updateTrickSubscriber,
-		PictureUpdateSubscriber $pictureUpdateSubscriber
-	)
-	{
-		$this->updateTrickSubscriber = $updateTrickSubscriber;
-		$this->pictureUpdateSubscriber = $pictureUpdateSubscriber;
-	}
-
-	/**
-	 * @param FormBuilderInterface  $builder
-	 * @param array                 $options
-	 */
-	public function buildForm(
-		FormBuilderInterface $builder,
-		array $options
-	) {
-		$builder
-			->add('name', TextType::class, [
-				'label' => 'Titre'
-			])
-			->add('description', TextareaType::class)
-			->add('category', TextType::class, [
-				'label' => 'Groupe'
-			])
-			->add('pictures', CollectionType::class, [
-				'entry_type' => PictureType::class,
-				'allow_add' => true,
-				'allow_delete' => true,
-				'label' => false,
-				'required' => false,
-				'entry_options' => [
-					'label' => false
-				],
-			])
-			->add('movies', CollectionType::class, [
-				'entry_type' => TextType::class,
-				'allow_add' => true,
-				'allow_delete' => true,
-				'label' => false,
-				'required' => false,
-				'entry_options' => [
-					'label' => false
-				],
-			])
-			->addEventSubscriber($this->updateTrickSubscriber)
-            ->addEventSubscriber($this->pictureUpdateSubscriber)
-		;
-	}
-
-	/**
-	 * @param OptionsResolver $resolver
-	 */
-	public function configureOptions(OptionsResolver $resolver)
-	{
-		$resolver->setDefaults([
-			'data_class' => UpdateTrickDTOInterface::class,
-			'empty_data' => function (FormInterface $form){
-				return new UpdateTrickDTO(
-					$form->get('name')->getData(),
-					$form->get('description')->getData(),
-					$form->get('category')->getData(),
-					$form->get('pictures')->getData(),
-					$form->get('movies')->getData()
-				);
-			},
-          'validation_groups' => ['UpdateTrick']
-		]);
-	}
+    UpdateTrickSubscriber $updateTrickSubscriber,
+    PictureUpdateSubscriber $pictureUpdateSubscriber
+  )
+  {
+    $this->updateTrickSubscriber = $updateTrickSubscriber;
+    $this->pictureUpdateSubscriber = $pictureUpdateSubscriber;
+  }
+  
+  /**
+   * @param FormBuilderInterface  $builder
+   * @param array                 $options
+   */
+  public function buildForm(
+    FormBuilderInterface $builder,
+    array $options
+  ) {
+    $builder
+      ->add('name', TextType::class, [
+        'label' => 'Titre'
+      ])
+      ->add('description', TextareaType::class)
+      ->add('category', TextType::class, [
+        'label' => 'Groupe'
+      ])
+      ->add('pictures', CollectionType::class, [
+        'entry_type' => PictureType::class,
+        'allow_add' => true,
+        'allow_delete' => true,
+        'label' => false,
+        'required' => false,
+        'entry_options' => [
+          'label' => false
+        ],
+      ])
+      ->add('movies', CollectionType::class, [
+        'entry_type' => TextType::class,
+        'allow_add' => true,
+        'allow_delete' => true,
+        'label' => false,
+        'required' => false,
+        'entry_options' => [
+          'label' => false
+        ],
+      ])
+      ->addEventSubscriber($this->updateTrickSubscriber)
+      ->addEventSubscriber($this->pictureUpdateSubscriber)
+    ;
+    
+  }
+  
+  /**
+   * @param OptionsResolver $resolver
+   */
+  public function configureOptions(OptionsResolver $resolver)
+  {
+    $resolver->setDefaults([
+      'data_class' => UpdateTrickDTOInterface::class,
+      'empty_data' => function (FormInterface $form){
+        return new UpdateTrickDTO(
+          $form->get('name')->getData(),
+          $form->get('description')->getData(),
+          $form->get('category')->getData(),
+          $form->get('pictures')->getData(),
+          $form->get('movies')->getData()
+        );
+      },
+      'validation_groups' => ['UpdateTrick']
+    ]);
+  }
 }

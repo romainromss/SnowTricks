@@ -21,7 +21,7 @@
             </join-table>
         </many-to-many>
 
-        <many-to-many field="pictures" target-entity="Pictures" orphan-removal="true" fetch="EAGER">
+        <many-to-many field="pictures" target-entity="Pictures" orphan-removal="true" fetch="LAZY">
             <cascade>
                 <cascade-persist/>
                 <cascade-remove/>
