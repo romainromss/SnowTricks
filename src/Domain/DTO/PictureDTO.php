@@ -35,16 +35,15 @@
     /**
      * {@inheritdoc}
      */
-    public function __construct (
+    public function __construct(
       \SplFileInfo $file = null,
       string $legend = null,
       bool $first = false
-    ) {
+    )
+    {
       $this->file = $file;
       $this->legend = $legend;
       $this->first = $first;
     }
-    
-    
   }
   

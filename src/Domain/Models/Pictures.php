@@ -14,7 +14,6 @@
   namespace App\Domain\Models;
 
   use App\Domain\Models\Interfaces\PicturesInterface;
-  use App\Domain\Models\Interfaces\TricksInterface;
   use Ramsey\Uuid\Uuid;
   use Ramsey\Uuid\UuidInterface;
 

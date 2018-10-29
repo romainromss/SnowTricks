@@ -45,7 +45,7 @@ if (document.querySelector('div#update_trick_pictures')) {
     function addMoviesUpdate() {
         const template = parametersMoviesUpdate.container.dataset.prototype
         const el = template.replace(/__name__label__/g, 'image n°' + (indexMovies + 1))
-            .replace(/__name__/g, indexMovies)
+            .replace(/__name__/g, indexMovies + 2)
         parametersMoviesUpdate.container.appendChild(createElementFromHTMLUpdate(el))
         indexMovies += 1
     }

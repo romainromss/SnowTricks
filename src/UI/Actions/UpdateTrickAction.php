@@ -16,6 +16,7 @@ namespace App\UI\Actions;
 use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
+use App\UI\Form\Type\TrickType;
 use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Responder\Interfaces\ResponderUpdateTrickInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -87,7 +88,7 @@ class UpdateTrickAction
 		);
 
 		$updateTricksType = $this->formFactory
-			->create(UpdateTrickType::class, $dto)
+			->create(TrickType::class, $dto)
 			->handleRequest($request);
 
 		if ($this->updateTricksTypeHandler->handle($updateTricksType, $tricks)){

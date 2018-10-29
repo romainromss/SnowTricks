@@ -17,7 +17,7 @@
   use App\Domain\DTO\UpdateTrickDTO;
   use App\Domain\Models\Interfaces\MoviesInterface;
   use App\Domain\Models\Movies;
-  use App\UI\Subscriber\UpdateTrickSubscriber;
+  use App\UI\Subscriber\MovieUpdateSubscriber;
   use PHPUnit\Framework\TestCase;
   use Symfony\Component\Form\FormEvent;
 
@@ -39,7 +39,7 @@
     private $imageFolder;
 
     /**
-     * @var UpdateTrickSubscriber
+     * @var MovieUpdateSubscriber
      */
     private $updateTrickSubscriber;
   
@@ -54,7 +54,7 @@
      */
     protected function setUp()
     {
-      $this->updateTrickSubscriber = $this->createMock(UpdateTrickSubscriber::class);
+      $this->updateTrickSubscriber = $this->createMock(MovieUpdateSubscriber::class);
       $this->formEvent = $this->createMock(FormEvent::class);
       $this->movies = $this->createMock(Movies::class);
       
@@ -63,8 +63,8 @@
 
     public function testInstanceOf()
     {
-      $updateTrickSubscriber = new UpdateTrickSubscriber();
-      static::assertInstanceOf(UpdateTrickSubscriber::class , $updateTrickSubscriber);
+      $updateTrickSubscriber = new MovieUpdateSubscriber();
+      static::assertInstanceOf(MovieUpdateSubscriber::class , $updateTrickSubscriber);
     }
   
     
@@ -75,7 +75,7 @@
       $movieDTOMock = new UpdateTrickDTO('name','','',[],$movies);
       $this->formEvent->method('getData')->willReturn($movieDTOMock);
       
-      $updateTrickSubscriber = new UpdateTrickSubscriber();
+      $updateTrickSubscriber = new MovieUpdateSubscriber();
       $updateTrickSubscriber->onPreSetData($this->formEvent);
       static::assertNotNull($movieDTOMock->movies);
       static::assertCount(1, $movieDTOMock->movies);

@@ -18,7 +18,7 @@ use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\DataTransformer\PicturesToFIleTransformer;
 use App\UI\Form\Type\PictureType;
 use App\UI\Form\Type\UpdateTrickType;
-use App\UI\Subscriber\UpdateTrickSubscriber;
+use App\UI\Subscriber\MovieUpdateSubscriber;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\PreloadedExtension;
 use Symfony\Component\Form\Test\TypeTestCase;
@@ -37,7 +37,7 @@ class UpdateTrickTypeTest extends TypeTestCase
 	private $dto;
 
 	/**
-	 * @var UpdateTrickSubscriber
+	 * @var MovieUpdateSubscriber
 	 */
 	private $updateTrickSubscriber;
 
@@ -62,7 +62,7 @@ class UpdateTrickTypeTest extends TypeTestCase
 			[],
 			[]
 		);
-		$this->updateTrickSubscriber  = new UpdateTrickSubscriber();
+		$this->updateTrickSubscriber  = new MovieUpdateSubscriber();
 		$this->picturesToFileTransformer = new PicturesToFIleTransformer(__DIR__."./../../../assets/", $this->uploader);
 
 		parent::setUp();

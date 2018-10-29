@@ -44,8 +44,8 @@ if (document.querySelector('div#update_trick_pictures')){
 
     function addPictureUpdate() {
         const template = parametersPicturesUpdate.container.dataset.prototype
-        const el = template.replace(/__name__label__/g, 'pictures n°' + (index + 1))
-            .replace(/__name__/g, index)
+        const el = template.replace(/__name__label__/g, 'pictures n°' + (index + 1 ))
+            .replace(/__name__/g, index + 1)
         parametersPicturesUpdate.container.appendChild(createElementFromHTMLUpdate(el))
         index += 1
     }
@@ -56,7 +56,7 @@ if (document.querySelector('div#update_trick_pictures')){
         return div.firstChild;
     }
 
-    if (index === 0) {
+    if (index === 1) {
         addPictureUpdate()
     }
 
