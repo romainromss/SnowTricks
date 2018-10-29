@@ -16,11 +16,11 @@ namespace App\UI\Subscriber\Interfaces;
 use Symfony\Component\Form\FormEvent;
 
 /**
- * Class UpdateTrickSubscriberInterface.
+ * Class movieUpdateSubscriberInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-interface UpdateTrickSubscriberInterface
+interface movieUpdateSubscriberInterface
 {
 	/**
 	 * @return array

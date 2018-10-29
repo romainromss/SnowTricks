@@ -17,6 +17,8 @@ use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
 use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
+use App\Domain\Models\Movies;
+use App\Domain\Models\Pictures;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\Infra\Helper\Interfaces\UploaderHelperInterface;
 use App\Infra\Helper\UploaderHelper;
@@ -65,12 +67,12 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
   }
   
   /**
-   * {@inheritdoc}
-   *
    * @param FormInterface   $form
    * @param TricksInterface $tricks
    *
    * @return bool
+   * @throws \Doctrine\ORM\ORMException
+   * @throws \Doctrine\ORM\OptimisticLockException
    */
   public function handle(
     FormInterface $form,
@@ -79,14 +81,19 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
   {
     if ($form->isSubmitted() && $form->isValid()){
       foreach($form->getData()->pictures as $picture) {
-        if(\is_a($picture, PicturesInterface::class)) {
+        if(\is_a($picture, PicturesInterface::class ) || is_null($picture->file))  {
           continue;
         }
+        
         $fileName = $this->uploaderHelper->upload($picture->file);
         $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
+        
+      }
+      foreach($pictures as $picture) {
+        $tricks->addPictures($picture);
       }
       $this->tricksRepository->update();
-      
+  
       return true;
     }
     return false;

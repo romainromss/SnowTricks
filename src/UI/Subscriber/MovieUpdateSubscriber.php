@@ -20,11 +20,11 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * Class MovieMovieUpdateSubscriber.
+ * Class MovieUpdateSubscriber.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class MovieMovieUpdateSubscriber implements EventSubscriberInterface, movieUpdateSubscriberInterface
+class MovieUpdateSubscriber implements EventSubscriberInterface, movieUpdateSubscriberInterface
 {
   
   /**

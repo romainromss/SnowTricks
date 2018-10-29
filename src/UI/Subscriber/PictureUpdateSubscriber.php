@@ -15,11 +15,12 @@ namespace App\UI\Subscriber;
 
 use App\Domain\DTO\PictureDTO;
 use App\Infra\Helper\UploaderHelper;
-use function Couchbase\defaultDecoder;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PictureUpdateSubscriber implements EventSubscriberInterface
 {
@@ -32,21 +33,32 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
    * @var string
    */
   private $imageFolder;
+  
   /**
    * @var UploaderHelper
    */
   private $uploaderHelper;
   
   /**
+   * @var Filesystem
+   */
+  private $filesystem;
+  
+  /**
    * PicturesToFIleTransformer constructor.
    *
-   * @param string                  $imageFolder
+   * @param string         $imageFolder
    * @param UploaderHelper $uploaderHelper
+   * @param Filesystem     $filesystem
    */
-  public function __construct(string $imageFolder, UploaderHelper $uploaderHelper)
-  {
+  public function __construct(
+    string $imageFolder,
+    UploaderHelper $uploaderHelper,
+    Filesystem $filesystem
+  ) {
     $this->imageFolder = $imageFolder;
     $this->uploaderHelper = $uploaderHelper;
+    $this->filesystem = $filesystem;
   }
   
   /**
@@ -56,7 +68,6 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
   {
     return [
       FormEvents::PRE_SET_DATA => "onPreSetData",
-      FormEvents::PRE_SUBMIT => "onPreSubmit",
       FormEvents::SUBMIT => "onSubmit"
     ];
   }
@@ -66,43 +77,47 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
    */
   public function onPreSetData(FormEvent $formEvent)
   {
-    $this->pictures = $formEvent->getData()->pictures;
+    $this->pictures = $formEvent->getData();
     
     $pictures = [];
     
-    foreach ($formEvent->getData()->pictures as $picture) {
+    foreach ($formEvent->getData() as $picture) {
       $pictures[] = new PictureDTO(new File($this->imageFolder.$picture->getName()), $picture->getLegend(), $picture->isFirst());
     }
     
-    $formEvent->getData()->pictures = $pictures;
+    $formEvent->setData($pictures);
   }
-  
-  /**
-   * @param FormEvent $formEvent
-   *
-   * @throws \Exception
-   */
-  public function onPreSubmit(FormEvent $formEvent)
-  {
-    $values = $formEvent->getData()['pictures'];
-    foreach(array_values($values) as $key => $value) {
-      if(\is_null($value['file'])) {
-        $value['file']['name'] = $this->pictures[$key]->getName();
-        $value['legend'] = $this->pictures[$key]->getLegend();
-        $value['file']['file'] = null;
-        $values[$key] = $value;
-      }
-    }
-  }
-  
   
   public function onSubmit(FormEvent $formEvent)
   {
-    dd($formEvent->getForm());
-    if(\count($formEvent->getData()->pictures) > \count($this->pictures)) {
-      foreach($this->pictures as $picture) {
-        $formEvent->getData()->pictures[] = $picture;
+    $data = [];
+    foreach($formEvent->getData() as $key => $value) {
+      $data[$key] = $value;
+      
+      
+      if(\is_a($data[$key]->file, UploadedFile::class)) {
+        dump('true');
+        continue;
       }
+
+      if( $value->legend == $this->pictures[$key]->getLegend())
+      {
+        dump('unset');
+        unset($this->pictures[$key]);
+      }
+      dd('end');
+  
+  
+      $data[$key]->name = $this->pictures[$key]->getName();
+      $data[$key]->legend = $this->pictures[$key]->getLegend();
+      $data[$key]->file = null;
     }
+    
+//    foreach($data as $key=>$entry) {
+//      $key === 0 ? $data[$key]->first = true : $data[$key]->first = false;
+//    }
+    
+    $formEvent->setData($data);
   }
 }
+
