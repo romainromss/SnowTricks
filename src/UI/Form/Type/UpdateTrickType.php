@@ -14,6 +14,8 @@ declare(strict_types = 1);
 namespace App\UI\Form\Type;
 
 use App\Domain\DTO\UpdateTrickDTO;
+use App\UI\Form\DataTransformer\MoviesToFileTransformer;
+use App\UI\Form\DataTransformer\PicturesToFIleTransformer;
 use App\UI\Subscriber\MovieUpdateSubscriber;
 use App\UI\Subscriber\PictureUpdateSubscriber;
 use Symfony\Component\Form\AbstractType;
@@ -34,20 +36,34 @@ class TrickType extends AbstractType
    * @var PictureUpdateSubscriber
    */
   private $pictureUpdateSubscriber;
+  /**
+   * @var PicturesToFileTransformer
+   */
+  private $picturesToFileTransformer;
+  /**
+   * @var MoviesToFileTransformer
+   */
+  private $moviesToFileTransformer;
   
   /**
    * UpdateTrickType constructor.
    *
-   * @param MovieUpdateSubscriber   $MovieUpdateSubscriber
-   * @param PictureUpdateSubscriber $pictureUpdateSubscriber
+   * @param MovieUpdateSubscriber     $MovieUpdateSubscriber
+   * @param PictureUpdateSubscriber   $pictureUpdateSubscriber
+   * @param PicturesToFIleTransformer $picturesToFileTransformer
+   * @param MoviesToFileTransformer   $moviesToFileTransformer
    */
   public function __construct(
     MovieUpdateSubscriber $MovieUpdateSubscriber,
-    PictureUpdateSubscriber $pictureUpdateSubscriber
+    PictureUpdateSubscriber $pictureUpdateSubscriber,
+    PicturesToFileTransformer $picturesToFileTransformer,
+    MoviesToFileTransformer $moviesToFileTransformer
   )
   {
     $this->MovieUpdateSubscriber = $MovieUpdateSubscriber;
     $this->pictureUpdateSubscriber = $pictureUpdateSubscriber;
+    $this->picturesToFileTransformer = $picturesToFileTransformer;
+    $this->moviesToFileTransformer = $moviesToFileTransformer;
   }
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
@@ -66,19 +82,19 @@ class TrickType extends AbstractType
         ],
       ])
       ->add('movies', CollectionType::class, [
-        'entry_type' => TextType::class,
+        'entry_type' => MoviesType::class,
         'allow_add' => true,
         'allow_delete' => true,
         'label' => false,
-        'required' => false,
+        'required' => true,
         'entry_options' => [
           'label' => false
         ],
       ])
     ;
     
-    $builder->get('pictures')->addEventSubscriber($this->pictureUpdateSubscriber);
-    $builder->get('movies')->addEventSubscriber($this->MovieUpdateSubscriber);
+    $builder->get('pictures')->addModelTransformer($this->picturesToFileTransformer);
+    $builder->get('movies')->addModelTransformer($this->moviesToFileTransformer);
   }
   
   /**
