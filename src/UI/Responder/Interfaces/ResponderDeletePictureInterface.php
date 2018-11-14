@@ -19,7 +19,7 @@
   use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
   /**
-   * Interface ResponderDeletePictureInterface
+   * Interfaces ResponderDeletePictureInterface
    *
    * @author Romain Bayette <romain.romss@gmail.com>
    */

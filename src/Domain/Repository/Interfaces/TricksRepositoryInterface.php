@@ -17,7 +17,7 @@ use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Tricks;
 
 /**
- * Interface TricksRepositoryInterface.
+ * Interfaces TricksRepositoryInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

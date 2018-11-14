@@ -13,7 +13,20 @@ declare(strict_types = 1);
 
 namespace App\UI\Form\DataTransformer\Interfaces;
 
-interface MoviesToFileTransformer
+interface MoviesToFileTransformerInterface
 {
+  /**
+   * @param mixed $value
+   *
+   * @return mixed|void
+   * @throws \Exception
+   */
+  public function transform($value);
   
+  /**
+   * @param mixed $value
+   *
+   * @return mixed
+   */
+  public function reverseTransform($value);
 }

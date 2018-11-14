@@ -17,7 +17,7 @@ use App\Domain\Models\Users;
 use Ramsey\Uuid\UuidInterface;
 
 /**
- * Interface PicturesInterface.
+ * Interfaces PicturesInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

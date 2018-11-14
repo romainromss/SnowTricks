@@ -17,7 +17,7 @@ use Prophecy\Argument;
 use Ramsey\Uuid\UuidInterface;
 
 /**
- * Interface UsersInterface.
+ * Interfaces UsersInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

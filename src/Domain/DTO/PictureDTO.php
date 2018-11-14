@@ -14,9 +14,11 @@
   namespace App\Domain\DTO;
   
   use App\Domain\DTO\Interfaces\PictureDTOInterface;
+  use Ramsey\Uuid\Uuid;
 
   class PictureDTO implements PictureDTOInterface
   {
+    
     /**
      * @var \SplFileInfo
      */

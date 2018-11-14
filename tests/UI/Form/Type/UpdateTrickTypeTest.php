@@ -15,6 +15,7 @@ namespace App\Tests\UI\Form\Type;
 
 use App\Domain\DTO\UpdateTrickDTO;
 use App\Infra\Helper\UploaderHelper;
+use App\UI\Form\DataTransformer\MoviesToFileTransformer;
 use App\UI\Form\DataTransformer\PicturesToFIleTransformer;
 use App\UI\Form\Type\PictureType;
 use App\UI\Form\Type\UpdateTrickType;
@@ -37,9 +38,9 @@ class UpdateTrickTypeTest extends TypeTestCase
 	private $dto;
 
 	/**
-	 * @var MovieUpdateSubscriber
+	 * @var MoviesToFileTransformer
 	 */
-	private $updateTrickSubscriber;
+	private $movieToFileTransformer;
 
 	/**
 	 * @var PicturesToFIleTransformer
@@ -62,7 +63,7 @@ class UpdateTrickTypeTest extends TypeTestCase
 			[],
 			[]
 		);
-		$this->updateTrickSubscriber  = new MovieUpdateSubscriber();
+		$this->movieToFileTransformer  = new MoviesToFileTransformer();
 		$this->picturesToFileTransformer = new PicturesToFIleTransformer(__DIR__."./../../../assets/", $this->uploader);
 
 		parent::setUp();
@@ -70,13 +71,13 @@ class UpdateTrickTypeTest extends TypeTestCase
 
 	public function testConstruct()
 	{
-		$updateTrickType = new UpdateTrickType($this->updateTrickSubscriber, $this->picturesToFileTransformer);
+		$updateTrickType = new UpdateTrickType($this->picturesToFileTransformer, $this->movieToFileTransformer);
 		static::assertInstanceOf(UpdateTrickType::class, $updateTrickType);
 	}
 
 	protected function getExtensions()
 	{
-		$type = new UpdateTrickType($this->updateTrickSubscriber, $this->picturesToFileTransformer);
+		$type = new UpdateTrickType($this->picturesToFileTransformer, $this->movieToFileTransformer);
 		return [
 			new PreloadedExtension([$type], [])
 		];

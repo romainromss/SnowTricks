@@ -12323,7 +12323,7 @@ module.exports = {
 	 */
 	generators: {
 		/**
-		 * Interface for the options provided to the numeric tick generator
+		 * Interfaces for the options provided to the numeric tick generator
 		 * @interface INumericTickGenerationOptions
 		 */
 		/**

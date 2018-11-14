@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace App\Domain\DTO\Interfaces;
 
 /**
- * Interface MoviesDTOInterface
+ * Interfaces MoviesDTOInterface
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

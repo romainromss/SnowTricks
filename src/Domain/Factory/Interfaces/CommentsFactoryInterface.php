@@ -20,7 +20,7 @@ use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
 
 /**
- * Interface CommentBuilderInterface.
+ * Interfaces CommentBuilderInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

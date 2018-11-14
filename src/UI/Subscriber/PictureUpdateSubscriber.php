@@ -68,7 +68,6 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
   {
     return [
       FormEvents::PRE_SET_DATA => "onPreSetData",
-      FormEvents::SUBMIT => "onSubmit"
     ];
   }
   
@@ -78,46 +77,12 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
   public function onPreSetData(FormEvent $formEvent)
   {
     $this->pictures = $formEvent->getData();
-    
-    $pictures = [];
-    
-    foreach ($formEvent->getData() as $picture) {
-      $pictures[] = new PictureDTO(new File($this->imageFolder.$picture->getName()), $picture->getLegend(), $picture->isFirst());
-    }
-    
-    $formEvent->setData($pictures);
-  }
-  
-  public function onSubmit(FormEvent $formEvent)
-  {
-    $data = [];
-    foreach($formEvent->getData() as $key => $value) {
-      $data[$key] = $value;
-      
-      
-      if(\is_a($data[$key]->file, UploadedFile::class)) {
-        dump('true');
-        continue;
-      }
 
-      if( $value->legend == $this->pictures[$key]->getLegend())
-      {
-        dump('unset');
-        unset($this->pictures[$key]);
-      }
-      dd('end');
-  
-  
-      $data[$key]->name = $this->pictures[$key]->getName();
-      $data[$key]->legend = $this->pictures[$key]->getLegend();
-      $data[$key]->file = null;
+    $pictures = [];
+
+    foreach ($formEvent->getData() as $picture) {
+      $pictures[] = new PictureDTO( new File($this->imageFolder.$picture->getName()), $picture->getLegend(), $picture->isFirst());
     }
     
-//    foreach($data as $key=>$entry) {
-//      $key === 0 ? $data[$key]->first = true : $data[$key]->first = false;
-//    }
-    
-    $formEvent->setData($data);
   }
 }
-

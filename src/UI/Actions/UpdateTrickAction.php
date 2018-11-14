@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace App\UI\Actions;
 
 use App\Domain\DTO\UpdateTrickDTO;
+use App\Domain\Models\Tricks;
 use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
-use App\UI\Form\Type\TrickType;
 use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Responder\Interfaces\ResponderUpdateTrickInterface;
 use Symfony\Component\Form\FormFactoryInterface;
@@ -39,7 +39,7 @@ class UpdateTrickAction
 	/**
 	 * @var UpdateTrickTypeHandler
 	 */
-	private $updateTricksTypeHandler;
+	private $updateTrickTypeHandler;
 
 	/**
 	 * @var TricksRepositoryInterface
@@ -50,16 +50,16 @@ class UpdateTrickAction
 	 * UpdateTrickAction constructor.
 	 *
 	 * @param FormFactoryInterface       $formFactory
-	 * @param UpdateTrickTypeHandler     $updateTricksTypeHandler
+	 * @param UpdateTrickTypeHandler     $updateTrickTypeHandler
 	 * @param TricksRepositoryInterface  $tricksRepository
 	 */
 	public function __construct(
 		FormFactoryInterface $formFactory,
-		UpdateTrickTypeHandler $updateTricksTypeHandler,
+		UpdateTrickTypeHandler $updateTrickTypeHandler,
 		TricksRepositoryInterface $tricksRepository
 	) {
 		$this->formFactory = $formFactory;
-		$this->updateTricksTypeHandler = $updateTricksTypeHandler;
+		$this->updateTrickTypeHandler = $updateTrickTypeHandler;
 		$this->tricksRepository = $tricksRepository;
 	}
   
@@ -71,6 +71,8 @@ class UpdateTrickAction
    *
    * @return Response
    * @throws \Doctrine\ORM\NonUniqueResultException
+   * @throws \Doctrine\ORM\ORMException
+   * @throws \Doctrine\ORM\OptimisticLockException
    */
 	public function __invoke(
 		ResponderUpdateTrickInterface $responderUpdateTricks,
@@ -87,17 +89,17 @@ class UpdateTrickAction
 			$tricks->getMovies()->toArray()
 		);
 
-		$updateTricksType = $this->formFactory
-			->create(TrickType::class, $dto)
+		$updateTrickType = $this->formFactory
+			->create(UpdateTrickType::class, $dto)
 			->handleRequest($request);
 
-		if ($this->updateTricksTypeHandler->handle($updateTricksType, $tricks)){
+		if ($this->updateTrickTypeHandler->handle($updateTrickType, $tricks)){
 			return $responderUpdateTricks(true);
 		}
 
 		return $responderUpdateTricks(false,[
 			'tricks' => $tricks,
-			'form' => $updateTricksType->createView()
-		], $updateTricksType);
+			'form' => $updateTrickType->createView()
+		], $updateTrickType);
 	}
 }

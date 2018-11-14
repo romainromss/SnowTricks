@@ -13,10 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Form\DataTransformer;
 
-use App\Domain\DTO\Interfaces\PictureDTOInterface;
 use App\Domain\DTO\Interfaces\UpdateTrickDTOInterface;
-use App\Domain\Models\Pictures;
-use App\Infra\Helper\Interfaces\UploaderHelperInterface;
 use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\DataTransformer\Interfaces\PicturesToFileTransformerInterface;
 use Symfony\Component\Form\DataTransformerInterface;
@@ -51,9 +48,7 @@ class PicturesToFIleTransformer implements DataTransformerInterface, PicturesToF
   }
   
   /**
-   * @param UpdateTrickDTOInterface $value
-   *
-   * @return UpdateTrickDTOInterface
+   * {@inheritdoc}
    */
   public function transform($value)
   {
@@ -70,16 +65,14 @@ class PicturesToFIleTransformer implements DataTransformerInterface, PicturesToF
     foreach ($value->pictures as $picture) {
       $pictures[] = new File($this->imageFolder.$picture->getName());
       $value->pictures = array_replace($value->pictures, $pictures);
+      dump($picture);
     }
     
     return $value;
   }
   
   /**
-   * @param PictureDTOInterface $value
-   *
-   * @return PictureDTOInterface
-   * @throws \Exception
+   * {@inheritdoc}
    */
   public function reverseTransform($value)
   {
@@ -88,9 +81,6 @@ class PicturesToFIleTransformer implements DataTransformerInterface, PicturesToF
       return $value;
     }
     
-   
-    
     return $value;
   }
 }
-

@@ -16,7 +16,7 @@ namespace App\Domain\Factory\Interfaces;
 use App\Domain\Models\Interfaces\PicturesInterface;
 
 /**
- * Interface PictureFactoryInterface
+ * Interfaces PictureFactoryInterface
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

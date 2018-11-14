@@ -18,7 +18,7 @@
   use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
   /**
-   * Interface ResponderDeleteMovieInterface
+   * Interfaces ResponderDeleteMovieInterface
    *
    * @author Romain Bayette <romain.romss@gmail.com>
    */

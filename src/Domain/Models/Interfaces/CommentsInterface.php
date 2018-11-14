@@ -15,7 +15,7 @@ use App\Domain\Models\Tricks;
 use App\Domain\Models\Users;
 
 /**
- * Interface CommentsInterface
+ * Interfaces CommentsInterface
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

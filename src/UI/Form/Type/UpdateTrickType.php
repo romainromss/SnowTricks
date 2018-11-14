@@ -24,47 +24,29 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class TrickType extends AbstractType
+class UpdateTrickType extends AbstractType
 {
-  /**
-   * @var MovieUpdateSubscriber
-   */
-  private $MovieUpdateSubscriber;
-  
-  
-  /**
-   * @var PictureUpdateSubscriber
-   */
+  /** @var PictureUpdateSubscriber  */
   private $pictureUpdateSubscriber;
-  /**
-   * @var PicturesToFileTransformer
-   */
-  private $picturesToFileTransformer;
-  /**
-   * @var MoviesToFileTransformer
-   */
-  private $moviesToFileTransformer;
+  
+  /** @var MovieUpdateSubscriber  */
+  private $movieUpdateSubscriber;
   
   /**
    * UpdateTrickType constructor.
    *
-   * @param MovieUpdateSubscriber     $MovieUpdateSubscriber
-   * @param PictureUpdateSubscriber   $pictureUpdateSubscriber
-   * @param PicturesToFIleTransformer $picturesToFileTransformer
-   * @param MoviesToFileTransformer   $moviesToFileTransformer
+   * @param PictureUpdateSubscriber $pictureUpdateSubscriber
+   * @param MovieUpdateSubscriber   $movieUpdateSubscriber
    */
   public function __construct(
-    MovieUpdateSubscriber $MovieUpdateSubscriber,
     PictureUpdateSubscriber $pictureUpdateSubscriber,
-    PicturesToFileTransformer $picturesToFileTransformer,
-    MoviesToFileTransformer $moviesToFileTransformer
-  )
-  {
-    $this->MovieUpdateSubscriber = $MovieUpdateSubscriber;
+    MovieUpdateSubscriber $movieUpdateSubscriber
+  ) {
     $this->pictureUpdateSubscriber = $pictureUpdateSubscriber;
-    $this->picturesToFileTransformer = $picturesToFileTransformer;
-    $this->moviesToFileTransformer = $moviesToFileTransformer;
+    $this->movieUpdateSubscriber = $movieUpdateSubscriber;
   }
+  
+  /** {@inheritdoc} */
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
@@ -93,8 +75,8 @@ class TrickType extends AbstractType
       ])
     ;
     
-    $builder->get('pictures')->addModelTransformer($this->picturesToFileTransformer);
-    $builder->get('movies')->addModelTransformer($this->moviesToFileTransformer);
+    $builder->get('pictures')->addEventSubscriber($this->pictureUpdateSubscriber);
+    $builder->get('movies')->addEventSubscriber($this->movieUpdateSubscriber);
   }
   
   /**

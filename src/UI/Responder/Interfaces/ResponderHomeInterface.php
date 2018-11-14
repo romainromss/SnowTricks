@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
 /**
- * Interface ResponderHomeInterface.
+ * Interfaces ResponderHomeInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

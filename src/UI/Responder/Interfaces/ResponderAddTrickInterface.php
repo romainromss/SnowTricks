@@ -18,7 +18,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Interface ResponderAddTrickInterface.
+ * Interfaces ResponderAddTrickInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

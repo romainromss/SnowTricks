@@ -1259,7 +1259,7 @@ var blockStyles = {
 };
 
 /**
- * Interface of SimpleMDE.
+ * Interfaces of SimpleMDE.
  */
 function SimpleMDE(options) {
 	// Handle options parameter

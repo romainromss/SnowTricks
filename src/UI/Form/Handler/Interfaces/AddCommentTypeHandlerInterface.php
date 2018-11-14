@@ -19,7 +19,7 @@ use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 
 /**
- * Interface AddCommentTypeHandlerInterface.
+ * Interfaces AddCommentTypeHandlerInterface.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

@@ -17,7 +17,7 @@ use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 
 /**
- * Interface PicturesRepositoryInterface
+ * Interfaces PicturesRepositoryInterface
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

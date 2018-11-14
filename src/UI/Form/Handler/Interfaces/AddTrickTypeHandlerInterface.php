@@ -21,7 +21,7 @@ use App\Domain\Models\Interfaces\UsersInterface;
 use Symfony\Component\Form\FormInterface;
 
 /**
- * Interface AddTrickTypeHandlerInterface.
+ * Interfaces AddTrickTypeHandlerInterface.
  *
  * @author  Romain Bayette <romain.romss@gmail.com>
  */

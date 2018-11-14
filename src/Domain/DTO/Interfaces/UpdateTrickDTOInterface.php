@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\Domain\DTO\Interfaces;
 
 /**
- * Interface UpdateTrickDTOInterface
+ * Interfaces UpdateTrickDTOInterface
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

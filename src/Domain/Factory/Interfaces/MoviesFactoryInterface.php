@@ -16,7 +16,7 @@ namespace App\Domain\Factory\Interfaces;
 use App\Domain\Models\Interfaces\MoviesInterface;
 
 /**
- * Interface MoviesFactoryInterface
+ * Interfaces MoviesFactoryInterface
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

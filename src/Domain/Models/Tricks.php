@@ -196,9 +196,9 @@ class Tricks implements TricksInterface
 	}
 
     /**
-     * @param PicturesInterface $pictures
+     * @param array $pictures
      */
-    public function addPictures(PicturesInterface $pictures): void
+    public function addPictures(array $pictures): void
     {
         $this->pictures[] = $pictures;
     }
@@ -209,6 +209,11 @@ class Tricks implements TricksInterface
     public function unsetPictures(PicturesInterface $pictures): void
     {
         unset($this->pictures[array_search($pictures, (array) $this->pictures, true)]);
+    }
+    
+    public function removePictures(\ArrayAccess $picture)
+    {
+      $this->pictures->removeElement($picture);
     }
 
     /**

@@ -13,8 +13,10 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
+use App\Domain\Factory\Interfaces\MoviesFactoryInterface;
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
+use App\Domain\Models\Interfaces\MoviesInterface;
 use App\Domain\Models\Interfaces\PicturesInterface;
 use App\Domain\Models\Interfaces\TricksInterface;
 use App\Domain\Models\Movies;
@@ -50,12 +52,17 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
    * @var UploaderHelperInterface
    */
   private $uploaderHelper;
+  /**
+   * @var MoviesFactoryInterface
+   */
+  private $moviesFactory;
   
   /**
    * {@inheritdoc}
    */
   public function __construct(
     PictureFactoryInterface $pictureFactory,
+    MoviesFactoryInterface $moviesFactory,
     TricksRepositoryInterface $tricksRepository,
     TokenStorageInterface $tokenStorage,
     UploaderHelperInterface $uploaderHelper
@@ -64,6 +71,7 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
     $this->tokenStorage = $tokenStorage;
     $this->pictureFactory = $pictureFactory;
     $this->uploaderHelper = $uploaderHelper;
+    $this->moviesFactory = $moviesFactory;
   }
   
   /**
@@ -80,19 +88,31 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
   ):  bool
   {
     if ($form->isSubmitted() && $form->isValid()){
+      $pictures = [];
       foreach($form->getData()->pictures as $picture) {
         if(\is_a($picture, PicturesInterface::class ) || is_null($picture->file))  {
           continue;
         }
-        
         $fileName = $this->uploaderHelper->upload($picture->file);
         $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
-        
       }
-      foreach($pictures as $picture) {
-        $tricks->addPictures($picture);
+      
+      $existPictures = $tricks->getPictures();
+      dump($tricks->removePictures($existPictures));
+  
+      foreach($form->getData()->movies as $movie) {
+        if(\is_a($movie, MoviesInterface::class ) || is_null($movie->embed))  {
+          continue;
+        }
+        $movies[] = $this->moviesFactory->create($movie->embed, $movie->legend);
       }
-      $this->tricksRepository->update();
+      
+        $tricks->addPictures($pictures);
+      
+      foreach($movies as $movie) {
+        $tricks->addMovies($movie);
+      }
+      $this->tricksRepository->save($tricks);
   
       return true;
     }

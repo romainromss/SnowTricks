@@ -14,7 +14,7 @@ declare(strict_types = 1);
 namespace App\Infra\Helper\Interfaces;
 
 /**
- * Interface UploaderHelperInterface
+ * Interfaces UploaderHelperInterface
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

@@ -690,7 +690,7 @@
     return languages[name] || languages[aliases[name]];
   }
 
-  /* Interface definition */
+  /* Interfaces definition */
 
   hljs.highlight = highlight;
   hljs.highlightAuto = highlightAuto;
@@ -12426,7 +12426,7 @@ function(hljs) {
       'Default Define Dim DisableASM DisableDebugger DisableExplicit Else ElseIf EnableASM ' +
       'EnableDebugger EnableExplicit End EndEnumeration EndIf EndImport EndInterface EndMacro EndProcedure ' +
       'EndSelect EndStructure EndStructureUnion EndWith Enumeration Extends FakeReturn For Next ForEach ' +
-      'ForEver Global Gosub Goto If Import ImportC IncludeBinary IncludeFile IncludePath Interface Macro ' +
+      'ForEver Global Gosub Goto If Import ImportC IncludeBinary IncludeFile IncludePath Interfaces Macro ' +
       'NewList Not Or ProcedureReturn Protected Prototype ' +
       'PrototypeC Read ReDim Repeat Until Restore Return Select Shared Static Step Structure StructureUnion ' +
       'Swap To Wend While With XIncludeFile XOr ' +

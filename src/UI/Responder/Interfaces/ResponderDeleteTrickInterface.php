@@ -16,7 +16,7 @@ namespace App\UI\Responder\Interfaces;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
- * Interface ResponderDeleteTrickInterface
+ * Interfaces ResponderDeleteTrickInterface
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */

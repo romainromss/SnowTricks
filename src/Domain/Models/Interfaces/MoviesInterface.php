@@ -14,7 +14,7 @@ namespace App\Domain\Models\Interfaces;
 use App\Domain\Models\Tricks;
 
 /**
- * Interface MoviesInterface
+ * Interfaces MoviesInterface
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
