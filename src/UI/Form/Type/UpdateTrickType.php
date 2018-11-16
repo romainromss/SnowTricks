@@ -74,8 +74,8 @@ class UpdateTrickType extends AbstractType
       ])
     ;
     
-    $builder->get('pictures')->addEventSubscriber($this->pictureUpdateSubscriber);
-    $builder->get('movies')->addEventSubscriber($this->movieUpdateSubscriber);
+    //$builder->get('pictures')->addEventSubscriber($this->pictureUpdateSubscriber);
+    //$builder->get('movies')->addEventSubscriber($this->movieUpdateSubscriber);
   }
   
   /**
@@ -84,17 +84,7 @@ class UpdateTrickType extends AbstractType
   public function configureOptions(OptionsResolver $resolver)
   {
     $resolver->setDefaults([
-      'data_class' => UpdateTrickDTO::class,
-      'empty_data' => function (FormInterface $form){
-        return new UpdateTrickDTO(
-          $form->get('name')->getData(),
-          $form->get('description')->getData(),
-          $form->get('category')->getData(),
-          $form->get('pictures')->getData(),
-          $form->get('movies')->getData()
-        );
-      },
-      'validation_groups' => ['']
+      'data_class' => UpdateTrickDTO::class
     ]);
   }
 }

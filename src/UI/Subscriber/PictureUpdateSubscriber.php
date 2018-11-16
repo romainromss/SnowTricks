@@ -59,8 +59,7 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
   public static function getSubscribedEvents()
   {
     return [
-      FormEvents::PRE_SET_DATA => "onPreSetData",
-      FormEvents::PRE_SUBMIT => "onSubmit"
+      FormEvents::PRE_SET_DATA => "onPreSetData"
     ];
   }
   
@@ -74,10 +73,5 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
     foreach ($formEvent->getData() as $picture) {
       $pictures[] = new PictureDTO( new UploadedFile($this->imageFolder.$picture->file->getFileName(), $picture->file->getFilename()), $picture->legend, $picture->first);
     }
-  }
-  
-  public function onSubmit(FormEvent $formEvent)
-  {
-    dd($formEvent->getData());
   }
 }

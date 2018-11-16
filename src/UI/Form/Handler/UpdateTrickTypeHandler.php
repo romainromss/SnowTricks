@@ -93,7 +93,7 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
   ):  bool
   {
     if ($form->isSubmitted() && $form->isValid()){
-  
+    dd($form->getData());
       $movies = [];
       $pictures = [];
 //      foreach($form->getData()->pictures as $picture) {
