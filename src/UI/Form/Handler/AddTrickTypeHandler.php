@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
-use App\Domain\Factory\Interfaces\MoviesFactoryInterface;
+use App\Domain\Factory\Interfaces\MovieFactoryInterface;
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
-use App\Domain\Models\Users;
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Models\User;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -41,14 +41,14 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
   private $pictureFactory;
   
   /**
-   * @var MoviesFactoryInterface
+   * @var MovieFactoryInterface
    */
-  private $moviesFactory;
+  private $movieFactory;
   
   /**
-   * @var TricksRepositoryInterface
+   * @var TrickRepositoryInterface
    */
-  private $tricksRepository;
+  private $trickRepository;
   
   /**
    * @var TokenStorageInterface
@@ -64,34 +64,33 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
   /**
    * AddTrickTypeHandler constructor.
    *
-   * @param TrickFactoryInterface     $trickFactory
-   * @param PictureFactoryInterface   $pictureFactory
-   * @param MoviesFactoryInterface    $moviesFactory
-   * @param TricksRepositoryInterface $tricksRepository
-   * @param TokenStorageInterface     $tokenStorage
-   * @param UploaderHelper            $uploaderHelper
+   * @param TrickFactoryInterface    $trickFactory
+   * @param PictureFactoryInterface  $pictureFactory
+   * @param MovieFactoryInterface    $movieFactory
+   * @param TrickRepositoryInterface $trickRepository
+   * @param TokenStorageInterface    $tokenStorage
+   * @param UploaderHelper           $uploaderHelper
    */
   public function __construct(
     TrickFactoryInterface $trickFactory,
     PictureFactoryInterface $pictureFactory,
-    MoviesFactoryInterface $moviesFactory,
-    TricksRepositoryInterface $tricksRepository,
+    MovieFactoryInterface $movieFactory,
+    TrickRepositoryInterface $trickRepository,
     TokenStorageInterface $tokenStorage,
     UploaderHelper $uploaderHelper
   ) {
     $this->trickFactory = $trickFactory;
-    $this->tricksRepository = $tricksRepository;
+    $this->trickRepository = $trickRepository;
     $this->tokenStorage = $tokenStorage;
     $this->pictureFactory = $pictureFactory;
     $this->uploaderHelper = $uploaderHelper;
-    $this->moviesFactory = $moviesFactory;
+    $this->movieFactory = $movieFactory;
   }
   
   /**
-   * @param FormInterface  $form
+   * @param FormInterface $form
    *
    * @return bool
-   *
    * @throws \Doctrine\ORM\ORMException
    * @throws \Doctrine\ORM\OptimisticLockException
    */
@@ -104,18 +103,18 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
       }
       
       if (\count($form->getData()->movies) > 0) {
-          $movies = $this->moviesFactory->createFromArray($form->getData()->movies);
+          $movies = $this->movieFactory->createFromArray($form->getData()->movies);
       }
       
       $trick = $this->trickFactory->create(
         $form->getData()->name,
         $form->getData()->description,
         $form->getData()->category,
-        is_object($this->tokenStorage->getToken()->getUser()) ?$this->tokenStorage->getToken()->getUser(): new Users('', '', '', '', '', ''),
+        is_object($this->tokenStorage->getToken()->getUser()) ?$this->tokenStorage->getToken()->getUser(): new User('', '', '', '', '', ''),
         $pictures ?? [],
         $movies ?? []
       );
-      $this->tricksRepository->save($trick);
+      $this->trickRepository->save($trick);
       
       return true;
     }

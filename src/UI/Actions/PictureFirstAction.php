@@ -13,8 +13,8 @@ declare(strict_types = 1);
 
 namespace App\UI\Actions;
 
-use App\Domain\Repository\Interfaces\PicturesRepositoryInterface;
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Repository\Interfaces\PictureRepositoryInterface;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Responder\Interfaces\ResponderFirstPictureInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -28,26 +28,26 @@ use Symfony\Component\HttpFoundation\Request;
 class PictureFirstAction
 {
   /**
-   * @var PicturesRepositoryInterface
+   * @var PictureRepositoryInterface
    */
-  private $picturesRepository;
+  private $pictureRepository;
   /**
-   * @var TricksRepositoryInterface
+   * @var TrickRepositoryInterface
    */
-  private $tricksRepository;
+  private $trickRepository;
   
   /**
    * PictureFirstAction constructor.
    *
-   * @param PicturesRepositoryInterface $picturesRepository
-   * @param TricksRepositoryInterface   $tricksRepository
+   * @param PictureRepositoryInterface $pictureRepository
+   * @param TrickRepositoryInterface   $trickRepository
    */
   public function __construct (
-    PicturesRepositoryInterface $picturesRepository,
-    TricksRepositoryInterface $tricksRepository
+    PictureRepositoryInterface $pictureRepository,
+    TrickRepositoryInterface $trickRepository
   ) {
-    $this->picturesRepository = $picturesRepository;
-    $this->tricksRepository = $tricksRepository;
+    $this->pictureRepository = $pictureRepository;
+    $this->trickRepository = $trickRepository;
   }
   
   /**
@@ -63,13 +63,13 @@ class PictureFirstAction
     ResponderFirstPictureInterface $responderFirstPicture
   ) {
     $idPicture = $request->attributes->get('id');
-    $trick = $this->tricksRepository->getBySlugWithPicturesId($request->attributes->get('slug'), $idPicture);
+    $trick = $this->trickRepository->getBySlugWithPicturesId($request->attributes->get('slug'), $idPicture);
     
     foreach($trick->getPictures() as $picture) {
       $picture->getId()->toString() == $idPicture ? $picture->addFirst(true) : $picture->addFirst(false);
     }
     
-    $this->picturesRepository->flush();
+    $this->pictureRepository->flush();
     
     return $responderFirstPicture($request);
   }

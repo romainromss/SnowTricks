@@ -13,17 +13,19 @@
   
   namespace App\Domain\DTO\Interfaces;
   
+  use Symfony\Component\HttpFoundation\File\UploadedFile;
+
   interface PictureDTOInterface
   {
     /**
      * PictureDTO constructor.
      *
-     * @param \SplFileInfo $file
+     * @param UploadedFile $file
      * @param string       $legend
      * @param bool         $first
      */
     public function __construct (
-      \SplFileInfo $file,
+      UploadedFile $file,
       string $legend,
       bool $first = false
     );

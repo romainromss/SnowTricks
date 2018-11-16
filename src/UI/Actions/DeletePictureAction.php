@@ -13,7 +13,7 @@
 
   namespace App\UI\Actions;
 
-  use App\Domain\Repository\Interfaces\PicturesRepositoryInterface;
+  use App\Domain\Repository\Interfaces\PictureRepositoryInterface;
   use App\UI\Responder\Interfaces\ResponderDeletePictureInterface;
   use Symfony\Component\HttpFoundation\Request;
   use Symfony\Component\Routing\Annotation\Route;
@@ -26,18 +26,18 @@
   class DeletePictureAction
   {
     /**
-     * @var PicturesRepositoryInterface
+     * @var PictureRepositoryInterface
      */
-    private $picturesRepository;
+    private $pictureRepository;
 
     /**
      * DeletePictureAction constructor.
      *
-     * @param PicturesRepositoryInterface $picturesRepository
+     * @param PictureRepositoryInterface $pictureRepository
      */
-    public function __construct (PicturesRepositoryInterface $picturesRepository)
+    public function __construct (PictureRepositoryInterface $pictureRepository)
       {
-        $this -> picturesRepository = $picturesRepository;
+        $this -> pictureRepository = $pictureRepository;
       }
 
     /**
@@ -52,7 +52,7 @@
        ResponderDeletePictureInterface $responderDeletePicture,
        Request $request
       ) {
-        $this->picturesRepository->deletePictures($request->get('id'));
+        $this->pictureRepository->deletePictures($request->get('id'));
 
         return $responderDeletePicture();
       }

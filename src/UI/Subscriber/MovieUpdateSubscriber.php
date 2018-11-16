@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Subscriber;
 
+use App\Domain\DTO\MovieDTO;
 use App\UI\Subscriber\Interfaces\movieUpdateSubscriberInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\FormEvent;
@@ -45,17 +46,15 @@ class MovieUpdateSubscriber implements EventSubscriberInterface, movieUpdateSubs
   /**
    * {@inheritdoc}
    */
-  public function onPreSetData(FormEvent $event)
+  public function onPreSetData(FormEvent $formEvent)
   {
-    $this->movies = $event->getData();
+    $this->movies = $formEvent->getData();
     
-    $data = [];
+    $movies = [];
     
-    foreach ($event->getData() as $movies) {
-      $data[] = \is_string($movies->getEmbed()); $movies->getLegend()  ? $movies->getEmbed(): null;
-      $event->setData($data);
+    foreach ($formEvent->getData() as $movie) {
+      $movies[] = new MovieDTO($movie->embed, $movie->legend);
       
-      unset($event->getData()[array_search($movies, $event->getData())]);
     }
   }
 }

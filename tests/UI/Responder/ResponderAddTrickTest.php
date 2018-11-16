@@ -12,7 +12,7 @@ declare(strict_types=1);
  */
 
 namespace App\Tests\UI\Responder;
-use App\Domain\Repository\TricksRepository;
+use App\Domain\Repository\TrickRepository;
 use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use App\UI\Responder\ResponderAddTrick;
 use PHPUnit\Framework\TestCase;
@@ -34,7 +34,7 @@ class ResponderAddTrickTest extends TestCase
 	 */
 	private $twig;
 	/**
-	 * @var TricksRepository
+	 * @var TrickRepository
 	 */
 	private $tricksRepository;
 	/**
@@ -49,7 +49,7 @@ class ResponderAddTrickTest extends TestCase
 	protected function setUp()
 	{
 		$this->twig = $this->createMock(Environment::class);
-		$this->tricksRepository = $this->createMock(TricksRepository::class);
+		$this->tricksRepository = $this->createMock(TrickRepository::class);
 		$this->addTricksType = $this->createMock(FormInterface::class);
 		$this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
 	}

@@ -13,15 +13,16 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
-use App\Domain\Factory\Interfaces\MoviesFactoryInterface;
+use App\Domain\DTO\UpdateTrickDTO;
+use App\Domain\Factory\Interfaces\MovieFactoryInterface;
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
-use App\Domain\Models\Interfaces\MoviesInterface;
-use App\Domain\Models\Interfaces\PicturesInterface;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Movies;
-use App\Domain\Models\Pictures;
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Models\Interfaces\MovieInterface;
+use App\Domain\Models\Interfaces\PictureInterface;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Movie;
+use App\Domain\Models\Picture;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\Infra\Helper\Interfaces\UploaderHelperInterface;
 use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\Interfaces\UpdateTrickTypeHandlerInterface;
@@ -36,7 +37,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
 {
   /**
-   * @var TricksRepositoryInterface
+   * @var TrickRepositoryInterface
    */
   private $tricksRepository;
   
@@ -53,17 +54,21 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
    */
   private $uploaderHelper;
   /**
-   * @var MoviesFactoryInterface
+   * @var MovieFactoryInterface
    */
   private $moviesFactory;
+  /**
+   * @var UpdateTrickDTO
+   */
+  private $updateTrickDTO;
   
   /**
    * {@inheritdoc}
    */
   public function __construct(
     PictureFactoryInterface $pictureFactory,
-    MoviesFactoryInterface $moviesFactory,
-    TricksRepositoryInterface $tricksRepository,
+    MovieFactoryInterface $moviesFactory,
+    TrickRepositoryInterface $tricksRepository,
     TokenStorageInterface $tokenStorage,
     UploaderHelperInterface $uploaderHelper
   ) {
@@ -75,8 +80,8 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
   }
   
   /**
-   * @param FormInterface   $form
-   * @param TricksInterface $tricks
+   * @param FormInterface  $form
+   * @param TrickInterface $tricks
    *
    * @return bool
    * @throws \Doctrine\ORM\ORMException
@@ -84,36 +89,35 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
    */
   public function handle(
     FormInterface $form,
-    TricksInterface $tricks
+    TrickInterface $tricks
   ):  bool
   {
     if ($form->isSubmitted() && $form->isValid()){
+  
+      $movies = [];
       $pictures = [];
-      foreach($form->getData()->pictures as $picture) {
-        if(\is_a($picture, PicturesInterface::class ) || is_null($picture->file))  {
-          continue;
-        }
-        $fileName = $this->uploaderHelper->upload($picture->file);
-        $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
-      }
+//      foreach($form->getData()->pictures as $picture) {
+//        if(\is_a($picture, PictureInterface::class ) || is_null($picture->file))  {
+//          continue;
+//        }
+      
+      $fileName = $this->uploaderHelper->upload($pictures->file);
+        $pictures[] = $this->pictureFactory->create($fileName, $pictures->getLegend(), $pictures->isFirst());
       
       $existPictures = $tricks->getPictures();
-      dump($tricks->removePictures($existPictures));
-  
+      $tricks->removePictures($existPictures);
+      
       foreach($form->getData()->movies as $movie) {
-        if(\is_a($movie, MoviesInterface::class ) || is_null($movie->embed))  {
+        if(\is_a($movie, MovieInterface::class ) || is_null($movie->embed))  {
           continue;
         }
         $movies[] = $this->moviesFactory->create($movie->embed, $movie->legend);
       }
       
-        $tricks->addPictures($pictures);
-      
-      foreach($movies as $movie) {
-        $tricks->addMovies($movie);
-      }
+      $tricks->addPictures($pictures);
+      $tricks->addMovies($movies);
       $this->tricksRepository->save($tricks);
-  
+      
       return true;
     }
     return false;

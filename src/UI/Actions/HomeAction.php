@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Responder\Interfaces\ResponderHomeInterface;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -28,18 +28,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeAction
 {
 	/**
-	 * @var TricksRepositoryInterface
+	 * @var TrickRepositoryInterface
 	 */
-	private $tricksRepository;
+	private $trickRepository;
 
 	/**
 	 * HomeAction constructor.
 	 *
-	 * @param TricksRepositoryInterface $tricksRepository
+	 * @param TrickRepositoryInterface $trickRepository
 	 */
-	public function __construct(TricksRepositoryInterface $tricksRepository)
+	public function __construct(TrickRepositoryInterface $trickRepository)
 	{
-		$this->tricksRepository = $tricksRepository;
+		$this->trickRepository = $trickRepository;
 	}
 
 	/**
@@ -53,10 +53,10 @@ class HomeAction
 		ResponderHomeInterface $responderHome
 	):  Response {
 	 
-		$tricks = $this->tricksRepository->getAllWithPictures(true);
+		$trick = $this->trickRepository->getAllWithPictures(true);
 
 		return $responderHome([
-			'tricks' => $tricks
+			'trick' => $trick
 		]);
 	}
 }

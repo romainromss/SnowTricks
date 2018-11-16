@@ -2,15 +2,15 @@
 
 {% block head %}
     <!-- Page Content -->
-    {% for picture in tricks.pictures if picture.first == true %}
+    {% for picture in trick.pictures if picture.first == true %}
         <div class="bg-image" style='background-image: url("{{ asset('images/Upload/' ~ picture.name ) }}");'>
     {% endfor %}
     <div class="btnheader">
         {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-            <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 test" href="{{ path('deleteTrick', {'slug' : tricks.slug}  ) }}">
+            <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 test" href="{{ path('deleteTrick', {'slug' : trick.slug}  ) }}">
                 <i class="fa fa-trash"> Supprimer </i>
             </a>
-           <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75 update" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}">
+           <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75 update" href="{{ path('updateTrick', {'slug' : trick.slug}  ) }}">
                 <i class="fa fa-pencil"> Modifier </i>
             </a>
         {% endif %}
@@ -19,7 +19,7 @@
         <div class="hero-inner">
             <div class="content content-full text-center">
                 <h1 class="display-4 font-w700 text-white mb-10 invisible"
-                    data-toggle="appear" data-class="animated fadeInDown">{{ tricks.name }}</h1>
+                    data-toggle="appear" data-class="animated fadeInDown">{{ trick.name }}</h1>
             </div>
         </div>
     </div>
@@ -36,20 +36,20 @@
          <div class="content">
              <div id="Display">
                  <div class="row items-push js-gallery img-fluid-100">
-                     {% for picture in tricks.pictures if picture.first == false %}
+                     {% for picture in trick.pictures if picture.first == false %}
                          <div class="col-md-6 col-lg-4 col-xl-3 medias" style="height: 200px">
                              <a href="{{ asset('images/Upload/' ~ picture.name ) }}">
                                  <img class="img-fluid" style="height: 190px" src="{{ asset('images/Upload/' ~ picture.name ) }}" alt="">
                              </a>
                              {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75" href="{{ path('deletePicture', {'id' : picture.id}  ) }}"><i class="fa fa-trash"></i></a>
-                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
-                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75" href="{{ path('pictureFirst', {'slug' : tricks.slug, 'id': picture.id}  ) }}"><i class="fa fa-angle-double-up"></i> </a>
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : trick.slug}  ) }}"><i class="fa fa-pencil"></i></a>
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75" href="{{ path('pictureFirst', {'slug' : trick.slug, 'id': picture.id}  ) }}"><i class="fa fa-angle-double-up"></i> </a>
                              {% endif %}
                          </div>
                      {% endfor %}
 
-                     {% for movie in tricks.movies %}
+                     {% for movie in trick.movies %}
                          <div class="col-md-6 col-lg-4 col-xl-3 medias" style="height: 200px">
                              <iframe style="height: 190px; width: 100%; min-height: 180px"
                                      src="https://www.youtube.com/embed/{{ movie.embed }}?ecver=1"
@@ -57,7 +57,7 @@
                              </iframe>
                              {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75" href="{{ path('deleteMovie', {'id' : movie.id}  ) }}"><i class="fa fa-trash"></i></a>
-                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : tricks.slug}  ) }}"><i class="fa fa-pencil"></i></a>
+                                 <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : trick.slug}  ) }}"><i class="fa fa-pencil"></i></a>
                              {% endif %}
                          </div>
                      {% endfor %}
@@ -68,16 +68,16 @@
                  <button  id="more" type="button" class="btn btn-rounded btn-noborder btn-info min-width-125 mb-10" style="display: block; margin: auto">More</button><br>
              </div>
 
-             <h3 style="text-align: center; color: #292929">{{ tricks.description }}</h3>
+             <h3 style="text-align: center; color: #292929">{{ trick.description }}</h3>
              <div class="info">
                  <p class="groupInfo">
-                     modification: {{ tricks.updatedAt|date("d/m/Y") }}
+                     modification: {{ trick.updatedAt|date("d/m/Y") }}
                  </p>
                  <p class="groupInfo">
-                     création: {{ tricks.createdAt|date("d/m/Y") }}
+                     création: {{ trick.createdAt|date("d/m/Y") }}
                  </p>
                  <p class="groupInfo">
-                     groupe:{{ tricks.group }}
+                     groupe:{{ trick.group }}
                  </p>
              </div>
          </div>
@@ -109,15 +109,15 @@
          <div class="row" style="justify-content: center">
              <div class="col-sm-6 col-md-8 col-lg-8" style="border-top: 2px solid rgba(40,40,40,0.6); padding-top:50px">
                  <ul class="nav-users push">
-                     {% for comment in tricks.comments %}
+                     {% for comment in trick.comments %}
                          <li class="comments">
-                             {% if comment.users %}
-                                 {% if comment.users.pictures is defined %}
+                             {% if comment.user %}
+                                 {% if comment.user.pictures is defined %}
                                      <img class="img-avatar" src="{{ asset('images/Upload/avatar_defaut.png') }}" alt="">
                                  {% else %}
-                                     <img class="img-avatar" src="{{ asset('img/avatars/' ~ comment.users.pictures.name ) }}" alt="">
+                                     <img class="img-avatar" src="{{ asset('img/avatars/' ~ comment.user.pictures.name ) }}" alt="">
                                  {% endif %}
-                                 <p class="d-inline-block" style="font-weight: bold; font-size: 15px; margin-left: 16px"> {{ comment.users.username }} </p>
+                                 <p class="d-inline-block" style="font-weight: bold; font-size: 15px; margin-left: 16px"> {{ comment.user.username }} </p>
                              {% endif %}
                              <div class="font-w400 text-muted" style="padding-left: 65px; margin-bottom: 30px; margin-top: -12px ">{{ comment.content }}</div>
                          </li>

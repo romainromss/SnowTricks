@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Domain\DataFixtures\ORM;
 
-use App\Domain\Models\Movies;
+use App\Domain\Models\Movie;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -26,49 +26,49 @@ class MovieFixtures extends Fixture
    */
   public function load(ObjectManager $manager)
   {
-    $movie1 = new Movies(
+    $movie1 = new Movie(
       'embed'. 1,
       'legend'. 1
     );
     $this->addReference('movies1', $movie1);
   
-    $movie2 = new Movies(
+    $movie2 = new Movie(
       'embed'. 1,
       'legend'. 1
     );
     $this->addReference('movies2', $movie2);
     
-    $movie3 = new Movies(
+    $movie3 = new Movie(
       'embed'. 1,
       'legend'. 1
     );
     $this->addReference('movies3', $movie3);
     
-    $movie4 = new Movies(
+    $movie4 = new Movie(
       'embed'. 1,
       'legend'. 1
     );
     $this->addReference('movies4', $movie4);
     
-    $movie5 = new Movies(
+    $movie5 = new Movie(
       'embed'. 1,
       'legend'. 1
     );
     $this->addReference('movies5', $movie5);
     
-    $movie6 = new Movies(
+    $movie6 = new Movie(
       'embed'. 1,
       'legend'. 1
     );
     $this->addReference('movies6', $movie6);
     
-    $movie7 = new Movies(
+    $movie7 = new Movie(
       'embed'. 1,
       'legend'. 1
     );
     $this->addReference('movies7', $movie7);
     
-    $movie8 = new Movies(
+    $movie8 = new Movie(
       'embed'. 1,
       'legend'. 1
     );

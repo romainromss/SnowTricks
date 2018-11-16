@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace App\Tests\Domain\Factory;
 
 use App\Domain\Factory\TrickFactory;
-use App\Domain\Models\Interfaces\MoviesInterface;
-use App\Domain\Models\Interfaces\PicturesInterface;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Interfaces\UsersInterface;
-use App\Domain\Models\Tricks;
+use App\Domain\Models\Interfaces\MovieInterface;
+use App\Domain\Models\Interfaces\PictureInterface;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Trick;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -68,7 +68,7 @@ class TrickFactoryTest extends TestCase
     $this->name = 'name';
     $this->description = 'description';
     $this->category = 'group';
-    $this->users = $this->createMock(UsersInterface::class);
+    $this->users = $this->createMock(UserInterface::class);
     $this->pictures = ['picture'];
     $this->movies = ['movies'];
   }

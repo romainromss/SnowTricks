@@ -12,7 +12,7 @@ declare(strict_types = 1);
  */
 namespace App\Domain\DataFixtures\ORM;
 
-use App\Domain\Models\Users;
+use App\Domain\Models\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -25,7 +25,7 @@ class UserFixtures extends Fixture
    */
   public function load(ObjectManager $manager)
   {
-      $users = new Users(
+      $user = new User(
         'username'. 'a',
         'email@gmail.com',
         'name'. 'a',
@@ -33,9 +33,9 @@ class UserFixtures extends Fixture
         '12345678'.'a',
         'user'
       );
-      $this->addReference('user', $users);
+      $this->addReference('users', $user);
       
-      $manager->persist($users);
+      $manager->persist($user);
     $manager->flush();
   }
 }

@@ -13,11 +13,11 @@ declare(strict_types = 1);
 
 namespace App\Tests\UI\Actions;
 
-use App\Domain\Models\Interfaces\PicturesInterface;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Pictures;
-use App\Domain\Repository\Interfaces\PicturesRepositoryInterface;
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Models\Interfaces\PictureInterface;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Picture;
+use App\Domain\Repository\Interfaces\PictureRepositoryInterface;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Actions\PictureFirstAction;
 use App\UI\Responder\ResponderPictureFirst;
 use PHPUnit\Framework\TestCase;
@@ -34,12 +34,12 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class PictureFirstActionTest extends TestCase
 {
   /**
-   * @var PicturesRepositoryInterface
+   * @var PictureRepositoryInterface
    */
   private $pictureRepository = null;
   
   /**
-   * @var TricksRepositoryInterface
+   * @var TrickRepositoryInterface
    */
   private $trickRepository = null;
   
@@ -54,22 +54,22 @@ class PictureFirstActionTest extends TestCase
   private $request;
   
   /**
-   * @var PicturesInterface
+   * @var PictureInterface
    */
   private $picture;
   
   /**
-   * @var TricksInterface
+   * @var TrickInterface
    */
   private $trick;
   
   protected function setUp()
   {
-    $this->pictureRepository = $this->createMock(PicturesRepositoryInterface::class);
-    $this->trickRepository = $this->createMock(TricksRepositoryInterface::class);
+    $this->pictureRepository = $this->createMock(PictureRepositoryInterface::class);
+    $this->trickRepository = $this->createMock(TrickRepositoryInterface::class);
     $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
-    $this->picture = $this->createMock(PicturesInterface::class);
-    $this->trick = $this->createMock(TricksInterface::class);
+    $this->picture = $this->createMock(PictureInterface::class);
+    $this->trick = $this->createMock(TrickInterface::class);
     $uuid = $this->createMock(UuidInterface::class);
     
     $this->urlGenerator->method('generate')->willReturn('/tricks/mute');

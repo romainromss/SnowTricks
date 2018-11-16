@@ -1,8 +1,9 @@
 doctrine:
     dbal:
         # configure these for your database server
-        driver: 'pdo_pgsql'
-        server_version: '9.6'
+        driver: '%env(DB_DRIVER_DEV)%'
+        server_version: '%env(DB_VERSION_DEV)%'
+        charset: '%env(DB_CHARSET_DEV)%'
         types:
             uuid:  Ramsey\Uuid\Doctrine\UuidType
 

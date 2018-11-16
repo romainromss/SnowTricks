@@ -14,12 +14,12 @@ declare(strict_types=1);
 namespace App\Tests\UI\Form\Handler;
 
 
-use App\Domain\Factory\MoviesFactory;
+use App\Domain\Factory\MovieFactory;
 use App\Domain\Factory\PictureFactory;
 use App\Domain\Factory\TrickFactory;
 use App\Domain\DTO\AddTrickDTO;
-use App\Domain\Models\Interfaces\UsersInterface;
-use App\Domain\Repository\TricksRepository;
+use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Repository\TrickRepository;
 use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\AddTrickTypeHandler;
 use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
@@ -42,7 +42,7 @@ class AddTrickTypeHandlerTest extends TestCase
   private $trickFactory;
   
   /**
-   * @var TricksRepository
+   * @var TrickRepository
    */
   private $tricksRepository;
   
@@ -62,7 +62,7 @@ class AddTrickTypeHandlerTest extends TestCase
   private $pictureFactory;
   
   /**
-   * @var MoviesFactory
+   * @var MovieFactory
    */
   private $movieFactory;
   
@@ -75,13 +75,13 @@ class AddTrickTypeHandlerTest extends TestCase
   {
     $this->trickFactory = $this->createMock(TrickFactory::class);
     $this->pictureFactory = $this->createMock(PictureFactory::class);
-    $this->movieFactory = $this->createMock(MoviesFactory::class);
+    $this->movieFactory = $this->createMock(MovieFactory::class);
     $this->uploaderHelper = $this->createMock(UploaderHelper::class);
-    $this->tricksRepository = $this->createMock(TricksRepository::class);
+    $this->tricksRepository = $this->createMock(TrickRepository::class);
     $this->tokenstorage = $this->createMock(TokenStorageInterface::class);
     $token = $this->createMock(TokenInterface::class);
     $this->tokenstorage->method('getToken')->willReturn($token);
-    $token->method('getUser')->willReturn($this->createMock(UsersInterface::class));
+    $token->method('getUser')->willReturn($this->createMock(UserInterface::class));
     $this->formInterface = $this->createMock(FormInterface::class);
   }
   

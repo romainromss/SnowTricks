@@ -14,9 +14,9 @@ declare(strict_types=1);
 namespace App\Domain\Factory;
 
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Interfaces\UsersInterface;
-use App\Domain\Models\Tricks;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Trick;
 
 /**
  * Class TrickFactory.
@@ -26,23 +26,23 @@ use App\Domain\Models\Tricks;
 class TrickFactory implements TrickFactoryInterface
 {
   /**
-   * @param string         $name
-   * @param string         $description
-   * @param string         $category
-   * @param UsersInterface $users
-   * @param array          $pictures
-   * @param array          $movies
+   * @param string        $name
+   * @param string        $description
+   * @param string        $category
+   * @param UserInterface $user
+   * @param array         $picture
+   * @param array         $movie
    *
-   * @return TricksInterface
+   * @return TrickInterface
    */
 	public function create(
-		string $name,
-		string $description,
-		string $category,
-		UsersInterface $users,
-		array $pictures,
-		array $movies
-	): TricksInterface {
-		return new Tricks($name, $description, $category, $users, $pictures, $movies);
+      string $name,
+      string $description,
+      string $category,
+      UserInterface $user,
+      array $picture,
+      array $movie
+	): TrickInterface {
+		return new Trick($name, $description, $category, $user, $picture, $movie);
 	}
 }

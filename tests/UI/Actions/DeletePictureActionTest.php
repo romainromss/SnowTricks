@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Tests\UI\Actions;
 
-use App\Domain\Repository\Interfaces\PicturesRepositoryInterface;
+use App\Domain\Repository\Interfaces\PictureRepositoryInterface;
 use App\UI\Actions\DeletePictureAction;
 use App\UI\Responder\Interfaces\ResponderDeletePictureInterface;
 use App\UI\Responder\ResponderDeletePicture;
@@ -30,7 +30,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class DeletePictureActionTest extends TestCase
 {
   /**
-   * @var PicturesRepositoryInterface
+   * @var PictureRepositoryInterface
    */
   private $pictureRepository;
   
@@ -50,7 +50,7 @@ class DeletePictureActionTest extends TestCase
   private $request;
   
   public function setUp(){
-    $this->pictureRepository = $this->createMock(PicturesRepositoryInterface::class);
+    $this->pictureRepository = $this->createMock(PictureRepositoryInterface::class);
     $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
     $this->urlGenerator->method('generate')->willReturn('/');
     $this->responderDeletePicture = $this->createMock(ResponderDeletePictureInterface::class);

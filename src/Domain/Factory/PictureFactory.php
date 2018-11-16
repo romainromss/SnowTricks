@@ -14,8 +14,8 @@ declare(strict_types = 1);
 namespace App\Domain\Factory;
 
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
-use App\Domain\Models\Interfaces\PicturesInterface;
-use App\Domain\Models\Pictures;
+use App\Domain\Models\Interfaces\PictureInterface;
+use App\Domain\Models\Picture;
 use App\Infra\Helper\UploaderHelper;
 
 /**
@@ -47,8 +47,8 @@ class PictureFactory implements PictureFactoryInterface
     string $name,
     string $legend,
     bool $first
-  ): PicturesInterface {
-    return new Pictures($name, $legend, $first);
+  ): PictureInterface {
+    return new Picture($name, $legend, $first);
   }
   
   /**
@@ -73,7 +73,7 @@ class PictureFactory implements PictureFactoryInterface
         $pictures[0]->first = true;
       }
       
-      $entries[] = new Pictures($fileName, $picture->legend, $picture->first);
+      $entries[] = new Picture($fileName, $picture->legend, $picture->first);
     }
     
     return $entries;

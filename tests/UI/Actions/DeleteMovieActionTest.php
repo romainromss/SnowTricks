@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Tests\UI\Actions;
 
-use App\Domain\Repository\Interfaces\MoviesRepositoryInterface;
+use App\Domain\Repository\Interfaces\MovieRepositoryInterface;
 use App\UI\Actions\DeleteMovieAction;
 use App\UI\Responder\ResponderDeleteMovie;
 use PHPUnit\Framework\TestCase;
@@ -29,7 +29,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 class DeleteMovieActionTest extends TestCase
 {
   /**
-   * @var MoviesRepositoryInterface
+   * @var MovieRepositoryInterface
    */
   private $movieRepository;
   
@@ -44,7 +44,7 @@ class DeleteMovieActionTest extends TestCase
   private $request;
   
   public function setUp(){
-    $this->movieRepository = $this->createMOck(MoviesRepositoryInterface::class);
+    $this->movieRepository = $this->createMOck(MovieRepositoryInterface::class);
     $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
     $this->urlGenerator->method('generate')->willReturn('/');
     $request = Request::create('/delete/movie/e176534a-48bd-4437-be49-f7742862f2e4', 'GET');

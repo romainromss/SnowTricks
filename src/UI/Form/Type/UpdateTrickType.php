@@ -14,14 +14,13 @@ declare(strict_types = 1);
 namespace App\UI\Form\Type;
 
 use App\Domain\DTO\UpdateTrickDTO;
-use App\UI\Form\DataTransformer\MoviesToFileTransformer;
-use App\UI\Form\DataTransformer\PicturesToFIleTransformer;
 use App\UI\Subscriber\MovieUpdateSubscriber;
 use App\UI\Subscriber\PictureUpdateSubscriber;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UpdateTrickType extends AbstractType
@@ -85,7 +84,17 @@ class UpdateTrickType extends AbstractType
   public function configureOptions(OptionsResolver $resolver)
   {
     $resolver->setDefaults([
-      'data_class' => UpdateTrickDTO::class
+      'data_class' => UpdateTrickDTO::class,
+      'empty_data' => function (FormInterface $form){
+        return new UpdateTrickDTO(
+          $form->get('name')->getData(),
+          $form->get('description')->getData(),
+          $form->get('category')->getData(),
+          $form->get('pictures')->getData(),
+          $form->get('movies')->getData()
+        );
+      },
+      'validation_groups' => ['']
     ]);
   }
 }

@@ -13,10 +13,10 @@
 
   namespace App\Tests\UI\Subscriber;
 
-  use App\Domain\DTO\MoviesDTO;
+  use App\Domain\DTO\MovieDTO;
   use App\Domain\DTO\UpdateTrickDTO;
-  use App\Domain\Models\Interfaces\MoviesInterface;
-  use App\Domain\Models\Movies;
+  use App\Domain\Models\Interfaces\MovieInterface;
+  use App\Domain\Models\Movie;
   use App\UI\Subscriber\MovieUpdateSubscriber;
   use PHPUnit\Framework\TestCase;
   use Symfony\Component\Form\FormEvent;
@@ -56,7 +56,7 @@
     {
       $this->updateTrickSubscriber = $this->createMock(MovieUpdateSubscriber::class);
       $this->formEvent = $this->createMock(FormEvent::class);
-      $this->movies = $this->createMock(Movies::class);
+      $this->movies = $this->createMock(Movie::class);
       
       $this->imageFolder = '360.svg';
     }
@@ -70,7 +70,7 @@
     
     public function testDataAreSet()
     {
-      $movieMock = $this->createMock(MoviesInterface::class);
+      $movieMock = $this->createMock(MovieInterface::class);
       $movies[] = $movieMock;
       $movieDTOMock = new UpdateTrickDTO('name','','',[],$movies);
       $this->formEvent->method('getData')->willReturn($movieDTOMock);

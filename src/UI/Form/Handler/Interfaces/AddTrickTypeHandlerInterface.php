@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace App\UI\Form\Handler\Interfaces;
 
 
-use App\Domain\Models\Interfaces\CommentsInterface;
-use App\Domain\Models\Interfaces\MoviesInterface;
-use App\Domain\Models\Interfaces\PicturesInterface;
-use App\Domain\Models\Interfaces\UsersInterface;
+use App\Domain\Models\Interfaces\CommentInterface;
+use App\Domain\Models\Interfaces\MovieInterface;
+use App\Domain\Models\Interfaces\PictureInterface;
+use App\Domain\Models\Interfaces\UserInterface;
 use Symfony\Component\Form\FormInterface;
 
 /**

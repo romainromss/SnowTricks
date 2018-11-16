@@ -14,13 +14,13 @@
   namespace App\Domain\DTO;
   
   use App\Domain\DTO\Interfaces\PictureDTOInterface;
-  use Ramsey\Uuid\Uuid;
+  use Symfony\Component\HttpFoundation\File\UploadedFile;
 
   class PictureDTO implements PictureDTOInterface
   {
     
     /**
-     * @var \SplFileInfo
+     * @var UploadedFile
      */
     public $file;
   
@@ -38,7 +38,7 @@
      * {@inheritdoc}
      */
     public function __construct(
-      \SplFileInfo $file = null,
+      UploadedFile $file = null,
       string $legend = null,
       bool $first = false
     )

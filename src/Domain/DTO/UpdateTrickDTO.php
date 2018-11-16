@@ -38,7 +38,7 @@ class UpdateTrickDTO implements UpdateTrickDTOInterface
 	public $category;
 
 	/**
-	 * @var array
+	 * @var
 	 */
 	public $pictures = [];
 

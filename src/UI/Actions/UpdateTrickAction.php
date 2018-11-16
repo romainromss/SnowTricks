@@ -13,13 +13,16 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
+use App\Domain\DTO\MovieDTO;
+use App\Domain\DTO\PictureDTO;
 use App\Domain\DTO\UpdateTrickDTO;
-use App\Domain\Models\Tricks;
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
+use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
 use App\UI\Form\Type\UpdateTrickType;
 use App\UI\Responder\Interfaces\ResponderUpdateTrickInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,37 +34,45 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class UpdateTrickAction
 {
-	/**
-	 * @var FormFactoryInterface
-	 */
-	private $formFactory;
-
-	/**
-	 * @var UpdateTrickTypeHandler
-	 */
-	private $updateTrickTypeHandler;
-
-	/**
-	 * @var TricksRepositoryInterface
-	 */
-	private $tricksRepository;
-
-	/**
-	 * UpdateTrickAction constructor.
-	 *
-	 * @param FormFactoryInterface       $formFactory
-	 * @param UpdateTrickTypeHandler     $updateTrickTypeHandler
-	 * @param TricksRepositoryInterface  $tricksRepository
-	 */
-	public function __construct(
-		FormFactoryInterface $formFactory,
-		UpdateTrickTypeHandler $updateTrickTypeHandler,
-		TricksRepositoryInterface $tricksRepository
-	) {
-		$this->formFactory = $formFactory;
-		$this->updateTrickTypeHandler = $updateTrickTypeHandler;
-		$this->tricksRepository = $tricksRepository;
-	}
+  /**
+   * @var FormFactoryInterface
+   */
+  private $formFactory;
+  
+  /**
+   * @var UpdateTrickTypeHandler
+   */
+  private $updateTrickTypeHandler;
+  
+  /**
+   * @var TrickRepositoryInterface
+   */
+  private $trickRepository;
+  /**
+   * @var string
+   */
+  private $imageFolder;
+  
+  /**
+   * UpdateTrickAction constructor.
+   *
+   * @param FormFactoryInterface     $formFactory
+   * @param UpdateTrickTypeHandler   $updateTrickTypeHandler
+   * @param TrickRepositoryInterface $trickRepository
+   * @param string                   $imageFolder
+   */
+  public function __construct(
+    FormFactoryInterface $formFactory,
+    UpdateTrickTypeHandler $updateTrickTypeHandler,
+    TrickRepositoryInterface $trickRepository,
+    string $imageFolder
+    
+  ) {
+    $this->formFactory = $formFactory;
+    $this->updateTrickTypeHandler = $updateTrickTypeHandler;
+    $this->trickRepository = $trickRepository;
+    $this->imageFolder = $imageFolder;
+  }
   
   /**
    * @Route("update/trick/{slug}", name="updateTrick")
@@ -74,32 +85,40 @@ class UpdateTrickAction
    * @throws \Doctrine\ORM\ORMException
    * @throws \Doctrine\ORM\OptimisticLockException
    */
-	public function __invoke(
-		ResponderUpdateTrickInterface $responderUpdateTricks,
-		Request $request
-	):  Response {
+  public function __invoke(
+    ResponderUpdateTrickInterface $responderUpdateTricks,
+    Request $request
+  ):  Response {
+    
+    $trick = $this->trickRepository->getBySlug($request->attributes->get('slug'));
 
-		$tricks = $this->tricksRepository->getBySlug($request->attributes->get('slug'));
-
-		$dto = new UpdateTrickDTO(
-			$tricks->getName(),
-			$tricks->getDescription(),
-			$tricks->getGroup(),
-			$tricks->getPictures()->toArray(),
-			$tricks->getMovies()->toArray()
-		);
-
-		$updateTrickType = $this->formFactory
-			->create(UpdateTrickType::class, $dto)
-			->handleRequest($request);
-
-		if ($this->updateTrickTypeHandler->handle($updateTrickType, $tricks)){
-			return $responderUpdateTricks(true);
-		}
-
-		return $responderUpdateTricks(false,[
-			'tricks' => $tricks,
-			'form' => $updateTrickType->createView()
-		], $updateTrickType);
-	}
+    foreach($trick->getPictures()->toArray() as $picture) {
+      $fileName = new UploadedFile($this->imageFolder.$picture->getName(), $picture->getName());
+      $pictureDTO[] = new PictureDTO($fileName, $picture->getLegend(), $picture->isFirst());
+    }
+    foreach($trick->getMovies()->toArray() as $movie) {
+      $movieDTO[] = new MovieDTO($movie->getEmbed(), $movie->getLegend());
+    }
+    
+    $dto = new UpdateTrickDTO(
+      $trick->getName(),
+      $trick->getDescription(),
+      $trick->getGroup(),
+      $pictureDTO,
+      $movieDTO
+    );
+    
+    $updateTrickType = $this->formFactory
+      ->create(UpdateTrickType::class, $dto)
+      ->handleRequest($request);
+    
+    if ($this->updateTrickTypeHandler->handle($updateTrickType, $trick)){
+      return $responderUpdateTricks(true);
+    }
+    
+    return $responderUpdateTricks(false,[
+      'trick' => $trick,
+      'form' => $updateTrickType->createView()
+    ], $updateTrickType);
+  }
 }

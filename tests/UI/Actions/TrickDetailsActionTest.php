@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Actions;
 
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Repository\TricksRepository;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Repository\TrickRepository;
 use App\UI\Actions\TrickDetailsAction;
 use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use App\UI\Responder\Interfaces\ResponderTrickDetailsInterface;
@@ -55,11 +55,11 @@ class TrickDetailsActionTest extends KernelTestCase
      */
     private $addCommentTypeHandler;
     /**
-     * @var TricksRepository
+     * @var TrickRepository
      */
     private $tricksRepository;
     /**
-     * @var TricksInterface
+     * @var TrickInterface
      */
     private $tricks;
 
@@ -72,8 +72,8 @@ class TrickDetailsActionTest extends KernelTestCase
         $this->urlGenerator->method('generate')->willReturn('/');
         $this->request = Request::create('/tricks/mute', 'POST');
         $this->addCommentTypeHandler = $this->createMock(AddCommentTypeHandlerInterface::class);
-        $this->tricksRepository = $this->createMock(TricksRepository::class);
-        $this->tricks = $this->createMock(TricksInterface::class);
+        $this->tricksRepository = $this->createMock(TrickRepository::class);
+        $this->tricks = $this->createMock(TrickInterface::class);
         $this->tricksRepository->method('getBySlug')->willReturn($this->tricks);
     }
 

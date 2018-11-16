@@ -13,8 +13,8 @@
   
   namespace App\Tests\UI\Actions;
   
-  use App\Domain\Models\Tricks;
-  use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+  use App\Domain\Models\Trick;
+  use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
   use App\UI\Actions\DeleteTrickAction;
   use App\UI\Responder\Interfaces\ResponderDeleteTrickInterface;
   use App\UI\Responder\ResponderDeleteTrick;
@@ -32,7 +32,7 @@
   class DeleteTrickActionTest extends TestCase
   {
     /**
-     * @var TricksRepositoryInterface
+     * @var TrickRepositoryInterface
      */
     private $tricksRepository;
     
@@ -53,7 +53,7 @@
     
     protected function setUp()
     {
-      $this->tricksRepository = $this->createMock(TricksRepositoryInterface::class);
+      $this->tricksRepository = $this->createMock(TrickRepositoryInterface::class);
       $this->urlGenerator = $this->createMock(UrlGenerator::class);
       $this->urlGenerator->method('generate')->willReturn('/');
       $this->responderDeleteTrick = $this->createMock(ResponderDeleteTrickInterface::class);

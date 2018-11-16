@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Actions;
 
-use App\Domain\Repository\TricksRepository;
+use App\Domain\Repository\TrickRepository;
 use App\UI\Actions\HomeAction;
 use App\UI\Responder\ResponderHome;
 use PHPUnit\Framework\TestCase;
@@ -28,7 +28,7 @@ use Twig\Environment;
 class HomeActionTest extends TestCase
 {
     /**
-     * @var TricksRepository
+     * @var TrickRepository
      */
     private $tricksRepository;
     /**
@@ -38,7 +38,7 @@ class HomeActionTest extends TestCase
 
     protected function setUp()
     {
-        $this->tricksRepository = $this->createMock(TricksRepository::class);
+        $this->tricksRepository = $this->createMock(TrickRepository::class);
         $this->twig = $this->createMock(Environment::class);
     }
     /**

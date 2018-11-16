@@ -13,11 +13,11 @@ declare(strict_types=1);
 
 namespace App\Tests\Domain\Models;
 
-use App\Domain\Models\Comments;
-use App\Domain\Models\Movies;
-use App\Domain\Models\Pictures;
-use App\Domain\Models\Tricks;
-use App\Domain\Models\Users;
+use App\Domain\Models\Comment;
+use App\Domain\Models\Movie;
+use App\Domain\Models\Picture;
+use App\Domain\Models\Trick;
+use App\Domain\Models\User;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -28,50 +28,50 @@ use PHPUnit\Framework\TestCase;
 class TricksTest extends TestCase
 {
     /**
-     * @var Tricks
+     * @var Trick
      */
     private $trick;
 
     /**
-     * @var Users
+     * @var User
      */
     private $user;
 
     /**
-     * @var Comments
+     * @var Comment
      */
     private $comment;
 
     /**
-     * @var Movies
+     * @var Movie
      */
     private $movies;
 
     /**
-     * @var Pictures
+     * @var Picture
      */
     private $pictures;
 
     protected function setUp()
     {
-        $this->user = $this->createMock(Users::class);
+        $this->user = $this->createMock(User::class);
 
-        $this->trick = new Tricks(
+        $this->trick = new Trick(
             'name',
             'description',
             'group',
             $this->user
         );
 
-        $this->comment = new Comments('comment',  $this->trick, $this->user);
-        $this->pictures = $this->createMock(Pictures::class);
-        $this->movies = $this->createMock(Movies::class);
+        $this->comment = new Comment('comment',  $this->trick, $this->user);
+        $this->pictures = $this->createMock(Picture::class);
+        $this->movies = $this->createMock(Movie::class);
 
     }
 
     public function testTricksIsInstanceOf()
     {
-        static::assertInstanceOf(Tricks::class, $this->trick);
+        static::assertInstanceOf(Trick::class, $this->trick);
     }
 
     /**
@@ -104,7 +104,7 @@ class TricksTest extends TestCase
         static::assertSame('name', $this->trick->getSlug());
         static::assertNotNull(new \DateTime('now'), $this->trick->getCreatedAt());
         static::assertNotNull(0, $this->trick->getUpdatedAt());
-        static::assertInstanceOf(Users::class, $this->trick->getUsers());
+        static::assertInstanceOf(User::class, $this->trick->getUsers());
         static::assertCount(0, $this->trick->getMovies());
         static::assertCount(0, $this->trick->getPictures());
         static::assertCount(0, $this->trick->getComments());
@@ -114,7 +114,7 @@ class TricksTest extends TestCase
     {
         static::assertCount(0, $this->trick->getPictures());
 
-        $this->trick->addPictures(new Pictures('pictures', 'pictures', true));
+        $this->trick->addPictures(new Picture('pictures', 'pictures', true));
         static::assertCount(1, $this->trick->getPictures());
     }
 

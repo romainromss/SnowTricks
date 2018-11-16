@@ -15,9 +15,9 @@ namespace App\Tests\UI\Form\Handler;
 
 use App\Domain\Factory\TrickFactory;
 use App\Domain\DTO\UpdateTrickDTO;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Interfaces\UsersInterface;
-use App\Domain\Repository\TricksRepository;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Repository\TrickRepository;
 use App\UI\Form\Handler\Interfaces\UpdateTrickTypeHandlerInterface;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
 use PHPUnit\Framework\TestCase;
@@ -40,7 +40,7 @@ class UpdateTrickTypeHandlerTest extends TestCase
 	private $trickFactory;
 
 	/**
-	 * @var TricksRepository
+	 * @var TrickRepository
 	 */
 	private $tricksRepository;
 
@@ -55,20 +55,20 @@ class UpdateTrickTypeHandlerTest extends TestCase
 	private $formInterface;
   
   /**
-   * @var TricksInterface
+   * @var TrickInterface
    */
     private $tricks;
   
   protected function setUp()
 	{
 		$this->trickFactory = $this->createMock(TrickFactory::class);
-		$this->tricksRepository = $this->createMock(TricksRepository::class);
-		$this->tricks = $this->createMock(TricksInterface::class);
+		$this->tricksRepository = $this->createMock(TrickRepository::class);
+		$this->tricks = $this->createMock(TrickInterface::class);
 		$this->tokenstorage = $this->createMock(TokenStorageInterface::class);
 		$token = $this->createMock(TokenInterface::class);
 		
 		$this->tokenstorage->method('getToken')->willReturn($token);
-		$token->method('getUser')->willReturn($this->createMock(UsersInterface::class));
+		$token->method('getUser')->willReturn($this->createMock(UserInterface::class));
 		$this->formInterface = $this->createMock(FormInterface::class);
 	}
 

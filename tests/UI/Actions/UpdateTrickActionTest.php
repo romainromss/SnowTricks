@@ -13,8 +13,8 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Actions;
 
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Repository\TricksRepository;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Repository\TrickRepository;
 use App\UI\Actions\UpdateTrickAction;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;
 use App\UI\Responder\ResponderUpdateTrick;
@@ -60,12 +60,12 @@ class UpdateTrickActionTest extends TestCase
 	private $updateTrickTypeHandler;
 
 	/**
-	 * @var TricksRepository
+	 * @var TrickRepository
 	 */
 	private $tricksRepository;
 
 	/**
-	 * @var TricksInterface
+	 * @var TrickInterface
 	 */
 	private $tricks;
 
@@ -81,8 +81,8 @@ class UpdateTrickActionTest extends TestCase
 		$this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
 		$this->request = Request::create('/tricks/details/mute', 'POST');
 		$this->updateTrickTypeHandler = $this->createMock(UpdateTrickTypeHandler::class);
-		$this->tricksRepository = $this->createMock(TricksRepository::class);
-		$this->tricks = $this->createMock(TricksInterface::class);
+		$this->tricksRepository = $this->createMock(TrickRepository::class);
+		$this->tricks = $this->createMock(TrickInterface::class);
 		$this->collection = $this->createMock(Collection::class);
 		$formInterface = $this->createMock(FormInterface::class);
 

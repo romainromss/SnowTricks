@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Actions;
 
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Actions\AddTrickAction;
 use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use App\UI\Responder\ResponderAddTrick;
@@ -40,7 +40,7 @@ class AddTrickActionTest extends KernelTestCase
 	 */
 	private $addTricksTypeHandler;
 	/**
-	 * @var TricksRepositoryInterface
+	 * @var TrickRepositoryInterface
 	 */
 	private $tricksRepository;
 	/**
@@ -62,7 +62,7 @@ class AddTrickActionTest extends KernelTestCase
 		static::bootKernel();
 		$this->formFactory = static::$kernel->getContainer()->get('form.factory');
 		$this->addTricksTypeHandler = $this->createMock(AddTrickTypeHandlerInterface::class);
-		$this->tricksRepository = $this->createMock(TricksRepositoryInterface::class);
+		$this->tricksRepository = $this->createMock(TrickRepositoryInterface::class);
 		$this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
 		$this->urlGenerator->method('generate')->willReturn('/');
 		$this->request = Request::create('/addtrick', 'POST');

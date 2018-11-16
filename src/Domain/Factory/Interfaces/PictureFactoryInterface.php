@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Domain\Factory\Interfaces;
 
-use App\Domain\Models\Interfaces\PicturesInterface;
+use App\Domain\Models\Interfaces\PictureInterface;
 
 /**
  * Interfaces PictureFactoryInterface
@@ -27,13 +27,13 @@ interface PictureFactoryInterface
    * @param string $legend
    * @param bool   $first
    *
-   * @return PicturesInterface
+   * @return PictureInterface
    */
   public function create(
     string $name,
     string $legend,
     bool $first
-  ): PicturesInterface;
+  ): PictureInterface;
   
   /**
    * @param array $pictures

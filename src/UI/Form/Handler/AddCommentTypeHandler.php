@@ -14,12 +14,12 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
-use App\Domain\Factory\Interfaces\CommentsFactoryInterface;
-use App\Domain\Models\Interfaces\PicturesInterface;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Pictures;
-use App\Domain\Models\Users;
-use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
+use App\Domain\Factory\Interfaces\CommentFactoryInterface;
+use App\Domain\Models\Interfaces\PictureInterface;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Picture;
+use App\Domain\Models\User;
+use App\Domain\Repository\Interfaces\CommentRepositoryInterface;
 use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -32,49 +32,57 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
 {
     /**
-     * @var CommentsFactoryInterface
+     * @var CommentFactoryInterface
      */
     private $commentFactory;
 
     /**
-     * @var CommentsRepositoryInterface
+     * @var CommentRepositoryInterface
      */
-    private $commentsRepository;
+    private $commentRepository;
 
 	/**
 	 * @var TokenStorageInterface
 	 */
 	private $tokenStorage;
-
+  
+  /**
+   * AddCommentTypeHandler constructor.
+   *
+   * @param CommentFactoryInterface    $commentFactory
+   * @param CommentRepositoryInterface $commentRepository
+   * @param TokenStorageInterface      $tokenStorage
+   */
 	public function __construct(
-      CommentsFactoryInterface $commentFactory,
-      CommentsRepositoryInterface $commentsRepository,
+      CommentFactoryInterface $commentFactory,
+      CommentRepositoryInterface $commentRepository,
       TokenStorageInterface $tokenStorage
     ) {
         $this->commentFactory = $commentFactory;
-        $this->commentsRepository = $commentsRepository;
+        $this->commentRepository = $commentRepository;
 		$this->tokenStorage = $tokenStorage;
 	}
-
-	/**
-	 * @param FormInterface    $form
-	 * @param TricksInterface  $tricks
-	 *
-	 * @return bool
-	 */
+  
+  /**
+   * @param FormInterface  $form
+   * @param TrickInterface $trick
+   *
+   * @return bool
+   * @throws \Exception
+   */
     public function handle(
-        FormInterface $form,
-		TricksInterface $tricks
+      FormInterface $form,
+      TrickInterface $trick
     ):  bool {
 
         if ($form->isSubmitted() && $form->isValid()){
            $comment = $this->commentFactory->create(
             	$form->getData()->content,
-				$tricks,
-              is_object($this->tokenStorage->getToken()->getUser()) ? $this->tokenStorage->getToken()->getUser(): new Users('', '', '', '', '', '')
+				$trick,
+              is_object($this->tokenStorage->getToken()->getUser()) ? $this->tokenStorage->getToken()->getUser(): new User('', '', '', '', '', '')
 			);
 
-            $this->commentsRepository->save($comment);
+            $this->commentRepository->save($comment);
 
             return true;
         }

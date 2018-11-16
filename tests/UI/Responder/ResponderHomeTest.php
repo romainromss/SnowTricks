@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Responder;
 
-use App\Domain\Repository\TricksRepository;
+use App\Domain\Repository\TrickRepository;
 use App\UI\Responder\ResponderHome;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,7 +35,7 @@ class ResponderHomeTest extends TestCase
     public function testConstructResponderHome()
     {
         $twig = $this->createMock(Environment::class);
-        $tricksRepository = $this->createMock(TricksRepository::class);
+        $tricksRepository = $this->createMock(TrickRepository::class);
 
         $responder = new ResponderHome($twig);
         static::assertInstanceOf(Response::class, $responder(['tricks' => $tricksRepository]));

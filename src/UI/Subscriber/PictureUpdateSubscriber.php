@@ -40,25 +40,17 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
   private $uploaderHelper;
   
   /**
-   * @var Filesystem
-   */
-  private $filesystem;
-  
-  /**
    * PicturesToFIleTransformer constructor.
    *
    * @param string         $imageFolder
    * @param UploaderHelper $uploaderHelper
-   * @param Filesystem     $filesystem
    */
   public function __construct(
     string $imageFolder,
-    UploaderHelper $uploaderHelper,
-    Filesystem $filesystem
+    UploaderHelper $uploaderHelper
   ) {
     $this->imageFolder = $imageFolder;
     $this->uploaderHelper = $uploaderHelper;
-    $this->filesystem = $filesystem;
   }
   
   /**
@@ -68,6 +60,7 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
   {
     return [
       FormEvents::PRE_SET_DATA => "onPreSetData",
+      FormEvents::PRE_SUBMIT => "onSubmit"
     ];
   }
   
@@ -77,12 +70,14 @@ class PictureUpdateSubscriber implements EventSubscriberInterface
   public function onPreSetData(FormEvent $formEvent)
   {
     $this->pictures = $formEvent->getData();
-
     $pictures = [];
-
     foreach ($formEvent->getData() as $picture) {
-      $pictures[] = new PictureDTO( new File($this->imageFolder.$picture->getName()), $picture->getLegend(), $picture->isFirst());
+      $pictures[] = new PictureDTO( new UploadedFile($this->imageFolder.$picture->file->getFileName(), $picture->file->getFilename()), $picture->legend, $picture->first);
     }
-    
+  }
+  
+  public function onSubmit(FormEvent $formEvent)
+  {
+    dd($formEvent->getData());
   }
 }

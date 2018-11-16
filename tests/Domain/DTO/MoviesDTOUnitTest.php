@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Tests\Domain\DTO;
 
-use App\Domain\DTO\MoviesDTO;
+use App\Domain\DTO\MovieDTO;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -31,7 +31,7 @@ class MoviesDTOUnitTest extends TestCase
     $embed = 'embed';
     $legend = 'legend';
     
-    $moviesDTO = new MoviesDTO($legend, $embed);
-    static::assertInstanceOf (MoviesDTO::class, $moviesDTO);
+    $moviesDTO = new MovieDTO($legend, $embed);
+    static::assertInstanceOf (MovieDTO::class, $moviesDTO);
   }
 }

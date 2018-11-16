@@ -13,8 +13,8 @@ declare(strict_types = 1);
 
 namespace App\Tests\Domain\Factory;
 
-use App\Domain\DTO\MoviesDTO;
-use App\Domain\Factory\MoviesFactory;
+use App\Domain\DTO\MovieDTO;
+use App\Domain\Factory\MovieFactory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -35,13 +35,13 @@ class MoviesFactoryUnitTest extends TestCase
   private $legend;
   
   /**
-   * @var MoviesFactory
+   * @var MovieFactory
    */
   private $movies;
   
   protected function setUp()
   {
-    $this->movies = $this->createMock(MoviesFactory::class);
+    $this->movies = $this->createMock(MovieFactory::class);
     
     $this->embed = 'embed';
     $this->legend = 'legend';
@@ -49,19 +49,19 @@ class MoviesFactoryUnitTest extends TestCase
   
   public function testInstanceOf()
   {
-    $moviesFactory = new MoviesFactory();
-    static::assertInstanceOf(MoviesFactory::class, $moviesFactory);
+    $moviesFactory = new MovieFactory();
+    static::assertInstanceOf(MovieFactory::class, $moviesFactory);
   }
   
   public function testcreate()
   {
-    $movies = new MoviesFactory();
+    $movies = new MovieFactory();
     $movies->create(
       $this->embed,
       $this->legend
     );
     
-    static::assertInstanceOf(MoviesFactory::class, $movies);
+    static::assertInstanceOf(MovieFactory::class, $movies);
   }
   
   /**
@@ -74,9 +74,9 @@ class MoviesFactoryUnitTest extends TestCase
    */
   public function testCreateFromArray(string $embed, string $legend)
   {
-    $movie[] = new MoviesDTO($embed, $legend);
+    $movie[] = new MovieDTO($embed, $legend);
     
-    $movies = new MoviesFactory();
+    $movies = new MovieFactory();
     $values =  $movies->createFromArray($movie);
     static::assertGreaterThan(0, \count($values));
   }
@@ -93,7 +93,7 @@ class MoviesFactoryUnitTest extends TestCase
   
   public function testCreateFromEmptyArray()
   {
-    $movies = new MoviesFactory();
+    $movies = new MovieFactory();
     $values =  $movies->createFromArray();
     
     static::assertNull($values);

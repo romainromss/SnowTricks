@@ -13,8 +13,8 @@ declare(strict_types = 1);
 
 namespace App\UI\Form\Type;
 
-use App\Domain\DTO\Interfaces\MoviesDTOInterface;
-use App\Domain\DTO\MoviesDTO;
+use App\Domain\DTO\Interfaces\MovieDTOInterface;
+use App\Domain\DTO\MovieDTO;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -42,9 +42,9 @@ class MoviesType extends AbstractType
   public function configureOptions(OptionsResolver $resolver)
   {
     $resolver->setDefaults ([
-      'data_class' => MoviesDTOInterface::class,
+      'data_class' => MovieDTOInterface::class,
       'empty_data' => function (FormInterface $form){
-        return new MoviesDTO(
+        return new MovieDTO(
           $form->get('embed')->getData(),
           $form->get('legend')->getData()
         );

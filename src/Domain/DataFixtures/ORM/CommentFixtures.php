@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Domain\DataFixtures\ORM;
 
-use App\Domain\Models\Comments;
+use App\Domain\Models\Comment;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -28,7 +28,7 @@ class CommentFixtures extends Fixture implements DependentFixtureInterface
   public function load(ObjectManager $manager)
   {
    
-      $comment = new Comments(
+      $comment = new Comment(
         'content'. 1,
         $this->getReference('tricks1')
       );

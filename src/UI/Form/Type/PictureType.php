@@ -53,4 +53,3 @@ class PictureType extends AbstractType
     ]);
   }
 }
-    

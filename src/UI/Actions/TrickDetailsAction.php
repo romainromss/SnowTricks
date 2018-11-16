@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use App\UI\Form\Type\AddCommentType;
 use App\UI\Responder\Interfaces\ResponderTrickDetailsInterface;
@@ -40,25 +40,25 @@ class TrickDetailsAction
     private $addCommentTypeHandler;
 
     /**
-     * @var TricksRepositoryInterface
+     * @var TrickRepositoryInterface
      */
-    private $tricksRepository;
+    private $trickRepository;
 
     /**
      * TrickDetailsAction constructor.
      *
-     * @param FormFactoryInterface             $formFactory
-     * @param AddCommentTypeHandlerInterface   $addCommentTypeHandler
-     * @param TricksRepositoryInterface        $tricksRepository
+     * @param FormFactoryInterface           $formFactory
+     * @param AddCommentTypeHandlerInterface $addCommentTypeHandler
+     * @param TrickRepositoryInterface       $trickRepository
      */
     public function __construct(
-        FormFactoryInterface $formFactory,
-        AddCommentTypeHandlerInterface $addCommentTypeHandler,
-        TricksRepositoryInterface $tricksRepository
+      FormFactoryInterface $formFactory,
+      AddCommentTypeHandlerInterface $addCommentTypeHandler,
+      TrickRepositoryInterface $trickRepository
     ) {
         $this->formFactory = $formFactory;
         $this->addCommentTypeHandler = $addCommentTypeHandler;
-        $this->tricksRepository = $tricksRepository;
+        $this->trickRepository = $trickRepository;
     }
 
     /**
@@ -78,18 +78,18 @@ class TrickDetailsAction
 		Request $request
     ):  Response {
 
-        $tricks = $this->tricksRepository->getBySlug($request->attributes->get('slug'));
+        $trick = $this->trickRepository->getBySlug($request->attributes->get('slug'));
 
         $addCommentType = $this->formFactory
             ->create(AddCommentType::class)
             ->handleRequest($request);
 
-        if ($this->addCommentTypeHandler->handle($addCommentType, $tricks)){
+        if ($this->addCommentTypeHandler->handle($addCommentType, $trick)){
             return $responderTricksDetails(true);
         }
 
         return $responderTricksDetails(false,[
-            'tricks' => $tricks,
+            'trick' => $trick,
             'form' => $addCommentType->createView()
         ],  $addCommentType);
     }

@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Domain\DataFixtures\ORM;
 
-use App\Domain\Models\Pictures;
+use App\Domain\Models\Picture;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -26,63 +26,63 @@ class PictureFixtures extends Fixture
    */
   public function load(ObjectManager $manager)
   {
-    $picture1 = new Pictures(
+    $picture1 = new Picture(
       '1080.svg',
       'Legend'. 1,
       true
     );
     $this->addReference('pictures1', $picture1);
   
-    $picture11 = new Pictures(
+    $picture11 = new Picture(
       'mute.svg',
       'Legend'. 1,
       false
     );
     $this->addReference('pictures11', $picture11);
     
-    $picture2 = new Pictures(
+    $picture2 = new Picture(
       '360.svg',
       'Legend'. 1,
       true
     );
     $this->addReference('pictures2', $picture2);
     
-    $picture3 = new Pictures(
+    $picture3 = new Picture(
       '540.svg',
       'Legend'. 1,
       true
     );
     $this->addReference('pictures3', $picture3);
   
-    $picture4 = new Pictures(
+    $picture4 = new Picture(
       'backflip.svg',
       'Legend'. 1,
       true
     );
     $this->addReference('pictures4', $picture4);
     
-    $picture5 = new Pictures(
+    $picture5 = new Picture(
       'frontflip.svg',
       'Legend'. 1,
       true
     );
     $this->addReference('pictures5', $picture5);
   
-    $picture6 = new Pictures(
+    $picture6 = new Picture(
       'indy.svg',
       'Legend'. 1,
       true
     );
     $this->addReference('pictures6', $picture6);
   
-    $picture7 = new Pictures(
+    $picture7 = new Picture(
       'melancholie.svg',
       'Legend'. 1,
       true
     );
     $this->addReference('pictures7', $picture7);
   
-    $picture8 = new Pictures(
+    $picture8 = new Picture(
       'methodair.svg',
       'Legend'. 1,
       true

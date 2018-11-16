@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 	namespace App\Tests\Domain\Models;
 
-use App\Domain\Models\Comments;
-use App\Domain\Models\Tricks;
-use App\Domain\Models\Users;
+use App\Domain\Models\Comment;
+use App\Domain\Models\Trick;
+use App\Domain\Models\User;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -26,15 +26,15 @@ use PHPUnit\Framework\TestCase;
 class CommentsTest extends TestCase
 {
     /**
-     * @var Users
+     * @var User
      */
     private $user;
     /**
-     * @var Tricks
+     * @var Trick
      */
     private $trick;
     /**
-     * @var Comments
+     * @var Comment
      */
     private $comments;
   
@@ -43,10 +43,10 @@ class CommentsTest extends TestCase
    */
   protected function setUp()
     {
-        $this->user = $this->createMock(Users::class);
-        $this->trick = $this->createMock(Tricks::class);
+        $this->user = $this->createMock(User::class);
+        $this->trick = $this->createMock(Trick::class);
 
-        $this->comments = new Comments(
+        $this->comments = new Comment(
             'content',
             $this->trick,
             $this->user
@@ -56,7 +56,7 @@ class CommentsTest extends TestCase
 
     public function testTricksIsInstanceOf()
     {
-        static::assertInstanceOf(Comments::class, $this->comments);
+        static::assertInstanceOf(Comment::class, $this->comments);
     }
 
     public function testGoodAttributes()
@@ -73,7 +73,7 @@ class CommentsTest extends TestCase
         static::assertNotNull($this->comments->getId());
         static::assertEquals('content', $this->comments->getContent());
         static::assertNotNull(0, $this->comments->getCreatedAt());
-        static::assertInstanceOf(Users::class, $this->comments->getUsers());
-        static::assertInstanceOf(Tricks::class, $this->comments->getTrick());
+        static::assertInstanceOf(User::class, $this->comments->getUsers());
+        static::assertInstanceOf(Trick::class, $this->comments->getTrick());
     }
 }

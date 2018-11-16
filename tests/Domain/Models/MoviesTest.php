@@ -13,8 +13,8 @@ declare(strict_types=1);
 namespace App\Tests\Domain\Models;
 
 
-use App\Domain\Models\Movies;
-use App\Domain\Models\Tricks;
+use App\Domain\Models\Movie;
+use App\Domain\Models\Trick;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -25,13 +25,13 @@ use PHPUnit\Framework\TestCase;
 class MoviesTest extends TestCase
 {
     /**
-     * @var Movies
+     * @var Movie
      */
     private $movies;
 
     protected function setUp()
     {
-        $this->movies = new Movies(
+        $this->movies = new Movie(
             'embed',
             'legend'
         );
@@ -39,7 +39,7 @@ class MoviesTest extends TestCase
 
     public function testTricksIsInstanceOf()
     {
-        static::assertInstanceOf(Movies::class, $this->movies);
+        static::assertInstanceOf(Movie::class, $this->movies);
     }
 
     public function testGoodAttributes()

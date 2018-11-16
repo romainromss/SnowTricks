@@ -13,13 +13,13 @@ declare(strict_types=1);
 
 namespace App\Tests\UI\Form\Handler;
 
-use App\Domain\Factory\CommentsFactory;
-use App\Domain\Factory\Interfaces\CommentsFactoryInterface;
+use App\Domain\Factory\CommentFactory;
+use App\Domain\Factory\Interfaces\CommentFactoryInterface;
 use App\Domain\DTO\AddCommentDTO;
 use App\Domain\Models\Comment;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Interfaces\UsersInterface;
-use App\Domain\Repository\Interfaces\CommentsRepositoryInterface;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Repository\Interfaces\CommentRepositoryInterface;
 use App\UI\Form\Handler\AddCommentTypeHandler;
 use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -31,12 +31,12 @@ use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 class AddCommentTypeHandlerTest extends KernelTestCase
 {
     /**
-     * @var CommentsFactoryInterface
+     * @var CommentFactoryInterface
      */
     private $commentBuilder;
 
     /**
-     * @var CommentsRepositoryInterface
+     * @var CommentRepositoryInterface
      */
     private $commentRepository;
 
@@ -51,19 +51,19 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 	private $formInterface;
 
 	/**
-	 * @var TricksInterface
+	 * @var TrickInterface
 	 */
 	private $tricksInterface;
 
 	protected function setUp()
     {
-        $this->commentBuilder = $this->createMock(CommentsFactoryInterface::class);
-        $this->commentRepository = $this->createMock(CommentsRepositoryInterface::class);
-		$this->tricksInterface = $this->createMock(TricksInterface::class);
+        $this->commentBuilder = $this->createMock(CommentFactoryInterface::class);
+        $this->commentRepository = $this->createMock(CommentRepositoryInterface::class);
+		$this->tricksInterface = $this->createMock(TrickInterface::class);
 		$this->tokenstorage = $this->createMock(TokenStorage::class);
 		$token = $this->createMock(TokenInterface::class);
 		$this->tokenstorage->method('getToken')->willReturn($token);
-		$token->method('getUser')->willReturn($this->createMock(UsersInterface::class));
+		$token->method('getUser')->willReturn($this->createMock(UserInterface::class));
 		$this->formInterface = $this->createMock(FormInterface::class);
     }
 
@@ -107,7 +107,7 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 			$this->tokenstorage
 		);
 
-		$this->commentRepository->save($comment = $this->createMock(CommentsFactory::class));
+		$this->commentRepository->save($comment = $this->createMock(CommentFactory::class));
 
 		static::assertInstanceOf(
 			AddCommentTypeHandlerInterface::class,

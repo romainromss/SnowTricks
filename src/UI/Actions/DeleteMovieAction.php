@@ -13,7 +13,7 @@
 
   namespace App\UI\Actions;
 
-  use App\Domain\Repository\Interfaces\MoviesRepositoryInterface;
+  use App\Domain\Repository\Interfaces\MovieRepositoryInterface;
   use App\UI\Responder\Interfaces\ResponderDeleteMovieInterface;
   use Symfony\Component\HttpFoundation\Request;
   use Symfony\Component\Routing\Annotation\Route;
@@ -26,13 +26,13 @@
   class DeleteMovieAction
   {
     /**
-     * @var MoviesRepositoryInterface
+     * @var MovieRepositoryInterface
      */
-    private $moviesRepository;
+    private $movieRepository;
 
-    public  function __construct(MoviesRepositoryInterface $moviesRepository)
+    public  function __construct(MovieRepositoryInterface $movieRepository)
     {
-      $this->moviesRepository = $moviesRepository;
+      $this->movieRepository = $movieRepository;
     }
 
     /**
@@ -48,7 +48,7 @@
      ResponderDeleteMovieInterface $responderDeleteMovie,
      Request $request
     ) {
-      $this->moviesRepository->deleteMovies($request->get('id'));
+      $this->movieRepository->deleteMovies($request->get('id'));
 
       return $responderDeleteMovie();
     }

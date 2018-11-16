@@ -12,9 +12,9 @@ declare(strict_types=1);
 namespace App\Tests\Domain\Models;
 
 
-use App\Domain\Models\Pictures;
-use App\Domain\Models\Tricks;
-use App\Domain\Models\Users;
+use App\Domain\Models\Picture;
+use App\Domain\Models\Trick;
+use App\Domain\Models\User;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -25,22 +25,22 @@ use PHPUnit\Framework\TestCase;
 class PicturesTest extends TestCase
 {
     /**
-     * @var Users
+     * @var User
      */
     private $users;
     /**
-     * @var Tricks
+     * @var Trick
      */
     private $tricks;
 
     /**
-     * @var Pictures
+     * @var Picture
      */
     private $pictures;
 
     protected function setUp()
     {
-        $this->pictures = new Pictures(
+        $this->pictures = new Picture(
             'name',
             'legend',
             true
@@ -49,7 +49,7 @@ class PicturesTest extends TestCase
 
     public function testTricksIsInstanceOf()
     {
-        static::assertInstanceOf(Pictures::class, $this->pictures);
+        static::assertInstanceOf(Picture::class, $this->pictures);
     }
 
     public function testGoodAttributes()

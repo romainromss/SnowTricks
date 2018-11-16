@@ -13,15 +13,15 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler\Interfaces;
 
-use App\Domain\Factory\Interfaces\MoviesFactoryInterface;
+use App\Domain\Factory\Interfaces\MovieFactoryInterface;
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
 use App\Domain\DTO\UpdateTrickDTO;
-use App\Domain\Models\Interfaces\PicturesInterface;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Movies;
-use App\Domain\Models\Pictures;
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Models\Interfaces\PictureInterface;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Movie;
+use App\Domain\Models\Picture;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\Infra\Helper\Interfaces\UploaderHelperInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -36,31 +36,30 @@ interface UpdateTrickTypeHandlerInterface
   /**
    * UpdateTrickTypeHandlerInterface constructor.
    *
-   * @param PictureFactoryInterface   $pictureFactory
-   * @param MoviesFactoryInterface    $moviesFactory
-   * @param TricksRepositoryInterface $tricksRepository
-   * @param TokenStorageInterface     $tokenStorage
-   * @param UploaderHelperInterface   $uploaderHelper
+   * @param PictureFactoryInterface  $pictureFactory
+   * @param MovieFactoryInterface    $moviesFactory
+   * @param TrickRepositoryInterface $tricksRepository
+   * @param TokenStorageInterface    $tokenStorage
+   * @param UploaderHelperInterface  $uploaderHelper
    */
 	public function __construct(
       PictureFactoryInterface $pictureFactory,
-      MoviesFactoryInterface $moviesFactory,
-      TricksRepositoryInterface $tricksRepository,
+      MovieFactoryInterface $moviesFactory,
+      TrickRepositoryInterface $tricksRepository,
       TokenStorageInterface $tokenStorage,
       UploaderHelperInterface $uploaderHelper
-	);
+    );
   
   /**
-   * @param FormInterface   $form
+   * @param FormInterface  $form
    *
-   * @param TricksInterface $tricks
+   * @param TrickInterface $tricks
    *
    * @return bool
-   *
    */
 	public function handle(
-	  FormInterface $form,
-      TricksInterface $tricks
+      FormInterface $form,
+      TrickInterface $tricks
     ):  bool;
 
 }

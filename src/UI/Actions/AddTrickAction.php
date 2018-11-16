@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Actions;
 
-use App\Domain\Repository\Interfaces\TricksRepositoryInterface;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
 use App\UI\Form\Type\AddTrickType;
 use App\UI\Responder\Interfaces\ResponderAddTrickInterface;
@@ -38,53 +38,53 @@ class AddTrickAction
 	/**
 	 * @var AddTrickTypeHandlerInterface
 	 */
-	private $addTricksTypeHandler;
+	private $addTrickTypeHandler;
 
 	/**
-	 * @var TricksRepositoryInterface
+	 * @var TrickRepositoryInterface
 	 */
-	private $tricksRepository;
-
-	/**
-	 * AddTrickAction constructor.
-	 *
-	 * @param FormFactoryInterface         $formFactory
-	 * @param AddTrickTypeHandlerInterface $addTricksTypeHandler
-	 * @param TricksRepositoryInterface    $tricksRepository
-	 */
+	private $trickRepository;
+  
+  /**
+   * AddTrickAction constructor.
+   *
+   * @param FormFactoryInterface         $formFactory
+   * @param AddTrickTypeHandlerInterface $addTrickTypeHandler
+   * @param TrickRepositoryInterface     $trickRepository
+   */
 	public function __construct(
-		FormFactoryInterface $formFactory,
-		AddTrickTypeHandlerInterface $addTricksTypeHandler,
-		TricksRepositoryInterface $tricksRepository
+      FormFactoryInterface $formFactory,
+      AddTrickTypeHandlerInterface $addTrickTypeHandler,
+      TrickRepositoryInterface $trickRepository
 	) {
 		$this->formFactory = $formFactory;
-		$this->addTricksTypeHandler = $addTricksTypeHandler;
-		$this->tricksRepository = $tricksRepository;
+		$this->addTrickTypeHandler = $addTrickTypeHandler;
+		$this->trickRepository = $trickRepository;
 	}
 
 	/**
-	 * @Route("/addtrick", name="addTricks")
+	 * @Route("/add/trick", name="addTrick")
 	 *
-	 * @param ResponderAddTrickInterface $responderAddTricks
+	 * @param ResponderAddTrickInterface $responderAddTrick
 	 * @param Request                    $request
 	 *
 	 * @return Response
 	 */
 	public function __invoke(
-		ResponderAddTrickInterface $responderAddTricks,
+		ResponderAddTrickInterface $responderAddTrick,
 		Request $request
 	):  Response {
 
-		$addTricksType = $this->formFactory
+		$addTrickType = $this->formFactory
 			->create(AddTrickType::class)
 			->handleRequest($request);
 
-		if ($this->addTricksTypeHandler->handle($addTricksType)){
-			return $responderAddTricks(true);
+		if ($this->addTrickTypeHandler->handle($addTrickType)){
+			return $responderAddTrick(true);
 		}
 
-		return $responderAddTricks(false,[
-			'form' => $addTricksType->createView()
+		return $responderAddTrick(false,[
+			'form' => $addTrickType->createView()
 		]);
 	}
 }

@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Domain\Factory;
 
-use App\Domain\Factory\CommentsFactory;
+use App\Domain\Factory\CommentFactory;
 use App\Domain\Models\Comment;
-use App\Domain\Models\Interfaces\TricksInterface;
-use App\Domain\Models\Interfaces\UsersInterface;
+use App\Domain\Models\Interfaces\TrickInterface;
+use App\Domain\Models\Interfaces\UserInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -27,7 +27,7 @@ use PHPUnit\Framework\TestCase;
 class CommentFactoryTest extends TestCase
 {
     /**
-     * @var TricksInterface
+     * @var TrickInterface
      */
     private $tricks;
     /**
@@ -35,31 +35,31 @@ class CommentFactoryTest extends TestCase
      */
     private $content;
     /**
-     * @var UsersInterface
+     * @var UserInterface
      */
     private $users;
 
     protected function setUp()
     {
-        $this->tricks = $this->createMock(TricksInterface::class);
+        $this->tricks = $this->createMock(TrickInterface::class);
         $this->content = 'content';
-        $this->users = $this->createMock(UsersInterface::class);
+        $this->users = $this->createMock(UserInterface::class);
     }
     public function testInstanceOf()
     {
-        $commentBuilder = new CommentsFactory();
-        static::assertInstanceOf(CommentsFactory::class, $commentBuilder);
+        $commentBuilder = new CommentFactory();
+        static::assertInstanceOf(CommentFactory::class, $commentBuilder);
     }
 
     public function testcreate()
     {
-        $comment = new CommentsFactory();
+        $comment = new CommentFactory();
         $comment->create(
           $this->content,
           $this->tricks,
           $this->users
         );
 
-        static::assertInstanceOf(CommentsFactory::class, $comment);
+        static::assertInstanceOf(CommentFactory::class, $comment);
     }
 }

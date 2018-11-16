@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Domain\Models;
 
-use App\Domain\Models\Comments;
-use App\Domain\Models\Pictures;
-use App\Domain\Models\Tricks;
-use App\Domain\Models\Users;
+use App\Domain\Models\Comment;
+use App\Domain\Models\Picture;
+use App\Domain\Models\Trick;
+use App\Domain\Models\User;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -27,29 +27,29 @@ use PHPUnit\Framework\TestCase;
 class UsersTest extends TestCase
 {
     /**
-     * @var Pictures
+     * @var Picture
      */
     private $pictures;
     /**
-     * @var Tricks
+     * @var Trick
      */
     private $tricks;
     /**
-     * @var Comments
+     * @var Comment
      */
     private $comments;
     /**
-     * @var Users
+     * @var User
      */
     private $users;
 
     protected function setUp()
     {
-        $this->pictures = $this->createMock(Pictures::class);
-        $this->tricks = $this->createMock(Tricks::class);
-        $this->comments = $this->createMock(Comments::class);
+        $this->pictures = $this->createMock(Picture::class);
+        $this->tricks = $this->createMock(Trick::class);
+        $this->comments = $this->createMock(Comment::class);
 
-        $this->users = new Users(
+        $this->users = new User(
             'username',
             'email',
             'name',
@@ -64,7 +64,7 @@ class UsersTest extends TestCase
 
     public function testUsersIsInstanceOf()
     {
-        static::assertInstanceOf(Users::class, $this->users);
+        static::assertInstanceOf(User::class, $this->users);
     }
 
     public function testGoodAttributes()
@@ -92,7 +92,7 @@ class UsersTest extends TestCase
         static::assertSame('ads#p23*', $this->users->getPassword());
         static::assertEquals('user', $this->users->getRole());
         static::assertNotNull(new \DateTime('now'), $this->users->getCreatedAt());
-        static::assertInstanceOf(Pictures::class, $this->users->getPictures());
+        static::assertInstanceOf(Picture::class, $this->users->getPictures());
         static::assertCount(1, $this->users->getTricks());
         static::assertCount(1, $this->users->getComments());
     }
