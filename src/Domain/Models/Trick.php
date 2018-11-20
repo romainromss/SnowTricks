@@ -211,9 +211,9 @@ class Trick implements TrickInterface
         unset($this->picture[array_search($pictures, (array) $this->pictures, true)]);
     }
     
-    public function removePictures(\ArrayAccess $picture)
+    public function removePictures($picture)
     {
-      $this->picture->removeElement($picture);
+      $this->picture->clear();
     }
   
   /**

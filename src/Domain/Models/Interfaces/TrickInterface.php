@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
+use App\Domain\Models\Picture;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -91,11 +92,9 @@ interface TrickInterface
   public function unsetPictures(PictureInterface $pictures): void;
   
   /**
-   * @param array $picture
-   *
    * @return mixed
    */
-  public function removePictures(\ArrayAccess $picture);
+  public function removePictures($picture);
   
   /**
    * @param MovieInterface $movies
