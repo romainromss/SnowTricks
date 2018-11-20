@@ -16,6 +16,7 @@ namespace App\UI\Actions;
 use App\Domain\DTO\MovieDTO;
 use App\Domain\DTO\PictureDTO;
 use App\Domain\DTO\UpdateTrickDTO;
+use App\Domain\Models\Trick;
 use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\UpdateTrickTypeHandler;

@@ -194,11 +194,11 @@ class Trick implements TrickInterface
 	{
 		return $this->comment;
 	}
-
-    /**
-     * @param array $pictures
-     */
-    public function addPictures(array $pictures): void
+  
+  /**
+   * @param PictureInterface $pictures
+   */
+    public function addPictures(PictureInterface $pictures): void
     {
         $this->picture[] = $pictures;
     }
@@ -215,11 +215,11 @@ class Trick implements TrickInterface
     {
       $this->picture->removeElement($picture);
     }
-
-    /**
-     * @param array $movies
-     */
-    public function addMovies(array $movies): void
+  
+  /**
+   * @param MovieInterface $movies
+   */
+    public function addMovies(MovieInterface $movies): void
     {
         $this->movie[] = $movies;
     }

@@ -13,6 +13,8 @@ declare(strict_types = 1);
 
 namespace App\Infra\Helper\Interfaces;
 
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 /**
  * Interfaces UploaderHelperInterface
  *
@@ -21,9 +23,9 @@ namespace App\Infra\Helper\Interfaces;
 interface UploaderHelperInterface
 {
   /**
-   * @param \SplFileInfo $fileInfo
+   * @param UploadedFile $fileInfo
    *
    * @return string
    */
-  public function upload(\SplFileInfo $fileInfo);
+  public function upload(UploadedFile $fileInfo);
 }

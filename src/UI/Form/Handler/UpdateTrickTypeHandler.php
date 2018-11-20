@@ -13,18 +13,13 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
-use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Factory\Interfaces\MovieFactoryInterface;
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
-use App\Domain\Factory\Interfaces\TrickFactoryInterface;
 use App\Domain\Models\Interfaces\MovieInterface;
 use App\Domain\Models\Interfaces\PictureInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Movie;
-use App\Domain\Models\Picture;
 use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\Infra\Helper\Interfaces\UploaderHelperInterface;
-use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\Interfaces\UpdateTrickTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -57,10 +52,6 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
    * @var MovieFactoryInterface
    */
   private $moviesFactory;
-  /**
-   * @var UpdateTrickDTO
-   */
-  private $updateTrickDTO;
   
   /**
    * {@inheritdoc}
@@ -93,31 +84,30 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
   ):  bool
   {
     if ($form->isSubmitted() && $form->isValid()){
-    dd($form->getData());
       $movies = [];
       $pictures = [];
-//      foreach($form->getData()->pictures as $picture) {
-//        if(\is_a($picture, PictureInterface::class ) || is_null($picture->file))  {
-//          continue;
-//        }
       
-      $fileName = $this->uploaderHelper->upload($pictures->file);
-        $pictures[] = $this->pictureFactory->create($fileName, $pictures->getLegend(), $pictures->isFirst());
-      
+      foreach($form->getData()->pictures as $picture) {
+        $fileName = $this->uploaderHelper->upload($picture->file);
+        $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
+      }
       $existPictures = $tricks->getPictures();
       $tricks->removePictures($existPictures);
-      
+      foreach($pictures as $picture) {
+        $tricks->addPictures($picture);
+      }
+  
       foreach($form->getData()->movies as $movie) {
         if(\is_a($movie, MovieInterface::class ) || is_null($movie->embed))  {
           continue;
         }
         $movies[] = $this->moviesFactory->create($movie->embed, $movie->legend);
       }
+      foreach($movies as $movie) {
+        $tricks->addMovies($movie);
+      }
       
-      $tricks->addPictures($pictures);
-      $tricks->addMovies($movies);
-      $this->tricksRepository->save($tricks);
-      
+      $this->tricksRepository->update($tricks);
       return true;
     }
     return false;

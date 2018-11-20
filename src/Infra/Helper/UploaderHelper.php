@@ -14,6 +14,7 @@ declare(strict_types = 1);
 namespace App\Infra\Helper;
 
 use App\Infra\Helper\Interfaces\UploaderHelperInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class UploaderHelper.
@@ -35,11 +36,11 @@ class UploaderHelper implements UploaderHelperInterface
   }
   
   /**
-   * @param \SplFileInfo $fileInfo
+   * @param UploadedFile $fileInfo
    *
    * @return string
    */
-  public function upload(\SplFileInfo $fileInfo)
+  public function upload(UploadedFile $fileInfo)
   {
     $fileName = md5(uniqid(str_rot13($fileInfo->getFilename()))).'.'.$fileInfo->guessExtension();
     $fileInfo->move($this->imageFolder, $fileName);

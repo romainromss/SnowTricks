@@ -25,14 +25,14 @@ interface UpdateTrickDTOInterface
    *
    * @param string $name
    * @param string $description
-   * @param string $category
+   * @param string $group
    * @param array  $pictures
    * @param array  $movies
    */
 	public function __construct(
 		string $name,
 		string $description,
-		string $category,
+		string $group,
 		array $pictures,
 		array $movies
 	);

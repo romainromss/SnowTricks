@@ -28,7 +28,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
     $trick1 = new Trick(
       '1080',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
-      'Groupe'.'a',
+      'group'.'a',
       $this->getReference('users'),
       [$this->getReference('pictures1'), $this->getReference('pictures11')],
       [$this->getReference('movies1')]
@@ -38,7 +38,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
     $trick2 = new Trick(
       '360',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
-      'Groupe'.'a',
+      'group'.'a',
       $this->getReference('users'),
       [$this->getReference('pictures2')],
       [$this->getReference('movies2')]
@@ -48,7 +48,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
     $trick3 = new Trick(
       '540',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
-      'Groupe'.'a',
+      'group'.'a',
       $this->getReference('users'),
       [$this->getReference('pictures3')],
       [$this->getReference('movies3')]
@@ -58,7 +58,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
     $trick4 = new Trick(
       'backflip',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
-      'Groupe'.'a',
+      'group'.'a',
       $this->getReference('users'),
       [$this->getReference('pictures4')],
       [$this->getReference('movies4')]
@@ -68,7 +68,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
     $trick5 = new Trick(
       'frontflip',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
-      'Groupe'.'a',
+      'group'.'a',
       $this->getReference('users'),
       [$this->getReference('pictures5')],
       [$this->getReference('movies5')]
@@ -78,7 +78,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
     $trick6 = new Trick(
       'indy',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
-      'Groupe'.'a',
+      'group'.'a',
       $this->getReference('users'),
       [$this->getReference('pictures6')],
       [$this->getReference('movies6')]
@@ -88,7 +88,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
     $trick7 = new Trick(
       'melancholie',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
-      'Groupe'.'a',
+      'group'.'a',
       $this->getReference('users'),
       [$this->getReference('pictures7')],
       [$this->getReference('movies7')]
@@ -98,7 +98,7 @@ class TrickFixtures extends Fixture implements DependentFixtureInterface
     $trick8 = new Trick(
       'methodair',
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum cursus purus id vulputate pulvinar. Sed.'.'a',
-      'Groupe'.'a',
+      'group'.'a',
       $this->getReference('users'),
       [$this->getReference('pictures8')],
       [$this->getReference('movies8')]

@@ -51,9 +51,9 @@ class UpdateTrickDTO implements UpdateTrickDTOInterface
 	 * {@inheritdoc}
 	 */
 	public function __construct(
-		string $name,
-		string $description,
-		string $category,
+		string $name = null,
+		string $description = null,
+		string $category = null,
 		array $pictures = [],
 		array $movies = []
 	) {

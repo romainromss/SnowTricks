@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
-use Doctrine\Common\Collections\Collection;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -79,11 +78,11 @@ interface TrickInterface
   public function getSlug(): string;
   
   /**
-   * @param array $pictures
+   * @param PictureInterface $pictures
    *
    * @return array
    */
-  public function addPictures(array $pictures);
+  public function addPictures(PictureInterface $pictures);
   
   
   /**
@@ -99,11 +98,11 @@ interface TrickInterface
   public function removePictures(\ArrayAccess $picture);
   
   /**
-   * @param array
+   * @param MovieInterface $movies
    *
    * @return mixed
    */
-  public function addMovies(array $movies);
+  public function addMovies(MovieInterface $movies);
   
   
   /**
