@@ -45,12 +45,12 @@ class TricksTest extends TestCase
     /**
      * @var Movie
      */
-    private $movies;
+    private $movie;
 
     /**
      * @var Picture
      */
-    private $pictures;
+    private $picture;
 
     protected function setUp()
     {
@@ -64,8 +64,8 @@ class TricksTest extends TestCase
         );
 
         $this->comment = new Comment('comment',  $this->trick, $this->user);
-        $this->pictures = $this->createMock(Picture::class);
-        $this->movies = $this->createMock(Movie::class);
+        $this->picture = $this->createMock(Picture::class);
+        $this->movie = $this->createMock(Movie::class);
 
     }
 
@@ -86,8 +86,8 @@ class TricksTest extends TestCase
         static::assertObjectHasAttribute('slug', $this->trick);
         static::assertObjectHasAttribute('createdAt', $this->trick);
         static::assertObjectHasAttribute('updatedAt', $this->trick);
-        static::assertObjectHasAttribute('pictures', $this->trick);
-        static::assertObjectHasAttribute('movies', $this->trick);
+        static::assertObjectHasAttribute('picture', $this->trick);
+        static::assertObjectHasAttribute('movie', $this->trick);
         static::assertObjectHasAttribute('users', $this->trick);
     }
 
@@ -114,7 +114,7 @@ class TricksTest extends TestCase
     {
         static::assertCount(0, $this->trick->getPictures());
 
-        $this->trick->addPictures(new Picture('pictures', 'pictures', true));
+        $this->trick->addPictures(new Picture('picture', 'picture', true));
         static::assertCount(1, $this->trick->getPictures());
     }
 
@@ -122,10 +122,10 @@ class TricksTest extends TestCase
     {
         static::assertCount(0, $this->trick->getPictures());
 
-        $this->trick->addPictures($this->pictures);
+        $this->trick->addPictures($this->picture);
         static::assertCount(1, $this->trick->getPictures());
 
-        $this->trick->unsetPictures($this->pictures);
+        $this->trick->unsetPictures($this->picture);
         static::assertCount(0, $this->trick->getPictures());
     }
 
@@ -133,7 +133,7 @@ class TricksTest extends TestCase
     {
         static::assertCount(0, $this->trick->getMovies());
 
-        $this->trick->addMovies($this->movies);
+        $this->trick->addMovies($this->movie);
         static::assertCount(1, $this->trick->getMovies());
     }
 
@@ -141,10 +141,10 @@ class TricksTest extends TestCase
     {
         static::assertCount(0, $this->trick->getMovies());
 
-        $this->trick->addMovies($this->movies);
+        $this->trick->addMovies($this->movie);
         static::assertCount(1, $this->trick->getMovies());
 
-        $this->trick->unsetMovies($this->movies);
+        $this->trick->unsetMovies($this->movie);
         static::assertCount(0, $this->trick->getPictures());
     }
 

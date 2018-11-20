@@ -22,6 +22,7 @@ use Doctrine\Common\Collections\Collection;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -73,6 +74,9 @@ class UpdateTrickActionTest extends TestCase
 	 * @var Collection
 	 */
 	private $collection;
+	
+	/** @var string */
+	private $imageFolder;
 
 	protected function setUp()
 	{
@@ -85,6 +89,7 @@ class UpdateTrickActionTest extends TestCase
 		$this->tricks = $this->createMock(TrickInterface::class);
 		$this->collection = $this->createMock(Collection::class);
 		$formInterface = $this->createMock(FormInterface::class);
+		$this->imageFolder = new UploadedFile('/public/images/Upload/'.'1080.svg', '1080.svg');
 
 		$formInterface->method('handleRequest')->willReturnSelf();
 		$this->formFactory->method('create')->willReturn($formInterface);
@@ -101,7 +106,10 @@ class UpdateTrickActionTest extends TestCase
 		$constructResponder = new UpdateTrickAction(
 			$this->formFactory,
 			$this->updateTrickTypeHandler,
-			$this->tricksRepository);
+			$this->tricksRepository,
+            $this->imageFolder
+        );
+        
 
 		static::assertInstanceOf(
 			UpdateTrickAction::class,
@@ -122,8 +130,9 @@ class UpdateTrickActionTest extends TestCase
 		$updateTrickAction = new UpdateTrickAction(
 			$this->formFactory,
 			$this->updateTrickTypeHandler,
-			$this->tricksRepository
-		);
+			$this->tricksRepository,
+            $this->imageFolder
+        );
 
 		$responder = new ResponderUpdateTrick(
 			$this->twig,
@@ -155,8 +164,9 @@ class UpdateTrickActionTest extends TestCase
 		$updateTrickAction = new UpdateTrickAction(
 			$this->formFactory,
 			$this->updateTrickTypeHandler,
-			$this->tricksRepository
-		);
+			$this->tricksRepository,
+            $this->imageFolder
+        );
 
 		$responder = new ResponderUpdateTrick(
 			$this->twig,

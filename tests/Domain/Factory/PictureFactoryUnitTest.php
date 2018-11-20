@@ -18,6 +18,7 @@ use App\Domain\Factory\PictureFactory;
 use App\Infra\Helper\UploaderHelper;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class PictureFactoryUnitTest.
@@ -81,7 +82,7 @@ class PictureFactoryUnitTest extends TestCase
     $file = '360.svg';
   
     $uploaderHelperMock= $this->createMock(UploaderHelper::class);
-    $splFileInfoMock = $this->createMock(\SplFileInfo::class);
+    $splFileInfoMock = $this->createMock(UploadedFile::class);
     
     $splFileInfoMock->method('getFilename')->willReturn($file);
     $uploaderHelperMock->method('upload')->willReturn($file);

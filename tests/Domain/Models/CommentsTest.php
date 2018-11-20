@@ -73,7 +73,7 @@ class CommentsTest extends TestCase
         static::assertNotNull($this->comments->getId());
         static::assertEquals('content', $this->comments->getContent());
         static::assertNotNull(0, $this->comments->getCreatedAt());
-        static::assertInstanceOf(User::class, $this->comments->getUsers());
+        static::assertInstanceOf(User::class, $this->comments->getUser());
         static::assertInstanceOf(Trick::class, $this->comments->getTrick());
     }
 }

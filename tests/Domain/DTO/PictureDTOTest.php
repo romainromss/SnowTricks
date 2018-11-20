@@ -15,6 +15,7 @@
 
   use App\Domain\DTO\PictureDTO;
   use PHPUnit\Framework\TestCase;
+  use Symfony\Component\HttpFoundation\File\UploadedFile;
 
   /**
    * Class PictureDTOTest.
@@ -31,7 +32,7 @@
       $legend = 'legend';
       $first = false;
       
-      $pictureDTO = new PictureDTO($this->createMock(\SplFileInfo::class), $legend, $first);
+      $pictureDTO = new PictureDTO($this->createMock(UploadedFile::class), $legend, $first);
       static::assertInstanceOf (PictureDTO::class, $pictureDTO);
     }
   }

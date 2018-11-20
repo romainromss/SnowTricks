@@ -16,6 +16,7 @@ namespace  App\Tests\Infra\Helper;
 use App\Infra\Helper\UploaderHelper;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class UploaderHelperUnitTest.
@@ -48,7 +49,7 @@ class UploaderHelperUnitTest extends TestCase
    */
   public function testUpload(string $fileName, string $extension)
   {
-    $fileMock = $this->createMock(File::class);
+    $fileMock = $this->createMock(UploadedFile::class);
     $fileMock->method('getFilename')->willReturn($fileName);
     $fileMock->method('guessExtension')->willReturn($extension);
     
