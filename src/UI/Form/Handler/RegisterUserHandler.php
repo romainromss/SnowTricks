@@ -38,7 +38,7 @@ class RegisterUserHandler
        $username,
        $lastname,
        $mail,
-       password_hash($password, PASSWORD_BCRYPT)
+       password_
        );
     }
   }

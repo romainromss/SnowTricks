@@ -93,6 +93,7 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
       }
       $existPictures = $tricks->getPictures();
       $tricks->removePictures($existPictures);
+      
       foreach($pictures as $picture) {
         $tricks->addPictures($picture);
       }

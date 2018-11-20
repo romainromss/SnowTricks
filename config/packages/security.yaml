@@ -8,6 +8,10 @@ security:
             security: false
         main:
             anonymous: true
+    encoders:
+        App\Models\User:
+            algorithm: bcrypt
+            cost: 12
 
             # activate different ways to authenticate
 
