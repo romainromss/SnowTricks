@@ -1,0 +1,12 @@
+App\Domain\Models\Tricks:
+    properties:
+      name:
+        - NotBlank: ~
+        - Length:
+            min: 3
+            groups: ['AddTrick']
+      description:
+        - NotBlank: ~
+        - Length:
+            min: 3
+            groups: ['AddTrick']

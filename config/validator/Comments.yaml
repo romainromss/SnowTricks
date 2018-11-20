@@ -1,0 +1,5 @@
+App\Domain\Models\Comments:
+  properties:
+    content:
+    - NotBlank:
+        groups: ['AddComment']

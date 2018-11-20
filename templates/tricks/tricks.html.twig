@@ -1,71 +1,59 @@
 {% extends 'layout.html.twig' %}
 
-{% block head %}
-    <!-- START: Header Title -->
-    <div class="nk-header-title nk-header-title-full">
-        <div class="bg-image">
-            <div style="background-image: url('images/biglogo.png');"></div>
-            <div class="bg-image-overlay" style="background-color: rgba(12, 12, 12, 0.6);"></div>
-        </div>
-        <div class="nk-header-table">
-            <div class="nk-header-table-cell">
-                <div class="container">
-
-                    <h2 class="nk-subtitle text-white">A vous de jouer</h2>
-
-
-                    <h1 class="nk-title display-3 text-white">Bienvenue sur SnowTricks
-                        <br>
-                        <em class="fw-400">Ajoute, crée, modifie toutes les tricks que tu veux</em>
-                    </h1>
-
-
-                    <div class="nk-gap"></div>
-                    <div class="nk-header-text text-white">
-                        <div class="nk-gap-4"></div>
+    {% block head %}
+        <!-- Page Content -->
+        <div class="bg-image" style='background-image: url("{{ asset('img/photos/hero.jpg')}}");'>
+            <div class="hero bg-primary-dark-op">
+                <div class="hero-inner">
+                    <div class="content content-full text-center">
+                        <h1 class="display-4 font-w700 text-white mb-10 invisible" data-toggle="appear" data-class="animated fadeInDown">SnowTricks</h1>
+                        <h2 class="font-w400 text-white-op mb-50 invisible" data-toggle="appear" data-class="animated fadeInUp" data-timeout="250">A vous de jouer, Ajouter toutes vos tricks</h2>
                     </div>
-
-
                 </div>
             </div>
+            <i id="arrowDown" class="si si-arrow-down-circle"
+               style="position: absolute; right: 35px; font-size: 1.8em; color: white; bottom: 30px;"></i>
         </div>
-
-        <div>
-            <a class="nk-header-title-scroll-down text-white" href="#nk-header-title-scroll-down">
-                <span class="pe-7s-angle-down"></span>
-            </a>
-        </div>
-
-    </div>
-
-{% endblock %}
+        <!-- END Page Content -->
+    {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <h2 class="text-xs-center display-4">Les Tricks</h2>
-        <div class="nk-gap mnt-6"></div>
-
-
-    {% for trick in tricks %}
-        <div class="nk-portfolio-list">
-        <div class="col-lg-4">
-            <div class="nk-portfolio-item nk-portfolio-item-square nk-portfolio-item-info-style-1" style="flex: max-content">
-                <div class="nk-portfolio-item-image">
-                    {% for picture in trick.pictures %}
-                        <div style="background-image:url('images/Upload/{{picture.name }}')"></div>
-                    {% endfor %}
-                </div>
-                <div class="nk-portfolio-item-info nk-portfolio-item-info-center text-xs-center">
-                    <div>
-                        <h2 class="portfolio-item-title h3">{{ trick.name }}</h2>
-                        <div class="portfolio-item-category"><a href="#">En voir plus cliqez ici</a></div>
+    <!-- Page Content -->
+    <div class="content">
+        <div id="Display">
+            <div class="row items-push js-gallery">
+                {% for tricks in trick %}
+                    <div class="col-md-6 col-lg-4 col-xl-4 animated fadeIn trick">
+                        <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
+                            <img class="img-fluid options-item" src="{{ asset('images/Upload/' ~ attribute(tricks.pictures, 0).name )}}" alt="">
+                            <div class="options-overlay bg-black-op-75">
+                                <div class="options-overlay-content">
+                                    <h2 class="h4 text-white mb-5"><a style="color: white" href="/tricks/{{ tricks.slug }}">{{ tricks.name }}</a></h2>
+                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" href="{{ asset('img/photos/photo16@2x.jpg') }}">
+                                            <i class="fa fa-trash"></i> Supprimer
+                                        </a>
+                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Editer</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                {% endfor %}
+                <!-- END Advanced Gallery -->
             </div>
         </div>
-        </div>
-    {% endfor %}
-        <button class="nk-btn"><a href="/{{ page }}">page precedente</a></button>
-        <button class="nk-btn"><a href="/{{ nextpage }}">page suivante</a></button>
+        <!-- END Page Content -->
     </div>
+
+    <div class="button">
+        <button  id="more" type="button" class="btn btn-rounded btn-noborder btn-info min-width-125 mb-10" style="display: block; margin: auto">More</button><br>
+    </div>
+
+    <i id="arrowUp" class="si si-arrow-up-circle"
+       style="position: fixed; right: 35px; font-size: 1.8em; color: black; bottom: 65px;"></i>
+
+    <script src="{{ asset('js/pagination.js') }}"></script>
+    <script src="{{ asset('js/TopDown.js') }}"></script>
+
 {% endblock %}

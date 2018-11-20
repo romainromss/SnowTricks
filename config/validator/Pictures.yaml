@@ -1,0 +1,11 @@
+App\Domain\Models\Pictures:
+    properties:
+        name:
+            - Image:
+                maxSize: 3M
+                mimeTypes:
+                    - image/jpg
+                    - image/svg
+                    - image/png
+                mimeTypesMessage: Format d'image non accepté.(jpg,svg,png seulement)
+                groups: ['Picture']
