@@ -101,12 +101,12 @@ class User implements UserInterface
    * @throws \Exception
    */
     public function __construct(
-      string $username,
-      string $email,
-      string $name,
-      string $lastname,
-      string $password,
-      string $role,
+      string $username = null,
+      string $email = null,
+      string $name = null,
+      string $lastname = null,
+      string $password = null,
+      string $role = null,
       PictureInterface $picture = null,
       array $trick = null,
       array $comment = null
