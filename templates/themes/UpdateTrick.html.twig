@@ -4,9 +4,9 @@
         <div class="block-content">
             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
                 {{ form_start(form) }}
-                <div style="margin-top: 50px" class="form-group row">
+                <div id="update_trick" style="margin-top: 50px" class="form-group row">
                     <div class="col-md-9">
-                        <div class="form-material floating">
+                            <div class="form-material floating">
                             {{ form_widget(form.name, {'attr': { 'class':'form-control'}}) }}
                             {{ form_label(form.name) }}
                         </div>
@@ -28,12 +28,12 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div id="update_pictures_index" data-index="{{ form.pictures|length }}">
                     {{ form_widget(form.pictures) }}
                     {{ form_label(form.pictures) }}
                     <button style="margin-top: 10px; margin-bottom: 20px" type="button" id="update_pictures" class="btn btn-alt-primary">Ajouter</button>
                 </div>
-                <div>
+                <div id="update_movies_index" data-index="{{ form.movies|length }}">
                     {{ form_widget(form.movies) }}
                     {{ form_label(form.movies) }}
                     <button style="margin-top: 10px" type="button" id="update_movies" class="btn btn-alt-primary">Ajouter</button>

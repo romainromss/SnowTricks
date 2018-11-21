@@ -87,10 +87,10 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
       $movies = [];
       $pictures = [];
       
-      foreach($form->getData()->pictures as $picture) {
-        $fileName = $this->uploaderHelper->upload($picture->file);
-        $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
-      }
+        foreach($form->getData()->pictures as $picture) {
+          $fileName = $this->uploaderHelper->upload($picture->file);
+          $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
+        }
       $existPictures = $tricks->getPictures();
       $tricks->removePictures($existPictures);
       

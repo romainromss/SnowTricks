@@ -40,9 +40,12 @@ class UploaderHelper implements UploaderHelperInterface
    *
    * @return string
    */
-  public function upload(UploadedFile $fileInfo)
+  public function upload(UploadedFile $fileInfo = null)
   {
-    $fileName = md5(uniqid(str_rot13($fileInfo->getFilename()))).'.'.$fileInfo->guessExtension();
+    if($fileInfo == null){
+      return null;
+    }
+    $fileName = md5(uniqid(str_rot13($fileInfo->getFilename()))).'.'.$fileInfo->guessExtension() ;
     $fileInfo->move($this->imageFolder, $fileName);
     return $fileName;
   }

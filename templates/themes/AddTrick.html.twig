@@ -28,12 +28,12 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div id="add_pictures_index" data-index="{{ form.pictures|length }}">
                     {{ form_widget(form.pictures) }}
                     {{ form_label(form.pictures) }}
                     <button style="margin-top: 10px; margin-bottom: 20px" type="button" id="add_pictures" class="btn btn-alt-primary">Ajouter</button>
                 </div>
-                <div>
+                <div id="add_movies_index" data-index="{{ form.movies|length }}">
                     {{ form_widget(form.movies) }}
                     {{ form_label(form.movies) }}
                     <button style="margin-top: 10px" type="button" id="add_movies" class="btn btn-alt-primary">Ajouter</button>
