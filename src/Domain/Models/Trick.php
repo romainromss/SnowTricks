@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
+use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Models\Interfaces\CommentInterface;
 use App\Domain\Models\Interfaces\MovieInterface;
 use App\Domain\Models\Interfaces\PictureInterface;
@@ -196,6 +197,16 @@ class Trick implements TrickInterface
 	}
   
   /**
+   * @param UpdateTrickDTO $updateTrickDTO
+   */
+	public function updateTrick(UpdateTrickDTO $updateTrickDTO)
+    {
+      $this->name = $updateTrickDTO->name;
+      $this->description = $updateTrickDTO->description;
+      $this->category = $updateTrickDTO->category;
+    }
+  
+  /**
    * @param PictureInterface $pictures
    */
     public function addPictures(PictureInterface $pictures): void
@@ -213,8 +224,26 @@ class Trick implements TrickInterface
     
     public function removePictures($picture)
     {
-      $this->picture->clear();
+      if($picture === array()) {
+        $this->picture->removeElement($picture);
+      } else {
+        $this->picture->clear();
+      }
     }
+  
+  /**
+   * @param $movie
+   *
+   * @return void
+   */
+  public function removeMovies($movie)
+  {
+    if($movie === array()) {
+      $this->movie->removeElement($movie);
+    } else {
+      $this->movie->clear();
+    }
+  }
   
   /**
    * @param MovieInterface $movies

@@ -104,10 +104,14 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
         }
         $movies[] = $this->moviesFactory->create($movie->embed, $movie->legend);
       }
+      $existMovies = $tricks->getMovies();
+      $tricks->removeMovies($existMovies);
+      
       foreach($movies as $movie) {
         $tricks->addMovies($movie);
       }
       
+      $tricks->updateTrick($form->getData());
       $this->tricksRepository->update($tricks);
       return true;
     }

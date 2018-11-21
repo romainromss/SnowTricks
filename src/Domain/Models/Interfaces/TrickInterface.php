@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
-use App\Domain\Models\Picture;
+use App\Domain\DTO\UpdateTrickDTO;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -79,6 +79,11 @@ interface TrickInterface
   public function getSlug(): string;
   
   /**
+   * @param UpdateTrickDTO $updateTrickDTO
+   */
+  public function updateTrick(UpdateTrickDTO $updateTrickDTO);
+  
+  /**
    * @param PictureInterface $pictures
    *
    * @return array
@@ -92,9 +97,17 @@ interface TrickInterface
   public function unsetPictures(PictureInterface $pictures): void;
   
   /**
-   * @return mixed
+   * @param array $picture
+   *
+   * @return void
    */
   public function removePictures($picture);
+  
+  /**
+   * @param $movie
+   *
+   */
+  public function removeMovies($movie);
   
   /**
    * @param MovieInterface $movies

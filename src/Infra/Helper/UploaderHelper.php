@@ -44,7 +44,6 @@ class UploaderHelper implements UploaderHelperInterface
   {
     $fileName = md5(uniqid(str_rot13($fileInfo->getFilename()))).'.'.$fileInfo->guessExtension();
     $fileInfo->move($this->imageFolder, $fileName);
-    
     return $fileName;
   }
 }
