@@ -33,7 +33,7 @@ class RegisterUserHandler
      $mail = $form->getData()->mail;
      $password = $form->getData()->password;
      
-     $user = new User(
+     $user = new UserFactory(
        $name,
        $username,
        $lastname,

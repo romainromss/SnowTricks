@@ -66,6 +66,8 @@ class RegisterUserAction
     $registerUserType = $this->formFactory
       ->create(RegisterUserType::class)
       ->handleRequest($request);
+    
+    
   
     return $responderRegisterUser(['form' => $registerUserType->createView()]);
   }
