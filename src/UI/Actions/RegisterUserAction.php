@@ -48,7 +48,7 @@ class RegisterUserAction
   }
   
   /**
-   * @Route("register", name="Register")
+   * @Route("/register", name="Register")
    *
    * @param Request               $request
    *
@@ -66,9 +66,13 @@ class RegisterUserAction
     $registerUserType = $this->formFactory
       ->create(RegisterUserType::class)
       ->handleRequest($request);
-    
-    
   
-    return $responderRegisterUser(['form' => $registerUserType->createView()]);
+    if ($this->registerUserHandler->handle($registerUserType)){
+      return $responderRegisterUser(true);
+    }
+  
+    return $responderRegisterUser(false,[
+      'form' => $registerUserType->createView()
+    ],  $registerUserType);
   }
 }

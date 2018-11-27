@@ -13,7 +13,10 @@ declare(strict_types = 1);
 
 namespace App\UI\Responder;
 
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
 /**
@@ -26,23 +29,41 @@ class ResponderRegisterUser
   /** @var Environment */
   private $twig;
   
-  public function __construct(Environment $twig)
-  {
+  /** @var UrlGeneratorInterface */
+  private $urlGenerator;
+  
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(
+    Environment $twig,
+    UrlGeneratorInterface $urlGenerator
+  ) {
     $this->twig = $twig;
+    $this->urlGenerator = $urlGenerator;
   }
   
   /**
-   * @param $data
+   * @param bool               $redirect
+   * @param                    $data
+   *
+   * @param FormInterface|null $addCommentType
    *
    * @return Response
    * @throws \Twig_Error_Loader
    * @throws \Twig_Error_Runtime
    * @throws \Twig_Error_Syntax
    */
-  public function __invoke($data)
-  {
-    return new Response(
-      $this->twig->render('register.html.twig', $data)
-    );
+  public function __invoke(
+    $redirect = false,
+    $data = null,
+    FormInterface $addCommentType = null
+  ):  Response {
+    
+    $response = $redirect
+      ?  new RedirectResponse($this->urlGenerator->generate('index'))
+      :  new Response($this->twig->render('Register/Register.html.twig', $data));
+    
+    return $response;
   }
 }

@@ -36,7 +36,7 @@ class RegisterUserType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
-      ->add('mail', ['label' => 'E-mail'])
+      ->add('mail')
       ->add('username', TextType::class, ['label' => 'Pseudo', 'csrf_field_name' => "username"])
       ->add('name', TextType::class, ['label' => 'Prenom'])
       ->add('lastname', TextType::class, ['label' => 'Nom'])
