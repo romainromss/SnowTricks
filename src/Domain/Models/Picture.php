@@ -55,7 +55,7 @@
      * @throws \Exception
      */
     public function __construct(
-     string $name,
+     ?string $name,
      string $legend,
      bool $first
     ) {

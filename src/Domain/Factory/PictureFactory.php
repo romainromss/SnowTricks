@@ -44,7 +44,7 @@ class PictureFactory implements PictureFactoryInterface
    *{@inheritdoc}
    */
   public function create(
-    string $name,
+    ?string $name ,
     string $legend,
     bool $first
   ): PictureInterface {

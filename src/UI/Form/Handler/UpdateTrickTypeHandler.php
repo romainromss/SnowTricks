@@ -86,18 +86,24 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
     if ($form->isSubmitted() && $form->isValid()){
       $movies = [];
       $pictures = [];
-      
-        foreach($form->getData()->pictures as $picture) {
-          $fileName = $this->uploaderHelper->upload($picture->file);
-          $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
-        }
-      $existPictures = $tricks->getPictures();
-      $tricks->removePictures($existPictures);
-      
-      foreach($pictures as $picture) {
-        $tricks->addPictures($picture);
-      }
   
+      $existPictures = $tricks->getPictures();
+      
+      foreach($form->getData()->pictures as $picture) {
+          if($picture->file) {
+            $fileName = $this->uploaderHelper->upload($picture->file);
+            $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
+          }
+        }
+      
+      if(!empty($pictures)) {
+          $tricks->removePictures($existPictures);
+          foreach($pictures as $picture) {
+            $tricks->addPictures($picture);
+          }
+        }
+      
+        
       foreach($form->getData()->movies as $movie) {
         if(\is_a($movie, MovieInterface::class ) || is_null($movie->embed))  {
           continue;
