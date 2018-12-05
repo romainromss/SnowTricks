@@ -34,11 +34,12 @@
 
         <id name="id" column="id" type="uuid" />
 
-        <field name="username" column="username" type="string"  length="10" nullable="false"  />
-        <field name="name" column="name" type="string" length="10" nullable="false" />
-        <field name="lastname" column="lastname" type="string" length="20" nullable="false" />
+        <field name="username" column="username" type="string"  length="50" nullable="false"  />
+        <field name="name" column="name" type="string" length="50" nullable="false" />
+        <field name="lastname" column="lastname" type="string" length="50" nullable="false" />
         <field name="password" column="password" type="string" length="65" nullable="false"  />
         <field name="email" column="email" type="string" length="50" nullable="false"  />
+        <field name="email_token" column="email_token" type="string" length="100" nullable="true" />
         <field name="role" column="role" type="string" nullable="false" />
         <field name="createdAt" column="createdAt" type="integer" nullable="false"  />
 

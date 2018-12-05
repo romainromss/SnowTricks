@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -15,5 +15,13 @@ namespace App\Domain\Services\Interfaces;
 
 interface MailerServiceInterface
 {
-  
+  /**
+   * @param string $subject
+   * @param string $mail
+   * @param string $token
+   * @param string $name
+   *
+   * @return mixed
+   */
+  public function sendMail(string $subject, string $mail, string $token, string $name);
 }

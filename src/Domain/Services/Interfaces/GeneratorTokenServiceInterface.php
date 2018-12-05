@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,10 @@ declare(strict_types = 1);
 
 namespace App\Domain\Services\Interfaces;
 
-class GeneratorTokenServiceInterface
+interface GeneratorTokenServiceInterface
 {
-  
+  /**
+   * @return string
+   */
+  public static function generateToken();
 }

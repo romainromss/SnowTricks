@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,37 @@ declare(strict_types = 1);
 
 namespace App\Infra\Subscribers;
 
-class UserSubscriber
+use App\Domain\Models\User;
+use App\Domain\Services\Interfaces\MailerServiceInterface;
+use App\Infra\Events\UserEvent;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\Form\FormEvent;
+
+class UserSubscriber implements EventSubscriberInterface
 {
+  /**
+   * @var MailerServiceInterface
+   */
+  private $mailerService;
+  /**
+   * @var FormEvent
+   */
+  private $formEvent;
   
+  public static function getSubscribedEvents()
+  {
+    return [
+      UserEvent::USER_REGISTER => 'userRegister'
+    ];
+  }
+  
+  public function __construct(MailerServiceInterface $mailerService)
+  {
+    $this->mailerService = $mailerService;
+  }
+  
+  public function userRegister(UserEvent $event)
+  {
+   $this->mailerService->sendMail('Bienvenue sur snowtricks', $event->getUser()->getEmail(), $event->getUser()->getEmailToken(), $event->getUser()->getName());
+  }
 }

@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,12 @@ declare(strict_types = 1);
 
 namespace App\Domain\Services;
 
-class GeneratorTokenService
+use App\Domain\Services\Interfaces\GeneratorTokenServiceInterface;
+
+class GeneratorTokenService implements GeneratorTokenServiceInterface
 {
-  
+  public static function generateToken()
+  {
+    return md5(uniqid());
+  }
 }

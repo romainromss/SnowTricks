@@ -13,9 +13,11 @@ declare(strict_types = 1);
 
 namespace App\Domain\Factory;
 
+use App\Domain\DTO\PictureDTO;
 use App\Domain\Factory\Interfaces\UserFactoryInterface;
 use App\Domain\Models\Interfaces\PictureInterface;
 use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Picture;
 use App\Domain\Models\User;
 
 /**
@@ -26,15 +28,13 @@ use App\Domain\Models\User;
 class UserFactory implements UserFactoryInterface
 {
   /**
-   * @param string           $username
-   * @param string           $email
-   * @param string           $name
-   * @param string           $lastname
-   * @param string           $password
-   * @param string           $role
-   * @param PictureInterface $picture
-   * @param array            $trick
-   * @param array            $comment
+   * @param string      $username
+   * @param string      $email
+   * @param string      $name
+   * @param string      $lastname
+   * @param string      $password
+   *
+   * @param             $picture
    *
    * @return UserInterface
    * @throws \Exception
@@ -42,14 +42,13 @@ class UserFactory implements UserFactoryInterface
   public function create(
     string $username,
     string $email,
+    string $email_token,
     string $name,
     string $lastname,
     string $password,
-    string $role,
-    PictureInterface $picture,
-    array $trick,
-    array $comment
+    $picture
+    
   ): UserInterface {
-    return new User($username, $email, $name, $lastname, $password, $role, $picture, $trick, $comment);
+    return new User($username, $email, $email_token, $name, $lastname, $password, $picture);
   }
 }

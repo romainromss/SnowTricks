@@ -13,26 +13,29 @@ declare(strict_types = 1);
 
 namespace App\Domain\DTO\Interfaces;
 
+use App\Domain\DTO\PictureDTO;
 use App\Domain\Models\Interfaces\PictureInterface;
+use App\Domain\Models\Picture;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-interface RegisterUserInterface
+interface RegisterUserDTOInterface
 {
   /**
    * RegisterUserDTO constructor.
    *
-   * @param string|null $mail
    * @param string|null $username
+   * @param string|null $mail
    * @param string|null $name
    * @param string|null $lastname
    * @param string|null $password
+   * @param Picture     $picture
    */
   public function __construct(
-    string $mail = null,
-    string $username = null,
-    string $name = null,
-    string $lastname = null,
-    string $password = null,
-    string $role = null,
-    PictureInterface $picture
+    string $username,
+    string $mail,
+    string $name,
+    string $lastname,
+    string $password,
+    $picture = null
   );
 }

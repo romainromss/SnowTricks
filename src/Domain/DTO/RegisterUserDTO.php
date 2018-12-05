@@ -13,10 +13,11 @@ declare(strict_types = 1);
 
 namespace App\Domain\DTO;
 
-use App\Domain\DTO\Interfaces\RegisterUserInterface;
+use App\Domain\DTO\Interfaces\RegisterUserDTOInterface;
 use App\Domain\Models\Interfaces\PictureInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-class RegisterUserDTO implements RegisterUserInterface
+class RegisterUserDTO implements RegisterUserDTOInterface
 {
   /** @var string */
   public $mail;
@@ -32,32 +33,25 @@ class RegisterUserDTO implements RegisterUserInterface
   
   /** @var string */
   public $password;
-  /**
-   * @var string
-   */
-  private $role;
-  /**
-   * @var PictureInterface
-   */
-  private $picture;
+  
+  public $picture;
   
   /**
    * {@inheritdoc}
    */
   public function __construct(
-    string $mail = null,
-    string $username = null,
-    string $name = null,
-    string $lastname = null,
-    string $password = null,
-    string $role = null,
-    PictureInterface $picture
+    string $username,
+    string $mail,
+    string $name,
+    string $lastname,
+    string $password,
+    $picture = null
   ) {
-    $this->mail = $mail;
     $this->username = $username;
+    $this->mail = $mail;
     $this->name = $name;
     $this->lastname = $lastname;
     $this->password = $password;
-    $this->
-  $this->role = $role;$this->picture = $picture;}
+    $this->picture = $picture;
+  }
 }

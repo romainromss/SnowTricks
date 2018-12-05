@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,19 @@ declare(strict_types = 1);
 
 namespace App\Infra\Events\Interfaces;
 
+use App\Domain\Models\Interfaces\UserInterface;
+
 interface UserEventInerface
 {
+  /**
+   * UserEvent constructor.
+   *
+   * @param UserInterface $user
+   */
+  public function __construct(UserInterface $user);
   
+  /**
+   * @return UserInterface
+   */
+  public function getUser(): UserInterface;
 }

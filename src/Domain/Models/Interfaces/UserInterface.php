@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
-use Prophecy\Argument;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -47,6 +46,11 @@ interface UserInterface
      * @return string
      */
     public function getEmail(): string;
+  
+  /**
+   * @return string
+   */
+  public function getEmailToken(): string;
 
     /**
      * @return string
@@ -68,10 +72,9 @@ interface UserInterface
      */
     public function getRole(): string ;
 
-    /**
-     * @return PictureInterface
-     */
-    public function getPictures(): PictureInterface;
+    
+    public function getPictures();
+    
 
 	/**
 	 * @return bool|\DateTime

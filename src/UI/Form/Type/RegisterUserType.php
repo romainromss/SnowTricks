@@ -36,18 +36,18 @@ class RegisterUserType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
-      ->add('mail')
       ->add('username', TextType::class, ['label' => 'Pseudo', 'csrf_field_name' => "username"])
+      ->add('mail')
       ->add('name', TextType::class, ['label' => 'Prenom'])
       ->add('lastname', TextType::class, ['label' => 'Nom'])
       ->add('password', RepeatedType::class, [
         'type' => PasswordType::class,
-        'invalid_message' => 'The password fields must match.',
         'options' => ['attr' => ['class' => 'password-field']],
         'required' => true,
         'first_options'  => ['label' => 'Mot de passe'],
         'second_options' => ['label' => 'Confirmer le mot de passe']
-      ]);
+      ])
+      ->add('picture', PictureType::class);
   }
   
   public function configureOptions(OptionsResolver $resolver)
@@ -60,7 +60,8 @@ class RegisterUserType extends AbstractType
           $form->get('username')->getData(),
           $form->get('name')->getData(),
           $form->get('lastname')->getData(),
-          $form->get('password')->getData()
+          $form->get('password')->getData(),
+          $form->get('picture')->getData()
         );
       },
       'validation_groups' => ['RegisterUser'],

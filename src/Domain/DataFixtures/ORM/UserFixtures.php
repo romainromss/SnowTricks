@@ -30,8 +30,7 @@ class UserFixtures extends Fixture
         'email@gmail.com',
         'name'. 'a',
         'lastname'. 'a',
-        '12345678'.'a',
-        'user'
+        '12345678'.'a'
       );
       $this->addReference('users', $user);
       

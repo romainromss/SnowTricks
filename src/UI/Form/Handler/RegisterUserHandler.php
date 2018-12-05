@@ -13,13 +13,67 @@ declare(strict_types = 1);
 
 namespace App\UI\Form\Handler;
 
+use App\Domain\Factory\UserFactory;
+use App\Domain\Models\Picture;
 use App\Domain\Models\User;
+use App\Domain\Repository\Interfaces\UserRepositoryInterface;
+use App\Domain\Repository\UserRepository;
+use App\Domain\Services\GeneratorTokenService;
+use App\Domain\Services\Interfaces\GeneratorTokenServiceInterface;
+use App\Infra\Events\UserEvent;
+use App\Infra\Helper\UploaderHelper;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 class RegisterUserHandler
 {
-  public function __construct()
-  {
+  /** @var EncoderFactoryInterface */
+  private $encoderFactory;
+  
+  /** @var UserFactory */
+  private $userFactory;
+  
+  /** @var UserRepositoryInterface */
+  private $userRepository;
+  
+  /** @var string */
+  private $imageFolder;
+  
+  /** @var UploaderHelper */
+  private $uploaderHelper;
+  
+  /** @var EventDispatcherInterface */
+  private $eventDispatcher;
+  /**
+   * @var GeneratorTokenServiceInterface
+   */
+  private $generatorTokenService;
+  
+  /**
+   * RegisterUserHandler constructor.
+   *
+   * @param EncoderFactoryInterface        $encoderFactory
+   * @param UserFactory                    $userFactory
+   * @param UserRepository                 $userRepository
+   * @param string                         $imageFolder
+   * @param UploaderHelper                 $uploaderHelper
+   * @param EventDispatcherInterface       $eventDispatcher
+   */
+  public function __construct(
+    EncoderFactoryInterface $encoderFactory,
+    UserFactory $userFactory,
+    UserRepository $userRepository,
+    string $imageFolder,
+    UploaderHelper $uploaderHelper,
+    EventDispatcherInterface $eventDispatcher
+  ) {
+    $this->encoderFactory = $encoderFactory;
+    $this->userFactory = $userFactory;
+    $this->userRepository = $userRepository;
+    $this->imageFolder = $imageFolder;
+    $this->uploaderHelper = $uploaderHelper;
+    $this->eventDispatcher = $eventDispatcher;
   }
   
   public function handle(
@@ -27,20 +81,23 @@ class RegisterUserHandler
   ) {
     
     if ($form->isSubmitted() && $form->isValid()) {
-     $name = $form->getData()->name;
-     $username = $form->getData()->username;
-     $lastname = $form->getData()->lastname;
-     $mail = $form->getData()->mail;
-     $password = $form->getData()->password;
-     
-     $user = new UserFactory(
-       $name,
-       $username,
-       $lastname,
-       $mail,
-       password_
-       );
+      $encoder = $this->encoderFactory->getEncoder(User::class);
+      $picture = $form->getData()->picture;
+      $fileName = $this->uploaderHelper->upload($picture->file);
+      
+      $user = $this->userFactory->create(
+        $form->getData()->username,
+        $form->getData()->mail,
+        $email_token = GeneratorTokenService::generateToken(),
+        $form->getData()->name,
+        $form->getData()->lastname,
+        $encoder->encodePassword($form->getData()->password, ''),
+        $picture = [new Picture($fileName, $form->getData()->picture->legend, $form->getData()->picture->first)]
+      );
+  
+      $this->eventDispatcher->dispatch(UserEvent::USER_REGISTER, new UserEvent($user));
+  
+      $this->userRepository->save($user);
     }
   }
-  
 }
