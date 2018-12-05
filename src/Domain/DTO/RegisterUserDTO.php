@@ -14,6 +14,7 @@ declare(strict_types = 1);
 namespace App\Domain\DTO;
 
 use App\Domain\DTO\Interfaces\RegisterUserInterface;
+use App\Domain\Models\Interfaces\PictureInterface;
 
 class RegisterUserDTO implements RegisterUserInterface
 {
@@ -31,6 +32,14 @@ class RegisterUserDTO implements RegisterUserInterface
   
   /** @var string */
   public $password;
+  /**
+   * @var string
+   */
+  private $role;
+  /**
+   * @var PictureInterface
+   */
+  private $picture;
   
   /**
    * {@inheritdoc}
@@ -40,12 +49,15 @@ class RegisterUserDTO implements RegisterUserInterface
     string $username = null,
     string $name = null,
     string $lastname = null,
-    string $password = null
+    string $password = null,
+    string $role = null,
+    PictureInterface $picture
   ) {
     $this->mail = $mail;
     $this->username = $username;
     $this->name = $name;
     $this->lastname = $lastname;
     $this->password = $password;
-  }
+    $this->
+  $this->role = $role;$this->picture = $picture;}
 }
