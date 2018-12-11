@@ -17,11 +17,11 @@ use App\Domain\DTO\AddCommentDTO;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class AddCommentDtoTest.
+ * Class AddCommentDtoUnitTest.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class AddCommentDtoTest extends TestCase
+class AddCommentDtoUnitTest extends TestCase
 {
     public function testConstruct()
     {

@@ -8,16 +8,14 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20181203170739 extends AbstractMigration
+final class Version20181205203141 extends AbstractMigration
 {
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
-        $this->addSql('ALTER TABLE users ALTER username TYPE VARCHAR(50)');
-        $this->addSql('ALTER TABLE users ALTER name TYPE VARCHAR(50)');
-        $this->addSql('ALTER TABLE users ALTER lastname TYPE VARCHAR(50)');
+        $this->addSql('ALTER TABLE users RENAME COLUMN email_token TO emailToken');
     }
 
     public function down(Schema $schema) : void
@@ -26,8 +24,6 @@ final class Version20181203170739 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'postgresql', 'Migration can only be executed safely on \'postgresql\'.');
 
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('ALTER TABLE users ALTER username TYPE VARCHAR(10)');
-        $this->addSql('ALTER TABLE users ALTER name TYPE VARCHAR(10)');
-        $this->addSql('ALTER TABLE users ALTER lastname TYPE VARCHAR(20)');
+        $this->addSql('ALTER TABLE users RENAME COLUMN emailtoken TO email_token');
     }
 }

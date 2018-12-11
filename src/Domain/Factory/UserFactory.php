@@ -30,6 +30,7 @@ class UserFactory implements UserFactoryInterface
   /**
    * @param string      $username
    * @param string      $email
+   * @param string      $emailToken
    * @param string      $name
    * @param string      $lastname
    * @param string      $password
@@ -42,13 +43,13 @@ class UserFactory implements UserFactoryInterface
   public function create(
     string $username,
     string $email,
-    string $email_token,
+    string $emailToken,
     string $name,
     string $lastname,
     string $password,
     $picture
     
   ): UserInterface {
-    return new User($username, $email, $email_token, $name, $lastname, $password, $picture);
+    return new User($username, $email, $emailToken, $name, $lastname, $password, $picture);
   }
 }

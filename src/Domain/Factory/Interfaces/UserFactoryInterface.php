@@ -29,6 +29,7 @@ interface UserFactoryInterface
    * @param string      $username
    * @param string      $email
    *
+   * @param string      $emailToken
    * @param string      $name
    * @param string      $lastname
    * @param string      $password
@@ -39,7 +40,7 @@ interface UserFactoryInterface
   public function create(
     string $username,
     string $email,
-    string $email_token,
+    string $emailToken,
     string $name,
     string $lastname,
     string $password,

@@ -1,4 +1,4 @@
-App\Domain\Models\Comments:
+App\Domain\DTO\AddComment:
   properties:
     content:
     - NotBlank:

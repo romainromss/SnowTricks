@@ -13,13 +13,14 @@ declare(strict_types = 1);
 
 namespace App\UI\Actions;
 
-use App\Domain\DTO\RegisterUserDTO;
+use App\Infra\Events\SessionMessageEvent;
 use App\UI\Form\Handler\RegisterUserHandler;
 use App\UI\Form\Type\RegisterUserType;
 use App\UI\Responder\ResponderRegisterUser;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class RegisterUserAction.
@@ -38,23 +39,37 @@ class RegisterUserAction
    */
   private $registerUserHandler;
   
+  /**
+   * @var EventDispatcherInterface
+   */
+  private $eventDispatcher;
+  
+  /**
+   * RegisterUserAction constructor.
+   *
+   * @param FormFactoryInterface $formFactory
+   * @param RegisterUserHandler  $registerUserHandler
+   * @param EventDispatcherInterface        $eventDispatcher
+   */
   public function __construct(
     FormFactoryInterface $formFactory,
-    RegisterUserHandler $registerUserHandler
+    RegisterUserHandler $registerUserHandler,
+    EventDispatcherInterface $eventDispatcher
   ) {
     $this->formFactory = $formFactory;
     $this->registerUserHandler = $registerUserHandler;
-  
+    $this->eventDispatcher = $eventDispatcher;
   }
   
   /**
    * @Route("/register", name="Register")
    *
    * @param Request               $request
-   *
    * @param ResponderRegisterUser $responderRegisterUser
    *
-   * @return mixed
+   * @return \Symfony\Component\HttpFoundation\Response
+   * @throws \Doctrine\ORM\ORMException
+   * @throws \Doctrine\ORM\OptimisticLockException
    * @throws \Twig_Error_Loader
    * @throws \Twig_Error_Runtime
    * @throws \Twig_Error_Syntax
@@ -66,11 +81,12 @@ class RegisterUserAction
     $registerUserType = $this->formFactory
       ->create(RegisterUserType::class)
       ->handleRequest($request);
-  
-    if ($this->registerUserHandler->handle($registerUserType)){
+    
+    if ($this->registerUserHandler->handle($registerUserType)) {
+     $this->eventDispatcher->dispatch(SessionMessageEvent::SESSION_MESSAGE, new SessionMessageEvent('success', 'un mail de confirmation a été envoyé'));
       return $responderRegisterUser(true);
     }
-  
+    
     return $responderRegisterUser(false,[
       'form' => $registerUserType->createView()
     ],  $registerUserType);

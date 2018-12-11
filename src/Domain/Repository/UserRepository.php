@@ -62,8 +62,8 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
   public function getUserByEmail(string $mail):? UserInterface
   {
     return $this->createQueryBuilder('user')
-      ->where('user.mail = :mail')
-      ->setParameter('mail', $mail)
+      ->where('user.email = :email')
+      ->setParameter('email', $mail)
       ->setCacheable(true)
       ->getQuery()
       ->getOneOrNullResult();
@@ -74,20 +74,30 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
    *
    * @throws \Doctrine\ORM\NonUniqueResultException
    */
-  public function getUserByUsernameAndEmail(string $username, string $mail): ? UserInterface
+  public function getUserByUsernameAndEmail(string $username, string $mail)
   {
     return $this->createQueryBuilder('user')
-      ->where('user.username = :username AND user.mail = :mail')
+      ->where('user.username = :username AND user.email = :email')
       ->setParameter('username', $username)
-      ->setParameter('mail', $mail)
+      ->setParameter('email', $mail)
       ->getQuery()
       ->getOneOrNullResult();
   }
   
-  
-  public function addPictures(PictureInterface $pictures): void
+  /**
+   * @param string $token
+   *
+   * @return UserInterface|null
+   *
+   * @throws \Doctrine\ORM\NonUniqueResultException
+   */
+  public function getUserByToken(string $token): ? UserInterface
   {
-    $this->picture[] = $pictures;
+    return $this->createQueryBuilder('user')
+      ->where('user.emailToken = :token')
+      ->setParameter('token', $token)
+      ->getQuery()
+      ->getOneOrNullResult();
   }
   
   /**

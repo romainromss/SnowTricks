@@ -90,7 +90,7 @@ class UpdateTrickActionTest extends TestCase
 		$this->collection = $this->createMock(Collection::class);
 		$formInterface = $this->createMock(FormInterface::class);
 		$this->imageFolder = new UploadedFile('/public/images/Upload/'.'1080.svg', '1080.svg');
-
+		
 		$formInterface->method('handleRequest')->willReturnSelf();
 		$this->formFactory->method('create')->willReturn($formInterface);
 		$this->collection->method('toArray')->willReturn([]);

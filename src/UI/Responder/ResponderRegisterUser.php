@@ -47,7 +47,7 @@ class ResponderRegisterUser
    * @param bool               $redirect
    * @param                    $data
    *
-   * @param FormInterface|null $addCommentType
+   * @param FormInterface|null $registerUserType
    *
    * @return Response
    * @throws \Twig_Error_Loader
@@ -57,7 +57,7 @@ class ResponderRegisterUser
   public function __invoke(
     $redirect = false,
     $data = null,
-    FormInterface $addCommentType = null
+    FormInterface $registerUserType = null
   ):  Response {
     
     $response = $redirect

@@ -15,8 +15,14 @@ namespace App\Domain\DTO;
 
 use App\Domain\DTO\Interfaces\RegisterUserDTOInterface;
 use App\Domain\Models\Interfaces\PictureInterface;
+use App\Validators\UniqueUserDTO;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+/**
+ * Class RegisterUserDTO.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
 class RegisterUserDTO implements RegisterUserDTOInterface
 {
   /** @var string */

@@ -138,6 +138,7 @@
 
             <!-- Right Section -->
             <div class="content-header-section">
+
                 <!-- Header Navigation -->
                 <!--
                 Desktop Navigation, mobile navigation can be found in #sidebar
@@ -236,21 +237,19 @@
         </div>
         <!-- END Header Loader -->
     </header>
-    <!-- END Header -->
-    {% block FlashMessage %}
-        {% for flash_message in app.flashes('success') %}
-            <div class="alert alert-success">
-                {{ flash_message }}
-            </div>
-        {% endfor %}
-        {% for flash_message in app.flashes('error') %}
-            <div class="alert alert-danger">
-                {{ flash_message }}
-            </div>
-        {% endfor %}
-    {% endblock %}
-
     <main id="main-container">
+        {% for success in app.flashes('success') %}
+            <div class="alert alert-dismissible alert-success" style="position: relative; top: 80px; max-height: 40px">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p>{{ success }}</p>
+            </div>
+        {% endfor %}
+        {% for error in app.flashes('error') %}
+            <div class="alert alert-dismissible alert-danger" style="position: relative; top: 80px; max-height: 40px">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <p>{{ error }}</p>
+            </div>
+        {% endfor %}
     {% block head %}
     {% endblock %}
 

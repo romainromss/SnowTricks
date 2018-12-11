@@ -20,6 +20,7 @@ use App\Domain\Repository\Interfaces\UserRepositoryInterface;
 use App\Domain\Repository\UserRepository;
 use App\Domain\Services\GeneratorTokenService;
 use App\Domain\Services\Interfaces\GeneratorTokenServiceInterface;
+use App\Infra\Events\SessionMessageEvent;
 use App\Infra\Events\UserEvent;
 use App\Infra\Helper\UploaderHelper;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -76,6 +77,13 @@ class RegisterUserHandler
     $this->eventDispatcher = $eventDispatcher;
   }
   
+  /**
+   * @param FormInterface $form
+   *
+   * @return bool
+   * @throws \Doctrine\ORM\ORMException
+   * @throws \Doctrine\ORM\OptimisticLockException
+   */
   public function handle(
     FormInterface $form
   ) {
@@ -96,8 +104,9 @@ class RegisterUserHandler
       );
   
       $this->eventDispatcher->dispatch(UserEvent::USER_REGISTER, new UserEvent($user));
-  
       $this->userRepository->save($user);
+      return true;
     }
+    return false;
   }
 }

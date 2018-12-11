@@ -18,11 +18,11 @@ use App\Domain\DTO\AddTrickDTO;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class AddTrickDtoTest.
+ * Class AddTrickDtoUnitTest.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class AddTrickDtoTest extends TestCase
+class AddTrickDtoUnitTest extends TestCase
 {
 	public function testConstruct()
 	{

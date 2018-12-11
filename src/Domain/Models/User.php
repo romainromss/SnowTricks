@@ -39,7 +39,7 @@ class User implements UserInterface
   private $email;
   
   /** @var string  */
-  private $email_token;
+  private $emailToken;
   
   /** @var string */
   private $name;
@@ -70,7 +70,7 @@ class User implements UserInterface
    *
    * @param string           $username
    * @param string           $email
-   * @param string           $email_token
+   * @param string           $emailToken
    * @param string           $name
    * @param string           $lastname
    * @param string           $password
@@ -90,7 +90,7 @@ class User implements UserInterface
     $this->id = Uuid::uuid4();
     $this->username = $username;
     $this->email = $email;
-    $this->email_token = $emailToken;
+    $this->emailToken = $emailToken;
     $this->name = $name;
     $this->lastname = $lastname;
     $this->password = $password;
@@ -130,7 +130,7 @@ class User implements UserInterface
    */
   public function getEmailToken(): string
   {
-    return $this->email_token;
+    return $this->emailToken;
   }
   
   /**
@@ -193,5 +193,10 @@ class User implements UserInterface
   public function getComments(): \ArrayAccess
   {
     return $this->comment;
+  }
+  
+  public function validate(): void
+  {
+    $this->emailToken = null;
   }
 }

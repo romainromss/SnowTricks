@@ -18,14 +18,14 @@
   use Symfony\Component\HttpFoundation\File\UploadedFile;
 
   /**
-   * Class PictureDTOTest.
+   * Class PictureDTOUnitTest.
    *
    * @author Romain Bayette <romain.romss@gmail.com>
    */
-  class PictureDTOTest extends TestCase
+  class PictureDTOUnitTest extends TestCase
   {
     /**
-     * PictureDTOTest constructor.
+     * PictureDTOUnitTest constructor.
      */
     public function testConstruct ()
     {

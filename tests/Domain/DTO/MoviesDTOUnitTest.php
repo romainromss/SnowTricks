@@ -24,7 +24,7 @@ use PHPUnit\Framework\TestCase;
 class MoviesDTOUnitTest extends TestCase
 {
   /**
-   * PictureDTOTest constructor.
+   * PictureDTOUnitTest constructor.
    */
   public function testConstruct ()
   {

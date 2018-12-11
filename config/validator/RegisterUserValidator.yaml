@@ -1,4 +1,7 @@
 App\Domain\DTO\RegisterUserDTO:
+  constraints:
+    - App\Validators\UniqueUserDTO:
+       groups: ['RegisterUser']
   properties:
     name:
     - NotBlank: ~

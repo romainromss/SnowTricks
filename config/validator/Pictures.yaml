@@ -1,4 +1,4 @@
-App\Domain\Models\Pictures:
+App\Domain\DTO\PictureDTO:
     properties:
         name:
             - Image:

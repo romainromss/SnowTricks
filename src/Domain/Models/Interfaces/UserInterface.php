@@ -22,62 +22,64 @@ use Ramsey\Uuid\UuidInterface;
  */
 interface UserInterface
 {
-    /**
-     * @return \ArrayAccess
-     */
-    public function getTricks(): \ArrayAccess;
-
-    /**
-     * @return CommentInterface
-     */
-    public function getComments();
-
-    /**
-     * @return UuidInterface
-     */
-    public function getId(): UuidInterface;
-
-    /**
-     * @return string
-     */
-    public function getUsername(): string ;
-
-    /**
-     * @return string
-     */
-    public function getEmail(): string;
+  /**
+   * @return \ArrayAccess
+   */
+  public function getTricks(): \ArrayAccess;
+  
+  /**
+   * @return CommentInterface
+   */
+  public function getComments();
+  
+  /**
+   * @return UuidInterface
+   */
+  public function getId(): UuidInterface;
+  
+  /**
+   * @return string
+   */
+  public function getUsername(): string ;
+  
+  /**
+   * @return string
+   */
+  public function getEmail(): string;
   
   /**
    * @return string
    */
   public function getEmailToken(): string;
-
-    /**
-     * @return string
-     */
-    public function getName(): string ;
-
-    /**
-     * @return string
-     */
-    public function getLastname(): string;
-
-    /**
-     * @return string
-     */
-    public function getPassword(): string;
-
-    /**
-     * @return string
-     */
-    public function getRole(): string ;
-
-    
-    public function getPictures();
-    
-
-	/**
-	 * @return bool|\DateTime
-	 */
-	public function getCreatedAt(): \DateTime;
+  
+  /**
+   * @return string
+   */
+  public function getName(): string ;
+  
+  /**
+   * @return string
+   */
+  public function getLastname(): string;
+  
+  /**
+   * @return string
+   */
+  public function getPassword(): string;
+  
+  /**
+   * @return string
+   */
+  public function getRole(): string ;
+  
+  
+  public function getPictures();
+  
+  
+  /**
+   * @return bool|\DateTime
+   */
+  public function getCreatedAt(): \DateTime;
+  
+  public function validate(): void;
 }

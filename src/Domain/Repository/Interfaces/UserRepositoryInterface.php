@@ -40,7 +40,14 @@ interface UserRepositoryInterface
    * @return UserInterface|null
    * @throws \Doctrine\ORM\NonUniqueResultException
    */
-  public function getUserByUsernameAndEmail(string $username, string $email): ? UserInterface;
+  public function getUserByUsernameAndEmail(string $username, string $email);
+  
+  /**
+   * @param string $token
+   *
+   * @return UserInterface|null
+   */
+  public function getUserByToken(string $token): ? UserInterface;
   
   /**
    * @param $user

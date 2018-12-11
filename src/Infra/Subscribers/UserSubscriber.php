@@ -13,11 +13,9 @@ declare(strict_types = 1);
 
 namespace App\Infra\Subscribers;
 
-use App\Domain\Models\User;
 use App\Domain\Services\Interfaces\MailerServiceInterface;
 use App\Infra\Events\UserEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Form\FormEvent;
 
 class UserSubscriber implements EventSubscriberInterface
 {
@@ -25,10 +23,6 @@ class UserSubscriber implements EventSubscriberInterface
    * @var MailerServiceInterface
    */
   private $mailerService;
-  /**
-   * @var FormEvent
-   */
-  private $formEvent;
   
   public static function getSubscribedEvents()
   {

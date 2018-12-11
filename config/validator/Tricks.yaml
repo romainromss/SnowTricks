@@ -1,4 +1,4 @@
-App\Domain\Models\Tricks:
+App\Domain\DTO\AddTrickDTO:
     properties:
       name:
         - NotBlank: ~
