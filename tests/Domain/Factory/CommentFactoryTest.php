@@ -16,7 +16,7 @@ namespace App\Tests\Domain\Factory;
 use App\Domain\Factory\CommentFactory;
 use App\Domain\Models\Comment;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -35,7 +35,7 @@ class CommentFactoryTest extends TestCase
      */
     private $content;
     /**
-     * @var UserInterface
+     * @var UsersInterface
      */
     private $users;
 
@@ -43,7 +43,7 @@ class CommentFactoryTest extends TestCase
     {
         $this->tricks = $this->createMock(TrickInterface::class);
         $this->content = 'content';
-        $this->users = $this->createMock(UserInterface::class);
+        $this->users = $this->createMock(UsersInterface::class);
     }
     public function testInstanceOf()
     {

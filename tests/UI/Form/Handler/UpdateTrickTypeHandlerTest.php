@@ -17,7 +17,7 @@ use App\Domain\Factory\MovieFactory;
 use App\Domain\Factory\PictureFactory;
 use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\TrickRepository;
 use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\Interfaces\UpdateTrickTypeHandlerInterface;
@@ -67,7 +67,7 @@ class UpdateTrickTypeHandlerTest extends TestCase
     $token = $this->createMock(TokenInterface::class);
     
     $this->tokenstorage->method('getToken')->willReturn($token);
-    $token->method('getUser')->willReturn($this->createMock(UserInterface::class));
+    $token->method('getUser')->willReturn($this->createMock(UsersInterface::class));
     $this->formInterface = $this->createMock(FormInterface::class);
   }
   

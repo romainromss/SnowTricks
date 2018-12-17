@@ -18,7 +18,7 @@ use App\Domain\Factory\Interfaces\CommentFactoryInterface;
 use App\Domain\DTO\AddCommentDTO;
 use App\Domain\Models\Comment;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\Interfaces\CommentRepositoryInterface;
 use App\UI\Form\Handler\AddCommentTypeHandler;
 use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
@@ -63,7 +63,7 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 		$this->tokenstorage = $this->createMock(TokenStorage::class);
 		$token = $this->createMock(TokenInterface::class);
 		$this->tokenstorage->method('getToken')->willReturn($token);
-		$token->method('getUser')->willReturn($this->createMock(UserInterface::class));
+		$token->method('getUser')->willReturn($this->createMock(UsersInterface::class));
 		$this->formInterface = $this->createMock(FormInterface::class);
     }
 

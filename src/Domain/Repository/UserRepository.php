@@ -13,22 +13,20 @@ declare(strict_types=1);
 
 namespace App\Domain\Repository;
 
-use App\Domain\Models\Interfaces\PictureInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Models\User;
 use App\Domain\Repository\Interfaces\UserRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 
 /**
  * Class UserRepository.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class UserRepository extends ServiceEntityRepository implements UserRepositoryInterface
+class UserRepository extends ServiceEntityRepository implements UserRepositoryInterface, UserLoaderInterface
 {
-  private $picture;
-  
   /**
    * UserRepository constructor.
    *
@@ -40,11 +38,12 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
   }
   
   /**
-   * {@inheritdoc}
+   * @param string $username
    *
+   * @return UsersInterface|null
    * @throws \Doctrine\ORM\NonUniqueResultException
    */
-  public function getUserByUsername(string $username):? UserInterface
+  public function getUserByUsername(string $username):? UsersInterface
   {
     return $this->createQueryBuilder('user')
       ->where('user.username = :username')
@@ -59,7 +58,7 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
    *
    * @throws \Doctrine\ORM\NonUniqueResultException
    */
-  public function getUserByEmail(string $mail):? UserInterface
+  public function getUserByEmail(string $mail):? UsersInterface
   {
     return $this->createQueryBuilder('user')
       ->where('user.email = :email')
@@ -87,11 +86,11 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
   /**
    * @param string $token
    *
-   * @return UserInterface|null
+   * @return UsersInterface|null
    *
    * @throws \Doctrine\ORM\NonUniqueResultException
    */
-  public function getUserByToken(string $token): ? UserInterface
+  public function getUserByToken(string $token): ? UsersInterface
   {
     return $this->createQueryBuilder('user')
       ->where('user.emailToken = :token')
@@ -119,5 +118,21 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
   public function flush()
   {
     $this->getEntityManager()->flush();
+  }
+  
+  /**
+   * @param string $username
+   *
+   * @return mixed|\Symfony\Component\Security\Core\User\UserInterface|null
+   * @throws \Doctrine\ORM\NonUniqueResultException
+   */
+  public function loadUserByUsername($username)
+  {
+    return $this->createQueryBuilder('user')
+      ->where('user.username = :username')
+      ->setParameter('username', $username)
+      ->setCacheable(true)
+      ->getQuery()
+      ->getOneOrNullResult();
   }
 }

@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Tests\UI\Actions;
 
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\UserRepository;
 use App\UI\Actions\RegisterValidationAction;
 use App\UI\Responder\ResponderRegisterValidation;
@@ -31,7 +31,7 @@ class RegisterValidationActionUnitTest extends TestCase
   /** @var EventDispatcherInterface */
   private $eventDispatcher;
   
-  /** @var UserInterface */
+  /** @var UsersInterface */
   private $user;
   
   /** @var Request */
@@ -44,7 +44,7 @@ class RegisterValidationActionUnitTest extends TestCase
   {
     $this->userRepository = $this->createMock(UserRepository::class);
     $this->eventDispatcher = $this->createMock(EventDispatcherInterface::class);
-    $this->user = $this->createMock(UserInterface::class);
+    $this->user = $this->createMock(UsersInterface::class);
     $request = Request::create('/register-validation/emailToken', 'GET');
     $this->request = $request->duplicate(null, null, ['token' => 'emailToken']);
     $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);

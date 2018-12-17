@@ -17,7 +17,7 @@ namespace App\UI\Form\Handler\Interfaces;
 use App\Domain\Models\Interfaces\CommentInterface;
 use App\Domain\Models\Interfaces\MovieInterface;
 use App\Domain\Models\Interfaces\PictureInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Symfony\Component\Form\FormInterface;
 
 /**

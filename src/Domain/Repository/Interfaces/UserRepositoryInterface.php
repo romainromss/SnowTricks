@@ -13,31 +13,31 @@ declare(strict_types = 1);
 
 namespace App\Domain\Repository\Interfaces;
 
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 
 interface UserRepositoryInterface
 {
   /**
    * @param string $username
    *
-   * @return UserInterface|null
+   * @return UsersInterface|null
    * @throws \Doctrine\ORM\NonUniqueResultException
    */
-  public function getUserByUsername(string $username):? UserInterface;
+  public function getUserByUsername(string $username):? UsersInterface;
   
   /**
    * @param string $email
    *
-   * @return UserInterface|null
+   * @return UsersInterface|null
    * @throws \Doctrine\ORM\NonUniqueResultException
    */
-  public function getUserByEmail(string $email):? UserInterface;
+  public function getUserByEmail(string $email):? UsersInterface;
   
   /**
    * @param string $username
    * @param string $email
    *
-   * @return UserInterface|null
+   * @return UsersInterface|null
    * @throws \Doctrine\ORM\NonUniqueResultException
    */
   public function getUserByUsernameAndEmail(string $username, string $email);
@@ -45,9 +45,9 @@ interface UserRepositoryInterface
   /**
    * @param string $token
    *
-   * @return UserInterface|null
+   * @return UsersInterface|null
    */
-  public function getUserByToken(string $token): ? UserInterface;
+  public function getUserByToken(string $token): ? UsersInterface;
   
   /**
    * @param $user
@@ -62,4 +62,6 @@ interface UserRepositoryInterface
    * @throws \Doctrine\ORM\OptimisticLockException
    */
   public function flush();
+  
+  public function loadUserByUsername($username);
 }

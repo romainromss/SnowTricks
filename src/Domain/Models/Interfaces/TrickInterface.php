@@ -33,7 +33,7 @@ interface TrickInterface
   public function getComments();
   
   /**
-   * @return UserInterface
+   * @return UsersInterface
    */
   public function getUsers();
   

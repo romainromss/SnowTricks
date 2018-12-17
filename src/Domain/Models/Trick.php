@@ -17,7 +17,7 @@ use App\Domain\Models\Interfaces\CommentInterface;
 use App\Domain\Models\Interfaces\MovieInterface;
 use App\Domain\Models\Interfaces\PictureInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -80,7 +80,7 @@ class Trick implements TrickInterface
 	private $movie;
 
 	/**
-	 * @var UserInterface
+	 * @var UsersInterface
 	 */
 	private $user;
 
@@ -90,7 +90,7 @@ class Trick implements TrickInterface
       string $name,
       string $description,
       string $category,
-      UserInterface $user,
+      UsersInterface $user,
       array $picture = null,
       array $movie = null,
       array $comment = null
@@ -164,7 +164,7 @@ class Trick implements TrickInterface
     }
 
 	/**
-	 * @return UserInterface | string
+	 * @return UsersInterface | string
 	 */
 	public function getUsers()
 	{

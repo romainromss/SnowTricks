@@ -18,9 +18,7 @@ use App\Domain\Models\Picture;
 use App\Domain\Models\User;
 use App\Domain\Repository\Interfaces\UserRepositoryInterface;
 use App\Domain\Repository\UserRepository;
-use App\Domain\Services\GeneratorTokenService;
-use App\Domain\Services\Interfaces\GeneratorTokenServiceInterface;
-use App\Infra\Events\SessionMessageEvent;
+use App\Infra\Services\GeneratorTokenService;
 use App\Infra\Events\UserEvent;
 use App\Infra\Helper\UploaderHelper;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -46,10 +44,6 @@ class RegisterUserHandler
   
   /** @var EventDispatcherInterface */
   private $eventDispatcher;
-  /**
-   * @var GeneratorTokenServiceInterface
-   */
-  private $generatorTokenService;
   
   /**
    * RegisterUserHandler constructor.

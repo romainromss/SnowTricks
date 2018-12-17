@@ -14,17 +14,17 @@ declare(strict_types=1);
 namespace App\Domain\Factory\Interfaces;
 
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 
 interface TrickFactoryInterface
 {
 	/**
-	 * @param string                 $name
-	 * @param string                 $description
-	 * @param string                 $group
-	 * @param string | UserInterface $users
-	 * @param array                  $pictures
-	 * @param array                  $movies
+	 * @param string                  $name
+	 * @param string                  $description
+	 * @param string                  $group
+	 * @param string | UsersInterface $users
+	 * @param array                   $pictures
+	 * @param array                   $movies
 	 *
 	 * @return TrickInterface
 	 */
@@ -32,7 +32,7 @@ interface TrickFactoryInterface
       string $name,
       string $description,
       string $group,
-      UserInterface $users,
+      UsersInterface $users,
       array $pictures,
       array $movies
 	):  TrickInterface;

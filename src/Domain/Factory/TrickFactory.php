@@ -15,7 +15,7 @@ namespace App\Domain\Factory;
 
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Models\Trick;
 
 /**
@@ -26,12 +26,12 @@ use App\Domain\Models\Trick;
 class TrickFactory implements TrickFactoryInterface
 {
   /**
-   * @param string        $name
-   * @param string        $description
-   * @param string        $category
-   * @param UserInterface $user
-   * @param array         $picture
-   * @param array         $movie
+   * @param string         $name
+   * @param string         $description
+   * @param string         $category
+   * @param UsersInterface $user
+   * @param array          $picture
+   * @param array          $movie
    *
    * @return TrickInterface
    */
@@ -39,7 +39,7 @@ class TrickFactory implements TrickFactoryInterface
       string $name,
       string $description,
       string $category,
-      UserInterface $user,
+      UsersInterface $user,
       array $picture,
       array $movie
 	): TrickInterface {

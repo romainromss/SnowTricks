@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace App\Domain\Models\Interfaces;
 
 use App\Domain\Models\Trick;
-use App\Domain\Models\User;
+use App\Domain\Models\Users;
 
 /**
  * Interfaces CommentInterface
@@ -26,12 +26,12 @@ interface CommentInterface
      *
      * @param string         $content
      * @param TrickInterface $trick
-     * @param UserInterface  $user
+     * @param UsersInterface $user
      */
     public function __construct(
       string $content,
       TrickInterface $trick,
-      UserInterface $user
+      UsersInterface $user
     );
 
     /**

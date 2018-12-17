@@ -18,7 +18,7 @@ use App\Domain\Factory\Interfaces\CommentFactoryInterface;
 use App\Domain\Models\Interfaces\PictureInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
 use App\Domain\Models\Picture;
-use App\Domain\Models\User;
+use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\CommentRepositoryInterface;
 use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use Symfony\Component\Form\FormInterface;
@@ -79,7 +79,7 @@ class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
            $comment = $this->commentFactory->create(
             	$form->getData()->content,
 				$trick,
-              is_object($this->tokenStorage->getToken()->getUser()) ? $this->tokenStorage->getToken()->getUser(): new User('', '', '', '', '', '')
+              is_object($this->tokenStorage->getToken()->getUser()) ? $this->tokenStorage->getToken()->getUser(): new Users('', '', '', '', '', '')
 			);
 
             $this->commentRepository->save($comment);

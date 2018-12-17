@@ -15,7 +15,7 @@ namespace App\Domain\Models;
 
 use App\Domain\Models\Interfaces\CommentInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
 
@@ -47,7 +47,7 @@ class Comment implements CommentInterface
     private $trick;
 
     /**
-     * @var UserInterface
+     * @var UsersInterface
      */
     private $user;
   
@@ -56,14 +56,14 @@ class Comment implements CommentInterface
    *
    * @param string         $content
    * @param TrickInterface $trick
-   * @param UserInterface  $user
+   * @param UsersInterface $user
    *
    * @throws \Exception
    */
     public function __construct(
       string $content,
       TrickInterface $trick,
-      UserInterface $user = null
+      UsersInterface $user = null
     ) {
         $this->id = Uuid::uuid4();
         $this->content = $content;
@@ -105,7 +105,7 @@ class Comment implements CommentInterface
     }
 
     /**
-     * @return UserInterface
+     * @return UsersInterface
      */
     public function getUser()
     {

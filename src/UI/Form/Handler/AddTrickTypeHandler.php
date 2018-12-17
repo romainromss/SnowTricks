@@ -16,7 +16,7 @@ namespace App\UI\Form\Handler;
 use App\Domain\Factory\Interfaces\MovieFactoryInterface;
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Factory\Interfaces\TrickFactoryInterface;
-use App\Domain\Models\User;
+use App\Domain\Models\Users;
 use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\Infra\Helper\UploaderHelper;
 use App\UI\Form\Handler\Interfaces\AddTrickTypeHandlerInterface;
@@ -110,7 +110,7 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
         $form->getData()->name,
         $form->getData()->description,
         $form->getData()->category,
-        is_object($this->tokenStorage->getToken()->getUser()) ?$this->tokenStorage->getToken()->getUser(): new User('', '', '', '', '', ''),
+        dd(is_object($this->tokenStorage->getToken()->getUser())),
         $pictures ?? [],
         $movies ?? []
       );

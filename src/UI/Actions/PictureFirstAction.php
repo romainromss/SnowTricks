@@ -16,9 +16,9 @@ namespace App\UI\Actions;
 use App\Domain\Repository\Interfaces\PictureRepositoryInterface;
 use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Responder\Interfaces\ResponderFirstPictureInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class PictureFirstAction.

@@ -15,19 +15,18 @@ namespace App\Domain\Models;
 
 use App\Domain\DTO\PictureDTO;
 use App\Domain\Models\Interfaces\PictureInterface;
-use App\Domain\Models\Interfaces\UserInterface;
-use App\Domain\Services\GeneratorTokenService;
-use App\Domain\Services\Interfaces\GeneratorTokenServiceInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class User.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class User implements UserInterface
+class User implements UsersInterface, UserInterface
 {
   /** @var UuidInterface */
   private $id;
@@ -66,7 +65,7 @@ class User implements UserInterface
   private $comment;
   
   /**
-   * User constructor.
+   * Users constructor.
    *
    * @param string           $username
    * @param string           $email
@@ -198,5 +197,25 @@ class User implements UserInterface
   public function validate(): void
   {
     $this->emailToken = null;
+  }
+  
+  /**
+   * @return array
+   */
+  public function getRoles()
+  {
+    return ['ROLE_USER'];
+  }
+  
+  /**
+   * @return string|null
+   */
+  public function getSalt()
+  {
+    return $this->password;
+  }
+  
+  public function eraseCredentials()
+  {
   }
 }

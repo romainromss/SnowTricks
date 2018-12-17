@@ -14,7 +14,7 @@ namespace App\Tests\Domain\Models;
 
 use App\Domain\Models\Picture;
 use App\Domain\Models\Trick;
-use App\Domain\Models\User;
+use App\Domain\Models\Users;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -25,7 +25,7 @@ use PHPUnit\Framework\TestCase;
 class PicturesTest extends TestCase
 {
     /**
-     * @var User
+     * @var Users
      */
     private $users;
     /**

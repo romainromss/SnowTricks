@@ -15,7 +15,7 @@ namespace App\Domain\Factory\Interfaces;
 
 use App\Domain\DTO\PictureDTO;
 use App\Domain\Models\Interfaces\PictureInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Models\Picture;
 
 /**
@@ -35,7 +35,7 @@ interface UserFactoryInterface
    * @param string      $password
    * @param             $picture
    *
-   * @return UserInterface
+   * @return UsersInterface
    */
   public function create(
     string $username,
@@ -45,5 +45,5 @@ interface UserFactoryInterface
     string $lastname,
     string $password,
     $picture
-  ): UserInterface;
+  ): UsersInterface;
 }

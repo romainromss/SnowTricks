@@ -94,13 +94,14 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="{{ path('logout') }}">
                                 <i class="si si-logout"></i> Log out
                             </a>
                         <li>
                             {% else %}
                         <li>
                             <a href="">
+                                <a href="{{ path('login') }}">
                                 <i class="si si-login"></i> Sign in
                             </a>
                         <li>
@@ -172,13 +173,14 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ path('logout') }}">
                             <i class="si si-logout"></i> Log out
                         </a>
                     <li>
                         {% else %}
                     <li>
                         <a href="">
+                            <a href="{{ path('login') }}">
                             <i class="si si-login"></i> Sign in
                         </a>
                     <li>

@@ -18,7 +18,7 @@ use App\Domain\Models\Comment;
 use App\Domain\Models\Interfaces\PictureInterface;
 use App\Domain\Models\Picture;
 use App\Domain\Models\Trick;
-use App\Domain\Models\User;
+use App\Domain\Models\Users;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -41,7 +41,7 @@ class UsersTest extends TestCase
    */
   private $comments;
   /**
-   * @var User
+   * @var Users
    */
   private $users;
   
@@ -51,7 +51,7 @@ class UsersTest extends TestCase
     $this->tricks = $this->createMock(Trick::class);
     $this->comments = $this->createMock(Comment::class);
     
-    $this->users = new User(
+    $this->users = new Users(
       'username',
       'email',
       'emailToken',
@@ -67,7 +67,7 @@ class UsersTest extends TestCase
   
   public function testUsersIsInstanceOf()
   {
-    static::assertInstanceOf(User::class, $this->users);
+    static::assertInstanceOf(Users::class, $this->users);
   }
   
   public function testGoodAttributes()

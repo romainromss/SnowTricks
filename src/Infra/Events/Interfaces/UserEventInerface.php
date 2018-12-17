@@ -13,19 +13,19 @@ declare(strict_types = 1);
 
 namespace App\Infra\Events\Interfaces;
 
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 
 interface UserEventInerface
 {
   /**
    * UserEvent constructor.
    *
-   * @param UserInterface $user
+   * @param UsersInterface $user
    */
-  public function __construct(UserInterface $user);
+  public function __construct(UsersInterface $user);
   
   /**
-   * @return UserInterface
+   * @return UsersInterface
    */
-  public function getUser(): UserInterface;
+  public function getUser(): UsersInterface;
 }

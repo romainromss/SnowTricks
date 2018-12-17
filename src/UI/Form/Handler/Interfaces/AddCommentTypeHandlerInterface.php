@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace App\UI\Form\Handler\Interfaces;
 
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Csrf\TokenStorage\TokenStorageInterface;
 

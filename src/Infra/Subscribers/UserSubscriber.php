@@ -13,8 +13,8 @@ declare(strict_types = 1);
 
 namespace App\Infra\Subscribers;
 
-use App\Domain\Services\Interfaces\MailerServiceInterface;
 use App\Infra\Events\UserEvent;
+use App\Infra\Services\Interfaces\MailerServiceInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class UserSubscriber implements EventSubscriberInterface

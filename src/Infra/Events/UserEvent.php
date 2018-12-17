@@ -13,7 +13,7 @@ declare(strict_types = 1);
 
 namespace App\Infra\Events;
 
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Infra\Events\Interfaces\UserEventInerface;
 use Symfony\Component\EventDispatcher\Event;
 
@@ -21,23 +21,23 @@ class UserEvent extends Event implements UserEventInerface
 {
   const USER_REGISTER = 'user.register';
   
-  /** @var UserInterface */
+  /** @var UsersInterface */
   private $user;
   
   /**
    * UserEvent constructor.
    *
-   * @param UserInterface $user
+   * @param UsersInterface $user
    */
-  public function __construct(UserInterface $user)
+  public function __construct(UsersInterface $user)
   {
     $this->user = $user;
   }
   
   /**
-   * @return UserInterface
+   * @return UsersInterface
    */
-  public function getUser(): UserInterface
+  public function getUser(): UsersInterface
   {
     return $this->user;
   }

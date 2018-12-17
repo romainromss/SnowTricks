@@ -17,10 +17,10 @@ use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Form\Handler\Interfaces\AddCommentTypeHandlerInterface;
 use App\UI\Form\Type\AddCommentType;
 use App\UI\Responder\Interfaces\ResponderTrickDetailsInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * Class TrickDetailsAction.

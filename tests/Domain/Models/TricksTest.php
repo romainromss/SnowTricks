@@ -17,7 +17,7 @@ use App\Domain\Models\Comment;
 use App\Domain\Models\Movie;
 use App\Domain\Models\Picture;
 use App\Domain\Models\Trick;
-use App\Domain\Models\User;
+use App\Domain\Models\Users;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -33,7 +33,7 @@ class TricksTest extends TestCase
     private $trick;
 
     /**
-     * @var User
+     * @var Users
      */
     private $user;
 
@@ -54,7 +54,7 @@ class TricksTest extends TestCase
 
     protected function setUp()
     {
-        $this->user = $this->createMock(User::class);
+        $this->user = $this->createMock(Users::class);
 
         $this->trick = new Trick(
             'name',
@@ -104,7 +104,7 @@ class TricksTest extends TestCase
         static::assertSame('name', $this->trick->getSlug());
         static::assertNotNull(new \DateTime('now'), $this->trick->getCreatedAt());
         static::assertNotNull(0, $this->trick->getUpdatedAt());
-        static::assertInstanceOf(User::class, $this->trick->getUsers());
+        static::assertInstanceOf(Users::class, $this->trick->getUsers());
         static::assertCount(0, $this->trick->getMovies());
         static::assertCount(0, $this->trick->getPictures());
         static::assertCount(0, $this->trick->getComments());

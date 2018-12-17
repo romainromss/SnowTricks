@@ -13,11 +13,8 @@ declare(strict_types = 1);
 
 namespace App\Domain\Factory;
 
-use App\Domain\DTO\PictureDTO;
 use App\Domain\Factory\Interfaces\UserFactoryInterface;
-use App\Domain\Models\Interfaces\PictureInterface;
-use App\Domain\Models\Interfaces\UserInterface;
-use App\Domain\Models\Picture;
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Models\User;
 
 /**
@@ -37,7 +34,7 @@ class UserFactory implements UserFactoryInterface
    *
    * @param             $picture
    *
-   * @return UserInterface
+   * @return UsersInterface
    * @throws \Exception
    */
   public function create(
@@ -49,7 +46,7 @@ class UserFactory implements UserFactoryInterface
     string $password,
     $picture
     
-  ): UserInterface {
+  ): UsersInterface {
     return new User($username, $email, $emailToken, $name, $lastname, $password, $picture);
   }
 }

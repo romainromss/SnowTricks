@@ -24,7 +24,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class UniqueUserDTO extends Constraint
 {
-  public $message = 'User already exist';
+  public $message = 'Users already exist';
   
   /**
    * @return array|string

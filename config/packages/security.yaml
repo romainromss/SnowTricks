@@ -3,13 +3,24 @@ security:
         App\Domain\Models\User:
             algorithm: bcrypt
     providers:
-        in_memory: { memory: ~ }
+        db_provider:
+            entity:
+                class: App\Domain\Models\User
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
+            pattern: ^/
+            logout:
+                path:       /logout
+                target:     /
+            provider: db_provider
+            guard:
+                authenticator:
+                    - App\Security\FormLoginAuthenticator
+
 
             # activate different ways to authenticate
 

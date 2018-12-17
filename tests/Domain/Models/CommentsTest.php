@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 use App\Domain\Models\Comment;
 use App\Domain\Models\Trick;
-use App\Domain\Models\User;
+use App\Domain\Models\Users;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -26,7 +26,7 @@ use PHPUnit\Framework\TestCase;
 class CommentsTest extends TestCase
 {
     /**
-     * @var User
+     * @var Users
      */
     private $user;
     /**
@@ -43,7 +43,7 @@ class CommentsTest extends TestCase
    */
   protected function setUp()
     {
-        $this->user = $this->createMock(User::class);
+        $this->user = $this->createMock(Users::class);
         $this->trick = $this->createMock(Trick::class);
 
         $this->comments = new Comment(
@@ -73,7 +73,7 @@ class CommentsTest extends TestCase
         static::assertNotNull($this->comments->getId());
         static::assertEquals('content', $this->comments->getContent());
         static::assertNotNull(0, $this->comments->getCreatedAt());
-        static::assertInstanceOf(User::class, $this->comments->getUser());
+        static::assertInstanceOf(Users::class, $this->comments->getUser());
         static::assertInstanceOf(Trick::class, $this->comments->getTrick());
     }
 }

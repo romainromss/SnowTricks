@@ -17,7 +17,7 @@ use App\Domain\Factory\Interfaces\CommentFactoryInterface;
 use App\Domain\Models\Comment;
 use App\Domain\Models\Interfaces\CommentInterface;
 use App\Domain\Models\Interfaces\TrickInterface;
-use App\Domain\Models\Interfaces\UserInterface;
+use App\Domain\Models\Interfaces\UsersInterface;
 
 /**
  * Class CommentBuilder.
@@ -29,7 +29,7 @@ class CommentFactory implements CommentFactoryInterface
   /**
    * @param string         $content
    * @param TrickInterface $trick
-   * @param UserInterface  $user
+   * @param UsersInterface $user
    *
    * @return CommentInterface
    * @throws \Exception
@@ -37,7 +37,7 @@ class CommentFactory implements CommentFactoryInterface
     public function create(
       string $content,
       TrickInterface $trick,
-      UserInterface $user
+      UsersInterface $user
     ): CommentInterface {
 
          return new Comment($content, $trick, $user);
