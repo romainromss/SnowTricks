@@ -18,10 +18,17 @@ interface MailerServiceInterface
   /**
    * @param string $subject
    * @param string $mail
-   * @param string $token
    * @param string $name
+   * @param string $token
+   * @param string $template
    *
    * @return mixed
    */
-  public function sendMail(string $subject, string $mail, string $token, string $name);
+  public function sendMail(
+    string $subject,
+    string $mail,
+    string $name,
+    string $token,
+    string $template
+    );
 }

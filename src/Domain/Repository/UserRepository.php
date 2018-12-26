@@ -100,6 +100,23 @@ class UserRepository extends ServiceEntityRepository implements UserRepositoryIn
   }
   
   /**
+   * @param string $token
+   *
+   * @return mixed
+   * @throws \Doctrine\ORM\NonUniqueResultException
+   */
+  public function getUserByPasswordToken(string $token)
+  {
+    return $this->createQueryBuilder('user')
+      ->where('user.passwordResetToken = :token')
+      ->setParameter('token', $token)
+      ->setCacheable(true)
+      ->getQuery()
+      ->getOneOrNullResult();
+  }
+  
+  
+  /**
    * {@inheritdoc}
    *
    * @throws \Doctrine\ORM\ORMException

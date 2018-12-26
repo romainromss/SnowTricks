@@ -29,12 +29,6 @@
                             <div class="options-overlay bg-black-op-75">
                                 <div class="options-overlay-content">
                                     <h2 class="h4 text-white mb-5"><a style="color: white" href="/tricks/{{ tricks.slug }}">{{ tricks.name }}</a></h2>
-                                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 img-lightbox" href="{{ asset('img/photos/photo16@2x.jpg') }}">
-                                            <i class="fa fa-trash"></i> Supprimer
-                                        </a>
-                                        <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="javascript:void(0)"><i class="fa fa-pencil"></i> Editer</a>
-                                    {% endif %}
                                 </div>
                             </div>
                         </div>

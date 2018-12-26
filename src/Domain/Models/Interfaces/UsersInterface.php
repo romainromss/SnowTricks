@@ -55,6 +55,13 @@ interface UsersInterface
   /**
    * @return string
    */
+  public function getPasswordResetToken(): string;
+  
+  public function passwordToken($newToken);
+  
+  /**
+   * @return string
+   */
   public function getName(): string ;
   
   /**
@@ -73,7 +80,7 @@ interface UsersInterface
   public function getRole(): string ;
   
   
-  public function getPictures();
+  public function getPicture();
   
   
   /**
@@ -82,4 +89,6 @@ interface UsersInterface
   public function getCreatedAt(): \DateTime;
   
   public function validate(): void;
+  
+  public function passwordReset(string  $newPassword);
 }

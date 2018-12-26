@@ -110,7 +110,7 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
         $form->getData()->name,
         $form->getData()->description,
         $form->getData()->category,
-        dd(is_object($this->tokenStorage->getToken()->getUser())),
+        $this->tokenStorage->getToken()->getUser(),
         $pictures ?? [],
         $movies ?? []
       );

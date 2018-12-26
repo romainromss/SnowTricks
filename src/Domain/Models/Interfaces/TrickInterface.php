@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
+use App\Domain\DTO\UpdateTrickDTO;
+use App\Domain\Models\Movie;
+use App\Domain\Models\Picture;
 use Ramsey\Uuid\UuidInterface;
 
 /**
@@ -84,18 +87,12 @@ interface TrickInterface
    */
   public function addPictures(PictureInterface $pictures);
   
-  
   /**
-   * @param PictureInterface $pictures
-   */
-  public function unsetPictures(PictureInterface $pictures): void;
-  
-  /**
-   * @param array $picture
+   * @param Picture $picture
    *
    * @return mixed
    */
-  public function removePictures(\ArrayAccess $picture);
+  public function removePicture(Picture $picture);
   
   /**
    * @param MovieInterface $movies
@@ -104,11 +101,12 @@ interface TrickInterface
    */
   public function addMovies(MovieInterface $movies);
   
-  
   /**
-   * @param $movies
+   * @param Movie $movie
+   *
+   * @return mixed
    */
-  public function unsetMovies(MovieInterface $movies): void;
+  public function removeMovie(Movie $movie);
   
   /**
    * @param $comments
@@ -117,9 +115,10 @@ interface TrickInterface
    */
   public function addComments(CommentInterface $comments): void;
   
-  
   /**
-   * @param $comments
+   * @param UpdateTrickDTO $updateTrickDTO
+   *
+   * @return mixed
    */
-  public function unsetComment(CommentInterface $comments): void;
+  public function updateTrick(UpdateTrickDTO $updateTrickDTO);
 }

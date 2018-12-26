@@ -50,6 +50,13 @@ interface UserRepositoryInterface
   public function getUserByToken(string $token): ? UsersInterface;
   
   /**
+   * @param string $token
+   *
+   * @return mixed
+   */
+  public function getUserByPasswordToken(string $token);
+  
+  /**
    * @param $user
    *
    * @throws \Doctrine\ORM\ORMException

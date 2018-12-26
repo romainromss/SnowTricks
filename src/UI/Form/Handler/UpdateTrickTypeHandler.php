@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\UI\Form\Handler;
 
+use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Factory\Interfaces\MovieFactoryInterface;
 use App\Domain\Factory\Interfaces\PictureFactoryInterface;
 use App\Domain\Models\Interfaces\MovieInterface;
@@ -81,18 +82,21 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
   public function handle(
     FormInterface $form,
     TrickInterface $tricks
-  ):  bool
-  {
-    if ($form->isSubmitted() && $form->isValid()){
+  ):  bool {
+    if ($form->isSubmitted() && $form->isValid()) {
       $movies = [];
       $pictures = [];
       
       foreach($form->getData()->pictures as $picture) {
-        $fileName = $this->uploaderHelper->upload($picture->file);
-        $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
+        if($picture->file){
+          $fileName = $this->uploaderHelper->upload($picture->file);
+          $pictures[] = $this->pictureFactory->create($fileName, $picture->legend, $picture->first);
+        }
       }
-      $existPictures = $tricks->getPictures();
-      $tricks->removePictures($existPictures);
+      
+      foreach($tricks->getPictures() as $picture) {
+        $tricks->removePicture($picture);
+      }
       
       foreach($pictures as $picture) {
         $tricks->addPictures($picture);
@@ -104,9 +108,17 @@ class UpdateTrickTypeHandler implements UpdateTrickTypeHandlerInterface
         }
         $movies[] = $this->moviesFactory->create($movie->embed, $movie->legend);
       }
+      foreach($tricks->getMovies() as $movie) {
+        $tricks->removeMovie($movie);
+      }
       foreach($movies as $movie) {
         $tricks->addMovies($movie);
       }
+       $tricks->updateTrick(
+         new UpdateTrickDTO(
+         $form->getData()->name,
+         $form->getData()->description,
+         $form->getData()->category));
       
       $this->tricksRepository->update($tricks);
       return true;

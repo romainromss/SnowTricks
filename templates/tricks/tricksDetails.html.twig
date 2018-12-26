@@ -6,7 +6,7 @@
         <div class="bg-image" style='background-image: url("{{ asset('images/Upload/' ~ picture.name ) }}");'>
     {% endfor %}
     <div class="btnheader">
-        {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75 test" href="{{ path('deleteTrick', {'slug' : trick.slug}  ) }}">
                 <i class="fa fa-trash"> Supprimer </i>
             </a>
@@ -41,7 +41,7 @@
                              <a href="{{ asset('images/Upload/' ~ picture.name ) }}">
                                  <img class="img-fluid" style="height: 190px" src="{{ asset('images/Upload/' ~ picture.name ) }}" alt="">
                              </a>
-                             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75" href="{{ path('deletePicture', {'id' : picture.id}  ) }}"><i class="fa fa-trash"></i></a>
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : trick.slug}  ) }}"><i class="fa fa-pencil"></i></a>
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-primary min-width-75" href="{{ path('pictureFirst', {'slug' : trick.slug, 'id': picture.id}  ) }}"><i class="fa fa-angle-double-up"></i> </a>
@@ -55,7 +55,7 @@
                                      src="https://www.youtube.com/embed/{{ movie.embed }}?ecver=1"
                                      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
                              </iframe>
-                             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+                             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-danger min-width-75" href="{{ path('deleteMovie', {'id' : movie.id}  ) }}"><i class="fa fa-trash"></i></a>
                                  <a class="btn btn-sm btn-rounded btn-noborder btn-alt-success min-width-75" href="{{ path('updateTrick', {'slug' : trick.slug}  ) }}"><i class="fa fa-pencil"></i></a>
                              {% endif %}
@@ -84,7 +84,7 @@
      </main>
 
      <hr>
-     {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
          {{ form_start(form) }}
          <div class="form-group row">
              <div class="col-md-8 offset-md-2 formMaterial">
@@ -100,7 +100,7 @@
      {% else %}
          <div class="form-group row">
              <div class="col-md-8 offset-md-2 text-center connection">
-                 Veuillez vous <a href="">connecter</a> ou vous <a href="">inscrire</a> pour poster un message
+                 Veuillez vous <a href="{{ path('login') }}">connecter</a> ou vous <a href="{{ path('Register') }}">inscrire</a> pour poster un message
              </div>
          </div>
      {% endif %}
@@ -112,10 +112,10 @@
                      {% for comment in trick.comments %}
                          <li class="comments">
                              {% if comment.user %}
-                                 {% if comment.user.pictures is defined %}
-                                     <img class="img-avatar" src="{{ asset('images/Upload/avatar_defaut.png') }}" alt="">
+                                 {% if comment.user.picture is defined %}
+                                     <img class="img-avatar" src="{{ asset('images/Upload/' ~ comment.user.picture.name ) }}" alt="">
                                  {% else %}
-                                     <img class="img-avatar" src="{{ asset('img/avatars/' ~ comment.user.pictures.name ) }}" alt="">
+                                     <img class="img-avatar" src="{{ asset('images/Upload/avatar_defaut.png') }}" alt="">
                                  {% endif %}
                                  <p class="d-inline-block" style="font-weight: bold; font-size: 15px; margin-left: 16px"> {{ comment.user.username }} </p>
                              {% endif %}

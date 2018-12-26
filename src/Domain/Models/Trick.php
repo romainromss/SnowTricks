@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace App\Domain\Models;
 
+use App\Domain\DTO\UpdateTrickDTO;
 use App\Domain\Models\Interfaces\CommentInterface;
 use App\Domain\Models\Interfaces\MovieInterface;
 use App\Domain\Models\Interfaces\PictureInterface;
@@ -203,15 +204,8 @@ class Trick implements TrickInterface
         $this->picture[] = $pictures;
     }
 
-    /**
-     * @param PictureInterface $pictures
-     */
-    public function unsetPictures(PictureInterface $pictures): void
-    {
-        unset($this->picture[array_search($pictures, (array) $this->pictures, true)]);
-    }
     
-    public function removePictures(\ArrayAccess $picture)
+    public function removePicture(Picture $picture)
     {
       $this->picture->removeElement($picture);
     }
@@ -223,14 +217,12 @@ class Trick implements TrickInterface
     {
         $this->movie[] = $movies;
     }
-
-    /**
-     * @param MovieInterface $movies
-     */
-    public function unsetMovies(MovieInterface $movies): void
-    {
-        unset($this->movie[array_search($movies, (array) $this->movies, true)]);
-    }
+  
+  public function removeMovie(Movie $movie)
+  {
+    $this->movie->removeElement($movie);
+  }
+  
 
     /**
      * @param CommentInterface $comment
@@ -239,12 +231,12 @@ class Trick implements TrickInterface
     {
         $this->comment[] = $comment;
     }
-
-    /**
-     * @param CommentInterface $comment
-     */
-    public function unsetComment(CommentInterface $comment): void
+    
+    
+    public function updateTrick(UpdateTrickDTO $updateTrickDTO)
     {
-        unset($this->comment[array_search($this->comment, (array) $this->comment, true)]);
+      $this->name = $updateTrickDTO->name;
+      $this->description = $updateTrickDTO->description;
+      $this->category = $updateTrickDTO->category;
     }
 }

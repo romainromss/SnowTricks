@@ -20,6 +20,7 @@ use Symfony\Component\EventDispatcher\Event;
 class UserEvent extends Event implements UserEventInerface
 {
   const USER_REGISTER = 'user.register';
+  const USER_FORGOT = 'user.forgot';
   
   /** @var UsersInterface */
   private $user;

@@ -28,7 +28,7 @@ interface RegisterUserDTOInterface
    * @param string|null $name
    * @param string|null $lastname
    * @param string|null $password
-   * @param Picture     $picture
+   * @param $picture
    */
   public function __construct(
     string $username,

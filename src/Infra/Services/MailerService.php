@@ -41,27 +41,23 @@ class MailerService implements MailerServiceInterface
   /**
    * @param string $subject
    * @param string $mail
-   * @param string $token
    * @param string $name
+   * @param string $token
+   * @param string $template
    *
-   * @throws \Twig_Error_Loader
-   * @throws \Twig_Error_Runtime
-   * @throws \Twig_Error_Syntax
    */
   public function sendMail(
     string $subject,
     string $mail,
+    string $name,
     string $token,
-    string $name
-  ) {
-    $mailRegister = (new \Swift_Message($subject));
-    $mailRegister->setFrom('romain.b@posteo.net')
+    string $template
+   ) {
+    $message = (new \Swift_Message($subject));
+    $message->setFrom('romain.b@posteo.net')
       ->setTo($mail)
-      ->setBody($this->twig->render('mail/email.html.twig', [
-        'name' => $name,
-        'token' => $token
-      ]))
+      ->setBody($template)
       ->setContentType('text/html');
-    $this->swift_Mailer->send($mailRegister);
+    $this->swift_Mailer->send($message);
   }
 }

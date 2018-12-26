@@ -36,7 +36,7 @@ class RegisterUserType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
-      ->add('username', TextType::class, ['label' => 'Pseudo', 'csrf_field_name' => "username"])
+      ->add('username', TextType::class, ['label' => 'Pseudo'])
       ->add('mail')
       ->add('name', TextType::class, ['label' => 'Prenom'])
       ->add('lastname', TextType::class, ['label' => 'Nom'])
@@ -56,8 +56,8 @@ class RegisterUserType extends AbstractType
       'data_class' => RegisterUserDTO::class,
       'empty_data' => function (FormInterface $form) {
         return new RegisterUserDTO(
-          $form->get('mail')->getData(),
           $form->get('username')->getData(),
+          $form->get('mail')->getData(),
           $form->get('name')->getData(),
           $form->get('lastname')->getData(),
           $form->get('password')->getData(),

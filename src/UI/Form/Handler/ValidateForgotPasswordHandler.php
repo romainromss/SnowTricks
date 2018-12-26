@@ -13,28 +13,26 @@ declare(strict_types = 1);
 
 namespace App\UI\Form\Handler;
 
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Models\User;
 use App\Domain\Repository\Interfaces\UserRepositoryInterface;
+use App\Infra\Events\SessionMessageEvent;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormInterface;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Twig\Environment;
 
 /**
- * Class ValidateForgotPasswordTypeHandler.
+ * Class ValidateForgotPasswordHandler.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class ValidateForgotPasswordTypeHandler
+class ValidateForgotPasswordHandler
 {
   /**
    * @var UserRepositoryInterface
    */
   private $userRepository;
-  /**
-   * @var Environment
-   */
-  private $twig;
   
   /**
    * @var EncoderFactoryInterface
@@ -42,37 +40,44 @@ class ValidateForgotPasswordTypeHandler
   private $encoderFactory;
   
   /**
-   * ValidateForgotPasswordTypeHandler constructor.
+   * @var EventDispatcherInterface
+   */
+  private $eventDispatcher;
+  
+  /**
+   * ValidateForgotPasswordHandler constructor.
    *
    * @param UserRepositoryInterface $userRepository
-   * @param Environment             $twig
    * @param EncoderFactoryInterface $encoderFactory
+   * @param EventDispatcherInterface         $eventDispatcher
    */
   public function __construct(
     UserRepositoryInterface $userRepository,
-    Environment $twig,
-    EncoderFactoryInterface $encoderFactory
+    EncoderFactoryInterface $encoderFactory,
+    EventDispatcherInterface $eventDispatcher
   ) {
     $this->userRepository = $userRepository;
-    $this->twig = $twig;
     $this->encoderFactory = $encoderFactory;
+    $this->eventDispatcher = $eventDispatcher;
   }
   
   /**
-   * @param FormInterface $form
-   * @param Request       $request
+   * @param FormInterface  $form
+   * @param UsersInterface $user
    *
    * @return bool
-   * @throws \Doctrine\ORM\NonUniqueResultException
    * @throws \Doctrine\ORM\ORMException
    * @throws \Doctrine\ORM\OptimisticLockException
    */
-  public function handle(FormInterface $form, Request $request)
+  public function handle(FormInterface $form, UsersInterface $user)
   {
     if ($form->isSubmitted() && $form->isValid()) {
       $encoder = $this->encoderFactory->getEncoder(User::class);
-      $encoder->encodePassword($form->getData()->password, '');
+      $user->passwordReset($encoder->encodePassword($form->getData()->password, ''));
+      $this->eventDispatcher->dispatch(SessionMessageEvent::SESSION_MESSAGE,
+        new SessionMessageEvent('success', 'le mot de passe a été réinitialisé'));
       $this->userRepository->flush();
+  
       return true;
     }
     return false;

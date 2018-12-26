@@ -12,8 +12,6 @@ declare(strict_types=1);
 
 namespace App\Domain\Models\Interfaces;
 
-use App\Domain\Models\Trick;
-use App\Domain\Models\Users;
 use Ramsey\Uuid\UuidInterface;
 
 /**

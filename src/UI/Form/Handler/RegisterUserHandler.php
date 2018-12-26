@@ -94,9 +94,8 @@ class RegisterUserHandler
         $form->getData()->name,
         $form->getData()->lastname,
         $encoder->encodePassword($form->getData()->password, ''),
-        $picture = [new Picture($fileName, $form->getData()->picture->legend, $form->getData()->picture->first)]
+        $picture = new Picture($fileName, $form->getData()->picture->legend, $form->getData()->picture->first)
       );
-  
       $this->eventDispatcher->dispatch(UserEvent::USER_REGISTER, new UserEvent($user));
       $this->userRepository->save($user);
       return true;

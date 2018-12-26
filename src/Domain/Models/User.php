@@ -16,6 +16,7 @@ namespace App\Domain\Models;
 use App\Domain\DTO\PictureDTO;
 use App\Domain\Models\Interfaces\PictureInterface;
 use App\Domain\Models\Interfaces\UsersInterface;
+use App\Infra\Services\GeneratorTokenService;
 use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
@@ -63,6 +64,10 @@ class User implements UsersInterface, UserInterface
   
   /** @var \ArrayAccess */
   private $comment;
+  /**
+   * @var string
+   */
+  private $passwordResetToken;
   
   /**
    * Users constructor.
@@ -70,6 +75,7 @@ class User implements UsersInterface, UserInterface
    * @param string           $username
    * @param string           $email
    * @param string           $emailToken
+   * @param string           $passwordResetToken
    * @param string           $name
    * @param string           $lastname
    * @param string           $password
@@ -84,12 +90,14 @@ class User implements UsersInterface, UserInterface
     string $name,
     string $lastname,
     string $password,
-    $picture = null
+    $picture = null,
+    string $passwordResetToken = null
   ) {
     $this->id = Uuid::uuid4();
     $this->username = $username;
     $this->email = $email;
     $this->emailToken = $emailToken;
+    $this->passwordResetToken = $passwordResetToken;
     $this->name = $name;
     $this->lastname = $lastname;
     $this->password = $password;
@@ -132,6 +140,15 @@ class User implements UsersInterface, UserInterface
     return $this->emailToken;
   }
   
+  public function getPasswordResetToken(): string
+  {
+    return $this->passwordResetToken;
+  }
+  
+  public function passwordToken($newToken)
+  {
+    $this->passwordResetToken = $newToken;
+  }
   /**
    * @return string
    */
@@ -173,7 +190,7 @@ class User implements UsersInterface, UserInterface
   }
   
   
-  public function getPictures()
+  public function getPicture()
   {
     return $this->picture;
   }
@@ -197,6 +214,15 @@ class User implements UsersInterface, UserInterface
   public function validate(): void
   {
     $this->emailToken = null;
+  }
+  
+  /**
+   * @param string $newPassword
+   */
+  public function passwordReset(string  $newPassword )
+  {
+    $this->password = $newPassword;
+    $this->passwordResetToken = null;
   }
   
   /**
