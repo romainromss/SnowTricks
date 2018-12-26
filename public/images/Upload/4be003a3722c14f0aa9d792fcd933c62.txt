@@ -1,0 +1,30 @@
+gitlab:
+  environment:
+    DEBUG: 'false'
+    GITLAB_PORT: 10080
+    GITLAB_SECRETS_DB_KEY_BASE: qcs-gitlab-app
+    GITLAB_SECRETS_OTP_KEY_BASE: qcs-gitlab-app
+    GITLAB_SECRETS_SECRET_KEY_BASE: qcs-gitlab-app
+    GITLAB_SSH_PORT: 10022
+  image: gitlab/gitlab-ee:latest
+  links:
+  - redis:redisio
+  - postgresql:postgresql
+  ports:
+  - 10080:80
+  - '10022:22'
+  restart: always
+postgresql:
+  environment:
+    DB_EXTENSION: pg_trgm
+    DB_NAME: gitlabhq_production
+    DB_PASS: password
+    DB_USER: gitlab
+  image: sameersbn/postgresql:9.6-2
+  restart: always
+redis:
+  command:
+  - --loglevel warning
+  image: sameersbn/redis:latest
+  restart: always
+

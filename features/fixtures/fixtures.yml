@@ -1,0 +1,3 @@
+App\Domain\Model\User:
+    user.romain:
+        __construct: ['romain', 'romain@gmail.com', '', 'romain', 'romain', 'TestA@4567@']
