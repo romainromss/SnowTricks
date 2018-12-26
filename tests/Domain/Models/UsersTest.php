@@ -13,12 +13,11 @@ declare(strict_types=1);
 
 namespace App\Tests\Domain\Models;
 
-use App\Domain\DTO\PictureDTO;
 use App\Domain\Models\Comment;
 use App\Domain\Models\Interfaces\PictureInterface;
 use App\Domain\Models\Picture;
 use App\Domain\Models\Trick;
-use App\Domain\Models\Users;
+use App\Domain\Models\User;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -41,7 +40,7 @@ class UsersTest extends TestCase
    */
   private $comments;
   /**
-   * @var Users
+   * @var User
    */
   private $users;
   
@@ -51,23 +50,21 @@ class UsersTest extends TestCase
     $this->tricks = $this->createMock(Trick::class);
     $this->comments = $this->createMock(Comment::class);
     
-    $this->users = new Users(
+    $this->users = new User(
       'username',
       'email',
       'emailToken',
       'name',
       'lastname',
       'ads#p23*',
-      'user',
       $this->pictures,
-      ['tricks'],
-      ['comments']
+      ''
     );
   }
   
   public function testUsersIsInstanceOf()
   {
-    static::assertInstanceOf(Users::class, $this->users);
+    static::assertInstanceOf(User::class, $this->users);
   }
   
   public function testGoodAttributes()
@@ -97,7 +94,7 @@ class UsersTest extends TestCase
     static::assertSame('ads#p23*', $this->users->getPassword());
     static::assertEquals('ROLE_USER', $this->users->getRole());
     static::assertNotNull(new \DateTime('now'), $this->users->getCreatedAt());
-    static::assertInstanceOf(PictureInterface::class, $this->users->getPictures());
+    static::assertInstanceOf(PictureInterface::class, $this->users->getPicture());
     static::assertCount(0, $this->users->getTricks());
     static::assertCount(0, $this->users->getComments());
   }

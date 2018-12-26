@@ -17,7 +17,7 @@ use App\Domain\Models\Comment;
 use App\Domain\Models\Movie;
 use App\Domain\Models\Picture;
 use App\Domain\Models\Trick;
-use App\Domain\Models\Users;
+use App\Domain\Models\User;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -33,7 +33,7 @@ class TricksTest extends TestCase
     private $trick;
 
     /**
-     * @var Users
+     * @var User
      */
     private $user;
 
@@ -54,7 +54,7 @@ class TricksTest extends TestCase
 
     protected function setUp()
     {
-        $this->user = $this->createMock(Users::class);
+        $this->user = $this->createMock(User::class);
 
         $this->trick = new Trick(
             'name',
@@ -88,7 +88,7 @@ class TricksTest extends TestCase
         static::assertObjectHasAttribute('updatedAt', $this->trick);
         static::assertObjectHasAttribute('picture', $this->trick);
         static::assertObjectHasAttribute('movie', $this->trick);
-        static::assertObjectHasAttribute('users', $this->trick);
+        static::assertObjectHasAttribute('user', $this->trick);
     }
 
 
@@ -104,12 +104,15 @@ class TricksTest extends TestCase
         static::assertSame('name', $this->trick->getSlug());
         static::assertNotNull(new \DateTime('now'), $this->trick->getCreatedAt());
         static::assertNotNull(0, $this->trick->getUpdatedAt());
-        static::assertInstanceOf(Users::class, $this->trick->getUsers());
+        static::assertInstanceOf(User::class, $this->trick->getUsers());
         static::assertCount(0, $this->trick->getMovies());
         static::assertCount(0, $this->trick->getPictures());
         static::assertCount(0, $this->trick->getComments());
     }
-
+  
+  /**
+   * @throws \Exception
+   */
     public function testAddPictures()
     {
         static::assertCount(0, $this->trick->getPictures());
@@ -118,14 +121,11 @@ class TricksTest extends TestCase
         static::assertCount(1, $this->trick->getPictures());
     }
 
-    public function testUnsetPictures()
+    public function testremovePictures()
     {
         static::assertCount(0, $this->trick->getPictures());
-
-        $this->trick->addPictures($this->picture);
-        static::assertCount(1, $this->trick->getPictures());
-
-        $this->trick->unsetPictures($this->picture);
+        
+        $this->trick->removePicture($this->picture);
         static::assertCount(0, $this->trick->getPictures());
     }
 
@@ -136,17 +136,15 @@ class TricksTest extends TestCase
         $this->trick->addMovies($this->movie);
         static::assertCount(1, $this->trick->getMovies());
     }
-
-    public function testUnsetMovies()
-    {
-        static::assertCount(0, $this->trick->getMovies());
-
-        $this->trick->addMovies($this->movie);
-        static::assertCount(1, $this->trick->getMovies());
-
-        $this->trick->unsetMovies($this->movie);
-        static::assertCount(0, $this->trick->getPictures());
-    }
+  
+  public function testremoveMovies()
+  {
+    static::assertCount(0, $this->trick->getMovies());
+    
+    $this->trick->removeMovie($this->movie);
+    static::assertCount(0, $this->trick->getMovies());
+  }
+    
 
     public function testAddComments()
     {
@@ -154,16 +152,5 @@ class TricksTest extends TestCase
 
         $this->trick->addComments($this->comment);
         static::assertCount(1, $this->trick->getComments());
-    }
-
-    public function testUnsetComment()
-    {
-        static::assertCount(0, $this->trick->getComments());
-
-        $this->trick->addComments($this->comment);
-        static::assertCount(1, $this->trick->getComments());
-
-        $this->trick->unsetComment($this->comment);
-        static::assertCount(0, $this->trick->getComments());
     }
 }

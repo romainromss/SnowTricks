@@ -29,49 +29,50 @@ use Twig\Environment;
  */
 class ResponderUpdateTrickTest extends TestCase
 {
-	/**
-	 * @var Environment
-	 */
-	private $twig;
-
-	/**
-	 * @var TrickRepository
-	 */
-	private $tricksRepository;
-
-	/**
-	 * @var UpdateTrickType
-	 */
-	private $updateTrickType;
-
-	/**
-	 * @var UrlGeneratorInterface
-	 */
-	private $urlGenerator;
-
-	protected function setUp()
-	{
-		$this->twig = $this->createMock(Environment::class);
-		$this->tricksRepository = $this->createMock(TrickRepository::class);
-		$this->updateTrickType = $this->createMock(FormInterface::class);
-		$this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
-	}
-
-
-	public function testResponderHomeInstanceOf()
-	{
-		$responder = $this->createMock(ResponderUpdateTrick::class);
-		static::assertInstanceOf(ResponderUpdateTrick::class, $responder);
-	}
-
-	/**
-	 * @throws \Twig_Error_Loader
-	 * @throws \Twig_Error_Runtime
-	 * @throws \Twig_Error_Syntax
-	 */
-	public function testConstructResponderUpdateTrick()
-	{
-		$responder = new ResponderUpdateTrick($this->twig, $this->urlGenerator);
-		static::assertInstanceOf(Response::class, $responder(false,['tricks' => $this->tricksRepository], $this->updateTrickType));
-	}
+  /**
+   * @var Environment
+   */
+  private $twig;
+  
+  /**
+   * @var TrickRepository
+   */
+  private $tricksRepository;
+  
+  /**
+   * @var UpdateTrickType
+   */
+  private $updateTrickType;
+  
+  /**
+   * @var UrlGeneratorInterface
+   */
+  private $urlGenerator;
+  
+  protected function setUp()
+  {
+    $this->twig = $this->createMock(Environment::class);
+    $this->tricksRepository = $this->createMock(TrickRepository::class);
+    $this->updateTrickType = $this->createMock(FormInterface::class);
+    $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
+    $this->urlGenerator->method('generate')->willReturn('/');
+  }
+  
+  
+  public function testResponderHomeInstanceOf()
+  {
+    $responder = $this->createMock(ResponderUpdateTrick::class);
+    static::assertInstanceOf(ResponderUpdateTrick::class, $responder);
+  }
+  
+  /**
+   * @throws \Twig_Error_Loader
+   * @throws \Twig_Error_Runtime
+   * @throws \Twig_Error_Syntax
+   */
+  public function testConstructResponderUpdateTrick()
+  {
+    $responder = new ResponderUpdateTrick($this->twig, $this->urlGenerator);
+    static::assertInstanceOf(Response::class, $responder(false,['tricks' => $this->tricksRepository], $this->updateTrickType));
+  }
 }

@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,22 @@ declare(strict_types = 1);
 
 namespace App\Tests\Domain\DTO;
 
-class ForgotPasswordDTOUnitTest
+use App\Domain\DTO\ForgotPasswordDTO;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * Class ForgotPasswordDTOUnitTest.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
+class ForgotPasswordDTOUnitTest extends TestCase
 {
+  public function testConstruct()
+  {
+    $username = 'username';
+    $mail = 'mail';
   
+    $forgotPasswordDTO =  new ForgotPasswordDTO($username, $mail);
+    static::assertInstanceOf(ForgotPasswordDTO::class, $forgotPasswordDTO);
+  }
 }

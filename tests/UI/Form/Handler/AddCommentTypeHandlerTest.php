@@ -69,7 +69,11 @@ class AddCommentTypeHandlerTest extends KernelTestCase
 
     public function testConstruct()
     {
-        $addCommentTypeHandler = new AddCommentTypeHandler($this->commentBuilder, $this->commentRepository, $this->tokenstorage);
+        $addCommentTypeHandler = new AddCommentTypeHandler(
+          $this->commentBuilder,
+          $this->commentRepository,
+          $this->tokenstorage
+        );
         static::assertInstanceOf(AddCommentTypeHandler::class, $addCommentTypeHandler);
     }
 

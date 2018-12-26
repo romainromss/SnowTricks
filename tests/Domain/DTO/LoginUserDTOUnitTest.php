@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /*
- * This file is part of the ${project} project.
+ * This file is part of the snowtricks project.
  *
  * (c) Romain Bayette <romain.romss@gmail.com>
  *
@@ -13,7 +13,22 @@ declare(strict_types = 1);
 
 namespace App\Tests\Domain\DTO;
 
-class LoginUserDTOUnitTest
+use App\Domain\DTO\LoginUserDTO;
+use PHPUnit\Framework\TestCase;
+
+/**
+ * Class LoginUserDTOUnitTest.
+ *
+ * @author Romain Bayette <romain.romss@gmail.com>
+ */
+class LoginUserDTOUnitTest extends TestCase
 {
+  public function testConstruct()
+  {
+    $username = 'username';
+    $password = 'password';
   
+    $loginUserDTO =  new LoginUserDTO($username, $password);
+    static::assertInstanceOf(LoginUserDTO::class, $loginUserDTO);
+  }
 }
