@@ -92,6 +92,9 @@ deptrac: ## Allow to use the deptrac analyzer
 unit: ## launch unit test
 	    $(ENV_PHP) php bin/phpunit
 
+unit-coverage:  ## launch unit test coverage
+		$(ENV_PHP) php bin/phpunit --coverage-html  public/test-coverage/
+
 ## Blackfire
 blackfire: ## launch performance test
 	    $(ENV_BLACKFIRE) blackfire curl http://172.18.0.1:8080$(URL) --samples $(SAMPLES)

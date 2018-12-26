@@ -17,19 +17,12 @@
         <one-to-many field="trick" target-entity="Trick" mapped-by="user" >
         </one-to-many>
 
-        <many-to-many field="picture" target-entity="Picture" orphan-removal="true">
-            <join-table name="user_pictures">
-                <join-columns>
-                    <join-column name="user_id" referenced-column-name="id"/>
-                </join-columns>
-                <inverse-join-columns>
-                    <join-column name="picture_id" referenced-column-name="id" unique="true"/>
-                </inverse-join-columns>
-            </join-table>
+        <many-to-one field="picture" target-entity="Picture">
+           <join-column name="picture_id" referenced-column-name="id"> </join-column>
             <cascade>
                 <cascade-persist/>
             </cascade>
-        </many-to-many>
+        </many-to-one>
 
 
         <id name="id" column="id" type="uuid" />
@@ -40,6 +33,7 @@
         <field name="password" column="password" type="string" length="65" nullable="false"  />
         <field name="email" column="email" type="string" length="50" nullable="false"  />
         <field name="emailToken" column="emailToken" type="string" length="100" nullable="true" />
+        <field name="passwordResetToken" column="passwordResetToken" type="string" length="150" nullable="true" />
         <field name="role" column="role" type="string" nullable="false" />
         <field name="createdAt" column="createdAt" type="integer" nullable="false"  />
 
