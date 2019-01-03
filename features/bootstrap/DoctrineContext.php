@@ -11,8 +11,10 @@ declare(strict_types = 1);
  * file that was distributed with this source code.
  */
 
+use App\Domain\Models\Trick;
 use App\Domain\Models\User;
-use Behat\Behat\Context\Context;
+use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
+use Behat\MinkExtension\Context\MinkContext;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\SchemaTool;
 use Nelmio\Alice\Loader\NativeLoader;
@@ -23,7 +25,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class DoctrineContext implements Context
+class DoctrineContext extends MinkContext
 {
   /** @var EntityManagerInterface */
   private $entityManager;
@@ -79,8 +81,33 @@ class DoctrineContext implements Context
           $this->passwordEncoder->encodePassword($object, $object->getPassword())
         );
         $this->entityManager->persist($user);
+  
+      } else {
+        $this->entityManager->persist($object);
       }
+      $this->entityManager->flush();
     }
-    $this->entityManager->flush();
+  }
+  
+  /**
+   * @Given /^I define resetPasswordToken to user test@gmail\.com\/test$/
+   */
+  public function iDefineResetPasswordTokenToUserTestGmailComTest()
+  {
+   $user = $this->entityManager->getRepository(User::class)->getUserByUsernameAndEmail(
+     'test',
+     'test@gmail.com'
+   );
+   $user->passwordToken('testToken');
+   $this->entityManager->flush();
+  }
+  
+  /**
+   * @Given /^I get url trick with slug$/
+   */
+  public function iGetUrlTrickWithSlug()
+  {
+    $slug = '1080';
+    $this->entityManager->getRepository(Trick::class)->getBySlug($slug);
   }
 }

@@ -14,10 +14,12 @@ declare(strict_types = 1);
 namespace App\UI\Form\Handler;
 
 use App\Domain\Repository\Interfaces\UserRepositoryInterface;
+use App\Infra\Events\SessionMessageEvent;
 use App\Infra\Events\UserEvent;
 use App\Infra\Services\GeneratorTokenService;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Twig\Environment;
 
 /**
@@ -35,22 +37,29 @@ class ForgotPasswordHandler
   
   /** @var EventDispatcherInterface */
   private $eventDispatcher;
+  /**
+   * @var UrlGeneratorInterface
+   */
+  private $urlGenerator;
   
   /**
    * ForgotPasswordTypeHandler constructor.
    *
-   * @param UserRepositoryInterface $userRepository
-   * @param Environment             $twig
-   * @param EventDispatcherInterface         $eventDispatcher
+   * @param UserRepositoryInterface  $userRepository
+   * @param Environment              $twig
+   * @param EventDispatcherInterface $eventDispatcher
+   * @param UrlGeneratorInterface    $urlGenerator
    */
   public function __construct(
     UserRepositoryInterface $userRepository,
     Environment $twig,
-    EventDispatcherInterface $eventDispatcher
+    EventDispatcherInterface $eventDispatcher,
+    UrlGeneratorInterface $urlGenerator
   ) {
     $this->userRepository = $userRepository;
     $this->twig = $twig;
     $this->eventDispatcher = $eventDispatcher;
+    $this->urlGenerator = $urlGenerator;
   }
   
   /**
@@ -63,15 +72,20 @@ class ForgotPasswordHandler
    */
   public function handle(FormInterface $form)
   {
-    if ($form->isSubmitted() && $form->isValid()) {
+    if($form->isSubmitted() && $form->isValid()) {
       $user = $this->userRepository->getUserByUsernameAndEmail(
         $form->getData()->username,
         $form->getData()->mail
       );
-      $user->passwordToken(GeneratorTokenService::generateToken());
-      $this->eventDispatcher->dispatch(UserEvent::USER_FORGOT, new UserEvent($user));
-      $this->userRepository->flush();
-      return true;
+      if($user) {
+        $user->passwordToken(GeneratorTokenService::generateToken());
+        $this->eventDispatcher->dispatch(UserEvent::USER_FORGOT, new UserEvent($user));
+        $this->userRepository->flush();
+        return true;
+      }
+      $this->eventDispatcher->dispatch(
+        SessionMessageEvent::SESSION_MESSAGE,
+        new SessionMessageEvent('error', 'mauvais pseudo ou email'));
     }
     return false;
   }

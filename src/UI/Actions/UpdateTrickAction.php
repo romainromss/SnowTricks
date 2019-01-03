@@ -88,9 +88,10 @@ class UpdateTrickAction
     ResponderUpdateTrickInterface $responderUpdateTricks,
     Request $request
   ):  Response {
-    
+    $pictureDTO = [];
+    $movieDTO = [];
     $trick = $this->trickRepository->getBySlug($request->attributes->get('slug'));
-
+    
     foreach($trick->getPictures()->toArray() as $picture) {
       $fileName = new UploadedFile($this->imageFolder.$picture->getName(), $picture->getName());
       $pictureDTO[] = new PictureDTO($fileName, $picture->getLegend(), $picture->isFirst());

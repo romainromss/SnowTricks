@@ -1,3 +1,21 @@
-App\Domain\Model\User:
-    user.romain:
-        __construct: ['romain', 'romain@gmail.com', '', 'romain', 'romain', 'TestA@4567@']
+App\Domain\Models\User:
+#    user_romain:
+#        __construct: ['romain', 'romain@gmail.com', '', 'romain', 'romain', 'TestA@4567@']
+    user_test:
+        __construct: ['test', 'test@gmail.com', '', 'test', 'test', 'TestA@4567@', null, 'testToken']
+
+App\Domain\Models\Picture:
+    picture_1080:
+        __construct: ['1080.svg', 'Legend1', true]
+
+App\Domain\Models\Movie:
+    movie_1080:
+        __construct: ['embed1080', 'legend1080']
+
+App\Domain\Models\Trick:
+    trick_1080:
+        __construct: ['1080', 'description1080', 'category1080', '@user_test']
+
+App\Domain\Models\Comment:
+    comment_1080:
+        __construct: ['content1080', '@trick_1080']

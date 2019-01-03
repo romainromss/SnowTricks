@@ -15,6 +15,7 @@ namespace App\Tests\UI\Actions;
 
 use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\UserRepository;
+use App\Infra\Events\SessionMessageEvent;
 use App\UI\Actions\ValidateForgotPasswordAction;
 use App\UI\Form\Handler\ValidateForgotPasswordHandler;
 use App\UI\Responder\ResponderValidateForgotPassword;
@@ -38,7 +39,7 @@ class ValidateForgotPasswordActionUnitTest extends TestCase
   private $formFactory;
   
   /** @var EventDispatcherInterface */
-  private $evenytDispatcher;
+  private $eventDispatcher;
   
   /** @var Environment */
   private $twig;
@@ -56,22 +57,26 @@ class ValidateForgotPasswordActionUnitTest extends TestCase
   private $request;
   
   /** @var UsersInterface */
-  private $usersInterface;
+  private $user;
+  
+  /** @var SessionMessageEvent */
+  private $sessionMessageEvent;
   
   protected function setUp()
   {
     $this->formFactory = $this->createMock(FormFactoryInterface::class);
-    $this->evenytDispatcher = $this->createMock(EventDispatcherInterface::class);
+    $this->eventDispatcher = $this->createMock(EventDispatcherInterface::class);
+    $this->sessionMessageEvent = $this->createMock(SessionMessageEvent::class);
     $this->validateForgotPasswordHandler = $this->createMock(ValidateForgotPasswordHandler::class);
     $this->twig = $this->createMock(Environment::class);
     $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
     $this->userRepository = $this->createMock(UserRepository::class);
-    $this->usersInterface = $this->createMock(UsersInterface::class);
+    $this->user = $this->createMock(UsersInterface::class);
     $formInterface = $this->createMock(FormInterface::class);
-  
+    
     $request = Request::create('/forgot/password/token', 'GET');
     $this->request = $request->duplicate(null, null, ['token' => 'token']);
-    $this->userRepository->method('getUserByPasswordToken')->willReturn('token');
+    $this->userRepository->method('getUserByPasswordToken')->willReturn($this->user);
     $this->urlGenerator->method('generate')->willReturn('/');
     $formInterface->method('handleRequest')->willReturnSelf();
     $this->formFactory->method('create')->willReturn($formInterface);
@@ -80,10 +85,11 @@ class ValidateForgotPasswordActionUnitTest extends TestCase
   public function testConstruct()
   {
     $action = new ValidateForgotPasswordAction(
-      $this->evenytDispatcher,
+      $this->eventDispatcher,
       $this->formFactory,
       $this->validateForgotPasswordHandler,
-      $this->userRepository
+      $this->userRepository,
+      $this->urlGenerator
     );
     static::assertInstanceOf(ValidateForgotPasswordAction::class, $action);
   }
@@ -97,11 +103,14 @@ class ValidateForgotPasswordActionUnitTest extends TestCase
    */
   public function testReturnFalse()
   {
+    $this->userRepository->method('getUserBytoken')->willReturn(null);
+  
     $action = new ValidateForgotPasswordAction(
-      $this->evenytDispatcher,
+      $this->eventDispatcher,
       $this->formFactory,
       $this->validateForgotPasswordHandler,
-      $this->userRepository
+      $this->userRepository,
+      $this->urlGenerator
     );
     $responder = new ResponderValidateForgotPassword(
       $this->twig,
@@ -112,7 +121,34 @@ class ValidateForgotPasswordActionUnitTest extends TestCase
       $responder,
       $this->request
     ));
-    return $responder;
   }
   
+  /**
+   * @throws \Doctrine\ORM\ORMException
+   * @throws \Doctrine\ORM\OptimisticLockException
+   * @throws \Twig_Error_Loader
+   * @throws \Twig_Error_Runtime
+   * @throws \Twig_Error_Syntax
+   */
+  public function testReturnTrue()
+  {
+    $this->userRepository->method('getUserBytoken')->willReturn($this->user);
+    
+    $action = new ValidateForgotPasswordAction(
+      $this->eventDispatcher,
+      $this->formFactory,
+      $this->validateForgotPasswordHandler,
+      $this->userRepository,
+      $this->urlGenerator
+    );
+    $responder = new ResponderValidateForgotPassword(
+      $this->twig,
+      $this->urlGenerator
+    );
+    $this->validateForgotPasswordHandler->method('handle')->willReturn(true);
+    static::assertInstanceOf(Response::class, $action(
+      $responder,
+      $this->request
+    ));
+  }
 }

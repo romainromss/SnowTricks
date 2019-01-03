@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace App\UI\Actions;
 
+use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\Interfaces\UserRepositoryInterface;
 use App\Infra\Events\SessionMessageEvent;
 use App\UI\Form\Handler\ValidateForgotPasswordHandler;
@@ -23,6 +24,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class ValidateForgotPasswordAction.
@@ -43,16 +45,21 @@ class ValidateForgotPasswordAction
   /** @var UserRepositoryInterface  */
   private $userRepository;
   
+  /** @var UrlGeneratorInterface */
+  private $urlGenerator;
+  
   public function __construct(
     EventDispatcherInterface $eventDispatcher,
     FormFactoryInterface $formFactory,
     ValidateForgotPasswordHandler $validateForgotPasswordHandler,
-    UserRepositoryInterface $userRepository
+    UserRepositoryInterface $userRepository,
+    UrlGeneratorInterface $urlGenerator
   ) {
     $this->eventDispatcher = $eventDispatcher;
     $this->formFactory = $formFactory;
     $this->validateForgotPasswordHandler = $validateForgotPasswordHandler;
     $this->userRepository = $userRepository;
+    $this->urlGenerator = $urlGenerator;
   }
   
   /**
@@ -72,6 +79,7 @@ class ValidateForgotPasswordAction
     ResponderValidateForgotPassword $responderValidateForgotPassword,
     Request $request
   ) {
+    $user = null;
     if (!$user = $this->userRepository->getUserByPasswordToken($request->attributes->get('token'))) {
       $this->eventDispatcher->dispatch(
         SessionMessageEvent::SESSION_MESSAGE,
@@ -84,7 +92,6 @@ class ValidateForgotPasswordAction
       $validateForgotPasswordType = $this->formFactory
         ->create(ValidateForgotPasswordType::class)
         ->handleRequest($request);
-  
       if ($this->validateForgotPasswordHandler->handle($validateForgotPasswordType, $user)){
         return $responderValidateForgotPassword(true);
       }

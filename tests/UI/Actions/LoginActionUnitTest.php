@@ -18,6 +18,7 @@ use App\UI\Actions\LoginAction;
 use App\UI\Responder\LoginResponder;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -42,17 +43,20 @@ class LoginActionUnitTest extends TestCase
   
   /** @var AuthenticationUtils */
   private $authentificationUtils;
-  private $formView;
+  
+  /** @var FormInterface */
+  private $formInterface;
   
   protected function setUp()
   {
     $this->formFactory = $this->createMock(FormFactoryInterface::class);
     $this->twig = $this->createMock(Environment::class);
     $this->authentificationUtils = $this->createMock(AuthenticationUtils::class);
-    $this->formView = $this->createMock(FormView::class);
+    $this->formInterface = $this->createMock(FormInterface::class);
+    $this->request = $this->createMock(Request::class);
   
-    $this->request = Request::create('/login', 'GET');
     $this->authentificationUtils->method('getLastUsername')->willReturn('test');
+    $this->formFactory->method('create')->willReturn($this->formInterface);
   }
   
   public function testConstruct()
@@ -71,6 +75,5 @@ class LoginActionUnitTest extends TestCase
       $this->authentificationUtils,
       $responder
     ));
-    return $responder(['form' => $this->formView]);
   }
 }

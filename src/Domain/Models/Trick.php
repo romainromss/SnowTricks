@@ -93,8 +93,7 @@ class Trick implements TrickInterface
       string $category,
       UsersInterface $user,
       array $picture = null,
-      array $movie = null,
-      array $comment = null
+      array $movie = null
     ) {
         $this->id = Uuid::uuid4();
         $this->name = $name;
@@ -105,7 +104,7 @@ class Trick implements TrickInterface
         $this->user = $user;
         $this->picture = new ArrayCollection($picture ?? []);
         $this->movie = new ArrayCollection($movie ?? []);
-		$this->comment = new ArrayCollection($comment ?? []);
+		$this->comment = new ArrayCollection();
 	}
 
     /**

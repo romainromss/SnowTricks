@@ -211,7 +211,7 @@ class User implements UsersInterface, UserInterface
     return $this->comment;
   }
   
-  public function validate(): void
+  public function validate()
   {
     $this->emailToken = null;
   }

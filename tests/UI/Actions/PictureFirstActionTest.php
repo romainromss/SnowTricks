@@ -72,8 +72,8 @@ class PictureFirstActionTest extends TestCase
     $this->trick = $this->createMock(TrickInterface::class);
     $uuid = $this->createMock(UuidInterface::class);
     
-    $this->urlGenerator->method('generate')->willReturn('/tricks/mute');
-    $request = Request::create('/tricks/mute/picture-first/7fc91885-b82b-4922-a743-e7aac5d81717', 'GET');
+    $this->urlGenerator->method('generate')->willReturn('/trick/mute');
+    $request = Request::create('/trick/mute/picture-first/7fc91885-b82b-4922-a743-e7aac5d81717', 'GET');
     $this->request = $request->duplicate(null, null, ['id' => '7fc91885-b82b-4922-a743-e7aac5d81717']);
     $this->trickRepository->method('getBySlugWithPicturesId')->willReturn($this->trick);
     $this->trick->method('getPictures')->willReturn([$this->picture]);

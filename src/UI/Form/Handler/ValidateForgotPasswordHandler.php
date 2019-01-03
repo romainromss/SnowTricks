@@ -77,7 +77,6 @@ class ValidateForgotPasswordHandler
       $this->eventDispatcher->dispatch(SessionMessageEvent::SESSION_MESSAGE,
         new SessionMessageEvent('success', 'le mot de passe a été réinitialisé'));
       $this->userRepository->flush();
-  
       return true;
     }
     return false;

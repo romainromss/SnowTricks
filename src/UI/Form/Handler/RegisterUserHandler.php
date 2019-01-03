@@ -83,9 +83,9 @@ class RegisterUserHandler
   ) {
     
     if ($form->isSubmitted() && $form->isValid()) {
-      $encoder = $this->encoderFactory->getEncoder(User::class);
-      $picture = $form->getData()->picture;
-      $fileName = $this->uploaderHelper->upload($picture->file);
+    $encoder = $this->encoderFactory->getEncoder(User::class);
+    $picture = $form->getData()->picture;
+    $fileName = $this->uploaderHelper->upload($picture->file);
       
       $user = $this->userFactory->create(
         $form->getData()->username,

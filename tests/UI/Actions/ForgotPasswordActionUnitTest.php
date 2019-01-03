@@ -70,7 +70,8 @@ class ForgotPasswordActionUnitTest extends TestCase
     $action = new ForgotPasswordAction(
       $this->formFactory,
       $this->forgotPasswordHandler,
-      $this->eventDispatcherInterface
+      $this->eventDispatcherInterface,
+      $this->urlGenerator
     );
     static::assertInstanceOf(ForgotPasswordAction::class, $action);
   }
@@ -89,7 +90,8 @@ class ForgotPasswordActionUnitTest extends TestCase
     $action = new ForgotPasswordAction(
       $this->formFactory,
       $this->forgotPasswordHandler,
-      $this->eventDispatcherInterface
+      $this->eventDispatcherInterface,
+      $this->urlGenerator
     );
     $responder = new ResponderForgotPassword(
       $this->twig,
@@ -117,7 +119,8 @@ class ForgotPasswordActionUnitTest extends TestCase
     $action = new ForgotPasswordAction(
       $this->formFactory,
       $this->forgotPasswordHandler,
-      $this->eventDispatcherInterface
+      $this->eventDispatcherInterface,
+      $this->urlGenerator
     );
     $responder = new ResponderForgotPassword(
       $this->twig,

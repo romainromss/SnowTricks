@@ -1,9 +1,11 @@
+{% extends 'layout.html.twig' %}
 {% block form %}
     <!-- Floating Labels -->
     <div class="block">
         <div class="block-content">
             {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
                 {{ form_start(form) }}
+                {{ form_errors(form) }}
                 <div style="margin-top: 50px" class="form-group">
                     <div class="col-md-9">
                         <div class="form-material floating">

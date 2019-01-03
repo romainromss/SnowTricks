@@ -15,6 +15,7 @@ namespace App\Tests\UI\Actions;
 
 use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Repository\UserRepository;
+use App\Infra\Events\SessionMessageEvent;
 use App\UI\Actions\RegisterValidationAction;
 use App\UI\Responder\ResponderRegisterValidation;
 use PHPUnit\Framework\TestCase;
@@ -40,6 +41,8 @@ class RegisterValidationActionUnitTest extends TestCase
   /** @var UrlGeneratorInterface */
   private $urlGenerator;
   
+  private $sessionMessageEvent;
+  
   protected function setUp()
   {
     $this->userRepository = $this->createMock(UserRepository::class);
@@ -48,10 +51,10 @@ class RegisterValidationActionUnitTest extends TestCase
     $request = Request::create('/register-validation/emailToken', 'GET');
     $this->request = $request->duplicate(null, null, ['token' => 'emailToken']);
     $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
+    $this->sessionMessageEvent = $this->createMock(SessionMessageEvent::class);
   
   
     $this->user->method('getEmailToken')->willReturn('emailToken');
-    $this->userRepository->method('getUserBytoken')->willReturn($this->user);
     $this->urlGenerator->method('generate')->willReturn('/');
   }
   
@@ -71,6 +74,8 @@ class RegisterValidationActionUnitTest extends TestCase
    */
   public function testIfTokenNotFound()
   {
+    $this->userRepository->method('getUserBytoken')->willReturn(null);
+  
     $registerValidationAction = new RegisterValidationAction(
       $this->userRepository,
       $this->eventDispatcher
@@ -89,6 +94,8 @@ class RegisterValidationActionUnitTest extends TestCase
    */
   public function testIfTokenFound()
   {
+    $this->userRepository->method('getUserBytoken')->willReturn($this->user);
+  
     $registerValidationAction = new RegisterValidationAction(
       $this->userRepository,
       $this->eventDispatcher
@@ -97,8 +104,6 @@ class RegisterValidationActionUnitTest extends TestCase
     $responder = new ResponderRegisterValidation(
       $this->urlGenerator
     );
-    $this->request->attributes->get('token');
-    
     static::assertInstanceOf(Response::class, $registerValidationAction($this->request, $responder));
   }
 }

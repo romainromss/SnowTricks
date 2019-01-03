@@ -46,8 +46,8 @@ class ResponderPictureFirstTest extends TestCase
   {
     $this->responder = $this->createMock(ResponderPictureFirst::class);
     $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
-    $this->urlGenerator->method('generate')->willReturn('/tricks/mute');
-    $request = Request::create('/tricks', 'GET');
+    $this->urlGenerator->method('generate')->willReturn('/trick/mute');
+    $request = Request::create('/trick', 'GET');
     $this->request = $request->duplicate(null, null, ['slug' => 'mute']);
   }
   

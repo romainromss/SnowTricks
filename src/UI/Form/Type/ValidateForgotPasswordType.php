@@ -49,7 +49,7 @@ class ValidateForgotPasswordType extends AbstractType implements FormTypeInterfa
           $form->get('password')->getData()
         );
       },
-      'validation_groups' => ['']
+      'validation_groups' => ['ValidateForgotPassword']
     ]);
   }
 }

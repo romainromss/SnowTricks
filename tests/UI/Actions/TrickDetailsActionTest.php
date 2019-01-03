@@ -70,7 +70,7 @@ class TrickDetailsActionTest extends KernelTestCase
         $this->twig = $this->createMock(Environment::class);
         $this->urlGenerator = $this->createMock(UrlGeneratorInterface::class);
         $this->urlGenerator->method('generate')->willReturn('/');
-        $this->request = Request::create('/tricks/mute', 'POST');
+        $this->request = Request::create('/trick/mute', 'POST');
         $this->addCommentTypeHandler = $this->createMock(AddCommentTypeHandlerInterface::class);
         $this->tricksRepository = $this->createMock(TrickRepository::class);
         $this->tricks = $this->createMock(TrickInterface::class);

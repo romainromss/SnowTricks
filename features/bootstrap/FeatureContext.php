@@ -1,7 +1,7 @@
 <?php
 
+use Behat\Behat\Context\Context;
 use Behat\Mink\Exception\ExpectationException;
-use Behat\MinkExtension\Context\MinkContext;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpKernel\KernelInterface;
 
@@ -11,7 +11,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
  *
  * @see http://behat.org/en/latest/quick_start.html
  */
-class FeatureContext extends MinkContext
+class FeatureContext implements Context
 {
   /**
    * @var KernelInterface
@@ -41,9 +41,8 @@ class FeatureContext extends MinkContext
   {
     $user = $this->entityManager->getRepository(\App\Domain\Models\User::class)->getUserByUsername($username);
     if(!$user) {
-      throw new ExpectationException(
-        'User with username should be exist',
-        $this->getSession()->getDriver()
+      throw new Exception(
+        'User with username should be exist'
       );
     }
   }

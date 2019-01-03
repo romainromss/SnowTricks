@@ -58,7 +58,7 @@ class UsersTest extends TestCase
       'lastname',
       'ads#p23*',
       $this->pictures,
-      ''
+      'token'
     );
   }
   
@@ -97,5 +97,49 @@ class UsersTest extends TestCase
     static::assertInstanceOf(PictureInterface::class, $this->users->getPicture());
     static::assertCount(0, $this->users->getTricks());
     static::assertCount(0, $this->users->getComments());
+  }
+  
+  public function testPasswordToken()
+  {
+    $token = 'token';
+    static::assertNotNull('token', $this->users->passwordToken($token));
+  }
+  
+  public function testGetPasswordResetToken()
+  {
+    static::assertNotNull('token', $this->users->getPasswordResetToken());
+  }
+  
+  public function testValidate()
+  {
+    $user = new User(
+      'username',
+      'email',
+      '',
+      'name',
+      'lastname',
+      'ads#p23*'
+    );
+    static::assertNull(null, $user->validate());
+  }
+  
+  public function testPasswordReset()
+  {
+    $user = new User(
+      'username',
+      'email',
+      'emailToken',
+      'name',
+      'lastname',
+      'password',
+      $this->pictures,
+      ''
+    );
+    static::assertNotNull($user->getPassword(), $user->passwordReset('password'));
+  }
+  
+  public function testGetRole()
+  {
+    static::assertEquals(['ROLE_USER'], $this->users->getRoles());
   }
 }

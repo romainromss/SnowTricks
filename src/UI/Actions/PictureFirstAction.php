@@ -51,7 +51,7 @@ class PictureFirstAction
   }
   
   /**
-   * @Route("/tricks/{slug}/picture-first/{id}", name="pictureFirst")
+   * @Route("/trick/{slug}/picture-first/{id}", name="pictureFirst")
    *
    * @param Request                        $request
    * @param ResponderFirstPictureInterface $responderFirstPicture

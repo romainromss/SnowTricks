@@ -79,7 +79,7 @@ class AddCommentTypeHandler implements AddCommentTypeHandlerInterface
            $comment = $this->commentFactory->create(
             	$form->getData()->content,
 				$trick,
-              is_object($this->tokenStorage->getToken()->getUser()) ? $this->tokenStorage->getToken()->getUser(): new Users('', '', '', '', '', '')
+              $this->tokenStorage->getToken()->getUser()
 			);
 
             $this->commentRepository->save($comment);

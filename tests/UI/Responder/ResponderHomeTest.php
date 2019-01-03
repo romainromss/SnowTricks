@@ -38,6 +38,6 @@ class ResponderHomeTest extends TestCase
         $tricksRepository = $this->createMock(TrickRepository::class);
 
         $responder = new ResponderHome($twig);
-        static::assertInstanceOf(Response::class, $responder(['tricks' => $tricksRepository]));
+        static::assertInstanceOf(Response::class, $responder(['trick' => $tricksRepository]));
     }
 }

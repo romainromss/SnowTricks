@@ -1,7 +1,7 @@
  parameters = {
     section: document.getElementById("Display"),
     button: document.getElementById("more"),
-    selector: '.tricks'
+    selector: '.trick'
 };
 
 

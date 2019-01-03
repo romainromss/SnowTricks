@@ -72,6 +72,6 @@ class ResponderTrickDetailsActionTest extends TestCase
     public function testConstructResponderTricksDetails()
     {
         $responder = new ResponderTrickDetails($this->twig, $this->urlGenerator);
-        static::assertInstanceOf(Response::class, $responder(false,['tricks' => $this->tricksRepository], $this->addCommentType));
+        static::assertInstanceOf(Response::class, $responder(false,['trick' => $this->tricksRepository], $this->addCommentType));
     }
 }

@@ -88,7 +88,7 @@ interface UsersInterface
    */
   public function getCreatedAt(): \DateTime;
   
-  public function validate(): void;
+  public function validate();
   
   public function passwordReset(string  $newPassword);
 }

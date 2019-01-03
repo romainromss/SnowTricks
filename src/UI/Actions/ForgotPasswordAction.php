@@ -13,6 +13,7 @@ declare(strict_types = 1);
 
 namespace App\UI\Actions;
 
+use App\Domain\Repository\UserRepository;
 use App\Infra\Events\SessionMessageEvent;
 use App\UI\Form\Handler\ForgotPasswordHandler;
 use App\UI\Form\Type\ForgotPasswordType;
@@ -21,6 +22,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
  * Class ForgotPasswordAction.
@@ -37,6 +39,10 @@ class ForgotPasswordAction
   
   /** @var EventDispatcherInterface */
   private $eventDispatcher;
+  /**
+   * @var UrlGeneratorInterface
+   */
+  private $urlGenerator;
   
   /**
    * ForgotPasswordAction constructor.
@@ -48,11 +54,13 @@ class ForgotPasswordAction
   public function __construct(
     FormFactoryInterface $formFactory,
     ForgotPasswordHandler $forgotPasswordHandler,
-    EventDispatcherInterface $eventDispatcher
+    EventDispatcherInterface $eventDispatcher,
+    UrlGeneratorInterface $urlGenerator
   ) {
     $this->formFactory = $formFactory;
     $this->forgotPasswordHandler = $forgotPasswordHandler;
     $this->eventDispatcher = $eventDispatcher;
+    $this->urlGenerator = $urlGenerator;
   }
   
   /**

@@ -97,7 +97,6 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
   public function handle(FormInterface $form):  bool
   {
     if ($form->isSubmitted() && $form->isValid()){
-  
       if (\count($form->getData()->pictures) > 0) {
         $pictures = $this->pictureFactory->createFromArray($form->getData()->pictures);
       }
@@ -105,7 +104,6 @@ class AddTrickTypeHandler implements AddTrickTypeHandlerInterface
       if (\count($form->getData()->movies) > 0) {
           $movies = $this->movieFactory->createFromArray($form->getData()->movies);
       }
-      
       $trick = $this->trickFactory->create(
         $form->getData()->name,
         $form->getData()->description,

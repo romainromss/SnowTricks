@@ -19,6 +19,8 @@ App\Domain\DTO\RegisterUserDTO:
         min: 3
         groups: ['RegisterUser']
     mail:
+    - Email:
+        message: "Le champ mail n'est pas correct"
     - NotBlank: ~
     - Length:
         min: 3

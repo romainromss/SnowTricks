@@ -62,7 +62,7 @@ class TrickDetailsAction
     }
 
     /**
-     * @Route("/tricks/{slug}", name="TricksDetails")
+     * @Route("/trick/{slug}", name="TricksDetails")
      *
      * @param ResponderTrickDetailsInterface $responderTricksDetails
      * @param Request                        $request
