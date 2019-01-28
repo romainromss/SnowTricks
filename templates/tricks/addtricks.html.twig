@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    {% form_theme form 'themes/AddTrick.html.twig' %}
+    <div class="content container">
+        <div class="row">
+            <div class="col-lg-12">
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('/js/AddPicture.js') }}"></script>
+    <script src="{{ asset('/js/AddMovies.js') }}"></script>
+{% endblock %}
+

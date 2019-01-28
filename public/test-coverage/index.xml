@@ -1,0 +1,678 @@
+<?xml version="1.0"?>
+<phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
+  <build time="Wed Jun 13 14:07:03 GMT+0000 2018" phpunit="6.5.8" coverage="5.3.2">
+    <runtime name="PHP" version="7.2.4" url="https://secure.php.net/"/>
+    <driver name="xdebug" version="2.6.0"/>
+  </build>
+  <project source="/Users/romss/Documents/SnowTricks/src">
+    <tests>
+      <test name="App\Tests\Domain\Builder\CommentBuilderTest::testInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Builder\CommentBuilderTest::testcreate" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Builder\TrickBuilderTest::testInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Builder\TrickBuilderTest::testcreate" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\DTO\AddCommentDtoTest::testConstruct" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\DTO\AddTrickDtoTest::testConstruct" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\CommentsTest::testTricksIsInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\CommentsTest::testGoodAttributes" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\CommentsTest::testReturnOfGetters" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\MoviesTest::testTricksIsInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\MoviesTest::testGoodAttributes" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\MoviesTest::testReturnOfGetters" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\PicturesTest::testTricksIsInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\PicturesTest::testGoodAttributes" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\PicturesTest::testReturnOfGetters" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\TricksTest::testTricksIsInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\TricksTest::testGoodAttributes" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\TricksTest::testReturnOfGetters" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\TricksTest::testAddPictures" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\TricksTest::testUnsetPictures" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\TricksTest::testAddMovies" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\TricksTest::testUnsetMovies" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\TricksTest::testAddComments" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\TricksTest::testUnsetComment" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\UsersTest::testUsersIsInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\UsersTest::testGoodAttributes" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\Domain\Models\UsersTest::testReturnOfGetters" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\AddTrickActionTest::testConstructor" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\AddTrickActionTest::testReturnFalse" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\AddTrickActionTest::testReturnTrue" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\DeleteTrickActionTest::testConstruct" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\DeleteTrickActionTest::testDeleteTrickActionWithSlug" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\HomeActionTest::testIndexActionInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\HomeActionTest::testConstructor" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\HomeActionTest::testInvoke" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\TrickDetailsActionTest::testConstructor" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnFalse" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\TrickDetailsActionTest::testReturnTrue" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\UpdateTrickActionTest::testConstructor" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnFalse" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Actions\UpdateTrickActionTest::testReturnTrue" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testConstruct" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnFalse" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Handler\AddCommentTypeHandlerTest::testHandleReturnTrue" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Handler\AddTrickTypeHandlerTest::testConstruct" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Handler\AddTrickTypeHandlerTest::testHandleReturnFalse" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Handler\AddTrickTypeHandlerTest::testHandleReturnTrue" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testConstruct" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testHandleReturnFalse" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Handler\UpdateTrickTypeHandlerTest::testHandleReturnTrue" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Type\AddCommentTypeTest::testGoodData" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Type\AddTrickTypeTest::testGoodData" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testConstruct" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Form\Type\UpdateTrickTypeTest::testGoodData" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderAddTrickTest::testResponderHomeInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderAddTrickTest::testConstructResponderAddTricks" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderDeleteTrickTest::testResponderInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderDeleteTrickTest::testResponderDeleteTrick" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderHomeTest::testResponderHomeInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderHomeTest::testConstructResponderHome" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderTrickDetailsActionTest::testResponderHomeInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderTrickDetailsActionTest::testConstructResponderTricksDetails" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderUpdateTrickTest::testResponderHomeInstanceOf" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Tests\UI\Responder\ResponderUpdateTrickTest::testConstructResponderUpdateTrick" size="unknown" result="0" status="PASSED"/>
+    </tests>
+    <directory name="/">
+      <totals>
+        <lines total="3379" comments="1448" code="1931" executable="380" executed="302" percent="79.47"/>
+        <methods count="112" tested="94" percent="83.93"/>
+        <functions count="0" tested="0" percent="0"/>
+        <classes count="33" tested="24" percent="72.73"/>
+        <traits count="0" tested="0" percent="0"/>
+      </totals>
+      <directory name="Domain">
+        <totals>
+          <lines total="1631" comments="729" code="902" executable="177" executed="113" percent="63.84"/>
+          <methods count="70" tested="55" percent="78.57"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="15" tested="9" percent="60.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <directory name="Builder">
+          <totals>
+            <lines total="217" comments="101" code="116" executable="6" executed="6" percent="100.00"/>
+            <methods count="4" tested="4" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="2" tested="2" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <directory name="Interfaces">
+            <totals>
+              <lines total="96" comments="45" code="51" executable="0" executed="0" percent="0"/>
+              <methods count="0" tested="0" percent="0"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="0" tested="0" percent="0"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <file name="CommentBuilderInterface.php" href="Domain/Builder/Interfaces/CommentBuilderInterface.php.xml">
+              <totals>
+                <lines total="45" comments="23" code="22" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="TrickBuilderInterface.php" href="Domain/Builder/Interfaces/TrickBuilderInterface.php.xml">
+              <totals>
+                <lines total="51" comments="22" code="29" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+          </directory>
+          <file name="CommentBuilder.php" href="Domain/Builder/CommentBuilder.php.xml">
+            <totals>
+              <lines total="57" comments="26" code="31" executable="3" executed="3" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="TrickBuilder.php" href="Domain/Builder/TrickBuilder.php.xml">
+            <totals>
+              <lines total="64" comments="30" code="34" executable="3" executed="3" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+        <directory name="DTO">
+          <totals>
+            <lines total="286" comments="141" code="145" executable="16" executed="16" percent="100.00"/>
+            <methods count="3" tested="3" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="3" tested="3" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <directory name="Interfaces">
+            <totals>
+              <lines total="103" comments="54" code="49" executable="0" executed="0" percent="0"/>
+              <methods count="0" tested="0" percent="0"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="0" tested="0" percent="0"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <file name="AddCommentDTOInterface.php" href="Domain/DTO/Interfaces/AddCommentDTOInterface.php.xml">
+              <totals>
+                <lines total="25" comments="13" code="12" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="AddTrickDTOInterface.php" href="Domain/DTO/Interfaces/AddTrickDTOInterface.php.xml">
+              <totals>
+                <lines total="37" comments="18" code="19" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="UpdateTrickDTOInterface.php" href="Domain/DTO/Interfaces/UpdateTrickDTOInterface.php.xml">
+              <totals>
+                <lines total="41" comments="23" code="18" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+          </directory>
+          <file name="AddCommentDTO.php" href="Domain/DTO/AddCommentDTO.php.xml">
+            <totals>
+              <lines total="36" comments="19" code="17" executable="2" executed="2" percent="100.00"/>
+              <methods count="1" tested="1" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="AddTrickDTO.php" href="Domain/DTO/AddTrickDTO.php.xml">
+            <totals>
+              <lines total="74" comments="34" code="40" executable="7" executed="7" percent="100.00"/>
+              <methods count="1" tested="1" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="UpdateTrickDTO.php" href="Domain/DTO/UpdateTrickDTO.php.xml">
+            <totals>
+              <lines total="73" comments="34" code="39" executable="7" executed="7" percent="100.00"/>
+              <methods count="1" tested="1" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+        <directory name="Models">
+          <totals>
+            <lines total="817" comments="349" code="468" executable="92" executed="91" percent="98.91"/>
+            <methods count="49" tested="48" percent="97.96"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="5" tested="4" percent="80.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <file name="Comments.php" href="Domain/Models/Comments.php.xml">
+            <totals>
+              <lines total="113" comments="50" code="63" executable="11" executed="11" percent="100.00"/>
+              <methods count="6" tested="6" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="Movies.php" href="Domain/Models/Movies.php.xml">
+            <totals>
+              <lines total="97" comments="44" code="53" executable="9" executed="9" percent="100.00"/>
+              <methods count="5" tested="5" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="Pictures.php" href="Domain/Models/Pictures.php.xml">
+            <totals>
+              <lines total="148" comments="65" code="83" executable="15" executed="15" percent="100.00"/>
+              <methods count="8" tested="8" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="Tricks.php" href="Domain/Models/Tricks.php.xml">
+            <totals>
+              <lines total="246" comments="97" code="149" executable="34" executed="33" percent="97.06"/>
+              <methods count="18" tested="17" percent="94.44"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="Users.php" href="Domain/Models/Users.php.xml">
+            <totals>
+              <lines total="213" comments="93" code="120" executable="23" executed="23" percent="100.00"/>
+              <methods count="12" tested="12" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+        <directory name="Repository">
+          <totals>
+            <lines total="311" comments="138" code="173" executable="63" executed="0" percent="0.00"/>
+            <methods count="14" tested="0" percent="0.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="5" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <file name="CommentsRepository.php" href="Domain/Repository/CommentsRepository.php.xml">
+            <totals>
+              <lines total="49" comments="24" code="25" executable="7" executed="0" percent="0.00"/>
+              <methods count="2" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="MoviesRepository.php" href="Domain/Repository/MoviesRepository.php.xml">
+            <totals>
+              <lines total="49" comments="30" code="19" executable="3" executed="0" percent="0.00"/>
+              <methods count="1" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="PicturesRepository.php" href="Domain/Repository/PicturesRepository.php.xml">
+            <totals>
+              <lines total="74" comments="29" code="45" executable="22" executed="0" percent="0.00"/>
+              <methods count="4" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="TricksRepository.php" href="Domain/Repository/TricksRepository.php.xml">
+            <totals>
+              <lines total="103" comments="37" code="66" executable="28" executed="0" percent="0.00"/>
+              <methods count="6" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="UsersRepository.php" href="Domain/Repository/UsersRepository.php.xml">
+            <totals>
+              <lines total="36" comments="18" code="18" executable="3" executed="0" percent="0.00"/>
+              <methods count="1" tested="0" percent="0.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+      </directory>
+      <directory name="UI">
+        <totals>
+          <lines total="1748" comments="719" code="1029" executable="203" executed="189" percent="93.10"/>
+          <methods count="42" tested="39" percent="92.86"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="18" tested="15" percent="83.33"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <directory name="Actions">
+          <totals>
+            <lines total="418" comments="177" code="241" executable="56" executed="56" percent="100.00"/>
+            <methods count="10" tested="10" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="5" tested="5" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <file name="AddTrickAction.php" href="UI/Actions/AddTrickAction.php.xml">
+            <totals>
+              <lines total="90" comments="37" code="53" executable="11" executed="11" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="DeleteTrickAction.php" href="UI/Actions/DeleteTrickAction.php.xml">
+            <totals>
+              <lines total="68" comments="31" code="37" executable="5" executed="5" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="HomeAction.php" href="UI/Actions/HomeAction.php.xml">
+            <totals>
+              <lines total="60" comments="28" code="32" executable="5" executed="5" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="TrickDetailsAction.php" href="UI/Actions/TrickDetailsAction.php.xml">
+            <totals>
+              <lines total="96" comments="41" code="55" executable="14" executed="14" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="UpdateTrickAction.php" href="UI/Actions/UpdateTrickAction.php.xml">
+            <totals>
+              <lines total="104" comments="40" code="64" executable="21" executed="21" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+        <directory name="Form">
+          <totals>
+            <lines total="694" comments="240" code="454" executable="108" executed="98" percent="90.74"/>
+            <methods count="19" tested="17" percent="89.47"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="7" tested="5" percent="71.43"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <directory name="DataTransformer">
+            <totals>
+              <lines total="85" comments="39" code="46" executable="9" executed="6" percent="66.67"/>
+              <methods count="3" tested="2" percent="66.67"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <file name="PicturesToFIleTransformer.php" href="UI/Form/DataTransformer/PicturesToFIleTransformer.php.xml">
+              <totals>
+                <lines total="62" comments="26" code="36" executable="9" executed="6" percent="66.67"/>
+                <methods count="3" tested="2" percent="66.67"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="0" percent="0.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="PicturesToFileTransformerInterface.php" href="UI/Form/DataTransformer/PicturesToFileTransformerInterface.php.xml">
+              <totals>
+                <lines total="23" comments="13" code="10" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+          </directory>
+          <directory name="Handler">
+            <totals>
+              <lines total="365" comments="149" code="216" executable="44" executed="44" percent="100.00"/>
+              <methods count="6" tested="6" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="3" tested="3" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <directory name="Intefaces">
+              <totals>
+                <lines total="121" comments="60" code="61" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+              <file name="AddCommentTypeHandlerInterface.php" href="UI/Form/Handler/Intefaces/AddCommentTypeHandlerInterface.php.xml">
+                <totals>
+                  <lines total="31" comments="13" code="18" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+              <file name="AddTrickTypeHandlerInterface.php" href="UI/Form/Handler/Intefaces/AddTrickTypeHandlerInterface.php.xml">
+                <totals>
+                  <lines total="38" comments="19" code="19" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+              <file name="UpdateTrickTypeHandlerInterface.php" href="UI/Form/Handler/Intefaces/UpdateTrickTypeHandlerInterface.php.xml">
+                <totals>
+                  <lines total="52" comments="28" code="24" executable="0" executed="0" percent="0"/>
+                  <methods count="0" tested="0" percent="0"/>
+                  <functions count="0" tested="0" percent="0"/>
+                  <classes count="0" tested="0" percent="0"/>
+                  <traits count="0" tested="0" percent="0"/>
+                </totals>
+              </file>
+            </directory>
+            <file name="AddCommentTypeHandler.php" href="UI/Form/Handler/AddCommentTypeHandler.php.xml">
+              <totals>
+                <lines total="80" comments="28" code="52" executable="12" executed="12" percent="100.00"/>
+                <methods count="2" tested="2" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="AddTrickTypeHandler.php" href="UI/Form/Handler/AddTrickTypeHandler.php.xml">
+              <totals>
+                <lines total="81" comments="30" code="51" executable="16" executed="16" percent="100.00"/>
+                <methods count="2" tested="2" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="UpdateTrickTypeHandler.php" href="UI/Form/Handler/UpdateTrickTypeHandler.php.xml">
+              <totals>
+                <lines total="83" comments="31" code="52" executable="16" executed="16" percent="100.00"/>
+                <methods count="2" tested="2" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+          </directory>
+          <directory name="Type">
+            <totals>
+              <lines total="244" comments="52" code="192" executable="55" executed="48" percent="87.27"/>
+              <methods count="10" tested="9" percent="90.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="3" tested="2" percent="66.67"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <file name="AddCommentType.php" href="UI/Form/Type/AddCommentType.php.xml">
+              <totals>
+                <lines total="49" comments="13" code="36" executable="8" executed="8" percent="100.00"/>
+                <methods count="3" tested="3" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="AddTrickType.php" href="UI/Form/Type/AddTrickType.php.xml">
+              <totals>
+                <lines total="79" comments="13" code="66" executable="20" executed="20" percent="100.00"/>
+                <methods count="3" tested="3" percent="100.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="1" percent="100.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="UpdateTrickType.php" href="UI/Form/Type/UpdateTrickType.php.xml">
+              <totals>
+                <lines total="116" comments="26" code="90" executable="27" executed="20" percent="74.07"/>
+                <methods count="4" tested="3" percent="75.00"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="1" tested="0" percent="0.00"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+          </directory>
+        </directory>
+        <directory name="Responder">
+          <totals>
+            <lines total="518" comments="250" code="268" executable="27" executed="27" percent="100.00"/>
+            <methods count="10" tested="10" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="5" tested="5" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <directory name="Interfaces">
+            <totals>
+              <lines total="201" comments="104" code="97" executable="0" executed="0" percent="0"/>
+              <methods count="0" tested="0" percent="0"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="0" tested="0" percent="0"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <file name="ResponderAddTrickInterface.php" href="UI/Responder/Interfaces/ResponderAddTrickInterface.php.xml">
+              <totals>
+                <lines total="31" comments="13" code="18" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="ResponderDeleteTrickInterface.php" href="UI/Responder/Interfaces/ResponderDeleteTrickInterface.php.xml">
+              <totals>
+                <lines total="29" comments="16" code="13" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="ResponderHomeInterface.php" href="UI/Responder/Interfaces/ResponderHomeInterface.php.xml">
+              <totals>
+                <lines total="39" comments="23" code="16" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="ResponderTrickDetailsInterface.php" href="UI/Responder/Interfaces/ResponderTrickDetailsInterface.php.xml">
+              <totals>
+                <lines total="51" comments="26" code="25" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+            <file name="ResponderUpdateTrickInterface.php" href="UI/Responder/Interfaces/ResponderUpdateTrickInterface.php.xml">
+              <totals>
+                <lines total="51" comments="26" code="25" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+          </directory>
+          <file name="ResponderAddTrick.php" href="UI/Responder/ResponderAddTrick.php.xml">
+            <totals>
+              <lines total="71" comments="30" code="41" executable="7" executed="7" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="ResponderDeleteTrick.php" href="UI/Responder/ResponderDeleteTrick.php.xml">
+            <totals>
+              <lines total="48" comments="24" code="24" executable="3" executed="3" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="ResponderHome.php" href="UI/Responder/ResponderHome.php.xml">
+            <totals>
+              <lines total="55" comments="30" code="25" executable="3" executed="3" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="ResponderTrickDetails.php" href="UI/Responder/ResponderTrickDetails.php.xml">
+            <totals>
+              <lines total="74" comments="33" code="41" executable="7" executed="7" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+          <file name="ResponderUpdateTrick.php" href="UI/Responder/ResponderUpdateTrick.php.xml">
+            <totals>
+              <lines total="69" comments="29" code="40" executable="7" executed="7" percent="100.00"/>
+              <methods count="2" tested="2" percent="100.00"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="1" percent="100.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+        <directory name="Subscriber">
+          <totals>
+            <lines total="118" comments="52" code="66" executable="12" executed="8" percent="66.67"/>
+            <methods count="3" tested="2" percent="66.67"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="0" percent="0.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+          <directory name="Interfaces">
+            <totals>
+              <lines total="33" comments="19" code="14" executable="0" executed="0" percent="0"/>
+              <methods count="0" tested="0" percent="0"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="0" tested="0" percent="0"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+            <file name="UpdateTrickSubscriberInterface.php" href="UI/Subscriber/Interfaces/UpdateTrickSubscriberInterface.php.xml">
+              <totals>
+                <lines total="33" comments="19" code="14" executable="0" executed="0" percent="0"/>
+                <methods count="0" tested="0" percent="0"/>
+                <functions count="0" tested="0" percent="0"/>
+                <classes count="0" tested="0" percent="0"/>
+                <traits count="0" tested="0" percent="0"/>
+              </totals>
+            </file>
+          </directory>
+          <file name="UpdateTrickSubscriber.php" href="UI/Subscriber/UpdateTrickSubscriber.php.xml">
+            <totals>
+              <lines total="85" comments="33" code="52" executable="12" executed="8" percent="66.67"/>
+              <methods count="3" tested="2" percent="66.67"/>
+              <functions count="0" tested="0" percent="0"/>
+              <classes count="1" tested="0" percent="0.00"/>
+              <traits count="0" tested="0" percent="0"/>
+            </totals>
+          </file>
+        </directory>
+      </directory>
+    </directory>
+  </project>
+</phpunit>

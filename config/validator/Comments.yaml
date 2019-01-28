@@ -1,0 +1,5 @@
+App\Domain\DTO\AddComment:
+  properties:
+    content:
+    - NotBlank:
+        groups: ['AddComment']
