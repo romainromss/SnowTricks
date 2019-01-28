@@ -13,12 +13,14 @@ declare(strict_types = 1);
 
 namespace App\Domain\DTO;
 
+use App\Domain\DTO\Interfaces\LoginUserDTOInterface;
+
 /**
  * Class LoginUserDTO.
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class LoginUserDTO
+class LoginUserDTO implements LoginUserDTOInterface
 {
   /** @var string */
   public $username;

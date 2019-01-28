@@ -13,7 +13,9 @@ declare(strict_types = 1);
 
 namespace App\Domain\DTO;
 
-class ForgotPasswordDTO
+use App\Domain\DTO\Interfaces\ForgotPasswordDTOInterface;
+
+class ForgotPasswordDTO implements ForgotPasswordDTOInterface
 {
   /** @var string */
   public $username;

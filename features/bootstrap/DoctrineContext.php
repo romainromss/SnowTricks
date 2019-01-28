@@ -13,7 +13,6 @@ declare(strict_types = 1);
 
 use App\Domain\Models\Trick;
 use App\Domain\Models\User;
-use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use Behat\MinkExtension\Context\MinkContext;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\SchemaTool;

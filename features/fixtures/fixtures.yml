@@ -1,8 +1,7 @@
 App\Domain\Models\User:
-#    user_romain:
-#        __construct: ['romain', 'romain@gmail.com', '', 'romain', 'romain', 'TestA@4567@']
+
     user_test:
-        __construct: ['test', 'test@gmail.com', '', 'test', 'test', 'TestA@4567@', null, 'testToken']
+        __construct: ['test', 'test@gmail.com', 'emailtoken', 'test', 'test', 'TestA@4567@', null, null]
 
 App\Domain\Models\Picture:
     picture_1080:

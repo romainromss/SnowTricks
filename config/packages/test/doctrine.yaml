@@ -4,4 +4,4 @@ doctrine:
         server_version: '5.7'
         charset: 'utf8mb4'
         memory: true
-        url: 'sqlite:///%kernel.project_dir%/var/data.db'
+        url: 'sqlite:///%kernel.project_dir%/var/database.db'

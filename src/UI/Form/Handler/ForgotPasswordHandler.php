@@ -17,6 +17,7 @@ use App\Domain\Repository\Interfaces\UserRepositoryInterface;
 use App\Infra\Events\SessionMessageEvent;
 use App\Infra\Events\UserEvent;
 use App\Infra\Services\GeneratorTokenService;
+use App\UI\Form\Handler\Interfaces\ForgotPasswordTypeHandlerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -27,7 +28,7 @@ use Twig\Environment;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class ForgotPasswordHandler
+class ForgotPasswordHandler implements ForgotPasswordTypeHandlerInterface
 {
   /** @var UserRepositoryInterface */
   private $userRepository;

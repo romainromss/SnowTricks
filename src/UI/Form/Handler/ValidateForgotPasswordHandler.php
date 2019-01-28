@@ -17,6 +17,7 @@ use App\Domain\Models\Interfaces\UsersInterface;
 use App\Domain\Models\User;
 use App\Domain\Repository\Interfaces\UserRepositoryInterface;
 use App\Infra\Events\SessionMessageEvent;
+use App\UI\Form\Handler\Interfaces\ValidateForgotPasswordTypeHandlerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
@@ -27,7 +28,7 @@ use Twig\Environment;
  *
  * @author Romain Bayette <romain.romss@gmail.com>
  */
-class ValidateForgotPasswordHandler
+class ValidateForgotPasswordHandler implements ValidateForgotPasswordTypeHandlerInterface
 {
   /**
    * @var UserRepositoryInterface

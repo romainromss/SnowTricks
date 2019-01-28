@@ -21,11 +21,12 @@ use App\Domain\Repository\UserRepository;
 use App\Infra\Services\GeneratorTokenService;
 use App\Infra\Events\UserEvent;
 use App\Infra\Helper\UploaderHelper;
+use App\UI\Form\Handler\Interfaces\RegisterUserTypeHandlerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
-class RegisterUserHandler
+class RegisterUserHandler implements RegisterUserTypeHandlerInterface
 {
   /** @var EncoderFactoryInterface */
   private $encoderFactory;
@@ -86,7 +87,6 @@ class RegisterUserHandler
     $encoder = $this->encoderFactory->getEncoder(User::class);
     $picture = $form->getData()->picture;
     $fileName = $this->uploaderHelper->upload($picture->file);
-      
       $user = $this->userFactory->create(
         $form->getData()->username,
         $form->getData()->mail,

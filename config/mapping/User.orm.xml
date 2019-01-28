@@ -12,6 +12,9 @@
         </indexes>
 
         <one-to-many field="comment" target-entity="Comment" mapped-by="user">
+            <cascade>
+                <cascade-persist/>
+            </cascade>
         </one-to-many>
 
         <one-to-many field="trick" target-entity="Trick" mapped-by="user" >

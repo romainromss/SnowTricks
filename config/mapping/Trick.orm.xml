@@ -44,9 +44,6 @@
         </one-to-many>
 
         <many-to-one field="user" target-entity="User" inversed-by="trick">
-            <cascade>
-                <cascade-persist/>
-            </cascade>
         </many-to-one>
 
         <id name="id" column="id" type="uuid" />
