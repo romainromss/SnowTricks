@@ -49,7 +49,9 @@ class PictureType extends AbstractType
           $form->get('legend')->getData()
         );
       },
-      'validation_groups' => ['Picture']
+      'validation_groups' => ['Picture'],
+        'multiple' => false,
+        'allow_file_upload' => true,
     ]);
   }
 }

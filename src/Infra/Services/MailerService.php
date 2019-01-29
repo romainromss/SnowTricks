@@ -54,7 +54,7 @@ class MailerService implements MailerServiceInterface
     string $template
    ) {
     $message = (new \Swift_Message($subject));
-    $message->setFrom('romain.b@posteo.net')
+    $message->setFrom('romain.romss@gmail.com')
       ->setTo($mail)
       ->setBody($template)
       ->setContentType('text/html');
