@@ -23,11 +23,11 @@ use App\Domain\Models\Trick;
  */
 interface TrickRepositoryInterface
 {
-  /**
-   * @param bool $first
-   *
-   * @return mixed
-   */
+    /**
+     * @param bool $first
+     *
+     * @return mixed
+     */
   public function getAllWithPictures(bool $first = false);
   
   public function getBySlugWithPicturesId($slug, $id);

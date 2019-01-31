@@ -23,11 +23,11 @@ use App\Domain\Models\Interfaces\TrickInterface;
  */
 interface PictureRepositoryInterface
 {
-	/**
-	 * @param bool $first
-	 *
-	 * @return mixed
-	 */
+    /**
+     * @param bool $first
+     *
+     * @return mixed
+     */
 	public function getPicturesFirst(bool $first = false);
 
 

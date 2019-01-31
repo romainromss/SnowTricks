@@ -17,6 +17,7 @@ use App\Domain\Repository\Interfaces\TrickRepositoryInterface;
 use App\UI\Responder\Interfaces\ResponderDeleteTrickInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -56,6 +57,10 @@ class DeleteTrickAction
 		ResponderDeleteTrickInterface $responderDeleteTrick,
 		Request $request
 	) {
+
+	    if (){
+
+        }
 	  $this->trickRepository->deleteTrick($request->attributes->get('slug'));
 	  
 		return $responderDeleteTrick();

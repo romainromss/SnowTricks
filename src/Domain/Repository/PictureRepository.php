@@ -80,12 +80,14 @@
        ->getOneOrNullResult()
        ;
     }
-  
-    /**
-     * @param string $id
-     *
-     * @throws \Doctrine\ORM\NonUniqueResultException
-     */
+
+      /**
+       * @param string $id
+       *
+       * @throws \Doctrine\ORM\NonUniqueResultException
+       * @throws \Doctrine\ORM\ORMException
+       * @throws \Doctrine\ORM\OptimisticLockException
+       */
     public function deletePictures(string $id)
     {
       $picture = $this->getPicturesById ($id);
