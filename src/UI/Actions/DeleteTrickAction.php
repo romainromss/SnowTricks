@@ -57,10 +57,6 @@ class DeleteTrickAction
 		ResponderDeleteTrickInterface $responderDeleteTrick,
 		Request $request
 	) {
-
-	    if (){
-
-        }
 	  $this->trickRepository->deleteTrick($request->attributes->get('slug'));
 	  
 		return $responderDeleteTrick();
