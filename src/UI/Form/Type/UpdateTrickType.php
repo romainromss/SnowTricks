@@ -26,9 +26,9 @@ class UpdateTrickType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     $builder
-      ->add('name', TextType::class)
+      ->add('name', TextType::class, ['label' => 'Nom'])
       ->add('description', TextType::class)
-      ->add('category', TextType::class)
+      ->add('category', TextType::class, ['label' => 'groupe'])
       ->add('pictures', CollectionType::class, [
         'entry_type' => PictureType::class,
         'allow_add' => true,

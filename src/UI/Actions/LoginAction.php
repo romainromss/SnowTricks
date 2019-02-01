@@ -13,9 +13,15 @@ declare(strict_types = 1);
 
 namespace App\UI\Actions;
 
+use App\Domain\Models\Interfaces\UsersInterface;
+use App\Domain\Models\User;
+use App\Infra\Events\SessionMessageEvent;
 use App\UI\Form\Type\LoginType;
 use App\UI\Responder\LoginResponder;
+use Symfony\Component\EventDispatcher\EventDispatcher;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -27,39 +33,41 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
  */
 class LoginAction
 {
-  
-  /** @var FormFactoryInterface */
-  private $formFactory;
-  
-  /**
-   * LoginAction constructor.
-   *
-   * @param FormFactoryInterface $formFactory
-   */
-  public function __construct(FormFactoryInterface $formFactory)
-  {
-    $this->formFactory = $formFactory;
-  }
-  
-  /**
-   * @Route("/login", name="login")
-   *
-   * @param Request             $request
-   * @param AuthenticationUtils $authenticationUtils
-   * @param LoginResponder      $loginResponder
-   *
-   * @return mixed
-   */
-  public function __invoke(
-    Request $request,
-    AuthenticationUtils $authenticationUtils,
-    LoginResponder $loginResponder
-  ) {
-    $form = $this->formFactory->create(LoginType::class);
-    return $loginResponder(
-      [
-        'form' => $form->createView(),
-      ]
-    );
-  }
+
+    /** @var FormFactoryInterface */
+    private $formFactory;
+
+    /**
+     * LoginAction constructor.
+     *
+     * @param FormFactoryInterface $formFactory
+     */
+    public function __construct(
+        FormFactoryInterface $formFactory
+    ) {
+        $this->formFactory = $formFactory;
+    }
+
+    /**
+     * @Route("/login", name="login")
+     *
+     * @param Request $request
+     * @param AuthenticationUtils $authenticationUtils
+     * @param LoginResponder $loginResponder
+     *
+     * @return mixed
+     */
+    public function __invoke(
+        Request $request,
+        AuthenticationUtils $authenticationUtils,
+        LoginResponder $loginResponder
+    )
+    {
+        $form = $this->formFactory->create(LoginType::class);
+        return $loginResponder(
+            [
+                'form' => $form->createView(),
+            ]
+        );
+    }
 }

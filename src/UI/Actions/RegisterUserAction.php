@@ -83,7 +83,7 @@ class RegisterUserAction
       ->handleRequest($request);
     
     if ($this->registerUserHandler->handle($registerUserType)) {
-     $this->eventDispatcher->dispatch(SessionMessageEvent::SESSION_MESSAGE, new SessionMessageEvent('success', 'un mail de confirmation a été envoyé'));
+     $this->eventDispatcher->dispatch(SessionMessageEvent::SESSION_MESSAGE, new SessionMessageEvent('success', 'vous pouvez vous connecter'));
       return $responderRegisterUser(true);
     }
     

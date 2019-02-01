@@ -15,6 +15,7 @@ namespace App\Security;
 
 use App\Domain\Repository\UserRepository;
 use App\UI\Form\Type\LoginType;
+use function Composer\Autoload\includeFile;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -106,11 +107,14 @@ class FormLoginAuthenticator extends AbstractGuardAuthenticator
     $credentials,
     UserProviderInterface $userProvider
   ) {
-    
+
     $user = $this->userRepository->loadUserByUsername($credentials->username);
     if(!$user) {
       throw new CustomUserMessageAuthenticationException('mauvais mot de passe et/ou email');
     }
+//    if (!is_null($user->getEmailToken())) {
+//        throw new CustomUserMessageAuthenticationException('vous devez validez votre email');
+//    }
     return $user;
   }
   

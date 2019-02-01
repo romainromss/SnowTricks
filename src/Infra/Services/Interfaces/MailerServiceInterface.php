@@ -15,15 +15,15 @@ namespace App\Infra\Services\Interfaces;
 
 interface MailerServiceInterface
 {
-  /**
-   * @param string $subject
-   * @param string $mail
-   * @param string $name
-   * @param string $token
-   * @param string $template
-   *
-   * @return mixed
-   */
+    /**
+     * @param string $subject
+     * @param string $mail
+     * @param string $name
+     * @param string $token
+     * @param string $template
+     *
+     * @return mixed
+     */
   public function sendMail(
     string $subject,
     string $mail,

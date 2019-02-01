@@ -31,7 +31,7 @@ class PictureType extends AbstractType
   public function buildForm (FormBuilderInterface $builder, array $options)
   {
     $builder
-      ->add('file', FileType::class)
+      ->add('file', FileType::class, ['label' => 'Images'])
       ->add ('legend', TextType::class)
     ;
   }
@@ -49,9 +49,7 @@ class PictureType extends AbstractType
           $form->get('legend')->getData()
         );
       },
-      'validation_groups' => ['Picture'],
-        'multiple' => false,
-        'allow_file_upload' => true,
+      'validation_groups' => ['Picture']
     ]);
   }
 }
