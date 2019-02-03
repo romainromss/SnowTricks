@@ -5,17 +5,20 @@
 1) git clone https://github.com/romainromss/snowtricks.git
 2) mv .env.dist to .env.
 
-3) change APP_ENV constant to prod.
-   change the url path with your values
+4) docker-compose up -d
 
-4) composer install
+5) composer install
 
-5) make docker-compose
+6) in .env
+   change the url path with your values for database
 
-6)
+
+7)
  php bin/console d:d:c
  php bin/console d: m: d
  php bin/console d: m: m
  php bin/console d: f: l
+ 
+ 8) change APP_ENV constant to prod.
  
  Enjoy :)
