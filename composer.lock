@@ -562,6 +562,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
+            "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
@@ -1796,6 +1797,7 @@
                 "monolog",
                 "productivity"
             ],
+            "abandoned": true,
             "time": "2018-07-27T15:41:37+00:00"
         },
         {
@@ -2506,7 +2508,7 @@
                     "email": "shelburt02@gmail.com"
                 },
                 {
-                    "name": "Théo FIDRY",
+                    "name": "Théo Fidry",
                     "email": "theo.fidry@gmail.com"
                 }
             ],
@@ -3324,17 +3326,17 @@
             ],
             "authors": [
                 {
+                    "name": "Ben Ramsey",
+                    "email": "ben@benramsey.com",
+                    "homepage": "https://benramsey.com"
+                },
+                {
                     "name": "Marijn Huizendveld",
                     "email": "marijn.huizendveld@gmail.com"
                 },
                 {
                     "name": "Thibaud Fabre",
                     "email": "thibaud@aztech.io"
-                },
-                {
-                    "name": "Ben Ramsey",
-                    "email": "ben@benramsey.com",
-                    "homepage": "https://benramsey.com"
                 }
             ],
             "description": "Formerly rhumsaa/uuid. A PHP 5.4+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
@@ -5864,7 +5866,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -7731,6 +7733,7 @@
                 "code",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2018-08-13T20:36:59+00:00"
         },
         {
@@ -7785,6 +7788,7 @@
                 "events",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2018-04-25T15:33:34+00:00"
         }
     ],
@@ -7795,20 +7799,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/codacy/php-codacy-coverage.git",
-                "reference": "629d1fd597f91fb072bd822830059fd5145ce49a"
+                "reference": "656913b35e22ae0d1ec352bc00e3ad90616efb7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/codacy/php-codacy-coverage/zipball/629d1fd597f91fb072bd822830059fd5145ce49a",
-                "reference": "629d1fd597f91fb072bd822830059fd5145ce49a",
+                "url": "https://api.github.com/repos/codacy/php-codacy-coverage/zipball/656913b35e22ae0d1ec352bc00e3ad90616efb7a",
+                "reference": "656913b35e22ae0d1ec352bc00e3ad90616efb7a",
                 "shasum": ""
             },
             "require": {
                 "gitonomy/gitlib": ">=1.0",
                 "php": ">=5.3.3",
-                "symfony/console": "~2.5|~3.0|~4.0"
+                "symfony/console": "~2.5|~3.0|~4.0|~5.0"
             },
             "require-dev": {
+                "clue/phar-composer": "^1.1",
                 "phpunit/phpunit": "~6.5"
             },
             "bin": [
@@ -7832,7 +7837,8 @@
             ],
             "description": "Sends PHP test coverage information to Codacy.",
             "homepage": "https://github.com/codacy/php-codacy-coverage",
-            "time": "2018-04-30T16:23:12+00:00"
+            "abandoned": true,
+            "time": "2020-02-11T15:55:24+00:00"
         },
         {
             "name": "doctrine/data-fixtures",
@@ -8015,28 +8021,28 @@
         },
         {
             "name": "symfony/dotenv",
-            "version": "v4.2.2",
+            "version": "v4.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dotenv.git",
-                "reference": "36e4e4750a88f52a5542bd8a54a947cb57039ece"
+                "reference": "a9eb95c87c2965d0e7dfda9c5e87e4fb590d1f4e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dotenv/zipball/36e4e4750a88f52a5542bd8a54a947cb57039ece",
-                "reference": "36e4e4750a88f52a5542bd8a54a947cb57039ece",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/a9eb95c87c2965d0e7dfda9c5e87e4fb590d1f4e",
+                "reference": "a9eb95c87c2965d0e7dfda9c5e87e4fb590d1f4e",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3"
+                "php": ">=7.1.3"
             },
             "require-dev": {
-                "symfony/process": "~3.4|~4.0"
+                "symfony/process": "^3.4.2|^4.0|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.2-dev"
+                    "dev-master": "4.4-dev"
                 }
             },
             "autoload": {
@@ -8068,7 +8074,21 @@
                 "env",
                 "environment"
             ],
-            "time": "2019-01-03T09:07:35+00:00"
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-07-05T09:39:30+00:00"
         }
     ],
     "aliases": [],
@@ -8083,5 +8103,6 @@
         "php": "^7.1.3",
         "ext-iconv": "*"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
